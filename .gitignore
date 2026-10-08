@@ -1,0 +1,50 @@
+# Build artefacts
+NotchBuddy/build/
+NotchBuddy/NotchBuddy.xcodeproj/project.xcworkspace/xcuserdata/
+NotchBuddy/NotchBuddy.xcodeproj/xcuserdata/
+NotchBuddy/NotchBuddy.xcodeproj/xcshareddata/
+*.xcuserstate
+DerivedData/
+
+# Node & Frontend
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Rust & Tauri
+target/
+src-tauri/target/
+src-tauri/gen/schemas/
+release/
+
+# Windows executables & installers
+*.exe
+*.msi
+*.dll
+Setup/
+Coucou-Windows-setup.exe
+
+# OS generated files
+.DS_Store
+.AppleDouble
+.LSOverride
+*.icloud
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Environment & local secrets
+.env
+.env.*
+!.env.example
+*.log
+coucou.log
+recap.json
+
+# IDEs & agent local files
+.claude/
+_prive/
+.vscode/
+.idea/
+.gemini/
+.agents/
