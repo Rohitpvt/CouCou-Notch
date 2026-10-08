@@ -9,7 +9,7 @@ import { ICONS } from "./icons";
 import { State, type AgentTask } from "../core/state";
 import { Bridge } from "../core/bridge";
 import { isComingSoon, pillDefinition } from "../core/pills";
-import { refreshHookPills } from "../island/integrations";
+import { refreshHookPills, refreshConfigured } from "../island/integrations";
 import { readActivity, readPulse, readStats } from "../core/github";
 import { githubDetail, githubPulseCard } from "./github";
 import { N_, language, t } from "../i18n/i18n";
@@ -130,15 +130,32 @@ function idleCard(task: AgentTask, openSettings: () => void): HTMLElement {
   if (isComingSoon(task.id) || def?.connect.kind === "none") {
     // Nothing to set up, and nothing to refresh.
   } else if (configured && (hookPill || def?.category !== "ai")) {
-    actions.append(
-      h("button", {
-        class: "link-btn",
-        style: `color:${task.color}d9`,
-        text: t("Refresh"),
-        // A hook pill has nothing to poll: look at its hooks again instead.
-        onclick: () => void (hookPill ? refreshHookPills() : Bridge.refreshIntegration(task.id)),
-      }),
-    );
+    const refreshBtn = h("button", {
+      class: "link-btn",
+      style: `color:${task.color}d9`,
+      text: t("Refresh"),
+      onclick: async () => {
+        if (refreshBtn.classList.contains("loading")) return;
+        refreshBtn.classList.add("loading");
+        refreshBtn.style.opacity = "0.5";
+        refreshBtn.style.pointerEvents = "none";
+        try {
+          await Promise.allSettled([
+            refreshConfigured(),
+            hookPill ? refreshHookPills() : Bridge.refreshIntegration(task.id),
+          ]);
+        } catch (e) {
+          console.error("Refresh error:", e);
+        } finally {
+          setTimeout(() => {
+            refreshBtn.classList.remove("loading");
+            refreshBtn.style.opacity = "";
+            refreshBtn.style.pointerEvents = "";
+          }, 600);
+        }
+      },
+    });
+    actions.append(refreshBtn);
   } else if (!configured) {
     actions.append(
       h("button", { class: "link-btn", style: "color:#8e939c", text: t("Settings…"), onclick: openSettings }),
