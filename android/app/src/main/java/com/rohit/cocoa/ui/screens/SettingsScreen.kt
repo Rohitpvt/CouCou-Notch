@@ -111,7 +111,7 @@ fun SettingsScreen(
                             )
                         }
 
-                        Divider(
+                        HorizontalDivider(
                             color = CocoaCardBorder,
                             modifier = Modifier.padding(vertical = 12.dp)
                         )
@@ -146,7 +146,7 @@ fun SettingsScreen(
                             )
                         }
 
-                        Divider(
+                        HorizontalDivider(
                             color = CocoaCardBorder,
                             modifier = Modifier.padding(vertical = 12.dp)
                         )

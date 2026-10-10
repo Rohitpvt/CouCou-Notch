@@ -8,7 +8,7 @@ import android.os.Build
 import android.util.Log
 import com.rohit.cocoa.model.*
 import io.ktor.client.*
-import io.ktor.client.engine.cio.*
+import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.plugins.websocket.*
 import io.ktor.websocket.*
 import kotlinx.coroutines.*
@@ -38,7 +38,7 @@ class CocoaLinkClient(private val context: Context) {
         encodeDefaults = true
     }
 
-    private val client = HttpClient(CIO) {
+    private val client = HttpClient(OkHttp) {
         install(WebSockets) {
             pingIntervalMillis = 15_000
         }

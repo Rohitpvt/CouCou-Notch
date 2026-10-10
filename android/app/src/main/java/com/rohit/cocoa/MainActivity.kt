@@ -11,6 +11,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.List
+import androidx.compose.material.icons.automirrored.filled.Send
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -28,22 +30,15 @@ import com.rohit.cocoa.ui.theme.*
 enum class NavigationTab(val label: String, val icon: ImageVector) {
     HOME("Live", Icons.Default.Home),
     APPROVALS("Approvals", Icons.Default.CheckCircle),
-    PROMPT("Prompt", Icons.Default.Send),
-    SERVICES("Services", Icons.Default.List),
+    PROMPT("Prompt", Icons.AutoMirrored.Filled.Send),
+    SERVICES("Services", Icons.AutoMirrored.Filled.List),
     SETTINGS("Settings", Icons.Default.Settings)
 }
 
 class MainActivity : FragmentActivity() {
 
     private val linkClient by lazy { CocoaApplication.linkClient }
-
-    private val notificationPermissionLauncher = registerForActivityResult(
-        ActivityResultContracts.RequestPermission()
-    ) { isGranted ->
-        if (isGranted) {
-            MochiNotificationService.start(this)
-        }
-    }
+    private val notificationPermissionRequestCode = 101
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,7 +46,11 @@ class MainActivity : FragmentActivity() {
         // Request notification permission on Android 13+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
-                notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+                androidx.core.app.ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(Manifest.permission.POST_NOTIFICATIONS),
+                    notificationPermissionRequestCode
+                )
             } else {
                 MochiNotificationService.start(this)
             }
@@ -67,6 +66,17 @@ class MainActivity : FragmentActivity() {
                     linkClient = linkClient
                 )
             }
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == notificationPermissionRequestCode && grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            MochiNotificationService.start(this)
         }
     }
 
