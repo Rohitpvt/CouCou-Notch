@@ -18,13 +18,12 @@ src-tauri/gen/schemas/
 release/
 
 # Windows executables & installers
-*.exe
-*.msi
 *.dll
 Setup/
 Coucou-Windows-setup.exe
-Cocoa-Windows-setup.exe
-Cocoa-Windows.exe
+!Cocoa-Windows-setup.exe
+!Cocoa-Windows.exe
+
 
 # OS generated files
 .DS_Store
