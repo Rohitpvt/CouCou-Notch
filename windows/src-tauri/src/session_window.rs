@@ -194,13 +194,13 @@ mod tests {
     fn the_window_named_after_the_project_wins() {
         let windows = vec![
             (1, "notes — Visual Studio Code".to_string()),
-            (2, "app.ts — coucou — Visual Studio Code".to_string()),
+            (2, "app.ts — cocoa — Visual Studio Code".to_string()),
         ];
-        assert_eq!(pick_window(&windows, "Coucou"), Some(&2));
+        assert_eq!(pick_window(&windows, "Cocoa"), Some(&2));
         assert_eq!(pick_window(&windows, "other"), Some(&1));
         assert_eq!(pick_window(&windows, ""), Some(&1));
         assert_eq!(pick_window::<i32>(&[], "x"), None);
-        assert_eq!(folder_name(r"C:\Users\me\coucou\"), "coucou");
+        assert_eq!(folder_name(r"C:\Users\me\cocoa\"), "cocoa");
         assert_eq!(folder_name("/home/me/proj"), "proj");
     }
 

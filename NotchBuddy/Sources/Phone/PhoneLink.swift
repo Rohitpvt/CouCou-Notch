@@ -75,12 +75,12 @@ final class PhoneLink {
         case failed(String)
     }
 
-    static let containerID = "iCloud.fr.louisraille.Coucou"
-    static let zoneID = CKRecordZone.ID(zoneName: "Coucou", ownerName: CKCurrentUserDefaultName)
-    private static let subscriptionID = "coucou-zone-phone-silent"
+    static let containerID = "iCloud.fr.louisraille.Cocoa"
+    static let zoneID = CKRecordZone.ID(zoneName: "Cocoa", ownerName: CKCurrentUserDefaultName)
+    private static let subscriptionID = "cocoa-zone-phone-silent"
     /// Step 1's subscription showed a "Ping from your Mac" banner. A saved
     /// subscription keeps its notification settings, so it is deleted rather than reused.
-    private static let oldSubscriptionID = "coucou-zone-phone"
+    private static let oldSubscriptionID = "cocoa-zone-phone"
 
     var status: Status = .starting
     /// The first look at iCloud is over (whatever came of it): the intro can end.
@@ -172,11 +172,11 @@ final class PhoneLink {
         // A saved subscription keeps its sound: one ID per sound, the other one is deleted.
         let mochi = PhoneSettings.mochiSounds
         let approvals = CKQuerySubscription(recordType: "ApprovalRequest", predicate: NSPredicate(value: true),
-                                            subscriptionID: mochi ? "coucou-approvals-mochi" : "coucou-approvals",
+                                            subscriptionID: mochi ? "cocoa-approvals-mochi" : "cocoa-approvals",
                                             options: [.firesOnRecordCreation])
         approvals.zoneID = Self.zoneID
         let alert = CKSubscription.NotificationInfo()
-        alert.title = "Coucou"
+        alert.title = "Cocoa"
         alert.alertBody = "An agent is waiting for your OK"
         alert.soundName = mochi ? "approval.wav" : "default"
         alert.category = NotificationActions.approvalCategory
@@ -185,7 +185,7 @@ final class PhoneLink {
         approvals.notificationInfo = alert
         do {
             _ = try await database.modifySubscriptions(saving: [approvals], deleting: [])
-            _ = try? await database.modifySubscriptions(saving: [], deleting: [mochi ? "coucou-approvals" : "coucou-approvals-mochi"])
+            _ = try? await database.modifySubscriptions(saving: [], deleting: [mochi ? "cocoa-approvals" : "cocoa-approvals-mochi"])
             approvalsSubscribed = true
             approvalsStatus = "On"
         } catch {
@@ -307,7 +307,7 @@ final class PhoneLink {
 
     // MARK: Approval notifications (step 7)
 
-    /// State of the "coucou-approvals" subscription, shown on the link test screen.
+    /// State of the "cocoa-approvals" subscription, shown on the link test screen.
     var approvalsStatus = "Not set up yet"
     @ObservationIgnored private var notifiedFingerprints: Set<String> = []
 

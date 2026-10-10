@@ -6,21 +6,15 @@
     <true/>
     <key>com.apple.security.automation.apple-events</key>
     <true/>
-    <key>com.apple.application-identifier</key>
-    <string>256AUJ9555.fr.louisraille.NotchBuddy</string>
-    <key>com.apple.developer.team-identifier</key>
-    <string>256AUJ9555</string>
     <key>com.apple.developer.icloud-container-identifiers</key>
     <array>
-        <string>iCloud.fr.louisraille.Coucou</string>
+        <string>iCloud.fr.louisraille.Cocoa</string>
     </array>
     <key>com.apple.developer.icloud-services</key>
     <array>
         <string>CloudKit</string>
     </array>
-    <key>com.apple.developer.icloud-container-environment</key>
-    <string>Production</string>
     <key>com.apple.developer.aps-environment</key>
-    <string>production</string>
+    <string>development</string>
 </dict>
 </plist>

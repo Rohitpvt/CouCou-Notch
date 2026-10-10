@@ -24,7 +24,7 @@ struct InstructionComposer: View {
                 composer
                 status
             } else {
-                Label("To write to Claude from here, turn on \"Let my iPhone send instructions to Claude Code\" in Coucou's Settings on your Mac (GitHub version).",
+                Label("To write to Claude from here, turn on \"Let my iPhone send instructions to Claude Code\" in Cocoa's Settings on your Mac (GitHub version).",
                       systemImage: "info.circle")
                     .font(.caption)
                     .foregroundStyle(.secondary)

@@ -137,7 +137,7 @@ enum ShortcutTests {
 
     static func testLoadSaveRoundTrip() {
         // Use a test-only suite to avoid polluting the app UserDefaults
-        let suiteName = "com.coucou.ShortcutTests.\(Int.random(in: 10000...99999))"
+        let suiteName = "com.cocoa.ShortcutTests.\(Int.random(in: 10000...99999))"
         guard let ud = UserDefaults(suiteName: suiteName) else {
             preconditionFailure("could not create test UserDefaults suite")
         }

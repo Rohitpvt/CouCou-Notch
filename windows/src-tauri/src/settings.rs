@@ -30,7 +30,7 @@ pub struct Settings {
     /// Show the Claude plan pill (5 h and weekly limits) in the island's header.
     /// Off until the user turns it on, so the header stays as it shipped.
     pub show_plan_in_notch: bool,
-    /// Coucou's status line relay is the one in Claude Code's settings.json.
+    /// Cocoa's status line relay is the one in Claude Code's settings.json.
     /// Like `hooks_installed`, the real state wins at launch over what was stored.
     pub plan_relay_installed: bool,
     /// Show the Codex plan pill (5 h / weekly limits from `codex app-server`).
@@ -44,6 +44,16 @@ pub struct Settings {
     pub show_gpu_temp: bool,
     /// Expand notch when Windows system toast notifications arrive from apps.
     pub show_system_notifications: bool,
+    /// Duration in seconds for system notifications to stay visible.
+    pub notification_duration: f64,
+    /// Play chime sound when a system notification arrives.
+    pub notification_sound: bool,
+    /// Render prominent hero card when only 1 active pill is selected.
+    pub enable_hero_pill_card: bool,
+    /// Enable Live Code Diff Inspector on agent file modifications.
+    pub enable_live_diffs: bool,
+    /// Auto-expand notch island when coding agents run tools.
+    pub auto_expand_on_agent_task: bool,
     /// Who the chat talks to: "anthropic", a cloud provider of
     /// openai_compat.rs ("openai", "google", "openrouter"), or a model server
     /// of local_chat.rs ("ollama", "lmstudio", "custom"). Picked in the chat view.
@@ -126,6 +136,11 @@ impl Default for Settings {
             show_ram_usage: true,
             show_gpu_temp: true,
             show_system_notifications: true,
+            notification_duration: 5.0,
+            notification_sound: true,
+            enable_hero_pill_card: true,
+            enable_live_diffs: true,
+            auto_expand_on_agent_task: true,
             chat_provider: crate::chat::ANTHROPIC.into(),
             chat_models: BTreeMap::new(),
             ollama_url: String::new(),
@@ -173,7 +188,7 @@ fn not_loaded() -> MutexGuard<'static, Vec<PathBuf>> {
     NOT_LOADED.lock().unwrap_or_else(PoisonError::into_inner)
 }
 
-/// One line in coucou.log. Tests must never write to the real one.
+/// One line in cocoa.log. Tests must never write to the real one.
 fn note(message: String) {
     #[cfg(not(test))]
     crate::log::line(message);
@@ -218,7 +233,7 @@ fn salvage(fields: Map<String, Value>) -> Settings {
 
 /// The log line for a field `salvage` had to drop. The name comes straight from
 /// the file, so it is written escaped: a line break in it must not be able to
-/// start what looks like another line of coucou.log.
+/// start what looks like another line of cocoa.log.
 fn unusable_field(key: &str) -> String {
     format!("settings.json: {key:?} is not usable — its default is used instead")
 }
@@ -371,7 +386,7 @@ fn save_to(path: &Path, settings: &Settings) -> std::io::Result<()> {
 
     // Write beside the target and rename over it: a crash, a full disk or a
     // power cut leaves the previous settings.json intact rather than half a file.
-    let temp = path.with_extension(format!("json.coucou-{}", std::process::id()));
+    let temp = path.with_extension(format!("json.cocoa-{}", std::process::id()));
     let written = std::fs::File::create(&temp)
         .and_then(|mut file| write_whole(&mut file, &json))
         .and_then(|()| std::fs::rename(&temp, path));
@@ -409,6 +424,11 @@ mod tests {
   "showRamUsage": false,
   "showGpuTemp": false,
   "showSystemNotifications": false,
+  "notificationDuration": 10.0,
+  "notificationSound": false,
+  "enableHeroPillCard": false,
+  "enableLiveDiffs": false,
+  "autoExpandOnAgentTask": false,
   "chatProvider": "ollama",
   "chatModels": { "ollama": "llama3.2", "openai": "gpt-x" },
   "ollamaUrl": "http://127.0.0.1:11434",
@@ -447,7 +467,7 @@ mod tests {
     /// A fresh directory of our own, and the settings.json it will hold.
     fn scratch(name: &str) -> (PathBuf, PathBuf) {
         let dir = std::env::temp_dir()
-            .join(format!("coucou-settings-{name}-{}", std::process::id()));
+            .join(format!("cocoa-settings-{name}-{}", std::process::id()));
         let _ = std::fs::remove_dir_all(&dir);
         std::fs::create_dir_all(&dir).unwrap();
         let file = dir.join("settings.json");
@@ -818,6 +838,11 @@ mod tests {
                 "showRamUsage",
                 "showGpuTemp",
                 "showSystemNotifications",
+                "notificationDuration",
+                "notificationSound",
+                "enableHeroPillCard",
+                "enableLiveDiffs",
+                "autoExpandOnAgentTask",
                 "chatProvider",
                 "chatModels",
                 "ollamaUrl",
@@ -857,7 +882,7 @@ mod tests {
         // directory squatting on that name, the write cannot even start.
         let (dir, file) = scratch("blocked");
         std::fs::write(&file, CUSTOM).unwrap();
-        let temp = dir.join(format!("settings.json.coucou-{}", std::process::id()));
+        let temp = dir.join(format!("settings.json.cocoa-{}", std::process::id()));
         std::fs::create_dir(&temp).unwrap();
 
         assert!(save_to(&file, &Settings::default()).is_err());

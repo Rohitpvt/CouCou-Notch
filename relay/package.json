@@ -1,5 +1,5 @@
 {
-  "name": "coucou-relay",
+  "name": "cocoa-relay",
   "private": true,
   "scripts": {
     "dev": "wrangler dev",

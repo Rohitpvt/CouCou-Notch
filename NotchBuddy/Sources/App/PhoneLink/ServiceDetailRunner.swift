@@ -186,9 +186,9 @@ enum ServiceAPI {
             case 401:
                 if failure.message.localizedCaseInsensitiveContains("restricted") {
                     // Resend `restricted_api_key`: a Sending-access key can't read emails or domains.
-                    return "This key can only send emails. Use a Full access key in Coucou's Settings on your Mac to see them here."
+                    return "This key can only send emails. Use a Full access key in Cocoa's Settings on your Mac to see them here."
                 }
-                return "The key was refused (401). Check it in Coucou's Settings on your Mac."
+                return "The key was refused (401). Check it in Cocoa's Settings on your Mac."
             case 403: return "Not allowed with this key (403). \(failure.message)"
             case 404: return "Not found (404)."
             default: return failure.message.isEmpty ? "Error \(failure.status)" : String(failure.message.prefix(160))
@@ -275,7 +275,7 @@ enum ServiceAPI {
 
     private static func secret(_ name: String, _ service: String) throws -> String {
         guard let value = KeychainStore.shared.get(name), !value.isEmpty else {
-            throw Failure(status: 0, message: "No \(service) key on your Mac. Add it in Coucou's Settings.")
+            throw Failure(status: 0, message: "No \(service) key on your Mac. Add it in Cocoa's Settings.")
         }
         return value
     }

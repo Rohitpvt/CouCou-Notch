@@ -140,18 +140,21 @@ export class Island {
     Bridge.onSystemNotification((notif) => {
       if (!State.settings.showSystemNotifications) return;
       State.setSystemNotification(notif);
-      Sound.play("blip");
+      if (State.settings.notificationSound !== false) {
+        Sound.play("blip");
+      }
       this.engine.triggerEmote("surprised");
 
       this.alert("notification");
 
+      const durationMs = Math.max(1, (State.settings.notificationDuration || 5)) * 1000;
       if (this.notificationTimer != null) window.clearTimeout(this.notificationTimer);
       this.notificationTimer = window.setTimeout(() => {
         this.notificationTimer = null;
         if (State.view === "notification" && State.mode === "expanded" && !this.wasInIsland && !State.isPinned) {
           this.collapse();
         }
-      }, 5000);
+      }, durationMs);
     });
   }
 

@@ -1,4 +1,4 @@
-// Coucou relay — a stateless Cloudflare Worker.
+// Cocoa relay — a stateless Cloudflare Worker.
 //
 // The Mac app can't send Live Activity pushes itself: that needs the APNs key,
 // which must never ship inside an app. The Mac posts Mochi's state here, the
@@ -33,7 +33,7 @@ export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
     if (request.method === "GET" && url.pathname === "/") {
-      return text(200, "Coucou relay");
+      return text(200, "Cocoa relay");
     }
     if (request.method !== "POST" || url.pathname !== "/v1/live-activity") {
       return text(404, "not found");
@@ -123,7 +123,7 @@ function buildPayload(body: RelayRequest) {
     aps["attributes-type"] = "MochiActivityAttributes";
     aps["attributes"] = {};
     // iOS requires an alert to start a Live Activity from a push.
-    aps["alert"] = { title: "Coucou", body: `${state.agent} · ${state.statusText}` };
+    aps["alert"] = { title: "Cocoa", body: `${state.agent} · ${state.statusText}` };
   }
   if (body.event === "update" && body.urgent) {
     // Waiting for your OK or a question: the Dynamic Island opens and the

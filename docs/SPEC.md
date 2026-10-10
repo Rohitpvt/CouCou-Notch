@@ -41,7 +41,7 @@ Grille compact : pastilles Ø 9,5 autour du point (largeur − 27, hN/2), écart
 ## 3. Règles de comportement (validées par Louis)
 
 1. **Rien ne tourne** → `hidden`. Totalement invisible.
-2. **Souris sur le notch** alors que `hidden` → `peek` immédiatement, le bonhomme sort en faisant coucou (mains + son `peek` + son `greet`). Si la souris reste 650 ms → `expanded` (vue `overview`, ou `empty` s'il n'y a aucune tâche). Si elle part pendant le peek → retour `hidden` après 600 ms.
+2. **Souris sur le notch** alors que `hidden` → `peek` immédiatement, le bonhomme sort en faisant cocoa (mains + son `peek` + son `greet`). Si la souris reste 650 ms → `expanded` (vue `overview`, ou `empty` s'il n'y a aucune tâche). Si elle part pendant le peek → retour `hidden` après 600 ms.
 3. **Des tâches tournent et Louis est actif** → `compact` : très fin, le bonhomme visible, il suit la souris des yeux partout sur l'écran.
 4. **Survol en compact** → `expanded` après 200 ms. Clic sur le bonhomme en compact → `expanded` tout de suite.
 5. **Fermeture auto** : une fois ouverte, l'island se replie après **60 s sans activité** (mouvement de souris sur l'island, clic, frappe). Quitter l'island ne la ferme pas. Pendant les 10 dernières secondes, un trait de 2 pt en bas au centre (160 pt → 0, blanc 35 %) montre le compte à rebours. `Échap` ferme.
@@ -121,7 +121,7 @@ Règles :
 - `removeTask` sur `mainPillId` ou une pastille déclarée + active → reset à `.idle` + `pillBadge = nil` + nom du catalogue (pas de suppression). Sinon → suppression normale.
 - `sortTasksByCatalog` : pastilles du catalogue dans l'ordre du catalogue ; pastilles hors catalogue juste après `integration_claude`.
 - Pastilles `githubOnly` : exclues des builds App Store (`#if APPSTORE`).
-- Hooks (Gemini CLI, Antigravity, Codex, Copilot CLI, Muse Code) et plugins (OpenCode, Amp, Hermes) : `isConfigured` = méthodes correspondantes de `HookServer` sous `#if !APPSTORE`. La section Codex Hooks dans Settings installe les hooks dans `~/.codex/hooks.json` avec le même flux backup + preview que Gemini CLI. Après l'installation, la carte affiche : « run /hooks in Codex or open Hooks in the app's settings to trust them ». Approbations Codex, Copilot CLI, Muse Code : carte avec Allow et Deny seulement (pas Always) ; updatedPermissions jamais envoyé pour Codex/Copilot/Muse ; notes « Handled in Codex. » / « Handled in Copilot CLI. » / « Handled in Muse Code. ». OpenCode : plugin JS dans `~/.config/opencode/plugins/coucou.js`, événements mappés via EVENT_MAP, lecture depuis `event.properties`. Amp : plugin TypeScript dans `~/.config/amp/plugins/coucou.ts`, `tool.call` retourne toujours `{ action: 'allow' }`. Hermes : plugin Python dans `~/.hermes/plugins/coucou/__init__.py`, approuver depuis le notch nécessite `register_approval_transport` (non disponible en 0.15.x) ; en attendant, `pre_approval_request` affiche « ⏳ Approval pending in Hermes » dans le fil.
+- Hooks (Gemini CLI, Antigravity, Codex, Copilot CLI, Muse Code) et plugins (OpenCode, Amp, Hermes) : `isConfigured` = méthodes correspondantes de `HookServer` sous `#if !APPSTORE`. La section Codex Hooks dans Settings installe les hooks dans `~/.codex/hooks.json` avec le même flux backup + preview que Gemini CLI. Après l'installation, la carte affiche : « run /hooks in Codex or open Hooks in the app's settings to trust them ». Approbations Codex, Copilot CLI, Muse Code : carte avec Allow et Deny seulement (pas Always) ; updatedPermissions jamais envoyé pour Codex/Copilot/Muse ; notes « Handled in Codex. » / « Handled in Copilot CLI. » / « Handled in Muse Code. ». OpenCode : plugin JS dans `~/.config/opencode/plugins/cocoa.js`, événements mappés via EVENT_MAP, lecture depuis `event.properties`. Amp : plugin TypeScript dans `~/.config/amp/plugins/cocoa.ts`, `tool.call` retourne toujours `{ action: 'allow' }`. Hermes : plugin Python dans `~/.hermes/plugins/cocoa/__init__.py`, approuver depuis le notch nécessite `register_approval_transport` (non disponible en 0.15.x) ; en attendant, `pre_approval_request` affiche « ⏳ Approval pending in Hermes » dans le fil.
 - Pastilles IA (cloud) : `isConfigured` = clé API dans le Keychain. Pastilles IA locales (Ollama, LM Studio) : `isConfigured` = URL serveur non vide (définie via le bouton **Connect** dans Réglages → Chat). Bouton « Chat with… » → change le fournisseur et ouvre la vue `.prompt`.
 
 ### Carte GitHub (`GitHubPulseCardView`)
@@ -212,7 +212,7 @@ Fichiers `assets/sounds/*.wav` (48 kHz stéréo), rendus depuis le moteur du pro
 
 | Événement | Son |
 |---|---|
-| peek / coucou | `peek` + `greet` |
+| peek / cocoa | `peek` + `greet` |
 | ouverture / fermeture | `open` / `close` |
 | survol du bonhomme / petit clic UI | `hover` / `blip` |
 | claque / agacé / sonné | `slap` / `annoyed` / `dizzy` |
@@ -264,7 +264,7 @@ Grille de pastilles 30 pt, coins 7 pt, fond blanc 6 %, bord blanc 8 % (sélectio
 
 **Fermeture** : Échap, clic maison, ou clic droit sur Mochi à nouveau.
 
-**Référence visuelle** : `design/outfits/` (`mochi-outfits.js`, `sheet.html`, `mochi-outfits-reference.png`). Outil de développement : `scripts/render-outfits.sh` (hors CI) — génère `/tmp/coucou-outfits.png`, `/tmp/coucou-roll.png`, `/tmp/coucou-transition.png`.
+**Référence visuelle** : `design/outfits/` (`mochi-outfits.js`, `sheet.html`, `mochi-outfits-reference.png`). Outil de développement : `scripts/render-outfits.sh` (hors CI) — génère `/tmp/cocoa-outfits.png`, `/tmp/cocoa-roll.png`, `/tmp/cocoa-transition.png`.
 
 **Calendrier des saisons** (mode Auto) :
 - 1 oct – 1 nov : Witch hat

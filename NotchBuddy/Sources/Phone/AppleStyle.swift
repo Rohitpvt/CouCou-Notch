@@ -1,11 +1,11 @@
 import SwiftUI
 
-// The pieces that make Coucou feel like an Apple app: Liquid Glass on iOS 26
+// The pieces that make Cocoa feel like an Apple app: Liquid Glass on iOS 26
 // (a frosted material before), the agent's color moving softly behind a
 // session, Apple Pay's drawn checkmark, and symbols that move with the state.
 
 extension View {
-    /// A card in glass (iOS 26) or the dark material Coucou used before.
+    /// A card in glass (iOS 26) or the dark material Cocoa used before.
     @ViewBuilder
     func glassCard(cornerRadius: CGFloat = 22, tint: Color? = nil) -> some View {
         if #available(iOS 26.0, *) {

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # iPhone plan, step 2: builds the GitHub app (fr.louisraille.NotchBuddy) the
 # way release.sh does — Release optimizations, Developer ID signature — plus
-# the "Coucou Developer ID" provisioning profile, the iCloud entitlements and
+# the "Cocoa Developer ID" provisioning profile, the iCloud entitlements and
 # the PHONE_LINK probe. Not notarized, not published: it only proves that a
 # Developer ID build can talk to iCloud. A Developer ID profile only allows the
 # Production CloudKit environment: the Ping/Pong schema must be deployed to
@@ -13,11 +13,11 @@
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-BUILD_DIR="/tmp/coucou-cloud-test"
-APP="$BUILD_DIR/Coucou.app"
-PROFILE_NAME="Coucou Developer ID"
+BUILD_DIR="/tmp/cocoa-cloud-test"
+APP="$BUILD_DIR/Cocoa.app"
+PROFILE_NAME="Cocoa Developer ID"
 APP_ID="256AUJ9555.fr.louisraille.NotchBuddy"
-CONTAINER="iCloud.fr.louisraille.Coucou"
+CONTAINER="iCloud.fr.louisraille.Cocoa"
 
 die() { echo "error: $*" >&2; exit 1; }
 
@@ -82,8 +82,8 @@ echo
 echo "✓ Built $APP (Developer ID, not notarized)."
 echo
 echo "To test:"
-echo "  1. Quit any other Coucou (menu bar icon → Quit) and stop it in Xcode."
+echo "  1. Quit any other Cocoa (menu bar icon → Quit) and stop it in Xcode."
 echo "  2. open $APP"
 echo "  3. tail -f ~/Library/Logs/NotchBuddy/nb.log | grep PhoneLink"
 echo "  4. Developer ID builds use the Production CloudKit environment: run the iPhone"
-echo "     app with the CoucouPhoneProduction scheme, pull to refresh, then tap Send pong."
+echo "     app with the CocoaPhoneProduction scheme, pull to refresh, then tap Send pong."

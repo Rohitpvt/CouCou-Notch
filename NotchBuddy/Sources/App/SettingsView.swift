@@ -157,7 +157,7 @@ struct SettingsView: View {
                             .resizable()
                             .frame(width: 32, height: 32)
                         VStack(alignment: .leading, spacing: 1) {
-                            Text("Coucou")
+                            Text("Cocoa")
                                 .font(.system(size: 13, weight: .semibold))
                             Text(appVersion)
                                 .font(.system(size: 11))
@@ -438,7 +438,7 @@ struct SettingsView: View {
                     UserDefaults.standard.synchronize()
                 }
                 HStack(spacing: 8) {
-                    Button(String(localized: "Restart Coucou")) {
+                    Button(String(localized: "Restart Cocoa")) {
                         let appPath = Bundle.main.bundleURL.path
                         let pid = ProcessInfo.processInfo.processIdentifier
                         let task = Process()
@@ -499,7 +499,7 @@ struct SettingsView: View {
     @ViewBuilder private var activePillsSection: some View {
         GroupBox {
             VStack(alignment: .leading, spacing: 10) {
-                Text("Choose the tools you use. Coucou only shows what you declare here.")
+                Text("Choose the tools you use. Cocoa only shows what you declare here.")
                     .font(.system(size: 11))
                     .foregroundColor(.secondary)
 
@@ -555,7 +555,7 @@ struct SettingsView: View {
                     #endif
                 }
                 #if APPSTORE
-                Text("~/.claude/coucou/nb-hook")
+                Text("~/.claude/cocoa/nb-hook")
                     .font(.system(size: 11, design: .monospaced))
                     .foregroundColor(.secondary)
                 HStack(spacing: 10) {
@@ -708,7 +708,7 @@ struct SettingsView: View {
             VStack(alignment: .leading, spacing: 10) {
                 Text(copilotHooksInstalled
                      ? String(localized: "hooks.copilot.installed")
-                     : "~/.copilot/hooks/coucou.json")
+                     : "~/.copilot/hooks/cocoa.json")
                     .font(.system(size: 11, design: .monospaced))
                     .foregroundColor(.secondary)
                 HStack(spacing: 10) {
@@ -774,7 +774,7 @@ struct SettingsView: View {
             VStack(alignment: .leading, spacing: 10) {
                 Text(openCodePluginInstalled
                      ? String(localized: "plugin.opencode.installed")
-                     : "~/.config/opencode/plugins/coucou.js")
+                     : "~/.config/opencode/plugins/cocoa.js")
                     .font(.system(size: 11, design: .monospaced))
                     .foregroundColor(.secondary)
                 HStack(spacing: 10) {
@@ -807,7 +807,7 @@ struct SettingsView: View {
             VStack(alignment: .leading, spacing: 10) {
                 Text(ampPluginInstalled
                      ? String(localized: "plugin.amp.installed")
-                     : "~/.config/amp/plugins/coucou.ts")
+                     : "~/.config/amp/plugins/cocoa.ts")
                     .font(.system(size: 11, design: .monospaced))
                     .foregroundColor(.secondary)
                 HStack(spacing: 10) {
@@ -840,7 +840,7 @@ struct SettingsView: View {
             VStack(alignment: .leading, spacing: 10) {
                 Text(hermesPluginInstalled
                      ? String(localized: "plugin.hermes.installed")
-                     : "~/.hermes/plugins/coucou/__init__.py")
+                     : "~/.hermes/plugins/cocoa/__init__.py")
                     .font(.system(size: 11, design: .monospaced))
                     .foregroundColor(.secondary)
                 HStack(spacing: 10) {
@@ -975,7 +975,7 @@ struct SettingsView: View {
                     }
                 }
                 Divider()
-                Text("Shows your Codex plan usage (weekly limit and free resets left) in the notch header. Coucou asks the Codex CLI (codex app-server) when the pill shows; nothing is installed. Codex must be signed in with ChatGPT.")
+                Text("Shows your Codex plan usage (weekly limit and free resets left) in the notch header. Cocoa asks the Codex CLI (codex app-server) when the pill shows; nothing is installed. Codex must be signed in with ChatGPT.")
                     .font(.system(size: 11))
                     .foregroundColor(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
@@ -1390,7 +1390,7 @@ struct SettingsView: View {
             pendingGeminiJSON = try HookServer.shared.previewGeminiHooks(install: install)
             showGeminiDiff = true
             statusMessage = String(localized: "hooks.review-json")
-        } catch let e as NSError where e.domain == "CoucouNoop" {
+        } catch let e as NSError where e.domain == "CocoaNoop" {
             statusMessage = e.localizedDescription
         } catch {
             statusMessage = "❌ \(error.localizedDescription)"
@@ -1417,7 +1417,7 @@ struct SettingsView: View {
             pendingAgyJSON = try HookServer.shared.previewAgyHooks(install: install)
             showAgyDiff = true
             statusMessage = String(localized: "hooks.review-json")
-        } catch let e as NSError where e.domain == "CoucouNoop" {
+        } catch let e as NSError where e.domain == "CocoaNoop" {
             statusMessage = e.localizedDescription
         } catch {
             statusMessage = "❌ \(error.localizedDescription)"
@@ -1444,7 +1444,7 @@ struct SettingsView: View {
             pendingCodexJSON = try HookServer.shared.previewCodexHooks(install: install)
             showCodexDiff = true
             statusMessage = String(localized: "hooks.review-json")
-        } catch let e as NSError where e.domain == "CoucouNoop" {
+        } catch let e as NSError where e.domain == "CocoaNoop" {
             statusMessage = e.localizedDescription
         } catch {
             statusMessage = "❌ \(error.localizedDescription)"
@@ -1471,7 +1471,7 @@ struct SettingsView: View {
             pendingCopilotJSON = try HookServer.shared.previewCopilotHooks(install: install)
             showCopilotDiff = true
             statusMessage = String(localized: "hooks.review-json")
-        } catch let e as NSError where e.domain == "CoucouNoop" {
+        } catch let e as NSError where e.domain == "CocoaNoop" {
             statusMessage = e.localizedDescription
         } catch {
             statusMessage = "❌ \(error.localizedDescription)"
@@ -1498,7 +1498,7 @@ struct SettingsView: View {
             pendingMuseJSON = try HookServer.shared.previewMuseHooks(install: install)
             showMuseDiff = true
             statusMessage = String(localized: "hooks.review-json")
-        } catch let e as NSError where e.domain == "CoucouNoop" {
+        } catch let e as NSError where e.domain == "CocoaNoop" {
             statusMessage = e.localizedDescription
         } catch {
             statusMessage = "❌ \(error.localizedDescription)"
@@ -1525,7 +1525,7 @@ struct SettingsView: View {
             pendingOpenCodeContent = try HookServer.shared.previewOpenCodePlugin(install: install)
             showOpenCodeDiff = true
             statusMessage = String(localized: "plugin.review-content")
-        } catch let e as NSError where e.domain == "CoucouNoop" {
+        } catch let e as NSError where e.domain == "CocoaNoop" {
             statusMessage = e.localizedDescription
         } catch {
             statusMessage = "❌ \(error.localizedDescription)"
@@ -1556,7 +1556,7 @@ struct SettingsView: View {
             pendingAmpContent = try HookServer.shared.previewAmpPlugin(install: install)
             showAmpDiff = true
             statusMessage = String(localized: "plugin.review-content")
-        } catch let e as NSError where e.domain == "CoucouNoop" {
+        } catch let e as NSError where e.domain == "CocoaNoop" {
             statusMessage = e.localizedDescription
         } catch {
             statusMessage = "❌ \(error.localizedDescription)"
@@ -1587,7 +1587,7 @@ struct SettingsView: View {
             pendingHermesPluginContent = try HookServer.shared.previewHermesPlugin(install: install)
             showHermesPluginDiff = true
             statusMessage = String(localized: "plugin.review-content")
-        } catch let e as NSError where e.domain == "CoucouNoop" {
+        } catch let e as NSError where e.domain == "CocoaNoop" {
             statusMessage = e.localizedDescription
         } catch {
             statusMessage = "❌ \(error.localizedDescription)"

@@ -51,7 +51,7 @@ enum IslandAutoCloseTests {
         greeting.greetComplete()
         greeting.homeToPetitDelay = 0.01
         try await Task.sleep(for: .milliseconds(50))
-        precondition(greeting.state == .coucou)
+        precondition(greeting.state == .cocoa)
         try await waitForCompact(greeting, timeout: 1)
 
         // An unanswered approval holds the island open even after a delay edit.

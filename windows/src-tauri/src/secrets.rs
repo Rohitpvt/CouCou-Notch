@@ -3,9 +3,10 @@
 
 use keyring::Entry;
 
-const SERVICE: &str = "fr.louisraille.coucou";
+const SERVICE: &str = "com.rohit.cocoa";
+const OLD_SERVICE: &str = "fr.louisraille.coucou";
 
-/// Every key Coucou may store. Anything outside this list is refused.
+/// Every key Cocoa may store. Anything outside this list is refused.
 pub const KNOWN_KEYS: &[&str] = &[
     "anthropic-api-key",
     "openai-api-key",
@@ -22,15 +23,22 @@ pub const KNOWN_KEYS: &[&str] = &[
     "calcom-api-key",
 ];
 
-fn entry(key: &str) -> Option<Entry> {
+fn entry_service(service: &str, key: &str) -> Option<Entry> {
     if !KNOWN_KEYS.contains(&key) {
         return None;
     }
-    Entry::new(SERVICE, key).ok()
+    Entry::new(service, key).ok()
+}
+
+fn entry(key: &str) -> Option<Entry> {
+    entry_service(SERVICE, key)
 }
 
 pub fn get(key: &str) -> Option<String> {
-    entry(key)?.get_password().ok().filter(|v| !v.is_empty())
+    if let Some(val) = entry(key)?.get_password().ok().filter(|v| !v.is_empty()) {
+        return Some(val);
+    }
+    entry_service(OLD_SERVICE, key)?.get_password().ok().filter(|v| !v.is_empty())
 }
 
 pub fn set(key: &str, value: &str) -> Result<(), String> {

@@ -2,10 +2,10 @@
 // test-weekly-recap.swift
 // Fills recap.json with one fake week of activity so the weekly recap card has something to show.
 // Usage:  swift scripts/test-weekly-recap.swift
-// After running, open Coucou and choose "Weekly recap" from the menu bar, or wait for Monday ≥ 8 am.
+// After running, open Cocoa and choose "Weekly recap" from the menu bar, or wait for Monday ≥ 8 am.
 //
 // NOTE: To render the real RecapShareImageView to a PNG, use the Debug menu in the app (DEBUG builds
-// only): Debug → "Render recap image". This saves ~/Desktop/coucou-recap-debug.png and opens it.
+// only): Debug → "Render recap image". This saves ~/Desktop/cocoa-recap-debug.png and opens it.
 // The standalone script cannot import the app module, so image rendering is done via the app.
 
 import Foundation
@@ -66,13 +66,13 @@ func makeDate(dayOffset: Int, hour: Int, minute: Int = 0) -> Date {
 
 let fakeTurns: [RecapTurn] = [
     // Monday: long Claude Code session
-    RecapTurn(pillId: "integration_claude", project: "coucou",
+    RecapTurn(pillId: "integration_claude", project: "cocoa",
               start: makeDate(dayOffset: 0, hour: 9),
               end:   makeDate(dayOffset: 0, hour: 11, minute: 30),
               filesChanged: 8, linesAdded: 312, linesRemoved: 87,
               commandsRun: 14, questions: 2),
     // Monday: afternoon session
-    RecapTurn(pillId: "integration_claude", project: "coucou",
+    RecapTurn(pillId: "integration_claude", project: "cocoa",
               start: makeDate(dayOffset: 0, hour: 14),
               end:   makeDate(dayOffset: 0, hour: 15, minute: 45),
               filesChanged: 3, linesAdded: 95, linesRemoved: 20,
@@ -84,19 +84,19 @@ let fakeTurns: [RecapTurn] = [
               filesChanged: 2, linesAdded: 50, linesRemoved: 10,
               commandsRun: 3, questions: 1),
     // Wednesday: Claude Code
-    RecapTurn(pillId: "integration_claude", project: "coucou",
+    RecapTurn(pillId: "integration_claude", project: "cocoa",
               start: makeDate(dayOffset: 2, hour: 9, minute: 30),
               end:   makeDate(dayOffset: 2, hour: 12),
               filesChanged: 5, linesAdded: 180, linesRemoved: 60,
               commandsRun: 8, questions: 3),
     // Thursday: short burst
-    RecapTurn(pillId: "integration_claude", project: "coucou",
+    RecapTurn(pillId: "integration_claude", project: "cocoa",
               start: makeDate(dayOffset: 3, hour: 16),
               end:   makeDate(dayOffset: 3, hour: 17),
               filesChanged: 1, linesAdded: 40, linesRemoved: 5,
               commandsRun: 2, questions: 0),
     // Friday: longest session
-    RecapTurn(pillId: "integration_claude", project: "coucou",
+    RecapTurn(pillId: "integration_claude", project: "cocoa",
               start: makeDate(dayOffset: 4, hour: 8),
               end:   makeDate(dayOffset: 4, hour: 13),
               filesChanged: 12, linesAdded: 540, linesRemoved: 130,
@@ -132,8 +132,8 @@ try encoded.write(to: recapURL, options: .atomic)
 print("Wrote \(fakeTurns.count) test turns to \(recapURL.path)")
 print("Total activity: ~\(fakeTurns.reduce(0) { $0 + Int($1.end.timeIntervalSince($1.start) / 60) }) minutes")
 print("")
-print("Open Coucou → menu bar → 'Weekly recap' to see the card.")
+print("Open Cocoa → menu bar → 'Weekly recap' to see the card.")
 print("Or run `open \(recapURL.deletingLastPathComponent().path)` to inspect the file.")
 print("")
 print("To render the share card PNG, use the Debug menu in a DEBUG build of the app:")
-print("  Debug → 'Render recap image' → saves ~/Desktop/coucou-recap-debug.png")
+print("  Debug → 'Render recap image' → saves ~/Desktop/cocoa-recap-debug.png")

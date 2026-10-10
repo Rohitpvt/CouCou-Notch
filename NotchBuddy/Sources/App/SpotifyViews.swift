@@ -222,7 +222,7 @@ struct SpotifyCardView: View {
     private var deniedView: some View {
         VStack(alignment: .leading, spacing: 4) {
             header(dot: Color(hex: "#F4505E"))
-            Text("Allow Coucou to control Spotify")
+            Text("Allow Cocoa to control Spotify")
                 .font(.system(size: 11))
                 .foregroundColor(Color(hex: "#8E939C"))
                 .padding(.leading, 108)

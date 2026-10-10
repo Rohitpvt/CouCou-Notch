@@ -1,9 +1,9 @@
 [Desktop Entry]
 Type=Application
-Name=Coucou
+Name=Cocoa
 Comment=Mochi lives at the top of your screen and keeps an eye on your Claude Code sessions
-Exec=coucou
-Icon=coucou
+Exec=cocoa
+Icon=cocoa
 Terminal=false
 Categories=Development;Utility;
 StartupNotify=false

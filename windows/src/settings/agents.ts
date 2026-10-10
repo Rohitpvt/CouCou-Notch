@@ -11,17 +11,17 @@ import { t } from "../i18n/i18n";
 const TEXT = {
   get title() { return t("Agents"); },
   get intro() {
-    return t("Show other coding agents in the island. Coucou adds its entries to each agent's own config: you see the exact change and where the backup goes before anything is written, and uninstalling removes only what Coucou added.");
+    return t("Show other coding agents in the island. Cocoa adds its entries to each agent's own config: you see the exact change and where the backup goes before anything is written, and uninstalling removes only what Cocoa added.");
   },
-  get none() { return t("Coucou could not list the agents."); },
+  get none() { return t("Cocoa could not list the agents."); },
   get approvals() { return t("Sessions, and Allow / Deny from the island"); },
   get displayOnly() { return t("Sessions — approvals stay in the agent"); },
   get install() { return t("Install…"); },
   get reinstall() { return t("Reinstall…"); },
   get uninstall() { return t("Uninstall…"); },
-  get relayMissing() { return t("The relay isn't installed yet. Restart Coucou."); },
+  get relayMissing() { return t("The relay isn't installed yet. Restart Cocoa."); },
   previewInstall: (name: string) => t("This is exactly what changes for {name}. Nothing else is touched.", { name }),
-  get previewRemove() { return t("This removes Coucou's entries only. Everything else stays."); },
+  get previewRemove() { return t("This removes Cocoa's entries only. Everything else stays."); },
   backup: (to: string) => (to ? t("Backup → {path}", { path: to }) : t("No existing file — nothing to back up.")),
   get confirmInstall() { return t("Back up and write"); },
   get confirmRemove() { return t("Back up and remove"); },
@@ -40,18 +40,58 @@ function errorText(err: unknown): string {
   return String(err).replace(/^Error:\s*/, "");
 }
 
-export function agentsSection(list: AgentHookStatus[] | null): HTMLElement {
+import type { Settings } from "../core/state";
+
+function toggle(on: boolean, onChange: (v: boolean) => void): HTMLElement {
+  const el = h("button", { class: on ? "switch on" : "switch", "aria-pressed": on });
+  el.addEventListener("click", () => {
+    const next = !el.classList.contains("on");
+    el.classList.toggle("on", next);
+    onChange(next);
+  });
+  return el;
+}
+
+export function agentsSection(
+  list: AgentHookStatus[] | null,
+  settings?: Settings,
+  onSave?: () => void,
+): HTMLElement {
   const blocks = h("div", { style: "display:flex;flex-direction:column;gap:14px" });
   if (!list || list.length === 0) {
     blocks.append(h("div", { class: "hint", text: TEXT.none }));
   }
   for (const status of list ?? []) blocks.append(agentBlock(status));
+
+  const options: HTMLElement[] = [];
+  if (settings && onSave) {
+    options.push(
+      h("div", { class: "row", style: "margin-top:12px" },
+        h("label", { text: t("Live Code Diff Inspector") }),
+        toggle(settings.enableLiveDiffs !== false, (v) => {
+          settings.enableLiveDiffs = v;
+          onSave();
+        }),
+        h("span", { class: "hint", text: t("Inspect file changes and additions as agents work") }),
+      ),
+      h("div", { class: "row" },
+        h("label", { text: t("Auto-expand on activity") }),
+        toggle(settings.autoExpandOnAgentTask !== false, (v) => {
+          settings.autoExpandOnAgentTask = v;
+          onSave();
+        }),
+        h("span", { class: "hint", text: t("Expand notch when coding agents perform actions") }),
+      ),
+    );
+  }
+
   return h(
     "section",
     {},
     h("h2", {}, h("span", { text: TEXT.title })),
     h("div", { class: "hint", text: TEXT.intro }),
     blocks,
+    ...options,
   );
 }
 

@@ -385,66 +385,66 @@
         }
       }
     },
-    "Allow Coucou to control Music": {
+    "Allow Cocoa to control Music": {
       "localizations": {
         "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "السماح لـ Coucou بالتحكم في الموسيقى"
+            "value": "السماح لـ Cocoa بالتحكم في الموسيقى"
           }
         },
         "bn": {
           "stringUnit": {
             "state": "translated",
-            "value": "Coucou-কে Music নিয়ন্ত্রণ করতে দিন"
+            "value": "Cocoa-কে Music নিয়ন্ত্রণ করতে দিন"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Allow Coucou to control Music"
+            "value": "Allow Cocoa to control Music"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Permitir que Coucou controle Music"
+            "value": "Permitir que Cocoa controle Music"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Autoriser Coucou à contrôler Music"
+            "value": "Autoriser Cocoa à contrôler Music"
           }
         },
         "hi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Coucou को Music नियंत्रित करने दें"
+            "value": "Cocoa को Music नियंत्रित करने दें"
           }
         },
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Izinkan Coucou mengontrol Music"
+            "value": "Izinkan Cocoa mengontrol Music"
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Permitir que o Coucou controle o Music"
+            "value": "Permitir que o Cocoa controle o Music"
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Разрешить Coucou управлять Music"
+            "value": "Разрешить Cocoa управлять Music"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "允许 Coucou 控制音乐"
+            "value": "允许 Cocoa 控制音乐"
           }
         }
       }
@@ -1217,66 +1217,66 @@
         }
       }
     },
-    "Choose the tools you use. Coucou only shows what you declare here.": {
+    "Choose the tools you use. Cocoa only shows what you declare here.": {
       "localizations": {
         "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "اختر الأدوات التي تستخدمها. يعرض Coucou فقط ما تُعلنه هنا."
+            "value": "اختر الأدوات التي تستخدمها. يعرض Cocoa فقط ما تُعلنه هنا."
           }
         },
         "bn": {
           "stringUnit": {
             "state": "translated",
-            "value": "আপনি যে টুলগুলো ব্যবহার করেন তা বেছে নিন। Coucou শুধুমাত্র আপনার ঘোষণা করা জিনিস দেখায়।"
+            "value": "আপনি যে টুলগুলো ব্যবহার করেন তা বেছে নিন। Cocoa শুধুমাত্র আপনার ঘোষণা করা জিনিস দেখায়।"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Choose the tools you use. Coucou only shows what you declare here."
+            "value": "Choose the tools you use. Cocoa only shows what you declare here."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Elige las herramientas que usas. Coucou solo muestra lo que declares aquí."
+            "value": "Elige las herramientas que usas. Cocoa solo muestra lo que declares aquí."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Choisis les outils que tu utilises. Coucou n'affiche que ce que tu déclares ici."
+            "value": "Choisis les outils que tu utilises. Cocoa n'affiche que ce que tu déclares ici."
           }
         },
         "hi": {
           "stringUnit": {
             "state": "translated",
-            "value": "वे टूल चुनें जो आप उपयोग करते हैं। Coucou केवल वही दिखाता है जो आप यहाँ घोषित करते हैं।"
+            "value": "वे टूल चुनें जो आप उपयोग करते हैं। Cocoa केवल वही दिखाता है जो आप यहाँ घोषित करते हैं।"
           }
         },
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pilih alat yang Anda gunakan. Coucou hanya menampilkan yang Anda deklarasikan di sini."
+            "value": "Pilih alat yang Anda gunakan. Cocoa hanya menampilkan yang Anda deklarasikan di sini."
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Escolha as ferramentas que você usa. O Coucou mostra apenas o que você declarar aqui."
+            "value": "Escolha as ferramentas que você usa. O Cocoa mostra apenas o que você declarar aqui."
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Выбери инструменты, которые ты используешь. Coucou показывает только то, что ты здесь объявишь."
+            "value": "Выбери инструменты, которые ты используешь. Cocoa показывает только то, что ты здесь объявишь."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "选择你使用的工具。Coucou 只显示你在这里声明的内容。"
+            "value": "选择你使用的工具。Cocoa 只显示你在这里声明的内容。"
           }
         }
       }
@@ -5057,66 +5057,66 @@
         }
       }
     },
-    "Open Coucou": {
+    "Open Cocoa": {
       "localizations": {
         "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "فتح Coucou"
+            "value": "فتح Cocoa"
           }
         },
         "bn": {
           "stringUnit": {
             "state": "translated",
-            "value": "Coucou খুলুন"
+            "value": "Cocoa খুলুন"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Open Coucou"
+            "value": "Open Cocoa"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Abrir Coucou"
+            "value": "Abrir Cocoa"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ouvrir Coucou"
+            "value": "Ouvrir Cocoa"
           }
         },
         "hi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Coucou खोलें"
+            "value": "Cocoa खोलें"
           }
         },
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Buka Coucou"
+            "value": "Buka Cocoa"
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Abrir Coucou"
+            "value": "Abrir Cocoa"
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Открыть Coucou"
+            "value": "Открыть Cocoa"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "打开 Coucou"
+            "value": "打开 Cocoa"
           }
         }
       }
@@ -6145,66 +6145,66 @@
         }
       }
     },
-    "Restart Coucou": {
+    "Restart Cocoa": {
       "localizations": {
         "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "إعادة تشغيل Coucou"
+            "value": "إعادة تشغيل Cocoa"
           }
         },
         "bn": {
           "stringUnit": {
             "state": "translated",
-            "value": "Coucou পুনরায় শুরু করুন"
+            "value": "Cocoa পুনরায় শুরু করুন"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Restart Coucou"
+            "value": "Restart Cocoa"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Reiniciar Coucou"
+            "value": "Reiniciar Cocoa"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Redémarrer Coucou"
+            "value": "Redémarrer Cocoa"
           }
         },
         "hi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Coucou को पुनः आरंभ करें"
+            "value": "Cocoa को पुनः आरंभ करें"
           }
         },
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mulai ulang Coucou"
+            "value": "Mulai ulang Cocoa"
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Reiniciar Coucou"
+            "value": "Reiniciar Cocoa"
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Перезапустить Coucou"
+            "value": "Перезапустить Cocoa"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "重启 Coucou"
+            "value": "重启 Cocoa"
           }
         }
       }
@@ -8198,61 +8198,61 @@
         "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "سيكتب:\n• ~/.claude/coucou/nb-hook\n• ~/.claude/settings.json (يُنشئ نسخة احتياطية أولاً)"
+            "value": "سيكتب:\n• ~/.claude/cocoa/nb-hook\n• ~/.claude/settings.json (يُنشئ نسخة احتياطية أولاً)"
           }
         },
         "bn": {
           "stringUnit": {
             "state": "translated",
-            "value": "লিখবে:\n• ~/.claude/coucou/nb-hook\n• ~/.claude/settings.json (আগে ব্যাকআপ তৈরি হবে)"
+            "value": "লিখবে:\n• ~/.claude/cocoa/nb-hook\n• ~/.claude/settings.json (আগে ব্যাকআপ তৈরি হবে)"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Writes:\n• ~/.claude/coucou/nb-hook\n• ~/.claude/settings.json (backup created first)"
+            "value": "Writes:\n• ~/.claude/cocoa/nb-hook\n• ~/.claude/settings.json (backup created first)"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Escribirá:\n• ~/.claude/coucou/nb-hook\n• ~/.claude/settings.json (se crea una copia de seguridad primero)"
+            "value": "Escribirá:\n• ~/.claude/cocoa/nb-hook\n• ~/.claude/settings.json (se crea una copia de seguridad primero)"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Écrira :\n• ~/.claude/coucou/nb-hook\n• ~/.claude/settings.json (sauvegarde créée d'abord)"
+            "value": "Écrira :\n• ~/.claude/cocoa/nb-hook\n• ~/.claude/settings.json (sauvegarde créée d'abord)"
           }
         },
         "hi": {
           "stringUnit": {
             "state": "translated",
-            "value": "लिखेगा:\n• ~/.claude/coucou/nb-hook\n• ~/.claude/settings.json (पहले बैकअप बनाया जाएगा)"
+            "value": "लिखेगा:\n• ~/.claude/cocoa/nb-hook\n• ~/.claude/settings.json (पहले बैकअप बनाया जाएगा)"
           }
         },
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Akan menulis:\n• ~/.claude/coucou/nb-hook\n• ~/.claude/settings.json (backup dibuat terlebih dahulu)"
+            "value": "Akan menulis:\n• ~/.claude/cocoa/nb-hook\n• ~/.claude/settings.json (backup dibuat terlebih dahulu)"
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Vai escrever:\n• ~/.claude/coucou/nb-hook\n• ~/.claude/settings.json (backup criado antes)"
+            "value": "Vai escrever:\n• ~/.claude/cocoa/nb-hook\n• ~/.claude/settings.json (backup criado antes)"
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Запишет:\n• ~/.claude/coucou/nb-hook\n• ~/.claude/settings.json (резервная копия создаётся сначала)"
+            "value": "Запишет:\n• ~/.claude/cocoa/nb-hook\n• ~/.claude/settings.json (резервная копия создаётся сначала)"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "将写入：\n• ~/.claude/coucou/nb-hook\n• ~/.claude/settings.json（先创建备份）"
+            "value": "将写入：\n• ~/.claude/cocoa/nb-hook\n• ~/.claude/settings.json（先创建备份）"
           }
         }
       }
@@ -8326,61 +8326,61 @@
         "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "هل تريد تثبيت خطافات Coucou في ~/.claude؟"
+            "value": "هل تريد تثبيت خطافات Cocoa في ~/.claude؟"
           }
         },
         "bn": {
           "stringUnit": {
             "state": "translated",
-            "value": "~/.claude-এ Coucou হুক ইনস্টল করবেন?"
+            "value": "~/.claude-এ Cocoa হুক ইনস্টল করবেন?"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Install Coucou hooks in ~/.claude?"
+            "value": "Install Cocoa hooks in ~/.claude?"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "¿Instalar los hooks de Coucou en ~/.claude?"
+            "value": "¿Instalar los hooks de Cocoa en ~/.claude?"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Installer les hooks Coucou dans ~/.claude ?"
+            "value": "Installer les hooks Cocoa dans ~/.claude ?"
           }
         },
         "hi": {
           "stringUnit": {
             "state": "translated",
-            "value": "~/.claude में Coucou हुक इंस्टॉल करें?"
+            "value": "~/.claude में Cocoa हुक इंस्टॉल करें?"
           }
         },
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pasang hooks Coucou di ~/.claude?"
+            "value": "Pasang hooks Cocoa di ~/.claude?"
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Instalar os hooks do Coucou em ~/.claude?"
+            "value": "Instalar os hooks do Cocoa em ~/.claude?"
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Установить хуки Coucou в ~/.claude?"
+            "value": "Установить хуки Cocoa в ~/.claude?"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "是否将 Coucou Hooks 安装到 ~/.claude？"
+            "value": "是否将 Cocoa Hooks 安装到 ~/.claude？"
           }
         }
       }
@@ -10886,61 +10886,61 @@
         "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "التعليمات المُرسَلة من iPhone تستخدم النموذج المفتوح حاليًا في الدردشة. يُطبَّق موجه النظام وتاريخ المحادثة. التعليمات المُرسَلة أثناء توقف Coucou تُضاف إلى قائمة الانتظار وتُنفَّذ عند التشغيل التالي."
+            "value": "التعليمات المُرسَلة من iPhone تستخدم النموذج المفتوح حاليًا في الدردشة. يُطبَّق موجه النظام وتاريخ المحادثة. التعليمات المُرسَلة أثناء توقف Cocoa تُضاف إلى قائمة الانتظار وتُنفَّذ عند التشغيل التالي."
           }
         },
         "bn": {
           "stringUnit": {
             "state": "translated",
-            "value": "iPhone থেকে পাঠানো নির্দেশনা চ্যাটে বর্তমানে খোলা মডেল ব্যবহার করে। সিস্টেম প্রম্পট এবং কথোপকথনের ইতিহাস প্রযোজ্য। Coucou চলছে না থাকলে পাঠানো নির্দেশনাগুলো কিউতে রাখা হয় এবং পরবর্তী চালুতে চালানো হয়।"
+            "value": "iPhone থেকে পাঠানো নির্দেশনা চ্যাটে বর্তমানে খোলা মডেল ব্যবহার করে। সিস্টেম প্রম্পট এবং কথোপকথনের ইতিহাস প্রযোজ্য। Cocoa চলছে না থাকলে পাঠানো নির্দেশনাগুলো কিউতে রাখা হয় এবং পরবর্তী চালুতে চালানো হয়।"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "An instruction sent from the iPhone uses the model open in chat. The system prompt and conversation history apply. Instructions sent when Coucou is not running are queued and executed on next launch."
+            "value": "An instruction sent from the iPhone uses the model open in chat. The system prompt and conversation history apply. Instructions sent when Cocoa is not running are queued and executed on next launch."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Una instrucción enviada desde el iPhone usa el modelo abierto actualmente en el chat. Se aplican el prompt de sistema y el historial de conversación. Las instrucciones enviadas mientras Coucou no está en ejecución se ponen en cola y se ejecutan en el siguiente inicio."
+            "value": "Una instrucción enviada desde el iPhone usa el modelo abierto actualmente en el chat. Se aplican el prompt de sistema y el historial de conversación. Las instrucciones enviadas mientras Cocoa no está en ejecución se ponen en cola y se ejecutan en el siguiente inicio."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Une instruction envoyée depuis l'iPhone utilise le modèle ouvert dans le chat. Le prompt système et l'historique de conversation s'appliquent. Les instructions envoyées quand Coucou ne tourne pas sont mises en file d'attente et exécutées au prochain démarrage."
+            "value": "Une instruction envoyée depuis l'iPhone utilise le modèle ouvert dans le chat. Le prompt système et l'historique de conversation s'appliquent. Les instructions envoyées quand Cocoa ne tourne pas sont mises en file d'attente et exécutées au prochain démarrage."
           }
         },
         "hi": {
           "stringUnit": {
             "state": "translated",
-            "value": "iPhone से भेजा गया निर्देश चैट में वर्तमान में खुले मॉडल का उपयोग करता है। सिस्टम प्रॉम्प्ट और बातचीत का इतिहास लागू होता है। Coucou चल नहीं रहे होने पर भेजे गए निर्देश कतार में रखे जाते हैं और अगली बार चालू होने पर चलाए जाते हैं।"
+            "value": "iPhone से भेजा गया निर्देश चैट में वर्तमान में खुले मॉडल का उपयोग करता है। सिस्टम प्रॉम्प्ट और बातचीत का इतिहास लागू होता है। Cocoa चल नहीं रहे होने पर भेजे गए निर्देश कतार में रखे जाते हैं और अगली बार चालू होने पर चलाए जाते हैं।"
           }
         },
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Instruksi yang dikirim dari iPhone menggunakan model yang sedang terbuka di chat. Prompt sistem dan riwayat percakapan berlaku. Instruksi yang dikirim saat Coucou tidak berjalan dimasukkan ke antrean dan dijalankan saat peluncuran berikutnya."
+            "value": "Instruksi yang dikirim dari iPhone menggunakan model yang sedang terbuka di chat. Prompt sistem dan riwayat percakapan berlaku. Instruksi yang dikirim saat Cocoa tidak berjalan dimasukkan ke antrean dan dijalankan saat peluncuran berikutnya."
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Uma instrução enviada pelo iPhone usa o modelo aberto no momento no chat. O prompt de sistema e o histórico de conversa se aplicam. Instruções enviadas enquanto o Coucou não está em execução ficam na fila e são executadas no próximo início."
+            "value": "Uma instrução enviada pelo iPhone usa o modelo aberto no momento no chat. O prompt de sistema e o histórico de conversa se aplicam. Instruções enviadas enquanto o Cocoa não está em execução ficam na fila e são executadas no próximo início."
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Инструкция, отправленная с iPhone, использует модель, открытую в чате. Системный промпт и история разговора применяются. Инструкции, отправленные пока Coucou не запущен, ставятся в очередь и выполняются при следующем запуске."
+            "value": "Инструкция, отправленная с iPhone, использует модель, открытую в чате. Системный промпт и история разговора применяются. Инструкции, отправленные пока Cocoa не запущен, ставятся в очередь и выполняются при следующем запуске."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "从 iPhone 发送的指令使用聊天中当前打开的模型。系统提示和对话历史适用。Coucou 未运行时发送的指令将排队，并在下次启动时执行。"
+            "value": "从 iPhone 发送的指令使用聊天中当前打开的模型。系统提示和对话历史适用。Cocoa 未运行时发送的指令将排队，并在下次启动时执行。"
           }
         }
       }
@@ -11014,61 +11014,61 @@
         "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "يمر عبر ريلاي Coucou إلى خدمة Apple للإشعارات. يُرسَل فقط اسم الوكيل وحالته: لا اسم مشروع ولا أمر ولا مسار."
+            "value": "يمر عبر ريلاي Cocoa إلى خدمة Apple للإشعارات. يُرسَل فقط اسم الوكيل وحالته: لا اسم مشروع ولا أمر ولا مسار."
           }
         },
         "bn": {
           "stringUnit": {
             "state": "translated",
-            "value": "Apple-এর পুশ সার্ভিসে Coucou রিলের মাধ্যমে যায়। শুধুমাত্র এজেন্টের নাম এবং অবস্থা পাঠানো হয়: কোনো প্রজেক্ট নাম, কমান্ড বা পাথ নয়।"
+            "value": "Apple-এর পুশ সার্ভিসে Cocoa রিলের মাধ্যমে যায়। শুধুমাত্র এজেন্টের নাম এবং অবস্থা পাঠানো হয়: কোনো প্রজেক্ট নাম, কমান্ড বা পাথ নয়।"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Goes through the Coucou relay to Apple's push service. Only the agent name and state are sent: no project name, command, or path."
+            "value": "Goes through the Cocoa relay to Apple's push service. Only the agent name and state are sent: no project name, command, or path."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pasa por el relay de Coucou al servicio push de Apple. Solo se envían el nombre y el estado del agente: sin nombre de proyecto, comando ni ruta."
+            "value": "Pasa por el relay de Cocoa al servicio push de Apple. Solo se envían el nombre y el estado del agente: sin nombre de proyecto, comando ni ruta."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Passe par le relais Coucou vers le service push d'Apple. Seuls le nom et l'état de l'agent sont envoyés : aucun nom de projet, commande ou chemin."
+            "value": "Passe par le relais Cocoa vers le service push d'Apple. Seuls le nom et l'état de l'agent sont envoyés : aucun nom de projet, commande ou chemin."
           }
         },
         "hi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Coucou रिले के माध्यम से Apple के पुश सर्विस से जाता है। केवल एजेंट का नाम और स्थिति भेजी जाती है: कोई प्रोजेक्ट नाम, कमांड या पाथ नहीं।"
+            "value": "Cocoa रिले के माध्यम से Apple के पुश सर्विस से जाता है। केवल एजेंट का नाम और स्थिति भेजी जाती है: कोई प्रोजेक्ट नाम, कमांड या पाथ नहीं।"
           }
         },
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Melewati relay Coucou ke layanan push Apple. Hanya nama dan status agen yang dikirim: tanpa nama proyek, perintah, atau jalur."
+            "value": "Melewati relay Cocoa ke layanan push Apple. Hanya nama dan status agen yang dikirim: tanpa nama proyek, perintah, atau jalur."
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Passa pelo relay do Coucou para o serviço push da Apple. Apenas o nome e o estado do agente são enviados: sem nome de projeto, comando ou caminho."
+            "value": "Passa pelo relay do Cocoa para o serviço push da Apple. Apenas o nome e o estado do agente são enviados: sem nome de projeto, comando ou caminho."
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Проходит через ретранслятор Coucou к сервису push Apple. Отправляются только имя и состояние агента: без имени проекта, команды или пути."
+            "value": "Проходит через ретранслятор Cocoa к сервису push Apple. Отправляются только имя и состояние агента: без имени проекта, команды или пути."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "通过 Coucou 中继传至 Apple 推送服务。仅发送 Agent 的名称和状态：不含项目名称、命令或路径。"
+            "value": "通过 Cocoa 中继传至 Apple 推送服务。仅发送 Agent 的名称和状态：不含项目名称、命令或路径。"
           }
         }
       }
@@ -11142,61 +11142,61 @@
         "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "يُرسل جلساتك إلى iCloud الخاص بك لتطبيق Coucou على iPhone. تُشفَّر أسماء المشاريع والأوامر والأسئلة بمفاتيح iCloud الخاصة بك. إيقاف التشغيل يحذفها من iCloud."
+            "value": "يُرسل جلساتك إلى iCloud الخاص بك لتطبيق Cocoa على iPhone. تُشفَّر أسماء المشاريع والأوامر والأسئلة بمفاتيح iCloud الخاصة بك. إيقاف التشغيل يحذفها من iCloud."
           }
         },
         "bn": {
           "stringUnit": {
             "state": "translated",
-            "value": "Coucou iPhone অ্যাপের জন্য আপনার সেশনগুলো আপনার প্রাইভেট iCloud-এ পাঠায়। প্রজেক্টের নাম, কমান্ড এবং প্রশ্নগুলো আপনার iCloud কী দিয়ে এনক্রিপ্ট করা হয়। বন্ধ করলে iCloud থেকে মুছে যাবে।"
+            "value": "Cocoa iPhone অ্যাপের জন্য আপনার সেশনগুলো আপনার প্রাইভেট iCloud-এ পাঠায়। প্রজেক্টের নাম, কমান্ড এবং প্রশ্নগুলো আপনার iCloud কী দিয়ে এনক্রিপ্ট করা হয়। বন্ধ করলে iCloud থেকে মুছে যাবে।"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sends your sessions to your private iCloud for the Coucou app on iPhone. Project names, commands, and questions are encrypted with your iCloud keys. Disabling removes data from iCloud."
+            "value": "Sends your sessions to your private iCloud for the Cocoa app on iPhone. Project names, commands, and questions are encrypted with your iCloud keys. Disabling removes data from iCloud."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Envía tus sesiones a tu iCloud privado para la app Coucou de iPhone. Los nombres de proyecto, comandos y preguntas se cifran con tus claves de iCloud. Desactivarlo las elimina de iCloud."
+            "value": "Envía tus sesiones a tu iCloud privado para la app Cocoa de iPhone. Los nombres de proyecto, comandos y preguntas se cifran con tus claves de iCloud. Desactivarlo las elimina de iCloud."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Envoie tes sessions sur ton iCloud privé pour l'app Coucou sur iPhone. Les noms de projets, commandes et questions sont chiffrés avec tes clés iCloud. Désactiver supprime les données d'iCloud."
+            "value": "Envoie tes sessions sur ton iCloud privé pour l'app Cocoa sur iPhone. Les noms de projets, commandes et questions sont chiffrés avec tes clés iCloud. Désactiver supprime les données d'iCloud."
           }
         },
         "hi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Coucou iPhone ऐप के लिए आपके सेशन आपके प्राइवेट iCloud में भेजता है। प्रोजेक्ट नाम, कमांड और सवाल आपकी iCloud कुंजियों से एन्क्रिप्ट किए जाते हैं। बंद करने पर iCloud से हटा दिए जाते हैं।"
+            "value": "Cocoa iPhone ऐप के लिए आपके सेशन आपके प्राइवेट iCloud में भेजता है। प्रोजेक्ट नाम, कमांड और सवाल आपकी iCloud कुंजियों से एन्क्रिप्ट किए जाते हैं। बंद करने पर iCloud से हटा दिए जाते हैं।"
           }
         },
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mengirim sesi Anda ke iCloud pribadi Anda untuk aplikasi Coucou iPhone. Nama proyek, perintah, dan pertanyaan dienkripsi dengan kunci iCloud Anda. Mematikannya menghapusnya dari iCloud."
+            "value": "Mengirim sesi Anda ke iCloud pribadi Anda untuk aplikasi Cocoa iPhone. Nama proyek, perintah, dan pertanyaan dienkripsi dengan kunci iCloud Anda. Mematikannya menghapusnya dari iCloud."
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Envia suas sessões para seu iCloud privado para o app Coucou no iPhone. Nomes de projetos, comandos e perguntas são criptografados com suas chaves do iCloud. Desativar remove-os do iCloud."
+            "value": "Envia suas sessões para seu iCloud privado para o app Cocoa no iPhone. Nomes de projetos, comandos e perguntas são criptografados com suas chaves do iCloud. Desativar remove-os do iCloud."
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Отправляет твои сессии в личный iCloud для приложения Coucou на iPhone. Имена проектов, команды и вопросы шифруются твоими ключами iCloud. Отключение удаляет их из iCloud."
+            "value": "Отправляет твои сессии в личный iCloud для приложения Cocoa на iPhone. Имена проектов, команды и вопросы шифруются твоими ключами iCloud. Отключение удаляет их из iCloud."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "将你的会话发送到私有 iCloud，供 Coucou iPhone 应用使用。项目名称、命令和问题使用你的 iCloud 密钥加密。关闭后将从 iCloud 中删除。"
+            "value": "将你的会话发送到私有 iCloud，供 Cocoa iPhone 应用使用。项目名称、命令和问题使用你的 iCloud 密钥加密。关闭后将从 iCloud 中删除。"
           }
         }
       }
@@ -11590,61 +11590,61 @@
         "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "يعرض استخدام خطة Claude (الحدود الخمس ساعات والأسبوعية) في ترويسة الشريط العلوي. تضيف Coucou سطر حالة مُرحِّلاً إلى ~/.claude/settings.json. إن كان لديك سطر حالة بالفعل، يستمر في العمل كالمعتاد. للخططَين Pro وMax فقط."
+            "value": "يعرض استخدام خطة Claude (الحدود الخمس ساعات والأسبوعية) في ترويسة الشريط العلوي. تضيف Cocoa سطر حالة مُرحِّلاً إلى ~/.claude/settings.json. إن كان لديك سطر حالة بالفعل، يستمر في العمل كالمعتاد. للخططَين Pro وMax فقط."
           }
         },
         "bn": {
           "stringUnit": {
             "state": "translated",
-            "value": "নচ হেডারে আপনার Claude প্ল্যানের ব্যবহার (৫ ঘণ্টা ও সাপ্তাহিক সীমা) দেখায়। Coucou ~/.claude/settings.json-এ একটি স্ট্যাটাস লাইন রিলে যোগ করে। আপনার কাছে ইতিমধ্যে স্ট্যাটাস লাইন থাকলে তা আগের মতোই কাজ করবে। শুধুমাত্র Pro এবং Max প্ল্যানের জন্য।"
+            "value": "নচ হেডারে আপনার Claude প্ল্যানের ব্যবহার (৫ ঘণ্টা ও সাপ্তাহিক সীমা) দেখায়। Cocoa ~/.claude/settings.json-এ একটি স্ট্যাটাস লাইন রিলে যোগ করে। আপনার কাছে ইতিমধ্যে স্ট্যাটাস লাইন থাকলে তা আগের মতোই কাজ করবে। শুধুমাত্র Pro এবং Max প্ল্যানের জন্য।"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Shows your Claude plan usage (5-hour and weekly limits) in the notch header. Coucou adds a status line relay in ~/.claude/settings.json. If you already have a status line, it keeps working as before. Pro and Max plans only."
+            "value": "Shows your Claude plan usage (5-hour and weekly limits) in the notch header. Cocoa adds a status line relay in ~/.claude/settings.json. If you already have a status line, it keeps working as before. Pro and Max plans only."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Muestra el uso de tu plan Claude (límites de 5 horas y semanales) en el encabezado del notch. Coucou añade una línea de estado relay en ~/.claude/settings.json. Si ya tienes una línea de estado, seguirá funcionando como antes. Solo planes Pro y Max."
+            "value": "Muestra el uso de tu plan Claude (límites de 5 horas y semanales) en el encabezado del notch. Cocoa añade una línea de estado relay en ~/.claude/settings.json. Si ya tienes una línea de estado, seguirá funcionando como antes. Solo planes Pro y Max."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Affiche ton utilisation du forfait Claude (limites de 5 heures et hebdomadaire) dans l'en-tête de l'encoche. Coucou ajoute un relais de ligne de statut dans ~/.claude/settings.json. Si tu as déjà une ligne de statut, elle continue de fonctionner comme avant. Forfaits Pro et Max uniquement."
+            "value": "Affiche ton utilisation du forfait Claude (limites de 5 heures et hebdomadaire) dans l'en-tête de l'encoche. Cocoa ajoute un relais de ligne de statut dans ~/.claude/settings.json. Si tu as déjà une ligne de statut, elle continue de fonctionner comme avant. Forfaits Pro et Max uniquement."
           }
         },
         "hi": {
           "stringUnit": {
             "state": "translated",
-            "value": "नॉच हेडर में आपके Claude प्लान का उपयोग (5 घंटे और साप्ताहिक सीमाएं) दिखाता है। Coucou ~/.claude/settings.json में एक स्टेटस लाइन रिले जोड़ता है। अगर आपके पास पहले से स्टेटस लाइन है, तो वह पहले की तरह काम करती रहेगी। केवल Pro और Max प्लान के लिए।"
+            "value": "नॉच हेडर में आपके Claude प्लान का उपयोग (5 घंटे और साप्ताहिक सीमाएं) दिखाता है। Cocoa ~/.claude/settings.json में एक स्टेटस लाइन रिले जोड़ता है। अगर आपके पास पहले से स्टेटस लाइन है, तो वह पहले की तरह काम करती रहेगी। केवल Pro और Max प्लान के लिए।"
           }
         },
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Menampilkan penggunaan paket Claude (batas 5 jam dan mingguan) di header notch. Coucou menambahkan relay baris status ke ~/.claude/settings.json. Jika Anda sudah memiliki baris status, tetap berjalan seperti sebelumnya. Hanya untuk paket Pro dan Max."
+            "value": "Menampilkan penggunaan paket Claude (batas 5 jam dan mingguan) di header notch. Cocoa menambahkan relay baris status ke ~/.claude/settings.json. Jika Anda sudah memiliki baris status, tetap berjalan seperti sebelumnya. Hanya untuk paket Pro dan Max."
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mostra o uso do seu plano Claude (limites de 5 horas e semanais) no cabeçalho do notch. O Coucou adiciona um relay de linha de status ao ~/.claude/settings.json. Se você já tiver uma linha de status, ela continua funcionando normalmente. Apenas planos Pro e Max."
+            "value": "Mostra o uso do seu plano Claude (limites de 5 horas e semanais) no cabeçalho do notch. O Cocoa adiciona um relay de linha de status ao ~/.claude/settings.json. Se você já tiver uma linha de status, ela continua funcionando normalmente. Apenas planos Pro e Max."
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Показывает использование плана Claude (лимиты на 5 часов и на неделю) в шапке нотча. Coucou добавляет ретранслятор строки статуса в ~/.claude/settings.json. Если строка статуса уже есть, она продолжит работать как прежде. Только для планов Pro и Max."
+            "value": "Показывает использование плана Claude (лимиты на 5 часов и на неделю) в шапке нотча. Cocoa добавляет ретранслятор строки статуса в ~/.claude/settings.json. Если строка статуса уже есть, она продолжит работать как прежде. Только для планов Pro и Max."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "在刘海标头中显示你的 Claude 计划用量（5 小时及每周限额）。Coucou 会在 ~/.claude/settings.json 中添加一条状态栏中继。如果你已有状态栏，它将照常运行。仅限 Pro 和 Max 计划。"
+            "value": "在刘海标头中显示你的 Claude 计划用量（5 小时及每周限额）。Cocoa 会在 ~/.claude/settings.json 中添加一条状态栏中继。如果你已有状态栏，它将照常运行。仅限 Pro 和 Max 计划。"
           }
         }
       }
@@ -12742,61 +12742,61 @@
         "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ ملحق Hermes مثبَّت في ~/.hermes/plugins/coucou/"
+            "value": "✓ ملحق Hermes مثبَّت في ~/.hermes/plugins/cocoa/"
           }
         },
         "bn": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ Hermes প্লাগইন ~/.hermes/plugins/coucou/-এ ইনস্টল হয়েছে"
+            "value": "✓ Hermes প্লাগইন ~/.hermes/plugins/cocoa/-এ ইনস্টল হয়েছে"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ Hermes plugin installed in ~/.hermes/plugins/coucou/"
+            "value": "✓ Hermes plugin installed in ~/.hermes/plugins/cocoa/"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ Plugin de Hermes instalado en ~/.hermes/plugins/coucou/"
+            "value": "✓ Plugin de Hermes instalado en ~/.hermes/plugins/cocoa/"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ Plugin Hermes installé dans ~/.hermes/plugins/coucou/"
+            "value": "✓ Plugin Hermes installé dans ~/.hermes/plugins/cocoa/"
           }
         },
         "hi": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ Hermes प्लगइन ~/.hermes/plugins/coucou/ में इंस्टॉल हुआ"
+            "value": "✓ Hermes प्लगइन ~/.hermes/plugins/cocoa/ में इंस्टॉल हुआ"
           }
         },
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ Plugin Hermes terpasang di ~/.hermes/plugins/coucou/"
+            "value": "✓ Plugin Hermes terpasang di ~/.hermes/plugins/cocoa/"
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ Plugin do Hermes instalado em ~/.hermes/plugins/coucou/"
+            "value": "✓ Plugin do Hermes instalado em ~/.hermes/plugins/cocoa/"
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ Плагин Hermes установлен в ~/.hermes/plugins/coucou/"
+            "value": "✓ Плагин Hermes установлен в ~/.hermes/plugins/cocoa/"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ Hermes 插件已安装至 ~/.hermes/plugins/coucou/"
+            "value": "✓ Hermes 插件已安装至 ~/.hermes/plugins/cocoa/"
           }
         }
       }
@@ -12870,61 +12870,61 @@
         "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "تظهر طلبات الموافقة في الشريط. إذا لم تكن Coucou تعمل، يعود Hermes إلى طرفيته الخاصة."
+            "value": "تظهر طلبات الموافقة في الشريط. إذا لم تكن Cocoa تعمل، يعود Hermes إلى طرفيته الخاصة."
           }
         },
         "bn": {
           "stringUnit": {
             "state": "translated",
-            "value": "নচে অনুমোদন অনুরোধ দেখানো হয়। Coucou না চললে Hermes তার নিজের প্রম্পটে ফলব্যাক করে।"
+            "value": "নচে অনুমোদন অনুরোধ দেখানো হয়। Cocoa না চললে Hermes তার নিজের প্রম্পটে ফলব্যাক করে।"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Approval requests appear in the notch. If Coucou is not running, Hermes falls back to its own prompt."
+            "value": "Approval requests appear in the notch. If Cocoa is not running, Hermes falls back to its own prompt."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Las solicitudes de aprobación aparecen en el notch. Si Coucou no está en ejecución, Hermes usa su propio prompt."
+            "value": "Las solicitudes de aprobación aparecen en el notch. Si Cocoa no está en ejecución, Hermes usa su propio prompt."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Les demandes d'approbation s'affichent dans le notch. Si Coucou ne tourne pas, Hermes utilise son propre prompt."
+            "value": "Les demandes d'approbation s'affichent dans le notch. Si Cocoa ne tourne pas, Hermes utilise son propre prompt."
           }
         },
         "hi": {
           "stringUnit": {
             "state": "translated",
-            "value": "नॉच में अनुमोदन अनुरोध दिखाए जाते हैं। यदि Coucou नहीं चल रहा तो Hermes अपने प्रॉम्प्ट पर वापस जाता है।"
+            "value": "नॉच में अनुमोदन अनुरोध दिखाए जाते हैं। यदि Cocoa नहीं चल रहा तो Hermes अपने प्रॉम्प्ट पर वापस जाता है।"
           }
         },
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Permintaan persetujuan muncul di notch. Jika Coucou tidak berjalan, Hermes menggunakan promptnya sendiri."
+            "value": "Permintaan persetujuan muncul di notch. Jika Cocoa tidak berjalan, Hermes menggunakan promptnya sendiri."
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Solicitações de aprovação aparecem no notch. Se Coucou não estiver em execução, Hermes usa seu próprio prompt."
+            "value": "Solicitações de aprovação aparecem no notch. Se Cocoa não estiver em execução, Hermes usa seu próprio prompt."
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Запросы подтверждения отображаются в notch. Если Coucou не запущен, Hermes использует собственный prompt."
+            "value": "Запросы подтверждения отображаются в notch. Если Cocoa не запущен, Hermes использует собственный prompt."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "审批请求显示在刘海中。若 Coucou 未运行，Hermes 将回退到其自己的提示。"
+            "value": "审批请求显示在刘海中。若 Cocoa 未运行，Hermes 将回退到其自己的提示。"
           }
         }
       }
@@ -14727,61 +14727,61 @@
         "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "الإعدادات — Coucou"
+            "value": "الإعدادات — Cocoa"
           }
         },
         "bn": {
           "stringUnit": {
             "state": "translated",
-            "value": "সেটিংস — Coucou"
+            "value": "সেটিংস — Cocoa"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Settings — Coucou"
+            "value": "Settings — Cocoa"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ajustes — Coucou"
+            "value": "Ajustes — Cocoa"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Réglages — Coucou"
+            "value": "Réglages — Cocoa"
           }
         },
         "hi": {
           "stringUnit": {
             "state": "translated",
-            "value": "सेटिंग्स — Coucou"
+            "value": "सेटिंग्स — Cocoa"
           }
         },
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Pengaturan — Coucou"
+            "value": "Pengaturan — Cocoa"
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Configurações — Coucou"
+            "value": "Configurações — Cocoa"
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Настройки — Coucou"
+            "value": "Настройки — Cocoa"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "设置 — Coucou"
+            "value": "设置 — Cocoa"
           }
         }
       }
@@ -16519,61 +16519,61 @@
         "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ ملحق Amp مثبَّت في ~/.config/amp/plugins/coucou.ts"
+            "value": "✓ ملحق Amp مثبَّت في ~/.config/amp/plugins/cocoa.ts"
           }
         },
         "bn": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ ~/.config/amp/plugins/coucou.ts-এ Amp প্লাগইন ইনস্টল হয়েছে"
+            "value": "✓ ~/.config/amp/plugins/cocoa.ts-এ Amp প্লাগইন ইনস্টল হয়েছে"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ Amp plugin installed in ~/.config/amp/plugins/coucou.ts"
+            "value": "✓ Amp plugin installed in ~/.config/amp/plugins/cocoa.ts"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ Plugin de Amp instalado en ~/.config/amp/plugins/coucou.ts"
+            "value": "✓ Plugin de Amp instalado en ~/.config/amp/plugins/cocoa.ts"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ Plugin Amp installé dans ~/.config/amp/plugins/coucou.ts"
+            "value": "✓ Plugin Amp installé dans ~/.config/amp/plugins/cocoa.ts"
           }
         },
         "hi": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ ~/.config/amp/plugins/coucou.ts में Amp प्लगइन इंस्टॉल हुआ"
+            "value": "✓ ~/.config/amp/plugins/cocoa.ts में Amp प्लगइन इंस्टॉल हुआ"
           }
         },
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ Plugin Amp terpasang di ~/.config/amp/plugins/coucou.ts"
+            "value": "✓ Plugin Amp terpasang di ~/.config/amp/plugins/cocoa.ts"
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ Plugin do Amp instalado em ~/.config/amp/plugins/coucou.ts"
+            "value": "✓ Plugin do Amp instalado em ~/.config/amp/plugins/cocoa.ts"
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ Плагин Amp установлен в ~/.config/amp/plugins/coucou.ts"
+            "value": "✓ Плагин Amp установлен в ~/.config/amp/plugins/cocoa.ts"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ Amp 插件已安装至 ~/.config/amp/plugins/coucou.ts"
+            "value": "✓ Amp 插件已安装至 ~/.config/amp/plugins/cocoa.ts"
           }
         }
       }
@@ -16904,61 +16904,61 @@
         "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ خطافات Copilot CLI مثبَّتة في ~/.copilot/hooks/coucou.json"
+            "value": "✓ خطافات Copilot CLI مثبَّتة في ~/.copilot/hooks/cocoa.json"
           }
         },
         "bn": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ ~/.copilot/hooks/coucou.json-এ Copilot CLI হুক ইনস্টল হয়েছে"
+            "value": "✓ ~/.copilot/hooks/cocoa.json-এ Copilot CLI হুক ইনস্টল হয়েছে"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ Copilot CLI hooks installed in ~/.copilot/hooks/coucou.json"
+            "value": "✓ Copilot CLI hooks installed in ~/.copilot/hooks/cocoa.json"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ Hooks de Copilot CLI instalados en ~/.copilot/hooks/coucou.json"
+            "value": "✓ Hooks de Copilot CLI instalados en ~/.copilot/hooks/cocoa.json"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ Hooks Copilot CLI installés dans ~/.copilot/hooks/coucou.json"
+            "value": "✓ Hooks Copilot CLI installés dans ~/.copilot/hooks/cocoa.json"
           }
         },
         "hi": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ ~/.copilot/hooks/coucou.json में Copilot CLI हुक इंस्टॉल हुए"
+            "value": "✓ ~/.copilot/hooks/cocoa.json में Copilot CLI हुक इंस्टॉल हुए"
           }
         },
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ Hooks Copilot CLI terpasang di ~/.copilot/hooks/coucou.json"
+            "value": "✓ Hooks Copilot CLI terpasang di ~/.copilot/hooks/cocoa.json"
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ Hooks do Copilot CLI instalados em ~/.copilot/hooks/coucou.json"
+            "value": "✓ Hooks do Copilot CLI instalados em ~/.copilot/hooks/cocoa.json"
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ Хуки Copilot CLI установлены в ~/.copilot/hooks/coucou.json"
+            "value": "✓ Хуки Copilot CLI установлены в ~/.copilot/hooks/cocoa.json"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ Copilot CLI Hooks 已安装至 ~/.copilot/hooks/coucou.json"
+            "value": "✓ Copilot CLI Hooks 已安装至 ~/.copilot/hooks/cocoa.json"
           }
         }
       }
@@ -18240,61 +18240,61 @@
         "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ ملحق OpenCode مثبَّت في ~/.config/opencode/plugins/coucou.js"
+            "value": "✓ ملحق OpenCode مثبَّت في ~/.config/opencode/plugins/cocoa.js"
           }
         },
         "bn": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ ~/.config/opencode/plugins/coucou.js-এ OpenCode প্লাগইন ইনস্টল হয়েছে"
+            "value": "✓ ~/.config/opencode/plugins/cocoa.js-এ OpenCode প্লাগইন ইনস্টল হয়েছে"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ OpenCode plugin installed in ~/.config/opencode/plugins/coucou.js"
+            "value": "✓ OpenCode plugin installed in ~/.config/opencode/plugins/cocoa.js"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ Plugin de OpenCode instalado en ~/.config/opencode/plugins/coucou.js"
+            "value": "✓ Plugin de OpenCode instalado en ~/.config/opencode/plugins/cocoa.js"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ Plugin OpenCode installé dans ~/.config/opencode/plugins/coucou.js"
+            "value": "✓ Plugin OpenCode installé dans ~/.config/opencode/plugins/cocoa.js"
           }
         },
         "hi": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ ~/.config/opencode/plugins/coucou.js में OpenCode प्लगइन इंस्टॉल हुआ"
+            "value": "✓ ~/.config/opencode/plugins/cocoa.js में OpenCode प्लगइन इंस्टॉल हुआ"
           }
         },
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ Plugin OpenCode terpasang di ~/.config/opencode/plugins/coucou.js"
+            "value": "✓ Plugin OpenCode terpasang di ~/.config/opencode/plugins/cocoa.js"
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ Plugin do OpenCode instalado em ~/.config/opencode/plugins/coucou.js"
+            "value": "✓ Plugin do OpenCode instalado em ~/.config/opencode/plugins/cocoa.js"
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ Плагин OpenCode установлен в ~/.config/opencode/plugins/coucou.js"
+            "value": "✓ Плагин OpenCode установлен в ~/.config/opencode/plugins/cocoa.js"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "✓ OpenCode 插件已安装至 ~/.config/opencode/plugins/coucou.js"
+            "value": "✓ OpenCode 插件已安装至 ~/.config/opencode/plugins/cocoa.js"
           }
         }
       }
@@ -19969,66 +19969,66 @@
         }
       }
     },
-    "Allow Coucou to control Spotify": {
+    "Allow Cocoa to control Spotify": {
       "localizations": {
         "ar": {
           "stringUnit": {
             "state": "translated",
-            "value": "السماح لـ Coucou بالتحكم في Spotify"
+            "value": "السماح لـ Cocoa بالتحكم في Spotify"
           }
         },
         "bn": {
           "stringUnit": {
             "state": "translated",
-            "value": "Coucou-কে Spotify নিয়ন্ত্রণ করতে দিন"
+            "value": "Cocoa-কে Spotify নিয়ন্ত্রণ করতে দিন"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Allow Coucou to control Spotify"
+            "value": "Allow Cocoa to control Spotify"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Permitir que Coucou controle Spotify"
+            "value": "Permitir que Cocoa controle Spotify"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Autoriser Coucou à contrôler Spotify"
+            "value": "Autoriser Cocoa à contrôler Spotify"
           }
         },
         "hi": {
           "stringUnit": {
             "state": "translated",
-            "value": "Coucou को Spotify नियंत्रित करने दें"
+            "value": "Cocoa को Spotify नियंत्रित करने दें"
           }
         },
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Izinkan Coucou mengontrol Spotify"
+            "value": "Izinkan Cocoa mengontrol Spotify"
           }
         },
         "pt-BR": {
           "stringUnit": {
             "state": "translated",
-            "value": "Permitir que o Coucou controle o Spotify"
+            "value": "Permitir que o Cocoa controle o Spotify"
           }
         },
         "ru": {
           "stringUnit": {
             "state": "translated",
-            "value": "Разрешить Coucou управлять Spotify"
+            "value": "Разрешить Cocoa управлять Spotify"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "允许 Coucou 控制 Spotify"
+            "value": "允许 Cocoa 控制 Spotify"
           }
         }
       }

@@ -7,15 +7,15 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Coucou</string>
+	<string>Cocoa</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>fr.louisraille.Coucou</string>
+	<string>fr.louisraille.Cocoa</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Coucou</string>
+	<string>Cocoa</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -24,27 +24,27 @@
 	<array>
 		<dict>
 			<key>CFBundleURLName</key>
-			<string>fr.louisraille.Coucou</string>
+			<string>fr.louisraille.Cocoa</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>coucou</string>
+				<string>cocoa</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>3</string>
-	<key>CoucouAPNsEnvironment</key>
-	<string>$(COUCOU_APNS_ENV)</string>
+	<key>CocoaAPNsEnvironment</key>
+	<string>$(COCOA_APNS_ENV)</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSFaceIDUsageDescription</key>
-	<string>Coucou asks for Face ID before allowing a command from your iPhone.</string>
+	<string>Cocoa asks for Face ID before allowing a command from your iPhone.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Coucou uses the microphone when you dictate an instruction for Claude Code.</string>
+	<string>Cocoa uses the microphone when you dictate an instruction for Claude Code.</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>Coucou turns your voice into the text of an instruction for Claude Code.</string>
+	<string>Cocoa turns your voice into the text of an instruction for Claude Code.</string>
 	<key>NSSupportsLiveActivities</key>
 	<true/>
 	<key>NSSupportsLiveActivitiesFrequentUpdates</key>

@@ -52,7 +52,8 @@ export function closePlanCard(): void {
 
 // ── Claude numbers ────────────────────────────────────────────────────────────
 
-const STORE_KEY = "coucou.claudePlanUsage";
+const STORE_KEY = "cocoa.claudePlanUsage";
+const OLD_STORE_KEY = "coucou.claudePlanUsage";
 
 /** New numbers from the status line; kept so they survive a restart, as on the Mac. */
 export function setClaudePlanUsage(usage: PlanUsage): void {
@@ -74,7 +75,16 @@ export function setClaudePlanUsage(usage: PlanUsage): void {
 /** The last numbers seen, if any were kept. */
 export function storedClaudePlanUsage(): string | null {
   try {
-    return window.localStorage?.getItem(STORE_KEY) ?? null;
+    const val = window.localStorage?.getItem(STORE_KEY);
+    if (val) return val;
+    const oldVal = window.localStorage?.getItem(OLD_STORE_KEY);
+    if (oldVal) {
+      try {
+        window.localStorage?.setItem(STORE_KEY, oldVal);
+      } catch {}
+      return oldVal;
+    }
+    return null;
   } catch {
     return null;
   }

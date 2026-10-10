@@ -16,11 +16,11 @@ claude (terminal, VS Code, app Claude)
                          └─ socket Unix ─► Notch Buddy.app
                          ◄─ décision (pour PermissionRequest)
 ```
-- `nb-hook` (script shell) et `nb-hook.py` (relais Python) : écrits par l'app (`HookServer.swift`). Version GitHub : au lancement, dans `~/Library/Application Support/NotchBuddy/`. Version App Store : à l'installation des hooks, dans `~/.claude/coucou/`. Voir `docs/AGENTS.md` pour les autres agents qui utilisent ces scripts.
-- Socket : `~/Library/Application Support/NotchBuddy/nb.sock` (version GitHub) ou `~/Library/Containers/fr.louisraille.Coucou/Data/nb.sock` (version App Store). Dossier en 0700, socket en 0600. Connexions du même utilisateur seulement (vérification `getpeereid`). 1 Mio et 5 s maximum par message, 32 connexions simultanées.
-- `nb-hook [--agent <nom>] <Event>` lit le JSON du hook sur stdin, ajoute le contexte du terminal (`TERM_PROGRAM`, `ITERM_SESSION_ID`, `TERM_SESSION_ID`, `__CFBundleIdentifier`, le tty trouvé en remontant les processus parents, `cwd`) et, si `--agent` est fourni, le champ `coucou_agent`, puis l'envoie à l'app.
+- `nb-hook` (script shell) et `nb-hook.py` (relais Python) : écrits par l'app (`HookServer.swift`). Version GitHub : au lancement, dans `~/Library/Application Support/NotchBuddy/`. Version App Store : à l'installation des hooks, dans `~/.claude/cocoa/`. Voir `docs/AGENTS.md` pour les autres agents qui utilisent ces scripts.
+- Socket : `~/Library/Application Support/NotchBuddy/nb.sock` (version GitHub) ou `~/Library/Containers/fr.louisraille.Cocoa/Data/nb.sock` (version App Store). Dossier en 0700, socket en 0600. Connexions du même utilisateur seulement (vérification `getpeereid`). 1 Mio et 5 s maximum par message, 32 connexions simultanées.
+- `nb-hook [--agent <nom>] <Event>` lit le JSON du hook sur stdin, ajoute le contexte du terminal (`TERM_PROGRAM`, `ITERM_SESSION_ID`, `TERM_SESSION_ID`, `__CFBundleIdentifier`, le tty trouvé en remontant les processus parents, `cwd`) et, si `--agent` est fourni, le champ `cocoa_agent`, puis l'envoie à l'app.
 - **Si l'app ne répond pas en 300 ms, `nb-hook` sort en code 0 sans rien écrire** : Claude Code continue normalement. Jamais de blocage.
-- Champ optionnel `coucou_agent` : nom en minuscules, chiffres et tirets, 24 caractères au plus. Si absent ou invalide, l'événement va dans la pastille Claude. Voir `docs/AGENTS.md` pour les autres agents.
+- Champ optionnel `cocoa_agent` : nom en minuscules, chiffres et tirets, 24 caractères au plus. Si absent ou invalide, l'événement va dans la pastille Claude. Voir `docs/AGENTS.md` pour les autres agents.
 
 ### Événements à brancher et état du bonhomme
 | Hook | Effet dans l'app |
@@ -102,15 +102,15 @@ Claude Code envoie, à chaque réponse et avec un debounce de 300 ms, un JSON à
 
 ### Relais
 
-nb-hook.py, en mode `--statusline`, lit le JSON de stdin, en extrait `rate_limits` et `session_id`, et envoie `{"coucou_kind": "statusline", …}` au socket en fire-and-forget (timeout 0,3 s). Si une `statusLine` précédente existait (sauvegardée dans `statusline-previous.json` à côté de nb-hook), elle est appelée via `/bin/sh -c` avec le même stdin et sa sortie est réécrite telle quelle (timeout 10 s, couleurs ANSI comprises).
+nb-hook.py, en mode `--statusline`, lit le JSON de stdin, en extrait `rate_limits` et `session_id`, et envoie `{"cocoa_kind": "statusline", …}` au socket en fire-and-forget (timeout 0,3 s). Si une `statusLine` précédente existait (sauvegardée dans `statusline-previous.json` à côté de nb-hook), elle est appelée via `/bin/sh -c` avec le même stdin et sa sortie est réécrite telle quelle (timeout 10 s, couleurs ANSI comprises).
 
 ### Installation et activation
 
-Réglages → Agents → Plan usage → **Install relay**. Coucou montre le diff de `~/.claude/settings.json` avant d'écrire quoi que ce soit. Si une `statusLine` existait, seul le champ `command` est remplacé ; les autres champs (`padding`, `refreshInterval`, etc.) sont conservés. Une fois le relais installé, activer le toggle **Show in the notch** pour faire apparaître le pill dans l'en-tête. Si le toggle est activé avant l'installation du relais, l'installation est lancée automatiquement ; le toggle s'active après confirmation.
+Réglages → Agents → Plan usage → **Install relay**. Cocoa montre le diff de `~/.claude/settings.json` avant d'écrire quoi que ce soit. Si une `statusLine` existait, seul le champ `command` est remplacé ; les autres champs (`padding`, `refreshInterval`, etc.) sont conservés. Une fois le relais installé, activer le toggle **Show in the notch** pour faire apparaître le pill dans l'en-tête. Si le toggle est activé avant l'installation du relais, l'installation est lancée automatiquement ; le toggle s'active après confirmation.
 
 ### Désinstallation
 
-Réglages → Agents → Plan usage → **Uninstall relay**. Remet l'objet `statusLine` d'origine à l'identique, ou retire la clé si elle n'existait pas. Si la `statusLine` actuelle n'est plus celle de Coucou (l'utilisateur l'a changée), elle n'est pas touchée.
+Réglages → Agents → Plan usage → **Uninstall relay**. Remet l'objet `statusLine` d'origine à l'identique, ou retire la clé si elle n'existait pas. Si la `statusLine` actuelle n'est plus celle de Cocoa (l'utilisateur l'a changée), elle n'est pas touchée.
 
 ---
 
@@ -285,7 +285,7 @@ Connexion à un serveur local compatible OpenAI. Aucune clé d'API requise.
 
 ### Connexion
 
-Réglages → Chat → Local models → **Connect**. Coucou envoie une requête `GET /v1/models` au serveur. Si le serveur répond avec des modèles, l'URL est sauvegardée et le fournisseur apparaît dans le sélecteur de modèle. Les modèles d'embedding (`nomic-embed-text`, `bge-*`, etc.) sont filtrés automatiquement.
+Réglages → Chat → Local models → **Connect**. Cocoa envoie une requête `GET /v1/models` au serveur. Si le serveur répond avec des modèles, l'URL est sauvegardée et le fournisseur apparaît dans le sélecteur de modèle. Les modèles d'embedding (`nomic-embed-text`, `bge-*`, etc.) sont filtrés automatiquement.
 
 ### Streaming
 

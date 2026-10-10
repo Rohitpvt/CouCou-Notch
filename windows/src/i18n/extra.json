@@ -34,16 +34,16 @@
    "ru": "+ субагент",
    "id": "+ subagen"
   },
-  "A hook group named \"coucou\" that Coucou did not write is already there — Coucou has not touched it.": {
-   "zh-Hans": "已存在一个并非 Coucou 写入的名为“coucou”的 hook 组 — Coucou 没有修改它。",
-   "hi": "“coucou” नाम का एक hook समूह पहले से है जिसे Coucou ने नहीं लिखा — Coucou ने इसे नहीं छुआ।",
-   "es": "Ya existe un grupo de hooks llamado «coucou» que no escribió Coucou — Coucou no lo ha tocado.",
-   "ar": "توجد بالفعل مجموعة hooks باسم «coucou» لم يكتبها Coucou — لم يمسّها Coucou.",
-   "fr": "Un groupe de hooks nommé « coucou » que Coucou n'a pas écrit existe déjà — Coucou n'y a pas touché.",
-   "bn": "“coucou” নামে একটি hook গ্রুপ আগে থেকেই আছে যা Coucou লেখেনি — Coucou এতে হাত দেয়নি।",
-   "pt-BR": "Já existe um grupo de hooks chamado “coucou” que não foi escrito pelo Coucou — o Coucou não mexeu nele.",
-   "ru": "Уже есть группа хуков «coucou», которую написал не Coucou, — Coucou её не трогал.",
-   "id": "Sudah ada grup hook bernama “coucou” yang tidak ditulis Coucou — Coucou tidak menyentuhnya."
+  "A hook group named \"cocoa\" that Cocoa did not write is already there — Cocoa has not touched it.": {
+   "zh-Hans": "已存在一个并非 Cocoa 写入的名为“cocoa”的 hook 组 — Cocoa 没有修改它。",
+   "hi": "“cocoa” नाम का एक hook समूह पहले से है जिसे Cocoa ने नहीं लिखा — Cocoa ने इसे नहीं छुआ।",
+   "es": "Ya existe un grupo de hooks llamado «cocoa» que no escribió Cocoa — Cocoa no lo ha tocado.",
+   "ar": "توجد بالفعل مجموعة hooks باسم «cocoa» لم يكتبها Cocoa — لم يمسّها Cocoa.",
+   "fr": "Un groupe de hooks nommé « cocoa » que Cocoa n'a pas écrit existe déjà — Cocoa n'y a pas touché.",
+   "bn": "“cocoa” নামে একটি hook গ্রুপ আগে থেকেই আছে যা Cocoa লেখেনি — Cocoa এতে হাত দেয়নি।",
+   "pt-BR": "Já existe um grupo de hooks chamado “cocoa” que não foi escrito pelo Cocoa — o Cocoa não mexeu nele.",
+   "ru": "Уже есть группа хуков «cocoa», которую написал не Cocoa, — Cocoa её не трогал.",
+   "id": "Sudah ada grup hook bernama “cocoa” yang tidak ditulis Cocoa — Cocoa tidak menyentuhnya."
   },
   "AI for the chat": {
    "zh-Hans": "聊天用的 AI",
@@ -573,38 +573,38 @@
    "ru": "Копировать изображения здесь нельзя — используйте «Сохранить изображение».",
    "id": "Menyalin gambar tidak tersedia di sini — gunakan Simpan gambar."
   },
-  "Coucou could not list the agents.": {
-   "zh-Hans": "Coucou 无法列出代理。",
-   "hi": "Coucou एजेंटों की सूची नहीं बना सका।",
-   "es": "Coucou no pudo listar los agentes.",
-   "ar": "تعذّر على Coucou سرد الوكلاء.",
-   "fr": "Coucou n'a pas pu lister les agents.",
-   "bn": "Coucou এজেন্টদের তালিকা করতে পারেনি।",
-   "pt-BR": "O Coucou não conseguiu listar os agentes.",
-   "ru": "Coucou не удалось получить список агентов.",
-   "id": "Coucou tidak dapat menampilkan daftar agen."
+  "Cocoa could not list the agents.": {
+   "zh-Hans": "Cocoa 无法列出代理。",
+   "hi": "Cocoa एजेंटों की सूची नहीं बना सका।",
+   "es": "Cocoa no pudo listar los agentes.",
+   "ar": "تعذّر على Cocoa سرد الوكلاء.",
+   "fr": "Cocoa n'a pas pu lister les agents.",
+   "bn": "Cocoa এজেন্টদের তালিকা করতে পারেনি।",
+   "pt-BR": "O Cocoa não conseguiu listar os agentes.",
+   "ru": "Cocoa не удалось получить список агентов.",
+   "id": "Cocoa tidak dapat menampilkan daftar agen."
   },
-  "Coucou counts your agent sessions as they happen — check back next Monday.": {
-   "zh-Hans": "Coucou 会实时统计你的代理会话 — 下周一再来看看吧。",
-   "hi": "Coucou आपके एजेंट सत्रों को होते-होते गिनता है — अगले सोमवार फिर देखें।",
-   "es": "Coucou cuenta tus sesiones de agentes a medida que ocurren — vuelve el próximo lunes.",
-   "ar": "يحسب Coucou جلسات وكلائك أثناء حدوثها — عُد يوم الاثنين القادم.",
-   "fr": "Coucou compte tes sessions d'agents au fil de l'eau — reviens lundi prochain.",
-   "bn": "Coucou আপনার এজেন্ট সেশন ঘটার সঙ্গে সঙ্গে গোনে — পরের সোমবার আবার দেখুন।",
-   "pt-BR": "O Coucou conta suas sessões de agentes conforme acontecem — volte na próxima segunda-feira.",
-   "ru": "Coucou считает ваши сессии агентов по ходу дела — загляните в следующий понедельник.",
-   "id": "Coucou menghitung sesi agen Anda saat berlangsung — cek lagi Senin depan."
+  "Cocoa counts your agent sessions as they happen — check back next Monday.": {
+   "zh-Hans": "Cocoa 会实时统计你的代理会话 — 下周一再来看看吧。",
+   "hi": "Cocoa आपके एजेंट सत्रों को होते-होते गिनता है — अगले सोमवार फिर देखें।",
+   "es": "Cocoa cuenta tus sesiones de agentes a medida que ocurren — vuelve el próximo lunes.",
+   "ar": "يحسب Cocoa جلسات وكلائك أثناء حدوثها — عُد يوم الاثنين القادم.",
+   "fr": "Cocoa compte tes sessions d'agents au fil de l'eau — reviens lundi prochain.",
+   "bn": "Cocoa আপনার এজেন্ট সেশন ঘটার সঙ্গে সঙ্গে গোনে — পরের সোমবার আবার দেখুন।",
+   "pt-BR": "O Cocoa conta suas sessões de agentes conforme acontecem — volte na próxima segunda-feira.",
+   "ru": "Cocoa считает ваши сессии агентов по ходу дела — загляните в следующий понедельник.",
+   "id": "Cocoa menghitung sesi agen Anda saat berlangsung — cek lagi Senin depan."
   },
-  "Coucou is hooked into your Claude Code sessions. Tool calls, questions and permission requests show up in the island, and you can answer them there.": {
-   "zh-Hans": "Coucou 已接入你的 Claude Code 会话。工具调用、问题和权限请求都会显示在岛中，你可以直接在那里回应。",
-   "hi": "Coucou आपके Claude Code सत्रों से जुड़ा है। टूल कॉल, प्रश्न और अनुमति अनुरोध आइलैंड में दिखते हैं, और आप वहीं उनका जवाब दे सकते हैं।",
-   "es": "Coucou está conectado a tus sesiones de Claude Code. Las llamadas a herramientas, las preguntas y las solicitudes de permiso aparecen en la isla y puedes responderlas ahí.",
-   "ar": "Coucou متصل بجلسات Claude Code لديك. تظهر استدعاءات الأدوات والأسئلة وطلبات الإذن في الشريط، ويمكنك الرد عليها من هناك.",
-   "fr": "Coucou est branché sur tes sessions Claude Code. Les appels d'outils, les questions et les demandes de permission s'affichent dans l'île, et tu peux y répondre directement.",
-   "bn": "Coucou আপনার Claude Code সেশনের সঙ্গে যুক্ত। টুল কল, প্রশ্ন আর অনুমতির অনুরোধ আইল্যান্ডে দেখা যায়, এবং আপনি সেখানেই উত্তর দিতে পারেন।",
-   "pt-BR": "O Coucou está conectado às suas sessões do Claude Code. Chamadas de ferramentas, perguntas e pedidos de permissão aparecem na ilha, e você pode respondê-los ali.",
-   "ru": "Coucou подключён к вашим сессиям Claude Code. Вызовы инструментов, вопросы и запросы разрешений появляются в острове, и отвечать можно прямо там.",
-   "id": "Coucou terhubung ke sesi Claude Code Anda. Panggilan alat, pertanyaan, dan permintaan izin muncul di pulau, dan Anda bisa menjawabnya di sana."
+  "Cocoa is hooked into your Claude Code sessions. Tool calls, questions and permission requests show up in the island, and you can answer them there.": {
+   "zh-Hans": "Cocoa 已接入你的 Claude Code 会话。工具调用、问题和权限请求都会显示在岛中，你可以直接在那里回应。",
+   "hi": "Cocoa आपके Claude Code सत्रों से जुड़ा है। टूल कॉल, प्रश्न और अनुमति अनुरोध आइलैंड में दिखते हैं, और आप वहीं उनका जवाब दे सकते हैं।",
+   "es": "Cocoa está conectado a tus sesiones de Claude Code. Las llamadas a herramientas, las preguntas y las solicitudes de permiso aparecen en la isla y puedes responderlas ahí.",
+   "ar": "Cocoa متصل بجلسات Claude Code لديك. تظهر استدعاءات الأدوات والأسئلة وطلبات الإذن في الشريط، ويمكنك الرد عليها من هناك.",
+   "fr": "Cocoa est branché sur tes sessions Claude Code. Les appels d'outils, les questions et les demandes de permission s'affichent dans l'île, et tu peux y répondre directement.",
+   "bn": "Cocoa আপনার Claude Code সেশনের সঙ্গে যুক্ত। টুল কল, প্রশ্ন আর অনুমতির অনুরোধ আইল্যান্ডে দেখা যায়, এবং আপনি সেখানেই উত্তর দিতে পারেন।",
+   "pt-BR": "O Cocoa está conectado às suas sessões do Claude Code. Chamadas de ferramentas, perguntas e pedidos de permissão aparecem na ilha, e você pode respondê-los ali.",
+   "ru": "Cocoa подключён к вашим сессиям Claude Code. Вызовы инструментов, вопросы и запросы разрешений появляются в острове, и отвечать можно прямо там.",
+   "id": "Cocoa terhubung ke sesi Claude Code Anda. Panggilan alat, pertanyaan, dan permintaan izin muncul di pulau, dan Anda bisa menjawabnya di sana."
   },
   "Could not remove {path}: {error}": {
    "zh-Hans": "无法删除 {path}：{error}",
@@ -2223,38 +2223,38 @@
    "ru": "Показать в папке",
    "id": "Tampilkan di folder"
   },
-  "Show other coding agents in the island. Coucou adds its entries to each agent's own config: you see the exact change and where the backup goes before anything is written, and uninstalling removes only what Coucou added.": {
-   "zh-Hans": "在岛中显示其他编程代理。Coucou 会把自己的条目添加到各代理的配置中：写入之前，你会看到确切的改动和备份位置；卸载只会移除 Coucou 添加的内容。",
-   "hi": "दूसरे कोडिंग एजेंटों को आइलैंड में दिखाएँ। Coucou हर एजेंट की अपनी कॉन्फ़िग में अपनी प्रविष्टियाँ जोड़ता है: कुछ भी लिखे जाने से पहले आप सटीक बदलाव और बैकअप की जगह देखते हैं, और अनइंस्टॉल करने पर केवल वही हटता है जो Coucou ने जोड़ा था।",
-   "es": "Muestra otros agentes de programación en la isla. Coucou añade sus entradas a la configuración de cada agente: ves el cambio exacto y dónde va la copia de seguridad antes de que se escriba nada, y al desinstalar solo se quita lo que añadió Coucou.",
-   "ar": "اعرض وكلاء البرمجة الآخرين في الشريط. يضيف Coucou إدخالاته إلى إعدادات كل وكيل: ترى التغيير بالضبط ومكان النسخة الاحتياطية قبل كتابة أي شيء، وإلغاء التثبيت يزيل فقط ما أضافه Coucou.",
-   "fr": "Affiche les autres agents de code dans l'île. Coucou ajoute ses entrées à la configuration de chaque agent : tu vois la modification exacte et l'emplacement de la sauvegarde avant que quoi que ce soit soit écrit, et la désinstallation ne retire que ce que Coucou a ajouté.",
-   "bn": "অন্যান্য কোডিং এজেন্টকে আইল্যান্ডে দেখান। Coucou প্রতিটি এজেন্টের নিজস্ব কনফিগে তার এন্ট্রি যোগ করে: কিছু লেখার আগে আপনি সঠিক পরিবর্তন এবং ব্যাকআপ কোথায় যাবে তা দেখতে পান, আর আনইনস্টল করলে শুধু Coucou যা যোগ করেছিল তা-ই সরানো হয়।",
-   "pt-BR": "Mostre outros agentes de programação na ilha. O Coucou adiciona as próprias entradas à configuração de cada agente: você vê a alteração exata e para onde vai o backup antes de qualquer gravação, e desinstalar remove só o que o Coucou adicionou.",
-   "ru": "Показывайте другие агенты для кода в острове. Coucou добавляет свои записи в конфигурацию каждого агента: до любой записи вы видите точное изменение и куда пойдёт резервная копия, а удаление убирает только то, что добавил Coucou.",
-   "id": "Tampilkan agen coding lain di pulau. Coucou menambahkan entrinya ke konfigurasi masing-masing agen: Anda melihat perubahan persisnya dan lokasi cadangan sebelum apa pun ditulis, dan mencopot pemasangan hanya menghapus yang ditambahkan Coucou."
+  "Show other coding agents in the island. Cocoa adds its entries to each agent's own config: you see the exact change and where the backup goes before anything is written, and uninstalling removes only what Cocoa added.": {
+   "zh-Hans": "在岛中显示其他编程代理。Cocoa 会把自己的条目添加到各代理的配置中：写入之前，你会看到确切的改动和备份位置；卸载只会移除 Cocoa 添加的内容。",
+   "hi": "दूसरे कोडिंग एजेंटों को आइलैंड में दिखाएँ। Cocoa हर एजेंट की अपनी कॉन्फ़िग में अपनी प्रविष्टियाँ जोड़ता है: कुछ भी लिखे जाने से पहले आप सटीक बदलाव और बैकअप की जगह देखते हैं, और अनइंस्टॉल करने पर केवल वही हटता है जो Cocoa ने जोड़ा था।",
+   "es": "Muestra otros agentes de programación en la isla. Cocoa añade sus entradas a la configuración de cada agente: ves el cambio exacto y dónde va la copia de seguridad antes de que se escriba nada, y al desinstalar solo se quita lo que añadió Cocoa.",
+   "ar": "اعرض وكلاء البرمجة الآخرين في الشريط. يضيف Cocoa إدخالاته إلى إعدادات كل وكيل: ترى التغيير بالضبط ومكان النسخة الاحتياطية قبل كتابة أي شيء، وإلغاء التثبيت يزيل فقط ما أضافه Cocoa.",
+   "fr": "Affiche les autres agents de code dans l'île. Cocoa ajoute ses entrées à la configuration de chaque agent : tu vois la modification exacte et l'emplacement de la sauvegarde avant que quoi que ce soit soit écrit, et la désinstallation ne retire que ce que Cocoa a ajouté.",
+   "bn": "অন্যান্য কোডিং এজেন্টকে আইল্যান্ডে দেখান। Cocoa প্রতিটি এজেন্টের নিজস্ব কনফিগে তার এন্ট্রি যোগ করে: কিছু লেখার আগে আপনি সঠিক পরিবর্তন এবং ব্যাকআপ কোথায় যাবে তা দেখতে পান, আর আনইনস্টল করলে শুধু Cocoa যা যোগ করেছিল তা-ই সরানো হয়।",
+   "pt-BR": "Mostre outros agentes de programação na ilha. O Cocoa adiciona as próprias entradas à configuração de cada agente: você vê a alteração exata e para onde vai o backup antes de qualquer gravação, e desinstalar remove só o que o Cocoa adicionou.",
+   "ru": "Показывайте другие агенты для кода в острове. Cocoa добавляет свои записи в конфигурацию каждого агента: до любой записи вы видите точное изменение и куда пойдёт резервная копия, а удаление убирает только то, что добавил Cocoa.",
+   "id": "Tampilkan agen coding lain di pulau. Cocoa menambahkan entrinya ke konfigurasi masing-masing agen: Anda melihat perubahan persisnya dan lokasi cadangan sebelum apa pun ditulis, dan mencopot pemasangan hanya menghapus yang ditambahkan Cocoa."
   },
-  "Shows your Claude plan usage (5-hour and weekly limits) in the island's header. Coucou adds a status line relay in ~/.claude/settings.json. If you already have a status line, it keeps working as before. Pro and Max plans only.": {
-   "zh-Hans": "在岛的顶栏显示你的 Claude 套餐用量（5 小时和每周限额）。Coucou 会在 ~/.claude/settings.json 中添加一个状态栏中继。如果你已有状态栏，它会照常工作。仅限 Pro 和 Max 套餐。",
-   "hi": "आइलैंड के हेडर में आपके Claude प्लान का उपयोग (5 घंटे और साप्ताहिक सीमा) दिखाता है। Coucou ~/.claude/settings.json में एक स्टेटस लाइन रिले जोड़ता है। अगर आपके पास पहले से स्टेटस लाइन है, तो वह पहले की तरह चलती रहेगी। केवल Pro और Max प्लान।",
-   "es": "Muestra el uso de tu plan de Claude (límites de 5 horas y semanal) en la cabecera de la isla. Coucou añade un relay de línea de estado en ~/.claude/settings.json. Si ya tienes una línea de estado, sigue funcionando como antes. Solo planes Pro y Max.",
-   "ar": "يعرض استخدام خطة Claude (حدّا الخمس ساعات والأسبوع) في رأس الشريط. يضيف Coucou مُرحِّلًا لسطر الحالة في ~/.claude/settings.json. إن كان لديك سطر حالة فسيستمر في العمل كما كان. لخطتَي Pro وMax فقط.",
-   "fr": "Affiche l'utilisation de ton forfait Claude (limites sur 5 heures et à la semaine) dans l'en-tête de l'île. Coucou ajoute un relais de ligne d'état dans ~/.claude/settings.json. Si tu as déjà une ligne d'état, elle continue de fonctionner comme avant. Forfaits Pro et Max uniquement.",
-   "bn": "আইল্যান্ডের হেডারে আপনার Claude প্ল্যানের ব্যবহার (৫ ঘণ্টা ও সাপ্তাহিক সীমা) দেখায়। Coucou ~/.claude/settings.json-এ একটি স্ট্যাটাস লাইন রিলে যোগ করে। আপনার আগে থেকে স্ট্যাটাস লাইন থাকলে সেটি আগের মতোই চলবে। শুধু Pro ও Max প্ল্যান।",
-   "pt-BR": "Mostra o uso do seu plano Claude (limites de 5 horas e semanal) no cabeçalho da ilha. O Coucou adiciona um relay de linha de status em ~/.claude/settings.json. Se você já tem uma linha de status, ela continua funcionando como antes. Apenas planos Pro e Max.",
-   "ru": "Показывает использование тарифа Claude (лимиты на 5 часов и на неделю) в заголовке острова. Coucou добавляет ретранслятор строки состояния в ~/.claude/settings.json. Если у вас уже есть строка состояния, она работает как прежде. Только тарифы Pro и Max.",
-   "id": "Menampilkan pemakaian paket Claude Anda (batas 5 jam dan mingguan) di header pulau. Coucou menambahkan relay baris status di ~/.claude/settings.json. Jika Anda sudah punya baris status, baris itu tetap berjalan seperti biasa. Khusus paket Pro dan Max."
+  "Shows your Claude plan usage (5-hour and weekly limits) in the island's header. Cocoa adds a status line relay in ~/.claude/settings.json. If you already have a status line, it keeps working as before. Pro and Max plans only.": {
+   "zh-Hans": "在岛的顶栏显示你的 Claude 套餐用量（5 小时和每周限额）。Cocoa 会在 ~/.claude/settings.json 中添加一个状态栏中继。如果你已有状态栏，它会照常工作。仅限 Pro 和 Max 套餐。",
+   "hi": "आइलैंड के हेडर में आपके Claude प्लान का उपयोग (5 घंटे और साप्ताहिक सीमा) दिखाता है। Cocoa ~/.claude/settings.json में एक स्टेटस लाइन रिले जोड़ता है। अगर आपके पास पहले से स्टेटस लाइन है, तो वह पहले की तरह चलती रहेगी। केवल Pro और Max प्लान।",
+   "es": "Muestra el uso de tu plan de Claude (límites de 5 horas y semanal) en la cabecera de la isla. Cocoa añade un relay de línea de estado en ~/.claude/settings.json. Si ya tienes una línea de estado, sigue funcionando como antes. Solo planes Pro y Max.",
+   "ar": "يعرض استخدام خطة Claude (حدّا الخمس ساعات والأسبوع) في رأس الشريط. يضيف Cocoa مُرحِّلًا لسطر الحالة في ~/.claude/settings.json. إن كان لديك سطر حالة فسيستمر في العمل كما كان. لخطتَي Pro وMax فقط.",
+   "fr": "Affiche l'utilisation de ton forfait Claude (limites sur 5 heures et à la semaine) dans l'en-tête de l'île. Cocoa ajoute un relais de ligne d'état dans ~/.claude/settings.json. Si tu as déjà une ligne d'état, elle continue de fonctionner comme avant. Forfaits Pro et Max uniquement.",
+   "bn": "আইল্যান্ডের হেডারে আপনার Claude প্ল্যানের ব্যবহার (৫ ঘণ্টা ও সাপ্তাহিক সীমা) দেখায়। Cocoa ~/.claude/settings.json-এ একটি স্ট্যাটাস লাইন রিলে যোগ করে। আপনার আগে থেকে স্ট্যাটাস লাইন থাকলে সেটি আগের মতোই চলবে। শুধু Pro ও Max প্ল্যান।",
+   "pt-BR": "Mostra o uso do seu plano Claude (limites de 5 horas e semanal) no cabeçalho da ilha. O Cocoa adiciona um relay de linha de status em ~/.claude/settings.json. Se você já tem uma linha de status, ela continua funcionando como antes. Apenas planos Pro e Max.",
+   "ru": "Показывает использование тарифа Claude (лимиты на 5 часов и на неделю) в заголовке острова. Cocoa добавляет ретранслятор строки состояния в ~/.claude/settings.json. Если у вас уже есть строка состояния, она работает как прежде. Только тарифы Pro и Max.",
+   "id": "Menampilkan pemakaian paket Claude Anda (batas 5 jam dan mingguan) di header pulau. Cocoa menambahkan relay baris status di ~/.claude/settings.json. Jika Anda sudah punya baris status, baris itu tetap berjalan seperti biasa. Khusus paket Pro dan Max."
   },
-  "Shows your Codex plan usage (weekly limit and free resets left) in the island's header. Coucou asks the Codex CLI (codex app-server) when the pill shows; nothing is installed. Codex must be signed in with ChatGPT.": {
-   "zh-Hans": "在岛的顶栏显示你的 Codex 套餐用量（每周限额和剩余的免费重置次数）。标签显示时，Coucou 会询问 Codex CLI（codex app-server），不会安装任何东西。Codex 必须已用 ChatGPT 登录。",
-   "hi": "आइलैंड के हेडर में आपके Codex प्लान का उपयोग (साप्ताहिक सीमा और बचे मुफ़्त रीसेट) दिखाता है। टैब दिखने पर Coucou Codex CLI (codex app-server) से पूछता है; कुछ भी इंस्टॉल नहीं होता। Codex में ChatGPT से साइन इन होना ज़रूरी है।",
-   "es": "Muestra el uso de tu plan de Codex (límite semanal y reinicios gratuitos restantes) en la cabecera de la isla. Coucou consulta a la CLI de Codex (codex app-server) cuando aparece la pestaña; no se instala nada. Codex debe tener la sesión iniciada con ChatGPT.",
-   "ar": "يعرض استخدام خطة Codex (الحد الأسبوعي وإعادات التعيين المجانية المتبقية) في رأس الشريط. يسأل Coucou واجهة Codex CLI (codex app-server) عند ظهور التبويب، ولا يُثبَّت أي شيء. يجب تسجيل الدخول إلى Codex بحساب ChatGPT.",
-   "fr": "Affiche l'utilisation de ton forfait Codex (limite hebdomadaire et réinitialisations gratuites restantes) dans l'en-tête de l'île. Coucou interroge la CLI Codex (codex app-server) quand l'onglet s'affiche ; rien n'est installé. Codex doit être connecté avec ChatGPT.",
-   "bn": "আইল্যান্ডের হেডারে আপনার Codex প্ল্যানের ব্যবহার (সাপ্তাহিক সীমা ও বাকি ফ্রি রিসেট) দেখায়। ট্যাব দেখা গেলে Coucou Codex CLI (codex app-server)-কে জিজ্ঞেস করে; কিছুই ইনস্টল হয় না। Codex-এ ChatGPT দিয়ে সাইন ইন থাকতে হবে।",
-   "pt-BR": "Mostra o uso do seu plano Codex (limite semanal e redefinições grátis restantes) no cabeçalho da ilha. O Coucou consulta a CLI do Codex (codex app-server) quando a aba aparece; nada é instalado. O Codex precisa estar conectado com o ChatGPT.",
-   "ru": "Показывает использование тарифа Codex (недельный лимит и оставшиеся бесплатные сбросы) в заголовке острова. Coucou спрашивает Codex CLI (codex app-server), когда видна вкладка; ничего не устанавливается. В Codex нужно войти через ChatGPT.",
-   "id": "Menampilkan pemakaian paket Codex Anda (batas mingguan dan sisa reset gratis) di header pulau. Coucou menanyakan Codex CLI (codex app-server) saat tab tampil; tidak ada yang dipasang. Codex harus masuk dengan ChatGPT."
+  "Shows your Codex plan usage (weekly limit and free resets left) in the island's header. Cocoa asks the Codex CLI (codex app-server) when the pill shows; nothing is installed. Codex must be signed in with ChatGPT.": {
+   "zh-Hans": "在岛的顶栏显示你的 Codex 套餐用量（每周限额和剩余的免费重置次数）。标签显示时，Cocoa 会询问 Codex CLI（codex app-server），不会安装任何东西。Codex 必须已用 ChatGPT 登录。",
+   "hi": "आइलैंड के हेडर में आपके Codex प्लान का उपयोग (साप्ताहिक सीमा और बचे मुफ़्त रीसेट) दिखाता है। टैब दिखने पर Cocoa Codex CLI (codex app-server) से पूछता है; कुछ भी इंस्टॉल नहीं होता। Codex में ChatGPT से साइन इन होना ज़रूरी है।",
+   "es": "Muestra el uso de tu plan de Codex (límite semanal y reinicios gratuitos restantes) en la cabecera de la isla. Cocoa consulta a la CLI de Codex (codex app-server) cuando aparece la pestaña; no se instala nada. Codex debe tener la sesión iniciada con ChatGPT.",
+   "ar": "يعرض استخدام خطة Codex (الحد الأسبوعي وإعادات التعيين المجانية المتبقية) في رأس الشريط. يسأل Cocoa واجهة Codex CLI (codex app-server) عند ظهور التبويب، ولا يُثبَّت أي شيء. يجب تسجيل الدخول إلى Codex بحساب ChatGPT.",
+   "fr": "Affiche l'utilisation de ton forfait Codex (limite hebdomadaire et réinitialisations gratuites restantes) dans l'en-tête de l'île. Cocoa interroge la CLI Codex (codex app-server) quand l'onglet s'affiche ; rien n'est installé. Codex doit être connecté avec ChatGPT.",
+   "bn": "আইল্যান্ডের হেডারে আপনার Codex প্ল্যানের ব্যবহার (সাপ্তাহিক সীমা ও বাকি ফ্রি রিসেট) দেখায়। ট্যাব দেখা গেলে Cocoa Codex CLI (codex app-server)-কে জিজ্ঞেস করে; কিছুই ইনস্টল হয় না। Codex-এ ChatGPT দিয়ে সাইন ইন থাকতে হবে।",
+   "pt-BR": "Mostra o uso do seu plano Codex (limite semanal e redefinições grátis restantes) no cabeçalho da ilha. O Cocoa consulta a CLI do Codex (codex app-server) quando a aba aparece; nada é instalado. O Codex precisa estar conectado com o ChatGPT.",
+   "ru": "Показывает использование тарифа Codex (недельный лимит и оставшиеся бесплатные сбросы) в заголовке острова. Cocoa спрашивает Codex CLI (codex app-server), когда видна вкладка; ничего не устанавливается. В Codex нужно войти через ChatGPT.",
+   "id": "Menampilkan pemakaian paket Codex Anda (batas mingguan dan sisa reset gratis) di header pulau. Cocoa menanyakan Codex CLI (codex app-server) saat tab tampil; tidak ada yang dipasang. Codex harus masuk dengan ChatGPT."
   },
   "Start a new Antigravity conversation to pick the hooks up.": {
    "zh-Hans": "开启新的 Antigravity 对话即可启用 hooks。",
@@ -2421,16 +2421,16 @@
    "ru": "Ретранслятор ещё не установлен.",
    "id": "Relay belum terpasang."
   },
-  "The relay isn't installed yet. Restart Coucou.": {
-   "zh-Hans": "中继尚未安装。请重启 Coucou。",
-   "hi": "रिले अभी इंस्टॉल नहीं है। Coucou को फिर से शुरू करें।",
-   "es": "El relay aún no está instalado. Reinicia Coucou.",
-   "ar": "المُرحِّل غير مثبَّت بعد. أعد تشغيل Coucou.",
-   "fr": "Le relais n'est pas encore installé. Redémarre Coucou.",
-   "bn": "রিলে এখনো ইনস্টল হয়নি। Coucou আবার চালু করুন।",
-   "pt-BR": "O relay ainda não está instalado. Reinicie o Coucou.",
-   "ru": "Ретранслятор ещё не установлен. Перезапустите Coucou.",
-   "id": "Relay belum terpasang. Mulai ulang Coucou."
+  "The relay isn't installed yet. Restart Cocoa.": {
+   "zh-Hans": "中继尚未安装。请重启 Cocoa。",
+   "hi": "रिले अभी इंस्टॉल नहीं है। Cocoa को फिर से शुरू करें।",
+   "es": "El relay aún no está instalado. Reinicia Cocoa.",
+   "ar": "المُرحِّل غير مثبَّت بعد. أعد تشغيل Cocoa.",
+   "fr": "Le relais n'est pas encore installé. Redémarre Cocoa.",
+   "bn": "রিলে এখনো ইনস্টল হয়নি। Cocoa আবার চালু করুন।",
+   "pt-BR": "O relay ainda não está instalado. Reinicie o Cocoa.",
+   "ru": "Ретранслятор ещё не установлен. Перезапустите Cocoa.",
+   "id": "Relay belum terpasang. Mulai ulang Cocoa."
   },
   "The server refused the key. Check it, then connect again.": {
    "zh-Hans": "服务器拒绝了该密钥。请检查后重新连接。",
@@ -2509,16 +2509,16 @@
    "ru": "Вот что именно изменится в вашем settings.json. Ваши собственные хуки не затрагиваются.",
    "id": "Inilah persisnya yang akan berubah di settings.json Anda. Hooks milik Anda tidak disentuh."
   },
-  "This is exactly what will change: only the status line. If you already have one it keeps working, Coucou's relay runs it for you.": {
-   "zh-Hans": "这正是将发生的改动：只涉及状态栏。如果你已有状态栏，它会照常工作，由 Coucou 的中继替你运行。",
-   "hi": "ठीक यही बदलेगा: केवल स्टेटस लाइन। अगर आपके पास पहले से एक है तो वह चलती रहेगी, Coucou का रिले उसे आपके लिए चलाता है।",
-   "es": "Esto es exactamente lo que cambiará: solo la línea de estado. Si ya tienes una, sigue funcionando: el relay de Coucou la ejecuta por ti.",
-   "ar": "هذا بالضبط ما سيتغيّر: سطر الحالة فقط. إن كان لديك سطر حالة فسيستمر في العمل، إذ يشغّله مُرحِّل Coucou نيابةً عنك.",
-   "fr": "Voici exactement ce qui va changer : seulement la ligne d'état. Si tu en as déjà une, elle continue de fonctionner, le relais de Coucou la lance pour toi.",
-   "bn": "ঠিক এটাই বদলাবে: শুধু স্ট্যাটাস লাইন। আপনার আগে থেকে একটি থাকলে সেটি চলতেই থাকবে, Coucou-র রিলে আপনার হয়ে সেটি চালায়।",
-   "pt-BR": "Isto é exatamente o que vai mudar: apenas a linha de status. Se você já tem uma, ela continua funcionando: o relay do Coucou a executa para você.",
-   "ru": "Вот что именно изменится: только строка состояния. Если она у вас уже есть, она продолжит работать — её запускает ретранслятор Coucou.",
-   "id": "Inilah persisnya yang akan berubah: hanya baris status. Jika Anda sudah punya, baris itu tetap berjalan, relay Coucou menjalankannya untuk Anda."
+  "This is exactly what will change: only the status line. If you already have one it keeps working, Cocoa's relay runs it for you.": {
+   "zh-Hans": "这正是将发生的改动：只涉及状态栏。如果你已有状态栏，它会照常工作，由 Cocoa 的中继替你运行。",
+   "hi": "ठीक यही बदलेगा: केवल स्टेटस लाइन। अगर आपके पास पहले से एक है तो वह चलती रहेगी, Cocoa का रिले उसे आपके लिए चलाता है।",
+   "es": "Esto es exactamente lo que cambiará: solo la línea de estado. Si ya tienes una, sigue funcionando: el relay de Cocoa la ejecuta por ti.",
+   "ar": "هذا بالضبط ما سيتغيّر: سطر الحالة فقط. إن كان لديك سطر حالة فسيستمر في العمل، إذ يشغّله مُرحِّل Cocoa نيابةً عنك.",
+   "fr": "Voici exactement ce qui va changer : seulement la ligne d'état. Si tu en as déjà une, elle continue de fonctionner, le relais de Cocoa la lance pour toi.",
+   "bn": "ঠিক এটাই বদলাবে: শুধু স্ট্যাটাস লাইন। আপনার আগে থেকে একটি থাকলে সেটি চলতেই থাকবে, Cocoa-র রিলে আপনার হয়ে সেটি চালায়।",
+   "pt-BR": "Isto é exatamente o que vai mudar: apenas a linha de status. Se você já tem uma, ela continua funcionando: o relay do Cocoa a executa para você.",
+   "ru": "Вот что именно изменится: только строка состояния. Если она у вас уже есть, она продолжит работать — её запускает ретранслятор Cocoa.",
+   "id": "Inilah persisnya yang akan berubah: hanya baris status. Jika Anda sudah punya, baris itu tetap berjalan, relay Cocoa menjalankannya untuk Anda."
   },
   "This puts your previous status line back, or removes the entry if there was none.": {
    "zh-Hans": "这会恢复你之前的状态栏；如果之前没有，则移除该条目。",
@@ -2531,27 +2531,27 @@
    "ru": "Возвращается ваша прежняя строка состояния, а если её не было — запись удаляется.",
    "id": "Ini mengembalikan baris status Anda sebelumnya, atau menghapus entri jika sebelumnya tidak ada."
   },
-  "This removes Coucou's entries only. Everything else stays.": {
-   "zh-Hans": "这只会移除 Coucou 的条目，其余内容保持不变。",
-   "hi": "यह केवल Coucou की प्रविष्टियाँ हटाता है। बाकी सब वैसा ही रहता है।",
-   "es": "Esto solo quita las entradas de Coucou. Todo lo demás se queda.",
-   "ar": "يزيل هذا إدخالات Coucou فقط. يبقى كل شيء آخر كما هو.",
-   "fr": "Seules les entrées de Coucou sont retirées. Tout le reste est conservé.",
-   "bn": "এটি শুধু Coucou-র এন্ট্রি সরায়। বাকি সব থেকে যায়।",
-   "pt-BR": "Isto remove apenas as entradas do Coucou. O resto continua.",
-   "ru": "Удаляются только записи Coucou. Всё остальное остаётся.",
-   "id": "Ini hanya menghapus entri Coucou. Yang lain tetap ada."
+  "This removes Cocoa's entries only. Everything else stays.": {
+   "zh-Hans": "这只会移除 Cocoa 的条目，其余内容保持不变。",
+   "hi": "यह केवल Cocoa की प्रविष्टियाँ हटाता है। बाकी सब वैसा ही रहता है।",
+   "es": "Esto solo quita las entradas de Cocoa. Todo lo demás se queda.",
+   "ar": "يزيل هذا إدخالات Cocoa فقط. يبقى كل شيء آخر كما هو.",
+   "fr": "Seules les entrées de Cocoa sont retirées. Tout le reste est conservé.",
+   "bn": "এটি শুধু Cocoa-র এন্ট্রি সরায়। বাকি সব থেকে যায়।",
+   "pt-BR": "Isto remove apenas as entradas do Cocoa. O resto continua.",
+   "ru": "Удаляются только записи Cocoa. Всё остальное остаётся.",
+   "id": "Ini hanya menghapus entri Cocoa. Yang lain tetap ada."
   },
-  "This removes Coucou's entries only. Your own hooks are left untouched.": {
-   "zh-Hans": "这只会移除 Coucou 的条目。你自己的 hooks 不会被触碰。",
-   "hi": "यह केवल Coucou की प्रविष्टियाँ हटाता है। आपके अपने hooks नहीं छुए जाते।",
-   "es": "Esto solo quita las entradas de Coucou. Tus propios hooks no se tocan.",
-   "ar": "يزيل هذا إدخالات Coucou فقط. لن تُمسّ hooks الخاصة بك.",
-   "fr": "Seules les entrées de Coucou sont retirées. Tes propres hooks ne sont pas touchés.",
-   "bn": "এটি শুধু Coucou-র এন্ট্রি সরায়। আপনার নিজের hooks-এ হাত দেওয়া হয় না।",
-   "pt-BR": "Isto remove apenas as entradas do Coucou. Seus próprios hooks não são alterados.",
-   "ru": "Удаляются только записи Coucou. Ваши собственные хуки не затрагиваются.",
-   "id": "Ini hanya menghapus entri Coucou. Hooks milik Anda tidak disentuh."
+  "This removes Cocoa's entries only. Your own hooks are left untouched.": {
+   "zh-Hans": "这只会移除 Cocoa 的条目。你自己的 hooks 不会被触碰。",
+   "hi": "यह केवल Cocoa की प्रविष्टियाँ हटाता है। आपके अपने hooks नहीं छुए जाते।",
+   "es": "Esto solo quita las entradas de Cocoa. Tus propios hooks no se tocan.",
+   "ar": "يزيل هذا إدخالات Cocoa فقط. لن تُمسّ hooks الخاصة بك.",
+   "fr": "Seules les entrées de Cocoa sont retirées. Tes propres hooks ne sont pas touchés.",
+   "bn": "এটি শুধু Cocoa-র এন্ট্রি সরায়। আপনার নিজের hooks-এ হাত দেওয়া হয় না।",
+   "pt-BR": "Isto remove apenas as entradas do Cocoa. Seus próprios hooks não são alterados.",
+   "ru": "Удаляются только записи Cocoa. Ваши собственные хуки не затрагиваются.",
+   "id": "Ini hanya menghapus entri Cocoa. Hooks milik Anda tidak disentuh."
   },
   "Thursday": {
    "zh-Hans": "星期四",
@@ -2619,16 +2619,16 @@
    "ru": "Вторник",
    "id": "Selasa"
   },
-  "Turn it on once with `hermes plugins enable coucou`, then start a new Hermes session.": {
-   "zh-Hans": "先用 `hermes plugins enable coucou` 启用一次，然后开启新的 Hermes 会话。",
-   "hi": "इसे एक बार `hermes plugins enable coucou` से चालू करें, फिर Hermes का नया सत्र शुरू करें।",
-   "es": "Actívalo una vez con `hermes plugins enable coucou` y luego abre una nueva sesión de Hermes.",
-   "ar": "فعّله مرة واحدة بالأمر `hermes plugins enable coucou`، ثم ابدأ جلسة Hermes جديدة.",
-   "fr": "Active-le une fois avec `hermes plugins enable coucou`, puis lance une nouvelle session Hermes.",
-   "bn": "একবার `hermes plugins enable coucou` দিয়ে চালু করুন, তারপর Hermes-এর নতুন সেশন শুরু করুন।",
-   "pt-BR": "Ative uma vez com `hermes plugins enable coucou` e depois inicie uma nova sessão do Hermes.",
-   "ru": "Включите его один раз командой `hermes plugins enable coucou`, затем начните новую сессию Hermes.",
-   "id": "Aktifkan sekali dengan `hermes plugins enable coucou`, lalu mulai sesi Hermes baru."
+  "Turn it on once with `hermes plugins enable cocoa`, then start a new Hermes session.": {
+   "zh-Hans": "先用 `hermes plugins enable cocoa` 启用一次，然后开启新的 Hermes 会话。",
+   "hi": "इसे एक बार `hermes plugins enable cocoa` से चालू करें, फिर Hermes का नया सत्र शुरू करें।",
+   "es": "Actívalo una vez con `hermes plugins enable cocoa` y luego abre una nueva sesión de Hermes.",
+   "ar": "فعّله مرة واحدة بالأمر `hermes plugins enable cocoa`، ثم ابدأ جلسة Hermes جديدة.",
+   "fr": "Active-le une fois avec `hermes plugins enable cocoa`, puis lance une nouvelle session Hermes.",
+   "bn": "একবার `hermes plugins enable cocoa` দিয়ে চালু করুন, তারপর Hermes-এর নতুন সেশন শুরু করুন।",
+   "pt-BR": "Ative uma vez com `hermes plugins enable cocoa` e depois inicie uma nova sessão do Hermes.",
+   "ru": "Включите его один раз командой `hermes plugins enable cocoa`, затем начните новую сессию Hermes.",
+   "id": "Aktifkan sekali dengan `hermes plugins enable cocoa`, lalu mulai sesi Hermes baru."
   },
   "Types “{char}”": {
    "zh-Hans": "输入“{char}”",
@@ -2850,16 +2850,16 @@
    "ru": "всё зелёное",
    "id": "semua hijau"
   },
-  "coucou-hook.exe is not in place yet. Restart Coucou; if it still fails, build it with `cargo build -p coucou-hook`.": {
-   "zh-Hans": "coucou-hook.exe 尚未就位。请重启 Coucou；如果仍然失败，请用 `cargo build -p coucou-hook` 构建它。",
-   "hi": "coucou-hook.exe अभी अपनी जगह पर नहीं है। Coucou फिर से शुरू करें; अगर फिर भी न हो, तो इसे `cargo build -p coucou-hook` से बनाएँ।",
-   "es": "coucou-hook.exe aún no está en su sitio. Reinicia Coucou; si sigue fallando, compílalo con `cargo build -p coucou-hook`.",
-   "ar": "coucou-hook.exe ليس في مكانه بعد. أعد تشغيل Coucou؛ وإن استمر الفشل فابنِه بالأمر `cargo build -p coucou-hook`.",
-   "fr": "coucou-hook.exe n'est pas encore en place. Redémarre Coucou ; si ça échoue encore, compile-le avec `cargo build -p coucou-hook`.",
-   "bn": "coucou-hook.exe এখনো জায়গামতো নেই। Coucou আবার চালু করুন; তবুও না হলে `cargo build -p coucou-hook` দিয়ে এটি বানান।",
-   "pt-BR": "O coucou-hook.exe ainda não está no lugar. Reinicie o Coucou; se continuar falhando, compile-o com `cargo build -p coucou-hook`.",
-   "ru": "coucou-hook.exe ещё не на месте. Перезапустите Coucou; если не поможет, соберите его командой `cargo build -p coucou-hook`.",
-   "id": "coucou-hook.exe belum ada di tempatnya. Mulai ulang Coucou; jika masih gagal, build dengan `cargo build -p coucou-hook`."
+  "cocoa-hook.exe is not in place yet. Restart Cocoa; if it still fails, build it with `cargo build -p cocoa-hook`.": {
+   "zh-Hans": "cocoa-hook.exe 尚未就位。请重启 Cocoa；如果仍然失败，请用 `cargo build -p cocoa-hook` 构建它。",
+   "hi": "cocoa-hook.exe अभी अपनी जगह पर नहीं है। Cocoa फिर से शुरू करें; अगर फिर भी न हो, तो इसे `cargo build -p cocoa-hook` से बनाएँ।",
+   "es": "cocoa-hook.exe aún no está en su sitio. Reinicia Cocoa; si sigue fallando, compílalo con `cargo build -p cocoa-hook`.",
+   "ar": "cocoa-hook.exe ليس في مكانه بعد. أعد تشغيل Cocoa؛ وإن استمر الفشل فابنِه بالأمر `cargo build -p cocoa-hook`.",
+   "fr": "cocoa-hook.exe n'est pas encore en place. Redémarre Cocoa ; si ça échoue encore, compile-le avec `cargo build -p cocoa-hook`.",
+   "bn": "cocoa-hook.exe এখনো জায়গামতো নেই। Cocoa আবার চালু করুন; তবুও না হলে `cargo build -p cocoa-hook` দিয়ে এটি বানান।",
+   "pt-BR": "O cocoa-hook.exe ainda não está no lugar. Reinicie o Cocoa; se continuar falhando, compile-o com `cargo build -p cocoa-hook`.",
+   "ru": "cocoa-hook.exe ещё не на месте. Перезапустите Cocoa; если не поможет, соберите его командой `cargo build -p cocoa-hook`.",
+   "id": "cocoa-hook.exe belum ada di tempatnya. Mulai ulang Cocoa; jika masih gagal, build dengan `cargo build -p cocoa-hook`."
   },
   "failing": {
    "zh-Hans": "失败",
@@ -2993,16 +2993,16 @@
    "ru": "секунд после ухода с острова",
    "id": "detik setelah Anda meninggalkan pulau"
   },
-  "settings.json: {what} has an unexpected type — Coucou has not touched it.": {
-   "zh-Hans": "settings.json：{what} 的类型不符合预期 — Coucou 没有修改它。",
-   "hi": "settings.json: {what} का प्रकार अपेक्षित नहीं है — Coucou ने इसे नहीं छुआ।",
-   "es": "settings.json: {what} tiene un tipo inesperado — Coucou no lo ha tocado.",
-   "ar": "settings.json: {what} من نوع غير متوقع — لم يمسّه Coucou.",
-   "fr": "settings.json : {what} a un type inattendu — Coucou n'y a pas touché.",
-   "bn": "settings.json: {what}-এর ধরন অপ্রত্যাশিত — Coucou এতে হাত দেয়নি।",
-   "pt-BR": "settings.json: {what} tem um tipo inesperado — o Coucou não mexeu nele.",
-   "ru": "settings.json: у {what} неожиданный тип — Coucou его не трогал.",
-   "id": "settings.json: {what} bertipe tak terduga — Coucou tidak menyentuhnya."
+  "settings.json: {what} has an unexpected type — Cocoa has not touched it.": {
+   "zh-Hans": "settings.json：{what} 的类型不符合预期 — Cocoa 没有修改它。",
+   "hi": "settings.json: {what} का प्रकार अपेक्षित नहीं है — Cocoa ने इसे नहीं छुआ।",
+   "es": "settings.json: {what} tiene un tipo inesperado — Cocoa no lo ha tocado.",
+   "ar": "settings.json: {what} من نوع غير متوقع — لم يمسّه Cocoa.",
+   "fr": "settings.json : {what} a un type inattendu — Cocoa n'y a pas touché.",
+   "bn": "settings.json: {what}-এর ধরন অপ্রত্যাশিত — Cocoa এতে হাত দেয়নি।",
+   "pt-BR": "settings.json: {what} tem um tipo inesperado — o Cocoa não mexeu nele.",
+   "ru": "settings.json: у {what} неожиданный тип — Cocoa его не трогал.",
+   "id": "settings.json: {what} bertipe tak terduga — Cocoa tidak menyentuhnya."
   },
   "unknown": {
    "zh-Hans": "未知",
@@ -3152,38 +3152,38 @@
     "other": "{count} repositori"
    }
   },
-  "{file} isn't UTF-8 text — Coucou won't touch it.": {
-   "zh-Hans": "{file} 不是 UTF-8 文本 — Coucou 不会修改它。",
-   "hi": "{file} UTF-8 टेक्स्ट नहीं है — Coucou इसे नहीं छुएगा।",
-   "es": "{file} no es texto UTF-8 — Coucou no lo tocará.",
-   "ar": "{file} ليس نصًا بترميز UTF-8 — لن يمسّه Coucou.",
-   "fr": "{file} n'est pas du texte UTF-8 — Coucou n'y touchera pas.",
-   "bn": "{file} UTF-8 টেক্সট নয় — Coucou এতে হাত দেবে না।",
-   "pt-BR": "{file} não é texto UTF-8 — o Coucou não vai mexer nele.",
-   "ru": "{file} — не текст в UTF-8, Coucou его не тронет.",
-   "id": "{file} bukan teks UTF-8 — Coucou tidak akan menyentuhnya."
+  "{file} isn't UTF-8 text — Cocoa won't touch it.": {
+   "zh-Hans": "{file} 不是 UTF-8 文本 — Cocoa 不会修改它。",
+   "hi": "{file} UTF-8 टेक्स्ट नहीं है — Cocoa इसे नहीं छुएगा।",
+   "es": "{file} no es texto UTF-8 — Cocoa no lo tocará.",
+   "ar": "{file} ليس نصًا بترميز UTF-8 — لن يمسّه Cocoa.",
+   "fr": "{file} n'est pas du texte UTF-8 — Cocoa n'y touchera pas.",
+   "bn": "{file} UTF-8 টেক্সট নয় — Cocoa এতে হাত দেবে না।",
+   "pt-BR": "{file} não é texto UTF-8 — o Cocoa não vai mexer nele.",
+   "ru": "{file} — не текст в UTF-8, Cocoa его не тронет.",
+   "id": "{file} bukan teks UTF-8 — Cocoa tidak akan menyentuhnya."
   },
-  "{file} isn't a JSON object — Coucou won't touch it.": {
-   "zh-Hans": "{file} 不是 JSON 对象 — Coucou 不会修改它。",
-   "hi": "{file} JSON ऑब्जेक्ट नहीं है — Coucou इसे नहीं छुएगा।",
-   "es": "{file} no es un objeto JSON — Coucou no lo tocará.",
-   "ar": "{file} ليس كائن JSON — لن يمسّه Coucou.",
-   "fr": "{file} n'est pas un objet JSON — Coucou n'y touchera pas.",
-   "bn": "{file} JSON অবজেক্ট নয় — Coucou এতে হাত দেবে না।",
-   "pt-BR": "{file} não é um objeto JSON — o Coucou não vai mexer nele.",
-   "ru": "{file} — не объект JSON, Coucou его не тронет.",
-   "id": "{file} bukan objek JSON — Coucou tidak akan menyentuhnya."
+  "{file} isn't a JSON object — Cocoa won't touch it.": {
+   "zh-Hans": "{file} 不是 JSON 对象 — Cocoa 不会修改它。",
+   "hi": "{file} JSON ऑब्जेक्ट नहीं है — Cocoa इसे नहीं छुएगा।",
+   "es": "{file} no es un objeto JSON — Cocoa no lo tocará.",
+   "ar": "{file} ليس كائن JSON — لن يمسّه Cocoa.",
+   "fr": "{file} n'est pas un objet JSON — Cocoa n'y touchera pas.",
+   "bn": "{file} JSON অবজেক্ট নয় — Cocoa এতে হাত দেবে না।",
+   "pt-BR": "{file} não é um objeto JSON — o Cocoa não vai mexer nele.",
+   "ru": "{file} — не объект JSON, Cocoa его не тронет.",
+   "id": "{file} bukan objek JSON — Cocoa tidak akan menyentuhnya."
   },
-  "{file} isn't valid JSON ({error}). Fix or move it, then try again — Coucou won't overwrite it.": {
-   "zh-Hans": "{file} 不是有效的 JSON（{error}）。请修复或移走它后重试 — Coucou 不会覆盖它。",
-   "hi": "{file} मान्य JSON नहीं है ({error})। इसे ठीक करें या हटाएँ, फिर दोबारा कोशिश करें — Coucou इसे ओवरराइट नहीं करेगा।",
-   "es": "{file} no es un JSON válido ({error}). Corrígelo o muévelo y vuelve a intentarlo — Coucou no lo sobrescribirá.",
-   "ar": "{file} ليس JSON صالحًا ({error}). أصلحه أو انقله ثم حاول مجددًا — لن يكتب Coucou فوقه.",
-   "fr": "{file} n'est pas un JSON valide ({error}). Corrige-le ou déplace-le, puis réessaie — Coucou ne l'écrasera pas.",
-   "bn": "{file} বৈধ JSON নয় ({error})। এটি ঠিক করুন বা সরান, তারপর আবার চেষ্টা করুন — Coucou এটি ওভাররাইট করবে না।",
-   "pt-BR": "{file} não é um JSON válido ({error}). Corrija ou mova o arquivo e tente de novo — o Coucou não vai sobrescrevê-lo.",
-   "ru": "{file} — некорректный JSON ({error}). Исправьте или переместите его и попробуйте снова — Coucou не будет его перезаписывать.",
-   "id": "{file} bukan JSON yang valid ({error}). Perbaiki atau pindahkan, lalu coba lagi — Coucou tidak akan menimpanya."
+  "{file} isn't valid JSON ({error}). Fix or move it, then try again — Cocoa won't overwrite it.": {
+   "zh-Hans": "{file} 不是有效的 JSON（{error}）。请修复或移走它后重试 — Cocoa 不会覆盖它。",
+   "hi": "{file} मान्य JSON नहीं है ({error})। इसे ठीक करें या हटाएँ, फिर दोबारा कोशिश करें — Cocoa इसे ओवरराइट नहीं करेगा।",
+   "es": "{file} no es un JSON válido ({error}). Corrígelo o muévelo y vuelve a intentarlo — Cocoa no lo sobrescribirá.",
+   "ar": "{file} ليس JSON صالحًا ({error}). أصلحه أو انقله ثم حاول مجددًا — لن يكتب Cocoa فوقه.",
+   "fr": "{file} n'est pas un JSON valide ({error}). Corrige-le ou déplace-le, puis réessaie — Cocoa ne l'écrasera pas.",
+   "bn": "{file} বৈধ JSON নয় ({error})। এটি ঠিক করুন বা সরান, তারপর আবার চেষ্টা করুন — Cocoa এটি ওভাররাইট করবে না।",
+   "pt-BR": "{file} não é um JSON válido ({error}). Corrija ou mova o arquivo e tente de novo — o Cocoa não vai sobrescrevê-lo.",
+   "ru": "{file} — некорректный JSON ({error}). Исправьте или переместите его и попробуйте снова — Cocoa не будет его перезаписывать.",
+   "id": "{file} bukan JSON yang valid ({error}). Perbaiki atau pindahkan, lalu coba lagi — Cocoa tidak akan menimpanya."
   },
   "{h}h {m}m": {
    "zh-Hans": "{h} 小时 {m} 分钟",
@@ -3251,16 +3251,16 @@
    "ru": "{name} отклонил API-ключ ({status}). Проверьте его в настройках.",
    "id": "{name} menolak kunci API ({status}). Periksa di Pengaturan."
   },
-  "{name} wasn't written by Coucou — Coucou has not touched it.": {
-   "zh-Hans": "{name} 不是由 Coucou 写入的 — Coucou 没有修改它。",
-   "hi": "{name} Coucou ने नहीं लिखा था — Coucou ने इसे नहीं छुआ।",
-   "es": "{name} no lo escribió Coucou — Coucou no lo ha tocado.",
-   "ar": "لم يكتب Coucou الملف {name} — لم يمسّه Coucou.",
-   "fr": "{name} n'a pas été écrit par Coucou — Coucou n'y a pas touché.",
-   "bn": "{name} Coucou লেখেনি — Coucou এতে হাত দেয়নি।",
-   "pt-BR": "{name} não foi escrito pelo Coucou — o Coucou não mexeu nele.",
-   "ru": "{name} записан не Coucou — Coucou его не трогал.",
-   "id": "{name} tidak ditulis oleh Coucou — Coucou tidak menyentuhnya."
+  "{name} wasn't written by Cocoa — Cocoa has not touched it.": {
+   "zh-Hans": "{name} 不是由 Cocoa 写入的 — Cocoa 没有修改它。",
+   "hi": "{name} Cocoa ने नहीं लिखा था — Cocoa ने इसे नहीं छुआ।",
+   "es": "{name} no lo escribió Cocoa — Cocoa no lo ha tocado.",
+   "ar": "لم يكتب Cocoa الملف {name} — لم يمسّه Cocoa.",
+   "fr": "{name} n'a pas été écrit par Cocoa — Cocoa n'y a pas touché.",
+   "bn": "{name} Cocoa লেখেনি — Cocoa এতে হাত দেয়নি।",
+   "pt-BR": "{name} não foi escrito pelo Cocoa — o Cocoa não mexeu nele.",
+   "ru": "{name} записан не Cocoa — Cocoa его не трогал.",
+   "id": "{name} tidak ditulis oleh Cocoa — Cocoa tidak menyentuhnya."
   },
   "{name} — {width}×{height} at {x},{y}": {
    "zh-Hans": "{name} — {width}×{height}，位于 {x},{y}",
@@ -3383,16 +3383,16 @@
    "ru": "Занято мест: {used}/{max} — основной инструмент место не занимает.",
    "id": "{used}/{max} slot terpakai — alat utama tidak memakai slot."
   },
-  "{what} has an unexpected type — Coucou has not touched it.": {
-   "zh-Hans": "{what} 的类型不符合预期 — Coucou 没有修改它。",
-   "hi": "{what} का प्रकार अपेक्षित नहीं है — Coucou ने इसे नहीं छुआ।",
-   "es": "{what} tiene un tipo inesperado — Coucou no lo ha tocado.",
-   "ar": "{what} من نوع غير متوقع — لم يمسّه Coucou.",
-   "fr": "{what} a un type inattendu — Coucou n'y a pas touché.",
-   "bn": "{what}-এর ধরন অপ্রত্যাশিত — Coucou এতে হাত দেয়নি।",
-   "pt-BR": "{what} tem um tipo inesperado — o Coucou não mexeu nele.",
-   "ru": "У {what} неожиданный тип — Coucou его не трогал.",
-   "id": "{what} bertipe tak terduga — Coucou tidak menyentuhnya."
+  "{what} has an unexpected type — Cocoa has not touched it.": {
+   "zh-Hans": "{what} 的类型不符合预期 — Cocoa 没有修改它。",
+   "hi": "{what} का प्रकार अपेक्षित नहीं है — Cocoa ने इसे नहीं छुआ।",
+   "es": "{what} tiene un tipo inesperado — Cocoa no lo ha tocado.",
+   "ar": "{what} من نوع غير متوقع — لم يمسّه Cocoa.",
+   "fr": "{what} a un type inattendu — Cocoa n'y a pas touché.",
+   "bn": "{what}-এর ধরন অপ্রত্যাশিত — Cocoa এতে হাত দেয়নি।",
+   "pt-BR": "{what} tem um tipo inesperado — o Cocoa não mexeu nele.",
+   "ru": "У {what} неожиданный тип — Cocoa его не трогал.",
+   "id": "{what} bertipe tak terduga — Cocoa tidak menyentuhnya."
   },
   "• subagent done": {
    "zh-Hans": "• 子代理完成",
@@ -3492,6 +3492,105 @@
    "pt-BR": "Notificações do sistema",
    "ru": "Системные уведомления",
    "id": "Notifikasi sistem"
+  },
+  "Auto-expand on activity": {
+   "zh-Hans": "活动时自动展开",
+   "hi": "गतिविधि पर ऑटो-विस्तार",
+   "es": "Autoexpandir con actividad",
+   "ar": "توسيع تلقائي عند وجود نشاط",
+   "fr": "Déroulement auto lors de l'activité",
+   "bn": "কার্যকলাপে স্বয়ংক্রিয় প্রসারিত",
+   "pt-BR": "Expandir auto com atividade",
+   "ru": "Автораскрытие при активности",
+   "id": "Perluas otomatis saat ada aktivitas"
+  },
+  "Expand notch when coding agents perform actions": {
+   "zh-Hans": "当编码代理执行操作时展开灵动岛",
+   "hi": "कोडिंग एजेंट द्वारा कार्य करने पर नॉच का विस्तार करें",
+   "es": "Expandir el notch cuando los agentes de código realicen acciones",
+   "ar": "توسيع الشريط عندما ينفّذ وكلاء البرمجة إجراءات",
+   "fr": "Dérouler l'encoche quand les agents de code effectuent des actions",
+   "bn": "কোডিং এজেন্ট কোনো কাজ করলে নচ প্রসারিত করুন",
+   "pt-BR": "Expandir o notch quando os agentes de código realizarem ações",
+   "ru": "Раскрывать вырез, когда агенты кода выполняют действия",
+   "id": "Perluas notch saat agen pengodean melakukan tindakan"
+  },
+  "Expanded card layout when only one pill is active": {
+   "zh-Hans": "仅激活一个药丸时显示展开的卡片布局",
+   "hi": "केवल एक पिल सक्रिय होने पर विस्तारित कार्ड लेआउट",
+   "es": "Diseño de tarjeta expandida cuando solo hay una píldora activa",
+   "ar": "تخطيط بطاقة ممتدة عندما تكون حبة واحدة فقط نشطة",
+   "fr": "Disposition en carte étendue quand une seule pilule est active",
+   "bn": "শুধুমাত্র একটি পিল সক্রিয় থাকলে প্রসারিত কার্ড লেআউট",
+   "pt-BR": "Layout de cartão expandido quando apenas uma pílula está ativa",
+   "ru": "Макет расширенной карточки, если активна только одна плашка",
+   "id": "Tata letak kartu diperluas saat hanya satu pil yang aktif"
+  },
+  "Inspect file changes and additions as agents work": {
+   "zh-Hans": "在代理工作时检查文件更改和新增内容",
+   "hi": "एजेंट के काम करते समय फ़ाइल परिवर्तन और परिवर्धन का निरीक्षण करें",
+   "es": "Inspeccionar cambios y adiciones de archivos mientras trabajan los agentes",
+   "ar": "معاينة تغييرات الملفات والإضافات أثناء عمل الوكلاء",
+   "fr": "Inspecter les modifications et ajouts de fichiers pendant que les agents travaillent",
+   "bn": "এজেন্ট কাজ করার সময় ফাইলের পরিবর্তন এবং সংযোজন পরিদর্শন করুন",
+   "pt-BR": "Inspecionar alterações e adições de arquivos enquanto os agentes trabalham",
+   "ru": "Просмотр изменений и добавлений файлов по ходу работы агентов",
+   "id": "Periksa perubahan dan penambahan berkas saat agen bekerja"
+  },
+  "Live Code Diff Inspector": {
+   "zh-Hans": "实时代码差异检查器",
+   "hi": "लाइव कोड डिफ इंस्पेक्टर",
+   "es": "Inspector de diferencias de código en vivo",
+   "ar": "فاحص فروق الكود المباشر",
+   "fr": "Inspecteur de diffs de code en direct",
+   "bn": "লাইভ কোড ডিফারেন্স পরিদর্শক",
+   "pt-BR": "Inspetor de diffs de código em tempo real",
+   "ru": "Инспектор диффов кода в реальном времени",
+   "id": "Inspektur diff kode langsung"
+  },
+  "Notification chime": {
+   "zh-Hans": "通知提示音",
+   "hi": "सूचना ध्वनि",
+   "es": "Sonido de notificación",
+   "ar": "نغمة الإشعار",
+   "fr": "Son de notification",
+   "bn": "বিজ্ঞপ্তি শব্দ",
+   "pt-BR": "Som de notificação",
+   "ru": "Звук уведомления",
+   "id": "Suara notifikasi"
+  },
+  "Notification duration": {
+   "zh-Hans": "通知停留时间",
+   "hi": "सूचना की अवधि",
+   "es": "Duración de la notificación",
+   "ar": "مدة الإشعار",
+   "fr": "Durée de la notification",
+   "bn": "বিজ্ঞপ্তির সময়কাল",
+   "pt-BR": "Duração da notificação",
+   "ru": "Длительность уведомления",
+   "id": "Durasi notifikasi"
+  },
+  "Single pill hero card": {
+   "zh-Hans": "单药丸英雄卡片",
+   "hi": "एकल पिल हीरो कार्ड",
+   "es": "Tarjeta destacada para píldora única",
+   "ar": "بطاقة بارزة للحبة الفردية",
+   "fr": "Carte mise en avant pour pilule unique",
+   "bn": "একক পিল হিরো কার্ড",
+   "pt-BR": "Cartão de destaque para pílula única",
+   "ru": "Главная карточка для одной плашки",
+   "id": "Kartu sorotan untuk satu pil"
+  },
+  "seconds": {
+   "zh-Hans": "秒",
+   "hi": "सेकंड",
+   "es": "segundos",
+   "ar": "ثوانٍ",
+   "fr": "secondes",
+   "bn": "সেকেন্ড",
+   "pt-BR": "segundos",
+   "ru": "секунд",
+   "id": "detik"
   }
  }
 }

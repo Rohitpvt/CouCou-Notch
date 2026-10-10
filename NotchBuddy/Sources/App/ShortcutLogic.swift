@@ -2,7 +2,7 @@ import Foundation
 
 // MARK: - Shortcut Action
 
-/// Every keyboard shortcut Coucou knows about.
+/// Every keyboard shortcut Cocoa knows about.
 /// The first 10 cases are *global* (registered with Carbon and effective from any app).
 /// Island-local shortcuts are documented in `ShortcutLogic.islandShortcuts` but are
 /// not managed here — they are handled by a local NSEvent monitor in IslandWindowController.
@@ -159,7 +159,7 @@ enum ShortcutLogic {
         return c
     }
 
-    // MARK: - Conflict detection (within Coucou's own shortcuts)
+    // MARK: - Conflict detection (within Cocoa's own shortcuts)
 
     /// Returns the set of actions whose (keyCode, nsFlags) pair is shared with another action.
     static func duplicates(in specs: [ShortcutAction: ShortcutSpec]) -> Set<ShortcutAction> {

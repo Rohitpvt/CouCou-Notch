@@ -9,7 +9,7 @@ enum PhoneSettings {
     static let quietHoursKey = "quietHours"
     static let quietFromKey = "quietFrom"   // minutes after midnight
     static let quietToKey = "quietTo"
-    /// Set by the Coucou Focus filter: only what waits on you notifies.
+    /// Set by the Cocoa Focus filter: only what waits on you notifies.
     static let focusOnlyWaitingKey = "focusOnlyWaiting"
     static var focusOnlyWaiting: Bool { defaults.bool(forKey: focusOnlyWaitingKey) }
 
@@ -42,17 +42,17 @@ enum PhoneSettings {
 /// Notification categories and their actions.
 enum NotificationActions {
     // Approvals: Allow and Deny answer right there (iOS asks to unlock first).
-    static let approvalCategory = "COUCOU_APPROVAL"
-    static let allow = "COUCOU_ALLOW"
-    static let review = "COUCOU_REVIEW"
-    static let deny = "COUCOU_DENY"
+    static let approvalCategory = "COCOA_APPROVAL"
+    static let allow = "COCOA_ALLOW"
+    static let review = "COCOA_REVIEW"
+    static let deny = "COCOA_DENY"
     // An agent finished: reply with the next instruction.
-    static let doneReplyCategory = "COUCOU_DONE_REPLY"
-    static let doneCategory = "COUCOU_DONE"
-    static let reply = "COUCOU_REPLY"
+    static let doneReplyCategory = "COCOA_DONE_REPLY"
+    static let doneCategory = "COCOA_DONE"
+    static let reply = "COCOA_REPLY"
     // A question: one button per choice when it is a single question.
-    static let questionCategory = "COUCOU_QUESTION"
-    static let pickPrefix = "COUCOU_PICK_"
+    static let questionCategory = "COCOA_QUESTION"
+    static let pickPrefix = "COCOA_PICK_"
 
     /// Categories made for the latest questions, kept next to the fixed ones.
     @MainActor private static var questionCategories: [UNNotificationCategory] = []
@@ -85,7 +85,7 @@ enum NotificationActions {
     /// has several questions or allows several picks (answered in the app).
     @MainActor static func category(for payload: QuestionPayload) -> String? {
         guard payload.items.count == 1, let item = payload.items.first, !item.multiSelect else { return nil }
-        let id = "COUCOU_Q_\(payload.fingerprint.prefix(16))"
+        let id = "COCOA_Q_\(payload.fingerprint.prefix(16))"
         let actions = item.options.prefix(4).enumerated().map { index, option in
             UNNotificationAction(identifier: "\(pickPrefix)\(index)", title: option.label,
                                  options: [.authenticationRequired])
@@ -178,7 +178,7 @@ enum AgentNotifier {
             // Let iOS take the new category before the notification shows.
             try? await Task.sleep(for: .milliseconds(300))
         }
-        content.threadIdentifier = content.userInfo["pillId"] as? String ?? "coucou"
+        content.threadIdentifier = content.userInfo["pillId"] as? String ?? "cocoa"
         let kind = content.userInfo["kind"] as? String ?? "event"
         let request = UNNotificationRequest(identifier: "\(kind)-\(UUID().uuidString)", content: content, trigger: nil)
         try? await UNUserNotificationCenter.current().add(request)

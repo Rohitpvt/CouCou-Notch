@@ -114,7 +114,7 @@ export interface Settings {
   model: string;
   /** Show the Claude plan pill (5 h and weekly limits) in the island's header. */
   showPlanInNotch: boolean;
-  /** Coucou's status line relay is installed in Claude Code's settings. */
+  /** Cocoa's status line relay is installed in Claude Code's settings. */
   planRelayInstalled: boolean;
   /** Show the Codex plan pill in the island's header. */
   showCodexPlanInNotch: boolean;
@@ -126,6 +126,16 @@ export interface Settings {
   showGpuTemp: boolean;
   /** Expand notch when Windows system toast notifications arrive from apps. */
   showSystemNotifications: boolean;
+  /** Duration in seconds for system notifications to stay visible in notch. */
+  notificationDuration: number;
+  /** Play chime sound when a system notification arrives. */
+  notificationSound: boolean;
+  /** Render prominent hero card when only 1 active pill is selected. */
+  enableHeroPillCard: boolean;
+  /** Enable Live Code Diff Inspector on agent file modifications. */
+  enableLiveDiffs: boolean;
+  /** Auto-expand notch island when coding agents run tools. */
+  autoExpandOnAgentTask: boolean;
   /** Who the chat talks to (see core/providers.ts); picked in the chat view. */
   chatProvider: ProviderId;
   /** The model picked for each provider other than Anthropic, by provider id. */
@@ -148,7 +158,7 @@ export interface Settings {
    */
   pillColors: Record<string, string>;
   /**
-   * Interface language: "" follows the system (when Coucou has its language,
+   * Interface language: "" follows the system (when Cocoa has its language,
    * else English), or one of src/i18n's ten codes ("fr", "pt-BR", "zh-Hans"…).
    */
   language: string;
@@ -200,6 +210,11 @@ export const DEFAULT_SETTINGS: Settings = {
   showRamUsage: true,
   showGpuTemp: true,
   showSystemNotifications: true,
+  notificationDuration: 5,
+  notificationSound: true,
+  enableHeroPillCard: true,
+  enableLiveDiffs: true,
+  autoExpandOnAgentTask: true,
   chatProvider: "anthropic",
   chatModels: {},
   ollamaUrl: "",

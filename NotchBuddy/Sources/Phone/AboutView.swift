@@ -30,7 +30,7 @@ struct AboutView: View {
                         .frame(width: 64, height: 64)
                         .background(Color(white: 0.16), in: RoundedRectangle(cornerRadius: 16))
                     VStack(alignment: .leading, spacing: 2) {
-                        Text("Coucou").font(.title3.weight(.semibold))
+                        Text("Cocoa").font(.title3.weight(.semibold))
                         Text("Version \(version)").font(.footnote).foregroundStyle(.secondary)
                     }
                 }
@@ -108,11 +108,11 @@ struct AboutView: View {
                 Text("The Home Screen icon follows your choice; dark and tinted icons follow the Home Screen style. Spotlight's index stays on this iPhone.")
             }
 
-            Section("Coucou") {
-                Link("Website", destination: URL(string: "https://louis-cfm.github.io/coucou/")!)
-                Link("Support", destination: URL(string: "https://louis-cfm.github.io/coucou/support.html")!)
-                Link("Privacy Policy", destination: URL(string: "https://louis-cfm.github.io/coucou/privacy.html")!)
-                Link("Terms", destination: URL(string: "https://louis-cfm.github.io/coucou/terms.html")!)
+            Section("Cocoa") {
+                Link("Website", destination: URL(string: "https://louis-cfm.github.io/cocoa/")!)
+                Link("Support", destination: URL(string: "https://louis-cfm.github.io/cocoa/support.html")!)
+                Link("Privacy Policy", destination: URL(string: "https://louis-cfm.github.io/cocoa/privacy.html")!)
+                Link("Terms", destination: URL(string: "https://louis-cfm.github.io/cocoa/terms.html")!)
             }
 
             Section {
@@ -146,7 +146,7 @@ struct AboutView: View {
     }
 }
 
-/// First launch: what Coucou needs on the Mac to show anything here.
+/// First launch: what Cocoa needs on the Mac to show anything here.
 struct OnboardingView: View {
     @Environment(\.dismiss) private var dismiss
 
@@ -158,15 +158,15 @@ struct OnboardingView: View {
                         .frame(width: 88, height: 88)
                     Text("Your agents, in your pocket")
                         .font(.largeTitle.weight(.bold))
-                    Text("Coucou on iPhone shows what Claude Code, Cursor, Codex and your services are doing on your Mac. Three things to set up, once.")
+                    Text("Cocoa on iPhone shows what Claude Code, Cursor, Codex and your services are doing on your Mac. Three things to set up, once.")
                         .font(.body)
                         .foregroundStyle(.secondary)
                 }
-                step(1, "Coucou on your Mac",
-                     "Install Coucou for Mac (Mac App Store or the website) and set up its Claude Code hooks.",
+                step(1, "Cocoa on your Mac",
+                     "Install Cocoa for Mac (Mac App Store or the website) and set up its Claude Code hooks.",
                      icon: "laptopcomputer")
                 step(2, "Turn on the iPhone switch",
-                     "On the Mac: Coucou Settings → General → iPhone → \"Show my agent sessions on my iPhone\".",
+                     "On the Mac: Cocoa Settings → General → iPhone → \"Show my agent sessions on my iPhone\".",
                      icon: "switch.2")
                 step(3, "Same Apple Account",
                      "Sign in to iCloud with the same Apple Account on both. Your sessions go through your private iCloud, encrypted.",

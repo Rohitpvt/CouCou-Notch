@@ -1,5 +1,5 @@
 // A colour of your own for each pill's Mochi — the pure half, port of
-// NotchBuddy/Sources/CoucouKit/PillColors.swift. The catalog (./pills.ts) keeps
+// NotchBuddy/Sources/CocoaKit/PillColors.swift. The catalog (./pills.ts) keeps
 // every default; the `pillColors` preference holds only what the user changed,
 // by pill ID, so an empty one paints the island exactly as the catalog says.
 

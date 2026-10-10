@@ -25,7 +25,7 @@ final class LiveActivityRelay {
     /// Overrides the relay address (defaults write fr.louisraille.NotchBuddy phoneRelayURL <url>).
     static let relayURLKey = "phoneRelayURL"
     /// The deployed relay (relay/README.md).
-    static let defaultRelayURL = "https://coucou-relay.raillelouis.workers.dev"
+    static let defaultRelayURL = "https://cocoa-relay.raillelouis.workers.dev"
 
     static var isEnabled: Bool { UserDefaults.standard.bool(forKey: enabledKey) }
 
@@ -199,7 +199,7 @@ final class LiveActivityRelay {
             startSent = start
             let targets = phones.filter { !$0.value.startToken.isEmpty }
             if targets.isEmpty {
-                log("no iPhone token yet: open Coucou on the iPhone once, with Live Activities allowed")
+                log("no iPhone token yet: open Cocoa on the iPhone once, with Live Activities allowed")
                 return
             }
             var reached = 0

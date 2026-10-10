@@ -1,13 +1,13 @@
 [package]
-name = "coucou"
-description = "Coucou for Windows and Linux — Mochi lives at the top of your screen"
+name = "cocoa"
+description = "Cocoa for Windows and Linux — Mochi lives at the top of your screen"
 authors = ["Rohit"]
 version.workspace = true
 edition.workspace = true
 license.workspace = true
 
 [lib]
-name = "coucou_lib"
+name = "cocoa_lib"
 crate-type = ["staticlib", "cdylib", "rlib"]
 
 [build-dependencies]

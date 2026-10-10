@@ -662,9 +662,9 @@ fn save_png(dirs: &[PathBuf], data: &str, week: &str) -> Result<PathBuf, String>
         .find(|d| d.is_dir())
         .ok_or_else(|| crate::i18n::t("No Pictures or Downloads folder to save into."))?;
     let stem = if is_week_key(week) {
-        format!("Coucou weekly recap {week}")
+        format!("Cocoa weekly recap {week}")
     } else {
-        "Coucou weekly recap".to_string()
+        "Cocoa weekly recap".to_string()
     };
     write_unique(dir, &stem, &bytes)
         .map_err(|err| crate::i18n::tf("Could not save the image: {error}", &[("error", &err.to_string())]))
@@ -1036,11 +1036,11 @@ mod tests {
         let png = "data:image/png;base64,iVBORw0KGgo=";
         let first = save_png(&[missing.clone(), dir.clone()], png, "2026-10-05").unwrap();
         let second = save_png(&[dir.clone()], png, "2026-10-05").unwrap();
-        assert_eq!(first, dir.join("Coucou weekly recap 2026-10-05.png"));
-        assert_eq!(second, dir.join("Coucou weekly recap 2026-10-05 (2).png"));
+        assert_eq!(first, dir.join("Cocoa weekly recap 2026-10-05.png"));
+        assert_eq!(second, dir.join("Cocoa weekly recap 2026-10-05 (2).png"));
         // The week is a date or nothing: no path tricks through it.
         let third = save_png(&[dir.clone()], png, "../../x").unwrap();
-        assert_eq!(third, dir.join("Coucou weekly recap.png"));
+        assert_eq!(third, dir.join("Cocoa weekly recap.png"));
         // Not a PNG: refused.
         assert!(save_png(&[dir.clone()], "data:image/png;base64,aGVsbG8=", "").is_err());
         assert!(save_png(&[missing], png, "").is_err());

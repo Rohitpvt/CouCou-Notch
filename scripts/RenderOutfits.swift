@@ -1,6 +1,6 @@
 // RenderOutfits.swift — standalone planche renderer for Mochi outfits
 // Compile + run via: bash scripts/render-outfits.sh
-// Output: /tmp/coucou-outfits.png
+// Output: /tmp/cocoa-outfits.png
 
 import Foundation
 import SwiftUI
@@ -323,9 +323,9 @@ private func renderAndSave<V: View>(_ view: V, path: String) {
 struct RenderOutfits {
     static func main() {
         MainActor.assumeIsolated {
-            renderAndSave(OutfitGrid(),      path: "/tmp/coucou-outfits.png")
-            renderAndSave(RollGrid(),        path: "/tmp/coucou-roll.png")
-            renderAndSave(TransitionGrid(),  path: "/tmp/coucou-transition.png")
+            renderAndSave(OutfitGrid(),      path: "/tmp/cocoa-outfits.png")
+            renderAndSave(RollGrid(),        path: "/tmp/cocoa-roll.png")
+            renderAndSave(TransitionGrid(),  path: "/tmp/cocoa-transition.png")
         }
     }
 }

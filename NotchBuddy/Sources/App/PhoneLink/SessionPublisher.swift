@@ -6,7 +6,7 @@ import Combine
 // MARK: - iPhone plan, step 4: publish agent sessions to iCloud
 //
 // One `Session` record per agent pill (VS Code / Claude Code, Cursor, Codex,
-// Antigravity, Gemini CLI…) in the private zone `Coucou`, so the iPhone can show
+// Antigravity, Gemini CLI…) in the private zone `Cocoa`, so the iPhone can show
 // them. Driven only by AppState changes (debounced), never by a timer: nothing
 // runs while no agent changes. Integrations (Stripe, Vercel…) are not sessions.
 //
@@ -18,7 +18,7 @@ import Combine
 final class SessionPublisher {
     static let shared = SessionPublisher()
 
-    private let container = CKContainer(identifier: "iCloud.fr.louisraille.Coucou")
+    private let container = CKContainer(identifier: "iCloud.fr.louisraille.Cocoa")
     private var database: CKDatabase { container.privateCloudDatabase }
     private var cancellable: AnyCancellable?
 
@@ -211,7 +211,7 @@ struct SessionSnapshot: Equatable {
 
     /// Same zone as CloudProbe.zoneID, rebuilt here because that one is main-actor isolated.
     static var zoneID: CKRecordZone.ID {
-        CKRecordZone.ID(zoneName: "Coucou", ownerName: CKCurrentUserDefaultName)
+        CKRecordZone.ID(zoneName: "Cocoa", ownerName: CKCurrentUserDefaultName)
     }
 
     static func recordID(for pillId: String) -> CKRecord.ID {

@@ -1,19 +1,19 @@
 import SwiftUI
 import WidgetKit
 
-// Coucou widgets: Solo, Team and List on the Home Screen, plus the Lock
+// Cocoa widgets: Solo, Team and List on the Home Screen, plus the Lock
 // Screen accessories. They show the sessions the iPhone app last saved to the
 // App Group; the app reloads them whenever a session changes.
 
 @main
-struct CoucouWidgetBundle: WidgetBundle {
+struct CocoaWidgetBundle: WidgetBundle {
     var body: some Widget {
         SoloWidget()
         TeamWidget()
         ListWidget()
         LockScreenWidget()
         MochiLiveActivity()
-        CoucouControl()
+        CocoaControl()
     }
 }
 
@@ -54,7 +54,7 @@ struct SessionsProvider: TimelineProvider {
 
 struct SoloWidget: Widget {
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "CoucouSolo", provider: SessionsProvider()) { entry in
+        StaticConfiguration(kind: "CocoaSolo", provider: SessionsProvider()) { entry in
             SoloView(session: entry.sessions.first)
         }
         .configurationDisplayName("Solo")
@@ -65,7 +65,7 @@ struct SoloWidget: Widget {
 
 struct TeamWidget: Widget {
     var body: some WidgetConfiguration {
-        AppIntentConfiguration(kind: "CoucouTeam", intent: TeamConfiguration.self, provider: TeamProvider()) { entry in
+        AppIntentConfiguration(kind: "CocoaTeam", intent: TeamConfiguration.self, provider: TeamProvider()) { entry in
             TeamView(sessions: entry.sessions, picks: entry.picks, tick: entry.tick)
         }
         .configurationDisplayName("Team")
@@ -76,7 +76,7 @@ struct TeamWidget: Widget {
 
 struct ListWidget: Widget {
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "CoucouList", provider: SessionsProvider()) { entry in
+        StaticConfiguration(kind: "CocoaList", provider: SessionsProvider()) { entry in
             ListView(sessions: Array(entry.sessions.prefix(4)))
         }
         .configurationDisplayName("List")
@@ -87,10 +87,10 @@ struct ListWidget: Widget {
 
 struct LockScreenWidget: Widget {
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "CoucouLock", provider: SessionsProvider()) { entry in
+        StaticConfiguration(kind: "CocoaLock", provider: SessionsProvider()) { entry in
             LockScreenView(sessions: entry.sessions)
         }
-        .configurationDisplayName("Coucou")
+        .configurationDisplayName("Cocoa")
         .description("Mochi on your Lock Screen.")
         .supportedFamilies([.accessoryCircular, .accessoryRectangular, .accessoryInline])
     }
@@ -371,7 +371,7 @@ struct LockScreenView: View {
             .widgetURL(sessions.first.map { SharedSession.url(for: $0.id) })
             .containerBackground(for: .widget) { Color.clear }
         default:
-            Text(sessions.summary.map { "Coucou · \($0)" } ?? "Coucou · all quiet")
+            Text(sessions.summary.map { "Cocoa · \($0)" } ?? "Cocoa · all quiet")
                 .containerBackground(for: .widget) { Color.clear }
         }
     }
@@ -389,7 +389,7 @@ extension SharedSession {
     }
 
     static let samples: [SharedSession] = [
-        SharedSession(id: "integration_claude", title: "coucou", agent: "VS Code", color: "#4A86E8",
+        SharedSession(id: "integration_claude", title: "cocoa", agent: "VS Code", color: "#4A86E8",
                       state: "approval", statusText: "waiting for your OK", tone: .waiting, urgency: 0,
                       stepIndex: 2, stepCount: 7, currentStep: "npm run test", updatedAt: .now),
         SharedSession(id: "agent_codex", title: "site-perso", agent: "Codex", color: "#D9663A",

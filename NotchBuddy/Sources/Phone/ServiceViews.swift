@@ -236,7 +236,7 @@ struct ServiceDetailView: View {
         VStack(alignment: .leading, spacing: 8) {
             Text("Connect \(pill?.name ?? "it") on your Mac")
                 .font(.subheadline.weight(.semibold))
-            Text("Add its key in Coucou's Settings on your Mac and keep the iPhone switch on (Settings → General → iPhone). What the Mac sees shows up here: no key is stored on your iPhone.")
+            Text("Add its key in Cocoa's Settings on your Mac and keep the iPhone switch on (Settings → General → iPhone). What the Mac sees shows up here: no key is stored on your iPhone.")
                 .font(.callout)
                 .foregroundStyle(.secondary)
         }

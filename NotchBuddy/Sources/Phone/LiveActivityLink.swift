@@ -26,7 +26,7 @@ final class LiveActivityLink {
     /// "development" for builds run from Xcode, "production" for TestFlight and
     /// the App Store (set per configuration in project.yml).
     private var apnsEnvironment: String {
-        Bundle.main.object(forInfoDictionaryKey: "CoucouAPNsEnvironment") as? String ?? "production"
+        Bundle.main.object(forInfoDictionaryKey: "CocoaAPNsEnvironment") as? String ?? "production"
     }
 
     private var recordID: CKRecord.ID {

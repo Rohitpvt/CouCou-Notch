@@ -28,7 +28,7 @@ struct ServiceSnapshot: Codable, Equatable, Sendable {
     var tone: ServiceTone
     /// One line under the name ("Balance 1 240,00 EUR", "2 pull requests").
     var headline: String
-    /// Why the dot has its color ("CI failing on coucou · main").
+    /// Why the dot has its color ("CI failing on cocoa · main").
     var reason: String
     var sections: [ServiceSection]
     var updatedAt: Date

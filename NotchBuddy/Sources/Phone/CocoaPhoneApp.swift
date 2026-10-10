@@ -3,11 +3,11 @@ import UIKit
 import UserNotifications
 import CloudKit
 
-// Coucou on iPhone: the agent sessions your Mac publishes to iCloud
+// Cocoa on iPhone: the agent sessions your Mac publishes to iCloud
 // (SessionPublisher on the Mac, PhoneLink here).
 
 @main
-struct CoucouPhoneApp: App {
+struct CocoaPhoneApp: App {
     @UIApplicationDelegateAdaptor(PhoneAppDelegate.self) var delegate
     @Environment(\.scenePhase) private var scenePhase
 

@@ -455,7 +455,7 @@ function buildEmptyPills(actions: ViewActions): HTMLElement {
 function buildPill(task: AgentTask, actions: ViewActions, totalCount: number): HTMLElement {
   const label = task.id === "integration_claude" ? "VS Code" : task.name;
 
-  if (totalCount === 1) {
+  if (totalCount === 1 && State.settings.enableHeroPillCard !== false) {
     const def = pillDefinition(task.id);
     const subtitle = def?.subtitle ? t(def.subtitle) : t(sessionSubtitle(task.id));
     const canvas = createMiniBot(task, 32);

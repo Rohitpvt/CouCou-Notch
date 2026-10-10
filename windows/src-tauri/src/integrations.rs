@@ -281,7 +281,7 @@ async fn poll_github(app: AppHandle) {
         .get("https://api.github.com/user")
         .header("Authorization", format!("Bearer {token}"))
         .header("Accept", "application/vnd.github+json")
-        .header("User-Agent", "Coucou")
+        .header("User-Agent", "Cocoa")
         .send()
         .await;
     let Ok(response) = user else { return };
@@ -306,7 +306,7 @@ async fn poll_github(app: AppHandle) {
         .get("https://api.github.com/user/repos?per_page=100&affiliation=owner&sort=pushed")
         .header("Authorization", format!("Bearer {token}"))
         .header("Accept", "application/vnd.github+json")
-        .header("User-Agent", "Coucou")
+        .header("User-Agent", "Cocoa")
         .send()
         .await;
     let stars: i64 = match repos {
@@ -425,7 +425,7 @@ async fn github_graphql(token: &str, query: &str, what: &str) -> Option<Value> {
         .post("https://api.github.com/graphql")
         .header("Authorization", format!("Bearer {token}"))
         .header("Content-Type", "application/json")
-        .header("User-Agent", "Coucou")
+        .header("User-Agent", "Cocoa")
         .json(&json!({ "query": query }))
         .send()
         .await;

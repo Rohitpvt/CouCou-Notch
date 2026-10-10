@@ -1,4 +1,4 @@
-// Mochi's wardrobe — the pure logic, port of NotchBuddy/Sources/CoucouKit/MochiWardrobe.swift.
+// Mochi's wardrobe — the pure logic, port of NotchBuddy/Sources/CocoaKit/MochiWardrobe.swift.
 // What Mochi wears is picked in the wardrobe view (right-click on Mochi, or the
 // tray menu) and stored in the preferences as `mochiOutfit`. The drawing lives
 // in ./outfits.ts.

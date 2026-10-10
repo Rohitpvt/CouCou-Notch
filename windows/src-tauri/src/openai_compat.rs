@@ -221,7 +221,7 @@ async fn call_completions(
     if p.id == "google" {
         req = req.header("x-goog-api-key", key);
     } else if p.id == "openrouter" {
-        req = req.header("HTTP-Referer", "https://coucou.app").header("X-Title", "Coucou Notch");
+        req = req.header("HTTP-Referer", "https://cocoa.app").header("X-Title", "Cocoa Notch");
     }
     let response = req
         .json(body)
@@ -333,7 +333,7 @@ pub async fn models(p: &Provider, key: &str) -> Result<Vec<ModelInfo>, String> {
     if p.id == "google" {
         req = req.header("x-goog-api-key", key);
     } else if p.id == "openrouter" {
-        req = req.header("HTTP-Referer", "https://coucou.app").header("X-Title", "Coucou Notch");
+        req = req.header("HTTP-Referer", "https://cocoa.app").header("X-Title", "Cocoa Notch");
     }
     let response = req
         .send()

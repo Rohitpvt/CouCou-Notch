@@ -34,7 +34,7 @@ use super::LocalTime;
 use crate::session_window::{self, Proc};
 
 /// File name of the Claude Code relay.
-pub const HOOK_EXE: &str = "coucou-hook.exe";
+pub const HOOK_EXE: &str = "cocoa-hook.exe";
 
 /// Environment variable holding the home directory.
 pub const HOME_VAR: &str = "USERPROFILE";
@@ -44,20 +44,30 @@ const CREATE_NO_WINDOW: u32 = 0x0800_0000;
 
 // ── Files ─────────────────────────────────────────────────────────────────────
 
-/// %APPDATA%\Coucou — preferences.
+/// %APPDATA%\Cocoa — preferences.
 pub fn config_dir() -> PathBuf {
     let base = std::env::var_os("APPDATA")
         .map(PathBuf::from)
         .unwrap_or_else(|| PathBuf::from("."));
-    base.join("Coucou")
+    let new_dir = base.join("Cocoa");
+    let old_dir = base.join("Coucou");
+    if !new_dir.exists() && old_dir.exists() {
+        let _ = std::fs::rename(&old_dir, &new_dir);
+    }
+    new_dir
 }
 
-/// %LOCALAPPDATA%\Coucou — where coucou-hook.exe, the inbox and the log live.
+/// %LOCALAPPDATA%\Cocoa — where cocoa-hook.exe, the inbox and the log live.
 pub fn local_dir() -> PathBuf {
     let base = std::env::var_os("LOCALAPPDATA")
         .map(PathBuf::from)
         .unwrap_or_else(|| PathBuf::from("."));
-    base.join("Coucou")
+    let new_dir = base.join("Cocoa");
+    let old_dir = base.join("Coucou");
+    if !new_dir.exists() && old_dir.exists() {
+        let _ = std::fs::rename(&old_dir, &new_dir);
+    }
+    new_dir
 }
 
 /// Where a saved image goes, best first: Pictures (also where OneDrive moves

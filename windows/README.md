@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="src-tauri/icons/128x128.png" width="96" alt="Coucou icon">
+<img src="src-tauri/icons/128x128.png" width="96" alt="Cocoa icon">
 
-# Coucou for Windows
+# Cocoa for Windows
 
 **Mochi doesn't get a notch on a PC — so it lives at the top of your screen instead.**
 
@@ -21,8 +21,8 @@ Approve Claude Code permissions, watch your session work, drop a file, chat with
 
 ## Install
 
-Download **[Coucou-Windows.msi](https://github.com/Rohitpvt/CouCou-Notch/releases/download/windows-latest/Coucou-Windows.msi)**
-(Windows Installer) or **[Coucou-Windows-setup.exe](https://github.com/Rohitpvt/CouCou-Notch/releases/download/windows-latest/Coucou-Windows-setup.exe)**,
+Download **[Cocoa-Windows.msi](https://github.com/Rohitpvt/Cocoa-Notch/releases/download/windows-latest/Cocoa-Windows.msi)**
+(Windows Installer) or **[Cocoa-Windows-setup.exe](https://github.com/Rohitpvt/Cocoa-Notch/releases/download/windows-latest/Cocoa-Windows-setup.exe)**,
 always the newest version, and run it. The .exe installs for the current user only, with no admin prompt; the .msi may ask for admin rights.
 
 **Windows will show a warning the first time — that's expected.** The installer isn't code-signed yet, so SmartScreen doesn't know the publisher:
@@ -31,7 +31,7 @@ always the newest version, and run it. The .exe installs for the current user on
 2. Click **More info** (*Informations complémentaires* in French). This reveals a **Run anyway** button.
 3. Click **Run anyway** (*Exécuter quand même*). The installer starts normally.
 
-This is only because the app isn't signed with a paid certificate yet. Coucou is open source, and Microsoft Defender scans the installer as clean.
+This is only because the app isn't signed with a paid certificate yet. Cocoa is open source, and Microsoft Defender scans the installer as clean.
 
 Microsoft Defender once flagged the installer by mistake (`Trojan:Win32/Wacatac.H!ml`,
 a machine-learning false positive); Microsoft reviewed it and removed the detection.
@@ -76,8 +76,8 @@ You can also [build it yourself](#build-it-yourself).
 
 Every global shortcut can be changed or turned off in **Settings… → Shortcuts**:
 click it and press the new keys. A combination another app already holds is
-flagged *In use*, and two Coucou shortcuts on the same keys are flagged *Used
-twice*. While you record a new one, Coucou lets go of its own so the keys reach
+flagged *In use*, and two Cocoa shortcuts on the same keys are flagged *Used
+twice*. While you record a new one, Cocoa lets go of its own so the keys reach
 the recorder.
 
 The defaults are not the Mac's `⌃⌥` letters. On Windows, `Ctrl+Alt` is `AltGr`,
@@ -85,7 +85,7 @@ so a global `Ctrl+Alt+E` would swallow every `€` typed on a French or German
 keyboard. The defaults were checked against the AltGr layer of the French,
 German, Spanish, Italian, Portuguese and Brazilian (ABNT2) layouts — that is why
 pill switching uses the arrows rather than `[` `]`, and mute is `S` rather than
-`M` (`AltGr+M` is `µ` in German). On top of that, Coucou asks Windows what each
+`M` (`AltGr+M` is `µ` in German). On top of that, Cocoa asks Windows what each
 `Ctrl+Alt` combination types on the layouts you have installed and leaves any
 that types a character unregistered, flagged *Types “ą”* in Settings: Polish,
 for one, puts `ą` on `AltGr+A` and `ś` on `AltGr+S`. The recorder refuses such
@@ -140,13 +140,13 @@ declare still shows up, for as long as it runs.
 Open **Settings… → Claude Code → Install hooks…**. You get the exact diff of what
 will change in `%USERPROFILE%\.claude\settings.json`, the path of the dated backup
 that will be taken, and nothing is written until you click. Your own hooks are
-never touched, and uninstalling removes only Coucou's entries.
+never touched, and uninstalling removes only Cocoa's entries.
 
-The relay is a tiny executable, `coucou-hook.exe`, copied to
-`%LOCALAPPDATA%\Coucou\bin\` at launch. It is given 300 ms to reach Coucou and
+The relay is a tiny executable, `cocoa-hook.exe`, copied to
+`%LOCALAPPDATA%\Cocoa\bin\` at launch. It is given 300 ms to reach Cocoa and
 exits cleanly if the app is closed, slow or crashed — **a Claude Code session is
-never blocked or slowed down by Coucou.** If nobody answers a permission request
-in time, Coucou stays quiet and Claude Code asks in the terminal as usual.
+never blocked or slowed down by Cocoa.** If nobody answers a permission request
+in time, Cocoa stays quiet and Claude Code asks in the terminal as usual.
 
 It works from any terminal — Windows Terminal, PowerShell, VS Code, Git Bash.
 
@@ -160,7 +160,7 @@ reset times. Both are off by default; turn them on in **Settings… → Plan usa
 - **Claude** (Pro and Max plans): the numbers come from Claude Code's own status
   line. **Show in notch** first shows you the diff of the `statusLine` change in
   `%USERPROFILE%\.claude\settings.json`, takes a dated backup and writes only
-  after your click, with the same writer as the hooks: the status line becomes `coucou-hook --statusline`, which
+  after your click, with the same writer as the hooks: the status line becomes `cocoa-hook --statusline`, which
   passes only the limits on (300 ms at most) and runs the status line you had
   before — kept in `statusline-previous.json` next to the relay — with the same
   input, printing what it prints. On Windows that one runs through Git Bash, as
@@ -169,13 +169,13 @@ reset times. Both are off by default; turn them on in **Settings… → Plan usa
   and 64 KB of output. **Uninstall relay** puts your status line back. The
   numbers arrive with Claude Code's replies.
 - **Codex**: nothing is installed. When the pill shows (or is clicked, at most
-  once a minute) Coucou starts `codex app-server` and asks it
+  once a minute) Cocoa starts `codex app-server` and asks it
   `account/rateLimits/read`, as Codex's `/status` does, then stops it (15 s at
   most, never while paused). Codex must be signed in with ChatGPT.
 
 ## Weekly recap
 
-On Monday from 8 am, the first time Coucou starts, an agent starts working or
+On Monday from 8 am, the first time Cocoa starts, an agent starts working or
 you wake the island, a card sums up the past week: time spent, sessions, files
 and lines changed, commands run, permissions and questions, your top agent,
 top project, busiest day and longest session. **Tray → Weekly recap** opens it
@@ -183,7 +183,7 @@ any day.
 
 **Share image** turns it into a 1080 × 1920 picture with Mochi. **Save image**
 writes it to your Pictures folder (Downloads if there is none) as
-`Coucou weekly recap YYYY-MM-DD.png`, never over an existing file; **Copy** puts
+`Cocoa weekly recap YYYY-MM-DD.png`, never over an existing file; **Copy** puts
 it on the clipboard. **Hide project names** leaves the project out of the image.
 
 The history is `recap.json` next to the log, a 12-week rolling window: counts,
@@ -193,7 +193,7 @@ Weekly recap** turns it off or clears it.
 
 ## Languages
 
-Coucou speaks the same ten languages as the Mac app: English, 简体中文, हिन्दी,
+Cocoa speaks the same ten languages as the Mac app: English, 简体中文, हिन्दी,
 Español, العربية, Français, বাংলা, Português (Brasil), Русский and Bahasa
 Indonesia. **Settings… → General → Language** picks one; **System** (the
 default) follows your system's language when it is one of these, English
@@ -242,13 +242,13 @@ you by your first name when your account has one (the Windows display name or
 the Linux GECOS full name; a bare login name is not used).
 
 To send the Claude chat through an Anthropic-compatible gateway, set
-`COUCOU_ANTHROPIC_BASE_URL` (for example `https://gateway.example.com`;
+`COCOA_ANTHROPIC_BASE_URL` (for example `https://gateway.example.com`;
 `/v1/messages` is added). It must be `https://`, or `http://` to this PC only.
 Claude Code's own `ANTHROPIC_BASE_URL` is deliberately ignored: your key only
-goes where you told Coucou to send it. The gateway's host is written to the log
+goes where you told Cocoa to send it. The gateway's host is written to the log
 once; the key never is.
 
-No telemetry. The only network requests Coucou makes are to the services you
+No telemetry. The only network requests Cocoa makes are to the services you
 configure yourself.
 
 ## GitHub
@@ -270,7 +270,7 @@ a badge and a sound when the CI of one of your pull requests turns red or green
 someone requests your review. Pull requests are checked every 5 minutes, every
 minute while a CI is running, and as soon as you open the card on data older
 than a minute; contributions every 30 minutes. Nothing is fetched while the pill
-is off or Coucou is paused.
+is off or Cocoa is paused.
 
 ## Build it yourself
 
@@ -296,11 +296,11 @@ ships in the app.
 workflow publishes:
 
 ```
-Coucou-Windows-X.Y.Z-setup.exe    the versioned installer
-Coucou-Windows-setup.exe          the same file under the rolling name
+Cocoa-Windows-X.Y.Z-setup.exe    the versioned installer
+Cocoa-Windows-setup.exe          the same file under the rolling name
 ```
 
-Installing is optional — `target/release/coucou.exe` runs on its own. There is no
+Installing is optional — `target/release/cocoa.exe` runs on its own. There is no
 window in the taskbar and no console: the island at the top of the screen and the
 Mochi in the notification area are the whole app, and Quit lives in its menu.
 
@@ -325,13 +325,13 @@ windows/
     views/             every island view
     settings/          the settings window
   src-tauri/           Rust backend: window, named pipe, Claude API, pollers
-  hook/                coucou-hook.exe, the Claude Code relay
+  hook/                cocoa-hook.exe, the Claude Code relay
   scripts/             icon generator
 ```
 
 ### Log
 
-`%LOCALAPPDATA%\Coucou\coucou.log` — hook events, permission decisions, poller
+`%LOCALAPPDATA%\Cocoa\cocoa.log` — hook events, permission decisions, poller
 problems. It stays on your machine. The weekly recap's history sits beside it in
 `recap.json`.
 
@@ -339,7 +339,7 @@ problems. It stays on your machine. The weekly recap's history sits beside it in
 
 Every agent below is installed from **Settings → Agents** with the same steps as
 Claude Code: the exact diff, the path of the dated backup, nothing written until
-you click, and uninstalling removes only Coucou's entries. A config Coucou cannot
+you click, and uninstalling removes only Cocoa's entries. A config Cocoa cannot
 read, or where it finds something it does not expect, is left alone and the
 reason is shown. Each agent gets its own pill (`agent_<name>`, the Mac's ids and
 colours). The files are the Mac's, under `%USERPROFILE%` on Windows and `~` on
@@ -349,40 +349,40 @@ Linux.
 |---|---|---|
 | Claude Code | `.claude\settings.json` (**Settings → Claude Code**) | Allow / Deny and questions in the island |
 | Codex | `.codex\hooks.json` — then trust the hooks once with `/hooks` in Codex | Allow / Deny in the island |
-| GitHub Copilot CLI | `.copilot\hooks\coucou.json` | Allow / Deny in the island |
+| GitHub Copilot CLI | `.copilot\hooks\cocoa.json` | Allow / Deny in the island |
 | Muse Code | `.config\muse\settings.json` | Allow / Deny in the island |
 | Gemini CLI | `.gemini\settings.json` | asked in Gemini CLI |
-| Antigravity | `.gemini\config\hooks.json` (a `coucou` hook group) | asked in Antigravity |
+| Antigravity | `.gemini\config\hooks.json` (a `cocoa` hook group) | asked in Antigravity |
 | Cursor Agent | `.cursor\hooks.json` — Claude Code in Cursor's terminal also goes on the Cursor pill, through the Claude Code hooks | asked in Cursor |
 | Claude Desktop (Windows) | nothing to install: Claude Code sessions from the Claude app are tagged by the relay | asked in the Claude app |
-| OpenCode | plugin `.config\opencode\plugins\coucou.js` | asked in OpenCode |
-| Amp | plugin `.config\amp\plugins\coucou.ts` | asked in Amp |
-| Hermes Agent | plugin `.hermes\plugins\coucou\` — then `hermes plugins enable coucou` once | asked in Hermes |
-| Any other | run `coucou-hook --agent <name> [<Event>]` from your tool's hooks | asked in the tool |
+| OpenCode | plugin `.config\opencode\plugins\cocoa.js` | asked in OpenCode |
+| Amp | plugin `.config\amp\plugins\cocoa.ts` | asked in Amp |
+| Hermes Agent | plugin `.hermes\plugins\cocoa\` — then `hermes plugins enable cocoa` once | asked in Hermes |
+| Any other | run `cocoa-hook --agent <name> [<Event>]` from your tool's hooks | asked in the tool |
 
 The relay maps every agent's event and field names onto Claude Code's (Gemini
 CLI's `BeforeTool`, Copilot's `preToolUse`, Cursor's `beforeSubmitPrompt`…), and
 answers each agent the way it expects. It never lets anything through on its
 own: with no click it prints no decision at all (`{}` for the agents that need
 JSON, `"ask"` for Copilot, which is fail-closed), so the agent asks in its own
-terminal exactly as without Coucou — including when Coucou is closed.
+terminal exactly as without Cocoa — including when Cocoa is closed.
 
 The plugins start the relay directly, with no shell in between, and never wait
 for it. Amp's steps appear as each tool finishes: its "before" hook must return
-a verdict, and Coucou never gives one.
+a verdict, and Cocoa never gives one.
 
 **How each agent runs the relay on Windows.** Hook commands are written for the
 shell that runs them: Git Bash for Claude Code (quoted, forward slashes),
-PowerShell for Gemini CLI and Copilot CLI (`& '…\coucou-hook.exe'`), `cmd /C`
+PowerShell for Gemini CLI and Copilot CLI (`& '…\cocoa-hook.exe'`), `cmd /C`
 for Codex. Cursor, Antigravity and Muse Code do not document theirs: the relay
 path is written bare when it has no space or special character — which works in
 cmd, PowerShell and when started directly — and in double quotes otherwise.
 These three are untested on Windows.
 
-A pill is **connected** when Coucou finds its own entries in the files above —
+A pill is **connected** when Cocoa finds its own entries in the files above —
 the same check as Settings → Agents (for Claude Code: a SessionStart hook
-running Coucou's relay; the Cursor pill also counts Claude Code's hooks).
-Coucou only reads these files, each time the island opens. Permission requests
+running Cocoa's relay; the Cursor pill also counts Claude Code's hooks).
+Cocoa only reads these files, each time the island opens. Permission requests
 get the island's card for Claude Code (in any terminal, and in Cursor's),
 Codex, Copilot CLI and Muse Code; other agents and Claude Desktop ask in their
 own window.
@@ -409,7 +409,7 @@ own window.
 - Cal.com shows the next bookings as a list rather than the Mac's calendar.
 - The Cursor pill carries both Cursor Agent's own hooks and Claude Code running
   in Cursor's terminal.
-- Hermes: Coucou writes the plugin but does not run the `hermes` CLI, so it is
+- Hermes: Cocoa writes the plugin but does not run the `hermes` CLI, so it is
   turned on once by hand. Hermes runs natively on Linux; on Windows it is
   untested.
 - Plan usage: the user's previous status line runs through Git Bash on Windows
@@ -459,7 +459,7 @@ own window.
   its global shortcut (`Ctrl+Alt+G` by default). In the compact island a tall hat
   is cut by the top edge of the screen, as it is by the notch on a Mac.
 - Languages: chosen in Settings, independently of the system, and applied
-  without a restart (the Mac's **Restart Coucou** isn't needed). Arabic turns
+  without a restart (the Mac's **Restart Cocoa** isn't needed). Arabic turns
   the island's text right to left but not its layout: Mochi and the pills keep
   their sides.
 - Mochi on the desktop doesn't dance: there is no music integration to dance
@@ -486,8 +486,8 @@ npm run pack           # AppImage, .deb and .rpm in windows/release/
 On Arch Linux, build and install the package from `linux/arch/`:
 
 ```bash
-git clone https://github.com/Rohitpvt/CouCou-Notch.git
-cd CouCou-Notch/linux/arch
+git clone https://github.com/Rohitpvt/Cocoa-Notch.git
+cd Cocoa-Notch/linux/arch
 makepkg -si
 ```
 
@@ -499,10 +499,10 @@ What changes on Linux:
 - **The island** is a gtk-layer-shell overlay anchored to the top edge, over any
   top panel, on compositors that support it: COSMIC, KDE Plasma, Hyprland, Sway
   and other wlroots compositors. GNOME has no layer-shell and ignores where a
-  Wayland window asks to go, so there Coucou runs through XWayland as a dock
+  Wayland window asks to go, so there Cocoa runs through XWayland as a dock
   window: top centre, on every workspace, still there after Super+D.
-  `COUCOU_X11=0` keeps the native Wayland window, `COUCOU_DOCK=0` makes it a
-  utility window instead of a dock. `COUCOU_LAYER_SHELL=0` forces the regular
+  `COCOA_X11=0` keeps the native Wayland window, `COCOA_DOCK=0` makes it a
+  utility window instead of a dock. `COCOA_LAYER_SHELL=0` forces the regular
   window anywhere.
 - **Click-through** is the window's input region, kept equal to the island
   shape, so the compositor sends every other click to what is underneath.
@@ -515,8 +515,8 @@ What changes on Linux:
   that display; on X11 it is an ordinary always-on-top window that goes
   anywhere. **GNOME on Wayland** has no layer-shell and lets no app place its
   own window, so there Mochi can't leave the island: dragging him does nothing.
-- **Claude Code hooks** go through `~/.local/share/coucou/bin/coucou-hook` and a
-  Unix socket at `$XDG_RUNTIME_DIR/coucou.sock`. Both ends check that the other
+- **Claude Code hooks** go through `~/.local/share/cocoa/bin/cocoa-hook` and a
+  Unix socket at `$XDG_RUNTIME_DIR/cocoa.sock`. Both ends check that the other
   runs as the same user. Every other agent uses the same relay, single-quoted
   for `sh`, and its config under `~` (see Supported agents). A config that is a
   symlink (dotfiles) is written through to its target, with its permissions
@@ -528,24 +528,24 @@ What changes on Linux:
   key grabs — the GlobalShortcuts portal isn't supported yet — so nothing is
   registered there, and **Settings → Shortcuts** lists commands to bind in your
   desktop's own keyboard settings instead:
-  `coucou --shortcut openChat` (or the AppImage's path) runs the action in the
-  Coucou that is already open. The ids are `toggleIsland`, `openChat`,
+  `cocoa --shortcut openChat` (or the AppImage's path) runs the action in the
+  Cocoa that is already open. The ids are `toggleIsland`, `openChat`,
   `goToAlert`, `jumpToTerminal`, `nextPill`, `prevPill`, `muteToggle` and
   `wardrobeToggle`.
 - **Keys** live in the Secret Service (GNOME Keyring, KWallet).
-- **Plan usage**: the status line relay is `~/.local/share/coucou/bin/coucou-hook
+- **Plan usage**: the status line relay is `~/.local/share/cocoa/bin/cocoa-hook
   --statusline` and runs your previous status line with `/bin/sh -c`, like Claude
   Code. Codex is found on `$PATH`, in `~/.local/bin`, npm's global prefix, Volta,
   Bun, pnpm, or nvm (newest Node first), since a desktop launch often has a
   shorter `$PATH` than your shell.
 - **Mochi's greeting** uses the full name in your account's GECOS field
   (`chfn` sets it); without one the chat stays neutral.
-- **Files**: preferences in `~/.config/coucou/`, the log at
-  `~/.local/share/coucou/coucou.log`, the weekly recap history beside it in
+- **Files**: preferences in `~/.config/cocoa/`, the log at
+  `~/.local/share/cocoa/cocoa.log`, the weekly recap history beside it in
   `recap.json`. A saved recap image goes to the pictures folder named in
   `~/.config/user-dirs.dirs`, else `~/Pictures`, else `~/Downloads`.
 - **Languages**: Hindi, Bengali, Chinese and Arabic need fonts that carry those
-  scripts; Coucou asks for the Noto families (`fonts-noto-core` and
+  scripts; Cocoa asks for the Noto families (`fonts-noto-core` and
   `fonts-noto-cjk` on Debian and Ubuntu, `noto-fonts` and `noto-fonts-cjk` on
   Arch). **System** reads the language from the webview, which follows
   `LANGUAGE` / `LANG`.

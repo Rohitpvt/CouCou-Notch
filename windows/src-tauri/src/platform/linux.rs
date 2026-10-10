@@ -23,7 +23,7 @@ use tauri::{AppHandle, WebviewWindow};
 use super::{home_dir, LocalTime};
 
 /// File name of the Claude Code relay.
-pub const HOOK_EXE: &str = "coucou-hook";
+pub const HOOK_EXE: &str = "cocoa-hook";
 
 /// Environment variable holding the home directory.
 pub const HOME_VAR: &str = "HOME";
@@ -39,16 +39,16 @@ fn xdg(var: &str, fallback: &str) -> PathBuf {
         .unwrap_or_else(|| home_dir().join(fallback))
 }
 
-/// ~/.config/coucou — preferences.
+/// ~/.config/cocoa — preferences.
 pub fn config_dir() -> PathBuf {
-    xdg("XDG_CONFIG_HOME", ".config").join("coucou")
+    xdg("XDG_CONFIG_HOME", ".config").join("cocoa")
 }
 
-/// ~/.local/share/coucou — where coucou-hook, the inbox and the log live. The
+/// ~/.local/share/cocoa — where cocoa-hook, the inbox and the log live. The
 /// relay has to sit at a stable path: an AppImage is mounted somewhere new on
 /// every launch.
 pub fn local_dir() -> PathBuf {
-    xdg("XDG_DATA_HOME", ".local/share").join("coucou")
+    xdg("XDG_DATA_HOME", ".local/share").join("cocoa")
 }
 
 /// Where a saved image goes, best first: the XDG pictures folder named in
@@ -90,14 +90,14 @@ fn xdg_user_dir(text: &str, key: &str, home: &Path) -> Option<PathBuf> {
 /// keeps its plugin registry in ~/.cache/gstreamer-1.0 by default — the same
 /// file the system's GStreamer uses. The AppImage is mounted somewhere new on
 /// every launch, so each launch would rewrite the system's registry with
-/// plugin paths that vanish once Coucou quits. Give ours its own file.
+/// plugin paths that vanish once Cocoa quits. Give ours its own file.
 pub fn prepare_environment() {
     prefer_x11_on_gnome();
     follow_gnome_text_scaling();
     if std::env::var_os("APPIMAGE").is_none() || std::env::var_os("GST_REGISTRY").is_some() {
         return;
     }
-    let cache = xdg("XDG_CACHE_HOME", ".cache").join("coucou");
+    let cache = xdg("XDG_CACHE_HOME", ".cache").join("cocoa");
     if std::fs::create_dir_all(&cache).is_ok() {
         std::env::set_var("GST_REGISTRY", cache.join("gstreamer-registry.bin"));
     }
@@ -107,13 +107,13 @@ pub fn prepare_environment() {
 /// to go, so the island lands in the middle of the screen. Through XWayland it
 /// can be placed, and a Dock window survives "show desktop" (Super+D).
 /// An inherited GDK_BACKEND=wayland is overridden too: editors and terminals
-/// pass theirs down to every child. COUCOU_X11=0 keeps the Wayland window.
+/// pass theirs down to every child. COCOA_X11=0 keeps the Wayland window.
 fn prefer_x11_on_gnome() {
     let env = |k: &str| std::env::var(k).unwrap_or_default();
     if should_prefer_x11(
         &env("XDG_SESSION_TYPE"),
         &env("XDG_CURRENT_DESKTOP"),
-        &env("COUCOU_X11"),
+        &env("COCOA_X11"),
         &env("DISPLAY"),
     ) {
         std::env::set_var("GDK_BACKEND", "x11");
@@ -210,7 +210,7 @@ pub fn relay_socket_path() -> Option<PathBuf> {
         .map(PathBuf::from)
         .filter(|p| p.is_absolute())
         .unwrap_or_else(|| PathBuf::from(format!("/run/user/{}", unsafe { libc::getuid() })));
-    is_private_dir(&dir).then(|| dir.join("coucou.sock"))
+    is_private_dir(&dir).then(|| dir.join("cocoa.sock"))
 }
 
 // ── Who we are ────────────────────────────────────────────────────────────────

@@ -223,6 +223,7 @@ function clearFinalLine(id: string) {
  * would give wrong counts: the PreToolUse step ("Edits · file") stands alone.
  */
 function recordDiff(agentId: string, payload: HookPayload) {
+  if (State.settings.enableLiveDiffs === false) return;
   if (payload.coucou_diff_truncated) return;
   if (!State.tasks.some((t) => t.id === agentId)) return;
   const diff = buildFileDiff(payload.tool_name ?? "", payload.tool_input ?? {});
@@ -275,7 +276,9 @@ function handleHook(island: Island, payload: HookPayload) {
     } else if (isAlert) {
       island.alert(view);
     } else if (State.mode === "hidden") {
-      island.reveal();
+      if (State.settings.autoExpandOnAgentTask !== false) {
+        island.reveal();
+      }
     }
   };
 

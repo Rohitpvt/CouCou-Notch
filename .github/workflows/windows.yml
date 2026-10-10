@@ -67,7 +67,7 @@ jobs:
           if ($tag -ne $cargo) { $bad += "Cargo.toml says $cargo" }
           if ($bad) { throw "tag says $tag but $($bad -join '; ')" }
 
-      # `npm run build` (run by tauri as beforeBuildCommand) builds coucou-hook
+      # `npm run build` (run by tauri as beforeBuildCommand) builds cocoa-hook
       # first, which tauri.conf.json then bundles as a resource. `pack` then
       # copies the installer out of target/ under its shipping name.
       - name: Build and pack the installer
@@ -86,8 +86,8 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: github.event_name == 'workflow_dispatch' || env.PUBLISH == 'true'
         with:
-          name: Coucou-Windows-setup
-          path: windows/release/Coucou-Windows-${{ steps.pack.outputs.version }}-setup.exe
+          name: Cocoa-Windows-setup
+          path: windows/release/Cocoa-Windows-${{ steps.pack.outputs.version }}-setup.exe
           retention-days: 3
 
       # MSI installer generated via WiX toolset. Bypasses NSIS extractor false-positives
@@ -95,21 +95,21 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: github.event_name == 'workflow_dispatch' || env.PUBLISH == 'true'
         with:
-          name: Coucou-Windows-msi
-          path: windows/release/Coucou-Windows-${{ steps.pack.outputs.version }}.msi
+          name: Cocoa-Windows-msi
+          path: windows/release/Cocoa-Windows-${{ steps.pack.outputs.version }}.msi
           retention-days: 3
 
       # The unsigned NSIS installer is what Defender false-positives on, so the
       # bare binaries go up as well. hooks.rs already falls back to looking for
-      # coucou-hook.exe next to coucou.exe, which is exactly this layout, so the
+      # cocoa-hook.exe next to cocoa.exe, which is exactly this layout, so the
       # portable pair runs with working Claude Code hooks and no installer.
       - uses: actions/upload-artifact@v4
         if: github.event_name == 'workflow_dispatch' || env.PUBLISH == 'true'
         with:
-          name: Coucou-Windows-portable
+          name: Cocoa-Windows-portable
           path: |
-            windows/target/release/coucou.exe
-            windows/target/release/coucou-hook.exe
+            windows/target/release/cocoa.exe
+            windows/target/release/cocoa-hook.exe
           retention-days: 3
 
       - name: Publish the release
@@ -120,9 +120,9 @@ jobs:
         run: |
           $v = "${{ steps.pack.outputs.version }}"
           $notes = @"
-          Coucou for Windows $v — Mochi at the top of your screen.
+          Cocoa for Windows $v — Mochi at the top of your screen.
 
-          Download ``Coucou-Windows-$v.msi`` (Windows Installer) or ``Coucou-Windows-$v-setup.exe`` and run it. The installer is not
+          Download ``Cocoa-Windows-$v.msi`` (Windows Installer) or ``Cocoa-Windows-$v-setup.exe`` and run it. The installer is not
           code-signed yet, so Windows SmartScreen shows a warning: click
           **More info → Run anyway**.
           "@
@@ -131,9 +131,9 @@ jobs:
           # button points at /releases/latest. A Windows tag would silently send
           # Mac users to the .exe. The macOS `v*` releases own that slot.
           gh release create "${{ github.ref_name }}" `
-            "release/Coucou-Windows-$v-setup.exe" `
-            "release/Coucou-Windows-$v.msi" `
-            --title "Coucou for Windows $v" `
+            "release/Cocoa-Windows-$v-setup.exe" `
+            "release/Cocoa-Windows-$v.msi" `
+            --title "Cocoa for Windows $v" `
             --notes $notes `
             --latest=false
 
@@ -151,13 +151,13 @@ jobs:
             # from it gets an old tree.
             git tag -f windows-latest "${{ github.sha }}"
             git push -f origin windows-latest
-            gh release edit windows-latest --title "Coucou for Windows (latest)" --notes "Always the newest Windows build — currently $v."
-            gh release upload windows-latest "release/Coucou-Windows-setup.exe" "release/Coucou-Windows.msi" --clobber
+            gh release edit windows-latest --title "Cocoa for Windows (latest)" --notes "Always the newest Windows build — currently $v."
+            gh release upload windows-latest "release/Cocoa-Windows-setup.exe" "release/Cocoa-Windows.msi" --clobber
           } else {
             gh release create windows-latest `
-              "release/Coucou-Windows-setup.exe" `
-              "release/Coucou-Windows.msi" `
-              --title "Coucou for Windows (latest)" `
+              "release/Cocoa-Windows-setup.exe" `
+              "release/Cocoa-Windows.msi" `
+              --title "Cocoa for Windows (latest)" `
               --notes "Always the newest Windows build — currently $v." `
               --latest=false
           }

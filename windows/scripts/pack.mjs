@@ -22,22 +22,22 @@ const PACKAGES = {
     {
       dir: "nsis",
       suffix: "-setup.exe",
-      names: [`Coucou-Windows-${version}-setup.exe`, "Coucou-Windows-setup.exe"],
+      names: [`Cocoa-Windows-${version}-setup.exe`, "Cocoa-Windows-setup.exe"],
     },
     {
       dir: "msi",
       suffix: ".msi",
-      names: [`Coucou-Windows-${version}.msi`, "Coucou-Windows.msi"],
+      names: [`Cocoa-Windows-${version}.msi`, "Cocoa-Windows.msi"],
     },
   ],
   linux: [
     {
       dir: "appimage",
       suffix: ".AppImage",
-      names: [`Coucou-Linux-${version}-${arch}.AppImage`, `Coucou-Linux-${arch}.AppImage`],
+      names: [`Cocoa-Linux-${version}-${arch}.AppImage`, `Cocoa-Linux-${arch}.AppImage`],
     },
-    { dir: "deb", suffix: ".deb", names: [`Coucou-Linux-${version}-${debArch}.deb`] },
-    { dir: "rpm", suffix: ".rpm", names: [`Coucou-Linux-${version}-${arch}.rpm`] },
+    { dir: "deb", suffix: ".deb", names: [`Cocoa-Linux-${version}-${debArch}.deb`] },
+    { dir: "rpm", suffix: ".rpm", names: [`Cocoa-Linux-${version}-${arch}.rpm`] },
   ],
 };
 
@@ -76,21 +76,31 @@ for (const { dir, suffix, names } of packages) {
   }
 }
 
-// Also package the standalone executable
-const standaloneExe = join(root, "target", "release", "coucou.exe");
+// Also package the standalone executable and hook
+const standaloneExe = join(root, "target", "release", "cocoa.exe");
+const hookExe = join(root, "target", "release", "cocoa-hook.exe");
 try {
   if (statSync(standaloneExe).isFile()) {
-    const releaseExe = join(outDir, "Coucou.exe");
+    const releaseExe = join(outDir, "Cocoa.exe");
+    const releaseWinExe = join(outDir, "Cocoa-Windows.exe");
     copyFileSync(standaloneExe, releaseExe);
-    written.push(releaseExe);
+    copyFileSync(standaloneExe, releaseWinExe);
+    written.push(releaseExe, releaseWinExe);
+  }
+} catch {}
+try {
+  if (statSync(hookExe).isFile()) {
+    const releaseHook = join(outDir, "cocoa-hook.exe");
+    copyFileSync(hookExe, releaseHook);
+    written.push(releaseHook);
   }
 } catch {}
 
 // Always update top-level project root binaries for easy access
 const projectRoot = resolve(root, "..");
 try {
-  const rootSetup = join(projectRoot, "Coucou-Windows-setup.exe");
-  const latestSetup = join(outDir, "Coucou-Windows-setup.exe");
+  const rootSetup = join(projectRoot, "Cocoa-Windows-setup.exe");
+  const latestSetup = join(outDir, "Cocoa-Windows-setup.exe");
   copyFileSync(latestSetup, rootSetup);
   written.push(rootSetup);
 } catch (e) {
@@ -98,8 +108,8 @@ try {
 }
 
 try {
-  const rootExe = join(projectRoot, "Coucou-Windows.exe");
-  const latestExe = join(outDir, "Coucou.exe");
+  const rootExe = join(projectRoot, "Cocoa-Windows.exe");
+  const latestExe = join(outDir, "Cocoa.exe");
   copyFileSync(latestExe, rootExe);
   written.push(rootExe);
 } catch (e) {

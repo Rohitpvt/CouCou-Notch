@@ -23,6 +23,8 @@ release/
 *.dll
 Setup/
 Coucou-Windows-setup.exe
+Cocoa-Windows-setup.exe
+Cocoa-Windows.exe
 
 # OS generated files
 .DS_Store
@@ -39,6 +41,7 @@ $RECYCLE.BIN/
 !.env.example
 *.log
 coucou.log
+cocoa.log
 recap.json
 
 # IDEs & agent local files

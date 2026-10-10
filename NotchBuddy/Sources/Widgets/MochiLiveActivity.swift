@@ -166,7 +166,7 @@ extension AnyTransition {
     }
 }
 
-/// Deny answers right away; Allow opens Coucou on the command, where Face ID
+/// Deny answers right away; Allow opens Cocoa on the command, where Face ID
 /// confirms before anything is sent.
 struct ApprovalButtons: View {
     let fingerprint: String

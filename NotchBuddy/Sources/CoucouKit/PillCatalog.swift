@@ -91,7 +91,7 @@ enum PillCatalog {
         .init(id: "agent_hermes",        name: "Hermes",      color: "#C084FC",
               category: .agent,     subtitle: "Agent",        source: .agent,  githubOnly: true),
         // Claude Code sessions run from the Claude desktop app: the relay tags them
-        // `coucou_agent: claude-desktop` from CLAUDE_CODE_ENTRYPOINT, so nothing to install.
+        // `cocoa_agent: claude-desktop` from CLAUDE_CODE_ENTRYPOINT, so nothing to install.
         .init(id: "agent_claude-desktop", name: "Claude Desktop", color: "#D97757",
               category: .agent,     subtitle: "Agent",        source: .agent),
         // ── AI for the chat ──────────────────────────────────────────────────

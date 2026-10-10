@@ -2,7 +2,7 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-TEST_DIR="$(mktemp -d "${TMPDIR:-/tmp}/coucou-chat-parsing.XXXXXX")"
+TEST_DIR="$(mktemp -d "${TMPDIR:-/tmp}/cocoa-chat-parsing.XXXXXX")"
 SERVER_PID=""
 trap 'rm -rf "$TEST_DIR"; [ -n "$SERVER_PID" ] && kill "$SERVER_PID" 2>/dev/null || true' EXIT
 

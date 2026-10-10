@@ -76,7 +76,7 @@
 		530443F46F896F037A56F663 /* HotKeyCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1218B86E249691AF44F819AC /* HotKeyCenter.swift */; };
 		535EC818E1DAF0FA588545D8 /* QuestionPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6993B34A0FFF8E3D454ADC /* QuestionPayload.swift */; };
 		56BE8C733F10A030A638FB60 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A7D5CBE2AC084A10C5FF3 /* SettingsView.swift */; };
-		59FABCC0B6794FE95319825C /* CoucouNotificationContent.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D6DF93125491729E14636AD8 /* CoucouNotificationContent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		59FABCC0B6794FE95319825C /* CocoaNotificationContent.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D6DF93125491729E14636AD8 /* CocoaNotificationContent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5B9A00AFB0837731FA678E4E /* IslandStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8212018F09EA1E96FBD63CD /* IslandStateMachine.swift */; };
 		5C6D0BC8C546718CAA82BF90 /* MusicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F142FB3952B5F0639383047 /* MusicController.swift */; };
 		607E548D1DD274CD73FDC290 /* ColorHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACB4350729C6513824D1ADF /* ColorHex.swift */; };
@@ -102,7 +102,7 @@
 		6DDBB5EDE6BEFD4225238C28 /* approval.wav in Resources */ = {isa = PBXBuildFile; fileRef = 11FCBBE20532B1F0A184EA06 /* approval.wav */; };
 		6FC65C190ED614C664C9BC17 /* SafeWebURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FDED98F7F6C755A72C97A3 /* SafeWebURL.swift */; };
 		71CBD1D39A6668BF454CA1C5 /* IslandTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0365DDE3C554F5E8570055F4 /* IslandTypes.swift */; };
-		724E602A05FE5A6D58218E27 /* CoucouControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C406C508A86E215B3CBE3FC /* CoucouControl.swift */; };
+		724E602A05FE5A6D58218E27 /* CocoaControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C406C508A86E215B3CBE3FC /* CocoaControl.swift */; };
 		725365FA4E184D970E7BB8B4 /* MochiOutfitDrawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84E5D91129352E8A1D32AA4 /* MochiOutfitDrawing.swift */; };
 		72B1AEDB2152BF73659EB598 /* MochiStill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045E7300878138F0AC385920 /* MochiStill.swift */; };
 		733FCC6A45DE963EF2024B4E /* ChatMarkdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE88A53AEAA637F866D479D /* ChatMarkdownView.swift */; };
@@ -123,14 +123,14 @@
 		82E72E0AFCAB192D98AB2004 /* MochiActivityState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE18399D1CD69468CCF57966 /* MochiActivityState.swift */; };
 		845D762E9F4F0AD0D5FCEDF4 /* BotEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E6F5FC81429871B6F766A8 /* BotEngine.swift */; };
 		862CE6CB220D55E46F646DA9 /* GitHubPulse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D3AD61802A32C4833F3EDA /* GitHubPulse.swift */; };
-		868E3EB4A275AA2394EA20BF /* CoucouWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5C3E2269A202B640E7F3B5E0 /* CoucouWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		875FB3F71BD34B53B0524063 /* CoucouWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6723392BE01AF210E484316 /* CoucouWidgets.swift */; };
+		868E3EB4A275AA2394EA20BF /* CocoaWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5C3E2269A202B640E7F3B5E0 /* CocoaWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		875FB3F71BD34B53B0524063 /* CocoaWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6723392BE01AF210E484316 /* CocoaWidgets.swift */; };
 		878924960FC0F2B3524D48AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192844E7299DEED5C2372067 /* AppDelegate.swift */; };
 		8881BC510155DEC038F3B552 /* ServiceSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ECC59BE7CDDEE348FC7096 /* ServiceSnapshot.swift */; };
 		88A88E8704759E7F1F9D52BA /* ClaudeHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F0D0F67E7C56B9E37E7648 /* ClaudeHost.swift */; };
 		88C3F0A4F3AE29DBED8710A0 /* ClaudeSettingsFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B238F6E7B20EFDED5CD3E8E /* ClaudeSettingsFile.swift */; };
 		8A6B3688D6B3BF728D106D8B /* UserIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A13AEE6E06F46CEC9D908C /* UserIdentity.swift */; };
-		8AC19BAF88822CB31519D447 /* CoucouIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708E1FD9894461B4AD727DB1 /* CoucouIntents.swift */; };
+		8AC19BAF88822CB31519D447 /* CocoaIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708E1FD9894461B4AD727DB1 /* CocoaIntents.swift */; };
 		8C32A0C3EAF536D3836F61D5 /* GreetingCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C581F7B1A9F14B281B60063E /* GreetingCanvasView.swift */; };
 		8C785917FD0740DAE56420A4 /* ServiceSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ECC59BE7CDDEE348FC7096 /* ServiceSnapshot.swift */; };
 		8C9AF392DAE8F2098A7BE7B6 /* ServiceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F64746B2740D5FE26B7E5A /* ServiceDetail.swift */; };
@@ -234,7 +234,7 @@
 		ED5D9A334DE08C0EB81DE322 /* AskQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB84A66045EB20CAC93A8A6 /* AskQuestion.swift */; };
 		ED62D1B9E6A35B1F85074A2A /* SharedSessions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1064AD8471C51AFF4F12258 /* SharedSessions.swift */; };
 		EE3AB10544113500486A9684 /* ColorHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACB4350729C6513824D1ADF /* ColorHex.swift */; };
-		EF9E6418C3F39F6FE88FD812 /* CoucouPhoneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9CEB5655FCA197D6B10A91 /* CoucouPhoneApp.swift */; };
+		EF9E6418C3F39F6FE88FD812 /* CocoaPhoneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9CEB5655FCA197D6B10A91 /* CocoaPhoneApp.swift */; };
 		EFAA9936D5C9DE635CFBA2AB /* SharedSessions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1064AD8471C51AFF4F12258 /* SharedSessions.swift */; };
 		F06EE0A97CB77096A337AA8B /* sounds in Resources */ = {isa = PBXBuildFile; fileRef = C066E2B991AA4F56B2724263 /* sounds */; };
 		F157D7A9BF878DB2B286B1F7 /* DemoEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF5BD66B00BB64BB80AF38C /* DemoEngine.swift */; };
@@ -259,14 +259,14 @@
 			containerPortal = ACF315E0C1F7FECADF1B4FBC /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 65F75F0262AF9C56FEF86BF4;
-			remoteInfo = CoucouNotificationContent;
+			remoteInfo = CocoaNotificationContent;
 		};
 		488F3E8D639E084CD826D83C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ACF315E0C1F7FECADF1B4FBC /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 0387C996BACD956C91E19390;
-			remoteInfo = CoucouWidgets;
+			remoteInfo = CocoaWidgets;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -277,8 +277,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				868E3EB4A275AA2394EA20BF /* CoucouWidgets.appex in Embed Foundation Extensions */,
-				59FABCC0B6794FE95319825C /* CoucouNotificationContent.appex in Embed Foundation Extensions */,
+				868E3EB4A275AA2394EA20BF /* CocoaWidgets.appex in Embed Foundation Extensions */,
+				59FABCC0B6794FE95319825C /* CocoaNotificationContent.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,12 +291,12 @@
 		045E7300878138F0AC385920 /* MochiStill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MochiStill.swift; sourceTree = "<group>"; };
 		08128342A3F894D567AD9E6B /* ServiceViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViews.swift; sourceTree = "<group>"; };
 		097F57179CC066459E64303A /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
-		0D9CEB5655FCA197D6B10A91 /* CoucouPhoneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoucouPhoneApp.swift; sourceTree = "<group>"; };
+		0D9CEB5655FCA197D6B10A91 /* CocoaPhoneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocoaPhoneApp.swift; sourceTree = "<group>"; };
 		0FA2D136C81C6D930C5357BD /* LiveActivityLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityLink.swift; sourceTree = "<group>"; };
 		112D2BD70628CD67ACDD18AF /* LastTurnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastTurnView.swift; sourceTree = "<group>"; };
 		11FCBBE20532B1F0A184EA06 /* approval.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = approval.wav; sourceTree = "<group>"; };
 		1218B86E249691AF44F819AC /* HotKeyCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeyCenter.swift; sourceTree = "<group>"; };
-		12E32ED3910DED20BEEF39E5 /* CoucouPhone.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = CoucouPhone.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		12E32ED3910DED20BEEF39E5 /* CocoaPhone.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = CocoaPhone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		136626568FF0C3EAB1D08067 /* LiveActivityRelay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityRelay.swift; sourceTree = "<group>"; };
 		15A1A8206F73376F4CAF2057 /* IslandRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IslandRootView.swift; sourceTree = "<group>"; };
 		168A9A73B519018FAB0AA465 /* GitHubActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubActivity.swift; sourceTree = "<group>"; };
@@ -321,12 +321,12 @@
 		444604C7E2C530B664849EF9 /* ClaudeResponseText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudeResponseText.swift; sourceTree = "<group>"; };
 		49E39852175E81C9632A59C9 /* KitPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitPreviewView.swift; sourceTree = "<group>"; };
 		4A09E73F1E58019EF6EA2A62 /* IslandDisplayChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IslandDisplayChoice.swift; sourceTree = "<group>"; };
-		4DC2A07E42245A8CF3BBD2AB /* CoucouAppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoucouAppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DC2A07E42245A8CF3BBD2AB /* CocoaAppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocoaAppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F142FB3952B5F0639383047 /* MusicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicController.swift; sourceTree = "<group>"; };
 		506824380E9C80B9BC6DCE72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5108F622EF0C553F053716C2 /* SessionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStatus.swift; sourceTree = "<group>"; };
-		5C3E2269A202B640E7F3B5E0 /* CoucouWidgets.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = CoucouWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C406C508A86E215B3CBE3FC /* CoucouControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoucouControl.swift; sourceTree = "<group>"; };
+		5C3E2269A202B640E7F3B5E0 /* CocoaWidgets.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = CocoaWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C406C508A86E215B3CBE3FC /* CocoaControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocoaControl.swift; sourceTree = "<group>"; };
 		60401D1023D17C3FD30D7113 /* PhoneAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PhoneAssets.xcassets; sourceTree = "<group>"; };
 		61B5FDDE03F5F711146937E2 /* ResendPoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResendPoller.swift; sourceTree = "<group>"; };
 		62CF42AE7611EF212CA0458F /* ShortcutsSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutsSettingsView.swift; sourceTree = "<group>"; };
@@ -338,7 +338,7 @@
 		6E5F9E4BB282FDE68D65FE6B /* TurnArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnArchive.swift; sourceTree = "<group>"; };
 		6F0C229BD085D76EB3DD94DF /* ServicePublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicePublisher.swift; sourceTree = "<group>"; };
 		6FD65943C32E150F1CD65C31 /* UploadSequenceEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadSequenceEngine.swift; sourceTree = "<group>"; };
-		708E1FD9894461B4AD727DB1 /* CoucouIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoucouIntents.swift; sourceTree = "<group>"; };
+		708E1FD9894461B4AD727DB1 /* CocoaIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocoaIntents.swift; sourceTree = "<group>"; };
 		71718D1B87A39A4879DD2A9D /* VercelPoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VercelPoller.swift; sourceTree = "<group>"; };
 		73FA4DF1BE5246CCFFB72E5C /* CodexPlanGauge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodexPlanGauge.swift; sourceTree = "<group>"; };
 		78FB882D49084DEA6A10DB4D /* RecapStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecapStore.swift; sourceTree = "<group>"; };
@@ -372,7 +372,7 @@
 		B2FDED98F7F6C755A72C97A3 /* SafeWebURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeWebURL.swift; sourceTree = "<group>"; };
 		B32FB972D02162720E566674 /* DiffEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffEngine.swift; sourceTree = "<group>"; };
 		B53E4CAD2BCC77B280689B0F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		B6723392BE01AF210E484316 /* CoucouWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoucouWidgets.swift; sourceTree = "<group>"; };
+		B6723392BE01AF210E484316 /* CocoaWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocoaWidgets.swift; sourceTree = "<group>"; };
 		B89DA1A0C21AE3535A1760BB /* N8nPoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = N8nPoller.swift; sourceTree = "<group>"; };
 		BE03E03D1804B0B92C5C2DAD /* NotionPoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotionPoller.swift; sourceTree = "<group>"; };
 		BFE88A53AEAA637F866D479D /* ChatMarkdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMarkdownView.swift; sourceTree = "<group>"; };
@@ -384,7 +384,7 @@
 		C581F7B1A9F14B281B60063E /* GreetingCanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingCanvasView.swift; sourceTree = "<group>"; };
 		D0F0D0F67E7C56B9E37E7648 /* ClaudeHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClaudeHost.swift; sourceTree = "<group>"; };
 		D1D96E57E8DADE6B82628E3E /* OpenLeadMochiIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenLeadMochiIntent.swift; sourceTree = "<group>"; };
-		D6DF93125491729E14636AD8 /* CoucouNotificationContent.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = CoucouNotificationContent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6DF93125491729E14636AD8 /* CocoaNotificationContent.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = CocoaNotificationContent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D710BD7834228045869D0184 /* IslandWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IslandWindowController.swift; sourceTree = "<group>"; };
 		D797CC384B5BC70D34F121BC /* ChatMarkdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMarkdown.swift; sourceTree = "<group>"; };
 		D8212018F09EA1E96FBD63CD /* IslandStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IslandStateMachine.swift; sourceTree = "<group>"; };
@@ -483,8 +483,8 @@
 		53BB44AD4AC9AB9A0B95AB79 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
-				5C406C508A86E215B3CBE3FC /* CoucouControl.swift */,
-				B6723392BE01AF210E484316 /* CoucouWidgets.swift */,
+				5C406C508A86E215B3CBE3FC /* CocoaControl.swift */,
+				B6723392BE01AF210E484316 /* CocoaWidgets.swift */,
 				ADA6A002ABEC0CC57667FBE0 /* MochiLiveActivity.swift */,
 				D8C1BB0DF7770A6B263995E6 /* TeamConfiguration.swift */,
 			);
@@ -494,10 +494,10 @@
 		6CF11AAA7898712CF6DB364A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4DC2A07E42245A8CF3BBD2AB /* CoucouAppStore.app */,
-				D6DF93125491729E14636AD8 /* CoucouNotificationContent.appex */,
-				12E32ED3910DED20BEEF39E5 /* CoucouPhone.app */,
-				5C3E2269A202B640E7F3B5E0 /* CoucouWidgets.appex */,
+				4DC2A07E42245A8CF3BBD2AB /* CocoaAppStore.app */,
+				D6DF93125491729E14636AD8 /* CocoaNotificationContent.appex */,
+				12E32ED3910DED20BEEF39E5 /* CocoaPhone.app */,
+				5C3E2269A202B640E7F3B5E0 /* CocoaWidgets.appex */,
 				A14A61070D293AB4BBA303F7 /* NotchBuddy.app */,
 			);
 			name = Products;
@@ -531,7 +531,7 @@
 			isa = PBXGroup;
 			children = (
 				2D4550630644796DA0649B81 /* App */,
-				F70998159AAE45617BAE86A7 /* CoucouKit */,
+				F70998159AAE45617BAE86A7 /* CocoaKit */,
 				AEBA361B10A737C684E95B82 /* NotificationContent */,
 				E52447A6A81E4EEFC9AF5D4E /* Phone */,
 				53BB44AD4AC9AB9A0B95AB79 /* Widgets */,
@@ -567,8 +567,8 @@
 				011D05714C97CF5CAB32DCE7 /* AgentNotifier.swift */,
 				681E15F99FCF1E60C2553004 /* AppleStyle.swift */,
 				38BEAB5F20A13E5806A42EC9 /* ApprovalCard.swift */,
-				708E1FD9894461B4AD727DB1 /* CoucouIntents.swift */,
-				0D9CEB5655FCA197D6B10A91 /* CoucouPhoneApp.swift */,
+				708E1FD9894461B4AD727DB1 /* CocoaIntents.swift */,
+				0D9CEB5655FCA197D6B10A91 /* CocoaPhoneApp.swift */,
 				369F5AFDE37A03A1C25EB262 /* Decisions.swift */,
 				D849B1A27AD17AEE1C7FFD1A /* DenyApprovalIntent.swift */,
 				F86B99CF65C5E4BC887888C6 /* Haptics.swift */,
@@ -598,7 +598,7 @@
 			path = Phone;
 			sourceTree = "<group>";
 		};
-		F70998159AAE45617BAE86A7 /* CoucouKit */ = {
+		F70998159AAE45617BAE86A7 /* CocoaKit */ = {
 			isa = PBXGroup;
 			children = (
 				66E6F5FC81429871B6F766A8 /* BotEngine.swift */,
@@ -616,15 +616,15 @@
 				84ECC59BE7CDDEE348FC7096 /* ServiceSnapshot.swift */,
 				2A1C4152EBDBD7C24CABFFD7 /* TurnSnapshot.swift */,
 			);
-			path = CoucouKit;
+			path = CocoaKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0387C996BACD956C91E19390 /* CoucouWidgets */ = {
+		0387C996BACD956C91E19390 /* CocoaWidgets */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E24C031E9F3A787E693F616B /* Build configuration list for PBXNativeTarget "CoucouWidgets" */;
+			buildConfigurationList = E24C031E9F3A787E693F616B /* Build configuration list for PBXNativeTarget "CocoaWidgets" */;
 			buildPhases = (
 				C69BB9E40CB3FDC60B8EF4C8 /* Sources */,
 			);
@@ -632,11 +632,11 @@
 			);
 			dependencies = (
 			);
-			name = CoucouWidgets;
+			name = CocoaWidgets;
 			packageProductDependencies = (
 			);
-			productName = CoucouWidgets;
-			productReference = 5C3E2269A202B640E7F3B5E0 /* CoucouWidgets.appex */;
+			productName = CocoaWidgets;
+			productReference = 5C3E2269A202B640E7F3B5E0 /* CocoaWidgets.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		12E59C1D41BFA3D2F7CDD7F5 /* NotchBuddy */ = {
@@ -657,9 +657,9 @@
 			productReference = A14A61070D293AB4BBA303F7 /* NotchBuddy.app */;
 			productType = "com.apple.product-type.application";
 		};
-		495922874E20462B9FC47E53 /* CoucouAppStore */ = {
+		495922874E20462B9FC47E53 /* CocoaAppStore */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 21BF9C617EC84EECBB6BC46D /* Build configuration list for PBXNativeTarget "CoucouAppStore" */;
+			buildConfigurationList = 21BF9C617EC84EECBB6BC46D /* Build configuration list for PBXNativeTarget "CocoaAppStore" */;
 			buildPhases = (
 				760473CA0E9C38B61B761B8C /* Sources */,
 				4AFCA0709B0C077E65F471EB /* Resources */,
@@ -668,16 +668,16 @@
 			);
 			dependencies = (
 			);
-			name = CoucouAppStore;
+			name = CocoaAppStore;
 			packageProductDependencies = (
 			);
-			productName = CoucouAppStore;
-			productReference = 4DC2A07E42245A8CF3BBD2AB /* CoucouAppStore.app */;
+			productName = CocoaAppStore;
+			productReference = 4DC2A07E42245A8CF3BBD2AB /* CocoaAppStore.app */;
 			productType = "com.apple.product-type.application";
 		};
-		65F75F0262AF9C56FEF86BF4 /* CoucouNotificationContent */ = {
+		65F75F0262AF9C56FEF86BF4 /* CocoaNotificationContent */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C8FE04C40E517AF7D8F28493 /* Build configuration list for PBXNativeTarget "CoucouNotificationContent" */;
+			buildConfigurationList = C8FE04C40E517AF7D8F28493 /* Build configuration list for PBXNativeTarget "CocoaNotificationContent" */;
 			buildPhases = (
 				1A0F9A73C6B7D5D95C868C56 /* Sources */,
 			);
@@ -685,16 +685,16 @@
 			);
 			dependencies = (
 			);
-			name = CoucouNotificationContent;
+			name = CocoaNotificationContent;
 			packageProductDependencies = (
 			);
-			productName = CoucouNotificationContent;
-			productReference = D6DF93125491729E14636AD8 /* CoucouNotificationContent.appex */;
+			productName = CocoaNotificationContent;
+			productReference = D6DF93125491729E14636AD8 /* CocoaNotificationContent.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		73F29874BE2F4DF201E7AE81 /* CoucouPhone */ = {
+		73F29874BE2F4DF201E7AE81 /* CocoaPhone */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DA7C004DA23898CA63062F23 /* Build configuration list for PBXNativeTarget "CoucouPhone" */;
+			buildConfigurationList = DA7C004DA23898CA63062F23 /* Build configuration list for PBXNativeTarget "CocoaPhone" */;
 			buildPhases = (
 				61F50315F8B3F360A125F7D9 /* Sources */,
 				E827F537C3FDC8925E13EEE2 /* Resources */,
@@ -706,11 +706,11 @@
 				D710F40BCF9AB164F9ED46E0 /* PBXTargetDependency */,
 				9AB649342898423F425FB7B7 /* PBXTargetDependency */,
 			);
-			name = CoucouPhone;
+			name = CocoaPhone;
 			packageProductDependencies = (
 			);
-			productName = CoucouPhone;
-			productReference = 12E32ED3910DED20BEEF39E5 /* CoucouPhone.app */;
+			productName = CocoaPhone;
+			productReference = 12E32ED3910DED20BEEF39E5 /* CocoaPhone.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -755,10 +755,10 @@
 			projectRoot = "";
 			targets = (
 				12E59C1D41BFA3D2F7CDD7F5 /* NotchBuddy */,
-				495922874E20462B9FC47E53 /* CoucouAppStore */,
-				73F29874BE2F4DF201E7AE81 /* CoucouPhone */,
-				0387C996BACD956C91E19390 /* CoucouWidgets */,
-				65F75F0262AF9C56FEF86BF4 /* CoucouNotificationContent */,
+				495922874E20462B9FC47E53 /* CocoaAppStore */,
+				73F29874BE2F4DF201E7AE81 /* CocoaPhone */,
+				0387C996BACD956C91E19390 /* CocoaWidgets */,
+				65F75F0262AF9C56FEF86BF4 /* CocoaNotificationContent */,
 			);
 		};
 /* End PBXProject section */
@@ -913,8 +913,8 @@
 				9492F8E414E8E1814F01EE66 /* ApprovalCard.swift in Sources */,
 				ED484F8DAC497C77F3E81F0E /* BotEngine.swift in Sources */,
 				607E548D1DD274CD73FDC290 /* ColorHex.swift in Sources */,
-				8AC19BAF88822CB31519D447 /* CoucouIntents.swift in Sources */,
-				EF9E6418C3F39F6FE88FD812 /* CoucouPhoneApp.swift in Sources */,
+				8AC19BAF88822CB31519D447 /* CocoaIntents.swift in Sources */,
+				EF9E6418C3F39F6FE88FD812 /* CocoaPhoneApp.swift in Sources */,
 				7CF3242DAD44B442297116E5 /* Decisions.swift in Sources */,
 				F1EE04000665E204E02DC5AC /* DenyApprovalIntent.swift in Sources */,
 				41966EEF7599793AD70DFCEA /* DiffEngine.swift in Sources */,
@@ -1041,8 +1041,8 @@
 			files = (
 				81250AE3E83493CF806D459B /* BotEngine.swift in Sources */,
 				924CE1172B5572DA3E45A7C9 /* ColorHex.swift in Sources */,
-				724E602A05FE5A6D58218E27 /* CoucouControl.swift in Sources */,
-				875FB3F71BD34B53B0524063 /* CoucouWidgets.swift in Sources */,
+				724E602A05FE5A6D58218E27 /* CocoaControl.swift in Sources */,
+				875FB3F71BD34B53B0524063 /* CocoaWidgets.swift in Sources */,
 				EC7904DC421C6EB6DCD77889 /* DenyApprovalIntent.swift in Sources */,
 				1E55440B97C640993E93D04D /* DiffEngine.swift in Sources */,
 				F5D6F8E2CA65AB16B487DDD0 /* IslandScreenGeometry.swift in Sources */,
@@ -1070,12 +1070,12 @@
 /* Begin PBXTargetDependency section */
 		9AB649342898423F425FB7B7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 65F75F0262AF9C56FEF86BF4 /* CoucouNotificationContent */;
+			target = 65F75F0262AF9C56FEF86BF4 /* CocoaNotificationContent */;
 			targetProxy = 3AA30D1108F3B5AEB81745D9 /* PBXContainerItemProxy */;
 		};
 		D710F40BCF9AB164F9ED46E0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0387C996BACD956C91E19390 /* CoucouWidgets */;
+			target = 0387C996BACD956C91E19390 /* CocoaWidgets */;
 			targetProxy = 488F3E8D639E084CD826D83C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1085,7 +1085,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Resources/CoucouReleaseCloud.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Resources/CocoaReleaseCloud.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				ENABLE_SANDBOX = NO;
 				INFOPLIST_FILE = Resources/Info.plist;
@@ -1095,8 +1095,8 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.NotchBuddy;
-				PRODUCT_NAME = Coucou;
-				PROVISIONING_PROFILE_SPECIFIER = "Coucou Developer ID";
+				PRODUCT_NAME = Cocoa;
+				PROVISIONING_PROFILE_SPECIFIER = "Cocoa Developer ID";
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = PHONE_LINK;
 			};
@@ -1120,8 +1120,8 @@
 					"@executable_path/../../Frameworks",
 				);
 				OTHER_CODE_SIGN_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.Coucou.NotificationContent;
-				PRODUCT_NAME = CoucouNotificationContent;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.Cocoa.NotificationContent;
+				PRODUCT_NAME = CocoaNotificationContent;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
@@ -1201,10 +1201,10 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGNING_ALLOWED = YES;
 				CODE_SIGNING_REQUIRED = YES;
-				CODE_SIGN_ENTITLEMENTS = Resources/CoucouPhone.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Resources/CocoaPhone.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				COUCOU_APNS_ENV = development;
+				COCOA_APNS_ENV = development;
 				DEVELOPMENT_TEAM = 256AUJ9555;
 				ENABLE_HARDENED_RUNTIME = NO;
 				INFOPLIST_FILE = Resources/InfoPhone.plist;
@@ -1214,8 +1214,8 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_CODE_SIGN_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.Coucou;
-				PRODUCT_NAME = Coucou;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.Cocoa;
+				PRODUCT_NAME = Cocoa;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1228,7 +1228,7 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGNING_ALLOWED = YES;
 				CODE_SIGNING_REQUIRED = YES;
-				CODE_SIGN_ENTITLEMENTS = Resources/CoucouWidgets.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Resources/CocoaWidgets.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 256AUJ9555;
@@ -1241,8 +1241,8 @@
 					"@executable_path/../../Frameworks",
 				);
 				OTHER_CODE_SIGN_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.Coucou.Widgets;
-				PRODUCT_NAME = CoucouWidgets;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.Cocoa.Widgets;
+				PRODUCT_NAME = CocoaWidgets;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
@@ -1255,7 +1255,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Resources/CoucouReleaseCloud.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Resources/CocoaReleaseCloud.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				ENABLE_SANDBOX = NO;
 				INFOPLIST_FILE = Resources/Info.plist;
@@ -1265,8 +1265,8 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.NotchBuddy;
-				PRODUCT_NAME = Coucou;
-				PROVISIONING_PROFILE_SPECIFIER = "Coucou Developer ID";
+				PRODUCT_NAME = Cocoa;
+				PROVISIONING_PROFILE_SPECIFIER = "Cocoa Developer ID";
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = PHONE_LINK;
 			};
@@ -1280,10 +1280,10 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGNING_ALLOWED = YES;
 				CODE_SIGNING_REQUIRED = YES;
-				CODE_SIGN_ENTITLEMENTS = Resources/CoucouPhoneProduction.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Resources/CocoaPhoneProduction.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				COUCOU_APNS_ENV = development;
+				COCOA_APNS_ENV = development;
 				DEVELOPMENT_TEAM = 256AUJ9555;
 				ENABLE_HARDENED_RUNTIME = NO;
 				INFOPLIST_FILE = Resources/InfoPhone.plist;
@@ -1293,8 +1293,8 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_CODE_SIGN_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.Coucou;
-				PRODUCT_NAME = Coucou;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.Cocoa;
+				PRODUCT_NAME = Cocoa;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1306,7 +1306,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGNING_ALLOWED = YES;
-				CODE_SIGN_ENTITLEMENTS = Resources/CoucouAppStore.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Resources/CocoaAppStore.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1317,8 +1317,8 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.Coucou;
-				PRODUCT_NAME = Coucou;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.Cocoa;
+				PRODUCT_NAME = Cocoa;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = APPSTORE;
 			};
@@ -1337,7 +1337,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.NotchBuddy;
-				PRODUCT_NAME = Coucou;
+				PRODUCT_NAME = Cocoa;
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -1360,8 +1360,8 @@
 					"@executable_path/../../Frameworks",
 				);
 				OTHER_CODE_SIGN_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.Coucou.NotificationContent;
-				PRODUCT_NAME = CoucouNotificationContent;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.Cocoa.NotificationContent;
+				PRODUCT_NAME = CocoaNotificationContent;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
@@ -1375,7 +1375,7 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGNING_ALLOWED = YES;
 				CODE_SIGNING_REQUIRED = YES;
-				CODE_SIGN_ENTITLEMENTS = Resources/CoucouWidgets.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Resources/CocoaWidgets.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 256AUJ9555;
@@ -1388,8 +1388,8 @@
 					"@executable_path/../../Frameworks",
 				);
 				OTHER_CODE_SIGN_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.Coucou.Widgets;
-				PRODUCT_NAME = CoucouWidgets;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.Cocoa.Widgets;
+				PRODUCT_NAME = CocoaWidgets;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
@@ -1406,10 +1406,10 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGNING_ALLOWED = YES;
 				CODE_SIGNING_REQUIRED = YES;
-				CODE_SIGN_ENTITLEMENTS = Resources/CoucouPhone.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Resources/CocoaPhone.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				COUCOU_APNS_ENV = production;
+				COCOA_APNS_ENV = production;
 				DEVELOPMENT_TEAM = 256AUJ9555;
 				ENABLE_HARDENED_RUNTIME = NO;
 				INFOPLIST_FILE = Resources/InfoPhone.plist;
@@ -1419,8 +1419,8 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_CODE_SIGN_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.Coucou;
-				PRODUCT_NAME = Coucou;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.Cocoa;
+				PRODUCT_NAME = Cocoa;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1432,7 +1432,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGNING_ALLOWED = YES;
-				CODE_SIGN_ENTITLEMENTS = Resources/CoucouAppStoreCloud.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Resources/CocoaAppStoreCloud.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1443,8 +1443,8 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.Coucou;
-				PRODUCT_NAME = Coucou;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.Cocoa;
+				PRODUCT_NAME = Cocoa;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "APPSTORE PHONE_LINK";
 			};
@@ -1458,10 +1458,10 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGNING_ALLOWED = YES;
 				CODE_SIGNING_REQUIRED = YES;
-				CODE_SIGN_ENTITLEMENTS = Resources/CoucouPhone.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Resources/CocoaPhone.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				COUCOU_APNS_ENV = production;
+				COCOA_APNS_ENV = production;
 				DEVELOPMENT_TEAM = 256AUJ9555;
 				ENABLE_HARDENED_RUNTIME = NO;
 				INFOPLIST_FILE = Resources/InfoPhone.plist;
@@ -1471,8 +1471,8 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_CODE_SIGN_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.Coucou;
-				PRODUCT_NAME = Coucou;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.Cocoa;
+				PRODUCT_NAME = Cocoa;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1497,8 +1497,8 @@
 					"@executable_path/../../Frameworks",
 				);
 				OTHER_CODE_SIGN_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.Coucou.NotificationContent;
-				PRODUCT_NAME = CoucouNotificationContent;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.Cocoa.NotificationContent;
+				PRODUCT_NAME = CocoaNotificationContent;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
@@ -1510,7 +1510,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Resources/CoucouCloud.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Resources/CocoaCloud.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				ENABLE_SANDBOX = NO;
 				INFOPLIST_FILE = Resources/Info.plist;
@@ -1520,7 +1520,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.NotchBuddy;
-				PRODUCT_NAME = Coucou;
+				PRODUCT_NAME = Cocoa;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG PHONE_LINK";
 			};
@@ -1531,7 +1531,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGNING_ALLOWED = YES;
-				CODE_SIGN_ENTITLEMENTS = Resources/CoucouAppStore.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Resources/CocoaAppStore.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1542,8 +1542,8 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.Coucou;
-				PRODUCT_NAME = Coucou;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.Cocoa;
+				PRODUCT_NAME = Cocoa;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = APPSTORE;
 			};
@@ -1555,7 +1555,7 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGNING_ALLOWED = YES;
 				CODE_SIGNING_REQUIRED = YES;
-				CODE_SIGN_ENTITLEMENTS = Resources/CoucouWidgets.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Resources/CocoaWidgets.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 256AUJ9555;
@@ -1568,8 +1568,8 @@
 					"@executable_path/../../Frameworks",
 				);
 				OTHER_CODE_SIGN_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.Coucou.Widgets;
-				PRODUCT_NAME = CoucouWidgets;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.Cocoa.Widgets;
+				PRODUCT_NAME = CocoaWidgets;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
@@ -1584,7 +1584,7 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGNING_ALLOWED = YES;
 				CODE_SIGNING_REQUIRED = YES;
-				CODE_SIGN_ENTITLEMENTS = Resources/CoucouWidgets.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Resources/CocoaWidgets.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 256AUJ9555;
@@ -1597,8 +1597,8 @@
 					"@executable_path/../../Frameworks",
 				);
 				OTHER_CODE_SIGN_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.Coucou.Widgets;
-				PRODUCT_NAME = CoucouWidgets;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.Cocoa.Widgets;
+				PRODUCT_NAME = CocoaWidgets;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
@@ -1692,8 +1692,8 @@
 					"@executable_path/../../Frameworks",
 				);
 				OTHER_CODE_SIGN_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.Coucou.NotificationContent;
-				PRODUCT_NAME = CoucouNotificationContent;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.Cocoa.NotificationContent;
+				PRODUCT_NAME = CocoaNotificationContent;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
@@ -1706,7 +1706,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGNING_ALLOWED = YES;
-				CODE_SIGN_ENTITLEMENTS = Resources/CoucouAppStoreCloud.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Resources/CocoaAppStoreCloud.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1717,8 +1717,8 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.Coucou;
-				PRODUCT_NAME = Coucou;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.louisraille.Cocoa;
+				PRODUCT_NAME = Cocoa;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "APPSTORE PHONE_LINK";
 			};
@@ -1759,7 +1759,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_ALLOWED = YES;
 				CODE_SIGNING_REQUIRED = YES;
-				CODE_SIGN_ENTITLEMENTS = Resources/Coucou.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Resources/Cocoa.entitlements;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
 				CODE_SIGN_STYLE = Manual;
@@ -1861,7 +1861,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		21BF9C617EC84EECBB6BC46D /* Build configuration list for PBXNativeTarget "CoucouAppStore" */ = {
+		21BF9C617EC84EECBB6BC46D /* Build configuration list for PBXNativeTarget "CocoaAppStore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B00AFE3DDD2B0870D9FC5B2A /* Debug */,
@@ -1883,7 +1883,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		C8FE04C40E517AF7D8F28493 /* Build configuration list for PBXNativeTarget "CoucouNotificationContent" */ = {
+		C8FE04C40E517AF7D8F28493 /* Build configuration list for PBXNativeTarget "CocoaNotificationContent" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A7975DD38E5F3B753CE2C596 /* Debug */,
@@ -1894,7 +1894,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		DA7C004DA23898CA63062F23 /* Build configuration list for PBXNativeTarget "CoucouPhone" */ = {
+		DA7C004DA23898CA63062F23 /* Build configuration list for PBXNativeTarget "CocoaPhone" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				18FBBC33FBC9D91932B78700 /* Debug */,
@@ -1916,7 +1916,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		E24C031E9F3A787E693F616B /* Build configuration list for PBXNativeTarget "CoucouWidgets" */ = {
+		E24C031E9F3A787E693F616B /* Build configuration list for PBXNativeTarget "CocoaWidgets" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B6A98752A595F807FE973E78 /* Debug */,

@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// Step 3 check: CoucouKit (Mochi, pills, diff, models) drawn on the iPhone
+/// Step 3 check: CocoaKit (Mochi, pills, diff, models) drawn on the iPhone
 /// with the Mac's own code.
 struct KitPreviewView: View {
     private let poses: [(BotState, EyeShape?, String)] = [
@@ -16,8 +16,8 @@ struct KitPreviewView: View {
 
     private let sampleDiff = DiffEngine.fromEdit(
         old: "func greet() {\n    print(\"Hello\")\n}\n",
-        new: "func greet(name: String) {\n    print(\"Coucou \\(name)\")\n}\n",
-        path: "/coucou/Greeting.swift")
+        new: "func greet(name: String) {\n    print(\"Cocoa \\(name)\")\n}\n",
+        path: "/cocoa/Greeting.swift")
 
     var body: some View {
         List {
@@ -67,7 +67,7 @@ struct KitPreviewView: View {
                 }
             }
         }
-        .navigationTitle("CoucouKit")
+        .navigationTitle("CocoaKit")
     }
 
     private func tileColor(_ index: Int) -> Color {

@@ -3,11 +3,11 @@ import UIKit
 
 /// The tabs, in glass on iOS 26: the agents, the services, the decisions you
 /// took, and a search through every turn.
-enum CoucouTab: Hashable { case agents, services, history, search }
+enum CocoaTab: Hashable { case agents, services, history, search }
 
 struct HomeView: View {
     let link: PhoneLink
-    @State private var tab: CoucouTab = .agents
+    @State private var tab: CocoaTab = .agents
     @State private var agentsPath: [String] = []
     @State private var servicesPath: [String] = []
     @State private var introDone = false
@@ -15,16 +15,16 @@ struct HomeView: View {
 
     var body: some View {
         TabView(selection: $tab) {
-            Tab("Agents", systemImage: "sparkles", value: CoucouTab.agents) {
+            Tab("Agents", systemImage: "sparkles", value: CocoaTab.agents) {
                 AgentsTab(link: link, path: $agentsPath)
             }
-            Tab("Services", systemImage: "square.grid.2x2", value: CoucouTab.services) {
+            Tab("Services", systemImage: "square.grid.2x2", value: CocoaTab.services) {
                 ServicesTab(link: link, path: $servicesPath)
             }
-            Tab("History", systemImage: "clock.arrow.circlepath", value: CoucouTab.history) {
+            Tab("History", systemImage: "clock.arrow.circlepath", value: CocoaTab.history) {
                 NavigationStack { HistoryView(link: link) }
             }
-            Tab(value: CoucouTab.search, role: .search) {
+            Tab(value: CocoaTab.search, role: .search) {
                 SearchTab(link: link)
             }
         }
@@ -148,7 +148,7 @@ struct AgentsTab: View {
             .animation(.spring(duration: 0.5, bounce: 0.2),
                        value: link.sessions.map { "\($0.id)|\($0.statusText)" })
             .refreshable { await link.refresh() }
-            .navigationTitle("Coucou")
+            .navigationTitle("Cocoa")
             .navigationBarTitleDisplayMode(.inline)
             .navigationDestination(for: String.self) { id in
                 SessionDetailView(link: link, sessionId: id)
@@ -510,7 +510,7 @@ struct EmptySessionsView: View {
         switch status {
         case .starting: "Connecting to iCloud…"
         case .noAccount(let reason): "\(reason) Sign in to iCloud with the same account as your Mac."
-        case .zoneMissing: "Open Coucou on your Mac: your sessions will show up here."
+        case .zoneMissing: "Open Cocoa on your Mac: your sessions will show up here."
         case .failed(let message): message
         case .ready: "No session yet. Start Claude Code, Cursor or Codex on your Mac."
         }
