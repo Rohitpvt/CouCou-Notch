@@ -36,8 +36,26 @@ const MAX_LINE: usize = 1024 * 1024;
 const MAX_ANSWER: usize = 4 * 1024 * 1024;
 /// Ollama and LM Studio ignore the key, but some clients insist on sending one.
 const NO_KEY: &str = "ollama";
-/// Models that embed or rank rather than chat are left out of the list.
-const NOT_CHAT: &[&str] = &["embed", "bge-", "all-minilm", "clip", "rerank"];
+/// Models that embed, rank, generate audio/vision, or are deprecated are left out of the list.
+const NOT_CHAT: &[&str] = &[
+    "embed",
+    "bge-",
+    "all-minilm",
+    "clip",
+    "rerank",
+    "tts",
+    "whisper",
+    "vision-encoder",
+    "reward",
+    "guard",
+    "moderation",
+    "instructor",
+    "nomic-bert",
+    "gte-",
+    "e5-",
+    "colbert",
+    "deprecated",
+];
 
 // ── The custom server's key ───────────────────────────────────────────────────
 //

@@ -9,6 +9,7 @@ mod config_file;
 mod desktop;
 mod files;
 mod github;
+mod hardware;
 mod hooks;
 mod i18n;
 mod identity;
@@ -637,11 +638,14 @@ pub fn run() {
         builder = builder.plugin(shortcuts::plugin());
     }
 
+    let hardware_monitor = Arc::new(hardware::HardwareMonitor::new());
+
     builder
         .manage(Shared {
             settings: Mutex::new(loaded.clone()),
             gate: gate.clone(),
         })
+        .manage(hardware_monitor.clone())
         .manage(Pending::default())
         .manage(Chat::default())
         .manage(shortcuts::Registry::default())
@@ -710,6 +714,7 @@ pub fn run() {
             desktop::desktop_mochi_fly_out,
             desktop::desktop_mochi_fly_home,
             desktop::desktop_mochi_set_asleep,
+            hardware::get_system_stats,
         ])
         .setup(move |app| {
             let handle = app.handle().clone();
@@ -743,9 +748,16 @@ pub fn run() {
             island::spawn_cursor_poll(handle.clone(), gate.clone());
 
             log::line(format!("--- Coucou {} started ---", env!("CARGO_PKG_VERSION")));
+            let manager = handle.autolaunch();
+            if loaded.autostart {
+                if let Err(err) = manager.enable() {
+                    log::line(format!("autostart enable failed: {err}"));
+                }
+            }
             hooks::ensure_hook_exe(&handle);
             pipe::start(handle.clone());
             integrations::start(handle.clone());
+            hardware::start(handle.clone(), gate.clone(), hardware_monitor.clone());
             shortcuts::apply(&handle, &loaded.shortcuts);
             Ok(())
         })

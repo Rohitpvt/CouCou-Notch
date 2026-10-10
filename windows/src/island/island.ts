@@ -55,6 +55,7 @@ export class Island {
   private botGlow!: HTMLElement;
   private greetingCanvas!: HTMLCanvasElement;
   private miniGrid!: HTMLElement;
+  private notchStats!: HTMLElement;
   private countdown!: HTMLElement;
   private wakeStrip!: HTMLElement;
 
@@ -124,8 +125,16 @@ export class Island {
       this.onGreetingDone?.();
     };
     State.subscribe(() => {
+      this.fsm.openOnHover = State.settings.openOnHover;
+      this.fsm.homeToPetitDelay = State.settings.autoCloseInterval;
       this.dirty = true;
       this.ensureRunning();
+    });
+    void Bridge.getSystemStats().then((stats) => {
+      if (stats) State.setSystemStats(stats);
+    });
+    Bridge.onSystemStats((stats) => {
+      State.setSystemStats(stats);
     });
   }
 
@@ -252,6 +261,7 @@ export class Island {
     this.botCanvas = h("canvas", { id: "bot-canvas" });
     this.greetingCanvas = h("canvas", { id: "greeting-canvas" });
     this.miniGrid = h("div", { id: "mini-grid" });
+    this.notchStats = h("div", { id: "notch-stats" });
     this.countdown = h("div", { id: "countdown" });
 
     this.header = buildHeader(actions);
@@ -285,6 +295,7 @@ export class Island {
       this.clipEl,
       this.botGlow,
       this.botCanvas,
+      this.notchStats,
       this.miniGrid,
       this.countdown,
     );
@@ -302,6 +313,7 @@ export class Island {
   // ── FSM ─────────────────────────────────────────────────────────────────────
 
   private wireFsm() {
+    this.fsm.openOnHover = State.settings.openOnHover;
     this.fsm.homeToPetitDelay = State.settings.autoCloseInterval;
     this.fsm.onTransition = (from, to) => {
       // The greeting is over, however it ended: back to his desktop spot.
@@ -315,11 +327,9 @@ export class Island {
           else if (from === "hidden") Sound.play("peek");
           this.setMode("compact");
           if (from === "coucou") State.view = State.defaultView();
-          if (!this.wasInIsland) this.fsm.mouseLeft();
           break;
         case "home":
           this.expand(State.defaultView());
-          if (!this.wasInIsland) this.fsm.mouseLeft();
           // Hooks may have been installed in a terminal since: the idle cards
           // say so on the next open, without polling while the island is shut.
           void refreshHookPills();
@@ -695,9 +705,20 @@ export class Island {
       if (State.mode === "hidden") this.fsm.mouseEntered();
     });
 
+    this.islandEl.addEventListener("mouseenter", () => {
+      this.wasInIsland = true;
+      this.fsm.mouseEntered();
+    });
+
+    this.islandEl.addEventListener("mousemove", () => {
+      this.wasInIsland = true;
+      this.fsm.mouseEntered();
+    });
+
     this.islandEl.addEventListener("mousedown", (e) => {
       Sound.resume();
       State.lastActivity = performance.now();
+      this.fsm.userInteracted();
       // A press on Mochi may become a drag out to the desktop.
       if (e.button === 0 && this.isBotHit(e.clientX, e.clientY)) {
         this.botPress = { x: e.clientX, y: e.clientY };
@@ -751,6 +772,7 @@ export class Island {
     // a terminal — so it may fold a waiting card away, as Escape in the notch
     // does on macOS.
     window.addEventListener("keydown", (e) => {
+      this.fsm.userInteracted();
       if (e.key === "Escape" && State.mode === "expanded") {
         if (State.pendingApproval) this.foldApproval();
         else if (!State.isPinned) this.collapse();
@@ -810,9 +832,14 @@ export class Island {
       x >= rect.x - HIT_MARGIN && x <= rect.x + rect.w + HIT_MARGIN &&
       y >= rect.y - HIT_MARGIN && y <= rect.y + rect.h + HIT_MARGIN;
 
-    if (inIsland && !this.wasInIsland) {
-      if (this.fsm.state === "coucou") this.greeting.hover();
-      this.fsm.mouseEntered();
+    if (inIsland) {
+      if (!this.wasInIsland) {
+        if (this.fsm.state === "coucou") this.greeting.hover();
+        this.fsm.mouseEntered();
+      } else if (this.fsm.state === "home") {
+        // While cursor is resting inside the expanded island, keep collapse timer cancelled
+        this.fsm.mouseEntered();
+      }
     }
     if (!inIsland && this.wasInIsland) {
       this.fsm.mouseLeft();
@@ -1070,7 +1097,7 @@ export class Island {
     // The state machine's own deadline, so the bar follows an auto-close delay
     // edited while the countdown runs.
     const dueAt = this.fsm.homeCollapseDueAt;
-    if (State.mode !== "expanded" || State.isPinned || dueAt == null) {
+    if (State.mode !== "expanded" || State.isPinned || dueAt == null || this.fsm.openedByHover) {
       this.countdown.style.width = "0px";
       return;
     }
@@ -1138,7 +1165,47 @@ export class Island {
     }
 
     syncMiniBotStates(State.tasks);
+    this.syncNotchStats();
     this.engine.setState(State.effectiveState);
+  }
+
+  private syncNotchStats() {
+    const show = State.mode === "compact" && State.settings.showSystemStats;
+    this.notchStats.style.opacity = show ? "1" : "0";
+    if (!show) {
+      if (this.notchStats.hasChildNodes()) this.notchStats.replaceChildren();
+      return;
+    }
+
+    const stats = State.systemStats;
+    const items: HTMLElement[] = [];
+    if (stats) {
+      if (State.settings.showCpuUsage) {
+        const cpuVal = Math.round(stats.cpuUsage);
+        const cpuClass = cpuVal > 85 ? "hot" : cpuVal > 60 ? "warm" : "";
+        items.push(
+          h(
+            "div",
+            { class: `stat-pill ${cpuClass}`.trim(), title: `CPU: ${cpuVal}%` },
+            h("span", { class: "stat-label", text: "CPU" }),
+            h("span", { class: "stat-value", text: `${cpuVal}%` }),
+          ),
+        );
+      }
+      if (State.settings.showGpuUsage && stats.gpuUsage != null) {
+        const gpuVal = Math.round(stats.gpuUsage);
+        const gpuClass = gpuVal > 85 ? "hot" : gpuVal > 60 ? "warm" : "";
+        items.push(
+          h(
+            "div",
+            { class: `stat-pill ${gpuClass}`.trim(), title: `GPU: ${gpuVal}%` },
+            h("span", { class: "stat-label", text: "GPU" }),
+            h("span", { class: "stat-value", text: `${gpuVal}%` }),
+          ),
+        );
+      }
+    }
+    this.notchStats.replaceChildren(...items);
   }
 
   /** Applies settings coming from Rust at boot. */

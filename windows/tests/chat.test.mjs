@@ -40,7 +40,7 @@ const chips = () => view.el.find(".picker-chip").map((c) => c.textContent);
 const models = () => view.el.find(".picker-model").map((m) => m.textContent);
 
 test("the model button shows the active provider's model", () => {
-  assert.equal($(".model-name").textContent, "claude-opus-5");
+  assert.equal($(".model-name").textContent, "claude-3-7-sonnet-latest");
   State.settings = { ...State.settings, chatProvider: "google" };
   view.sync();
   assert.equal($(".model-name").textContent, "gemini-2.0-flash");

@@ -161,7 +161,16 @@ pub fn plain_question(first: bool, context: Option<&ChatContext>, query: &str) -
 pub fn model_for(settings: &Settings, provider: &str) -> String {
     if provider == ANTHROPIC {
         let m = settings.model.trim();
-        return if m.is_empty() { claude::DEFAULT_MODEL.to_string() } else { m.to_string() };
+        return if m.is_empty()
+            || m == "claude-opus-5"
+            || m.starts_with("claude-1")
+            || m.starts_with("claude-2")
+            || m.starts_with("claude-instant")
+        {
+            claude::DEFAULT_MODEL.to_string()
+        } else {
+            m.to_string()
+        };
     }
     settings
         .chat_models

@@ -307,3 +307,93 @@ test("an unusable delay is ignored", () => {
   for (const bad of [NaN, -1, Infinity]) fsm.homeToPetitDelay = bad;
   assert.equal(fsm.homeToPetitDelay, 15);
 });
+
+// ── Open on hover (IslandHoverTests.swift) ───────────────────────────────────
+
+test("openOnHover off: hovering only peeks (petit)", () => {
+  assert.equal(fsm.openOnHover, false);
+  fsm.mouseEntered();
+  assert.equal(fsm.state, "petit");
+  assert.equal(fsm.openedByHover, false);
+});
+
+test("openOnHover on: hovering a hidden island opens it, leaving folds it after the grace period", () => {
+  fsm.openOnHover = true;
+  fsm.hoverCloseDelay = 0.6;
+  fsm.mouseEntered();
+  assert.equal(fsm.state, "home");
+  assert.equal(fsm.openedByHover, true);
+
+  fsm.mouseLeft();
+  assert.equal(fsm.state, "home"); // folds after grace period, not at once
+  seconds(0.59);
+  assert.equal(fsm.state, "home");
+  seconds(0.02);
+  assert.equal(fsm.state, "petit");
+  assert.equal(fsm.openedByHover, false);
+});
+
+test("openOnHover on: coming back before the hover delay keeps it open", () => {
+  fsm.openOnHover = true;
+  fsm.hoverCloseDelay = 0.6;
+  fsm.mouseEntered();
+  fsm.mouseLeft();
+  seconds(0.3);
+  fsm.mouseEntered();
+  seconds(0.6);
+  assert.equal(fsm.state, "home");
+});
+
+test("openOnHover on: userInteracted converts hover-open to normal auto-close delay", () => {
+  fsm.openOnHover = true;
+  fsm.hoverCloseDelay = 0.6;
+  fsm.homeToPetitDelay = 15;
+  fsm.mouseEntered();
+  assert.equal(fsm.openedByHover, true);
+  fsm.userInteracted();
+  assert.equal(fsm.openedByHover, false);
+
+  fsm.mouseLeft();
+  seconds(1); // past hoverCloseDelay
+  assert.equal(fsm.state, "home");
+  seconds(14.1); // past 15s autoClose
+  assert.equal(fsm.state, "petit");
+});
+
+test("openOnHover on: click inside converts hover-open to normal auto-close delay", () => {
+  fsm.openOnHover = true;
+  fsm.hoverCloseDelay = 0.6;
+  fsm.homeToPetitDelay = 15;
+  fsm.mouseEntered();
+  fsm.click();
+  assert.equal(fsm.openedByHover, false);
+
+  fsm.mouseLeft();
+  seconds(1);
+  assert.equal(fsm.state, "home");
+  seconds(14.1);
+  assert.equal(fsm.state, "petit");
+});
+
+test("openOnHover on: a pinned alert never folds on mouse leave", () => {
+  fsm.openOnHover = true;
+  fsm.pinned = true;
+  fsm.mouseEntered();
+  fsm.mouseLeft();
+  seconds(600);
+  assert.equal(fsm.state, "home");
+});
+
+test("openOnHover on: an island opened by alert keeps normal delay", () => {
+  fsm.openOnHover = true;
+  fsm.homeToPetitDelay = 15;
+  fsm.openedExternally();
+  assert.equal(fsm.openedByHover, false);
+  fsm.mouseEntered();
+  fsm.mouseLeft();
+  seconds(1);
+  assert.equal(fsm.state, "home");
+  seconds(14.1);
+  assert.equal(fsm.state, "petit");
+});
+

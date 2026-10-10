@@ -318,6 +318,10 @@ function planSection(status: HookStatus): HTMLElement {
 // ── Claude API section ────────────────────────────────────────────────────────
 
 const MODELS: [string, string][] = [
+  ["claude-3-7-sonnet-latest", "Claude 3.7 Sonnet"],
+  ["claude-3-5-sonnet-latest", "Claude 3.5 Sonnet"],
+  ["claude-3-5-haiku-latest", "Claude 3.5 Haiku"],
+  ["claude-3-opus-latest", "Claude 3 Opus"],
   ["claude-opus-5", "Claude Opus 5"],
   ["claude-sonnet-5", "Claude Sonnet 5"],
   ["claude-haiku-4-5", "Claude Haiku 4.5"],
@@ -929,8 +933,45 @@ function generalSection(): HTMLElement {
       h("label", { text: t("Launch at startup") }),
       toggle(settings.autostart, (v) => { settings.autostart = v; void save(); }),
     ),
+    h("div", { class: "row" },
+      h("label", { text: t("Open on hover") }),
+      toggle(settings.openOnHover, (v) => { settings.openOnHover = v; void save(); }),
+    ),
     ...recapRows(),
     languageRow(),
+  );
+}
+
+function performanceSection(): HTMLElement {
+  return h(
+    "section",
+    {},
+    h("h2", {}, h("span", { text: t("Hardware & Performance") })),
+    h("div", { class: "hint", text: t("Display live CPU, GPU and RAM telemetry in the notch center.") }),
+    h("div", { class: "row" },
+      h("label", { text: t("Show system stats") }),
+      toggle(settings.showSystemStats, (v) => { settings.showSystemStats = v; void save(); }),
+    ),
+    h("div", { class: "row" },
+      h("label", { text: t("CPU usage") }),
+      toggle(settings.showCpuUsage, (v) => { settings.showCpuUsage = v; void save(); }),
+      h("span", { class: "hint", text: t("Collapsed & Expanded") }),
+    ),
+    h("div", { class: "row" },
+      h("label", { text: t("GPU usage") }),
+      toggle(settings.showGpuUsage, (v) => { settings.showGpuUsage = v; void save(); }),
+      h("span", { class: "hint", text: t("Collapsed & Expanded") }),
+    ),
+    h("div", { class: "row" },
+      h("label", { text: t("RAM usage") }),
+      toggle(settings.showRamUsage, (v) => { settings.showRamUsage = v; void save(); }),
+      h("span", { class: "hint", text: t("Expanded mode") }),
+    ),
+    h("div", { class: "row" },
+      h("label", { text: t("GPU temperature") }),
+      toggle(settings.showGpuTemp, (v) => { settings.showGpuTemp = v; void save(); }),
+      h("span", { class: "hint", text: t("Expanded mode") }),
+    ),
   );
 }
 
@@ -1306,6 +1347,7 @@ async function render() {
     activePillsSection(connected),
     integrationsSection(present),
     generalSection(),
+    performanceSection(),
     shortcutsSection(shortcutReport),
     h("div", {
       class: "hint",

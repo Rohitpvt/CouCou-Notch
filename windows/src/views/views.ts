@@ -105,6 +105,8 @@ export function buildHeader(actions: ViewActions): ViewHost {
   const tabChat = h("button", { class: "tab", title: tl("Ask"), onclick: () => go("prompt") }, svg(ICONS.bubble, 13));
   const tabDrop = h("button", { class: "tab", title: tl("Drop"), onclick: () => go("upload") }, svg(ICONS.plus, 13));
 
+  const headerStats = h("div", { class: "header-stats" });
+
   const gearBtn = h("button", { title: tl("Settings"), onclick: () => go("settings") }, svg(ICONS.gear, 14));
   const soundBtn = h("button", { title: tl("Mute"), onclick: () => actions.toggleSound() }, svg(ICONS.speakerOn, 14));
   // Plan usage pills (off by default): before the gear, Claude first, as on the Mac.
@@ -122,6 +124,7 @@ export function buildHeader(actions: ViewActions): ViewHost {
     "div",
     { id: "header" },
     h("div", { class: "tabs" }, tabHome, tabChat, tabDrop),
+    headerStats,
     h("div", { class: "header-actions" }, planPills, gearBtn, soundBtn),
   );
   const headerActions = el.lastElementChild as HTMLElement;
@@ -139,9 +142,73 @@ export function buildHeader(actions: ViewActions): ViewHost {
       clear(soundBtn);
       soundBtn.append(svg(State.settings.soundEnabled ? ICONS.speakerOn : ICONS.speakerOff, 14));
       syncPlanPills();
+      syncHeaderStats();
       el.style.opacity = v === "confused" ? "0" : "1";
     },
   };
+
+  function syncHeaderStats() {
+    const show = State.settings.showSystemStats;
+    headerStats.style.display = show ? "flex" : "none";
+    if (!show) {
+      if (headerStats.hasChildNodes()) headerStats.replaceChildren();
+      return;
+    }
+    const stats = State.systemStats;
+    const items: HTMLElement[] = [];
+    if (stats) {
+      if (State.settings.showCpuUsage) {
+        const cpu = Math.round(stats.cpuUsage);
+        const cClass = cpu > 85 ? "hot" : cpu > 60 ? "warm" : "";
+        items.push(
+          h(
+            "div",
+            { class: `stat-chip ${cClass}`.trim(), title: `CPU: ${cpu}%` },
+            h("span", { class: "stat-chip-label", text: "CPU" }),
+            h("span", { class: "stat-chip-value", text: `${cpu}%` }),
+          ),
+        );
+      }
+      if (State.settings.showGpuUsage && stats.gpuUsage != null) {
+        const gpu = Math.round(stats.gpuUsage);
+        const gClass = gpu > 85 ? "hot" : gpu > 60 ? "warm" : "";
+        items.push(
+          h(
+            "div",
+            { class: `stat-chip ${gClass}`.trim(), title: `GPU: ${gpu}%` },
+            h("span", { class: "stat-chip-label", text: "GPU" }),
+            h("span", { class: "stat-chip-value", text: `${gpu}%` }),
+          ),
+        );
+      }
+      if (State.settings.showGpuTemp && stats.gpuTemp != null) {
+        const temp = Math.round(stats.gpuTemp);
+        const tClass = temp > 80 ? "hot" : temp > 68 ? "warm" : "";
+        items.push(
+          h(
+            "div",
+            { class: `stat-chip ${tClass}`.trim(), title: `GPU Temp: ${temp}°C` },
+            h("span", { class: "stat-chip-label", text: "GPU" }),
+            h("span", { class: "stat-chip-value", text: `${temp}°C` }),
+          ),
+        );
+      }
+      if (State.settings.showRamUsage) {
+        const ramGb = stats.ramUsedGb.toFixed(1);
+        const ramPct = Math.round(stats.ramUsage);
+        const rClass = ramPct > 85 ? "hot" : ramPct > 70 ? "warm" : "";
+        items.push(
+          h(
+            "div",
+            { class: `stat-chip ${rClass}`.trim(), title: `RAM: ${ramGb} GB (${ramPct}%)` },
+            h("span", { class: "stat-chip-label", text: "RAM" }),
+            h("span", { class: "stat-chip-value", text: `${ramGb}G` }),
+          ),
+        );
+      }
+    }
+    headerStats.replaceChildren(...items);
+  }
 
   function syncPlanPills() {
     const claudeOn = claudePillVisible();

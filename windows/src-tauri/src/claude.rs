@@ -23,14 +23,12 @@ pub const KEY: &str = "anthropic-api-key";
 const DEFAULT_ENDPOINT: &str = "https://api.anthropic.com/v1/messages";
 const BASE_URL_VAR: &str = "COUCOU_ANTHROPIC_BASE_URL";
 const ANTHROPIC_VERSION: &str = "2023-06-01";
-/// Server-side fallback: on a policy decline the API retries the same request on
-/// a fallback model inside the same call, so the island never shows a dead end.
-const FALLBACK_BETA: &str = "server-side-fallback-2026-07-01";
+const WEB_SEARCH_BETA: &str = "web-search-2025-03-05";
 const MAX_TOKENS: u32 = 4096;
 /// Text and code files are inlined; anything larger is skipped, as on macOS.
 const MAX_INLINE_TEXT: u64 = 200_000;
 
-pub const DEFAULT_MODEL: &str = "claude-opus-5";
+pub const DEFAULT_MODEL: &str = "claude-3-7-sonnet-latest";
 
 /// The Messages endpoint: Anthropic's, or the gateway in COUCOU_ANTHROPIC_BASE_URL.
 /// Read once; the gateway's host (never the key) goes to the log once.
@@ -88,17 +86,19 @@ fn user_content(first: bool, context: Option<&ChatContext>, query: &str) -> Vec<
     content
 }
 
-fn request_body(model: &str, system: &str, history: &[Value], user: &Value) -> Value {
+fn request_body(model: &str, system: &str, history: &[Value], user: &Value, web_search: bool) -> Value {
     let mut messages = history.to_vec();
     messages.push(user.clone());
-    json!({
+    let mut body = json!({
         "model": model,
         "max_tokens": MAX_TOKENS,
         "system": system,
-        "tools": [{ "type": "web_search_20260209", "name": "web_search", "max_uses": 5 }],
-        "fallbacks": "default",
         "messages": messages,
-    })
+    });
+    if web_search {
+        body["tools"] = json!([{ "type": "web_search_20250305", "name": "web_search", "max_uses": 5 }]);
+    }
+    body
 }
 
 /// The assistant's full text from a Messages API content array — the same as
@@ -148,9 +148,17 @@ pub async fn send(
 
     let turn = chat.begin(chat::ANTHROPIC);
     let user = json!({ "role": "user", "content": user_content(turn.first, context.as_ref(), &query) });
-    let body = request_body(model, &chat::system_prompt(true), &turn.history, &user);
+    let body = request_body(model, &chat::system_prompt(true), &turn.history, &user, true);
 
-    let response = call(&endpoint, &key, &body).await?;
+    let response = match call(&endpoint, &key, &body, true).await {
+        Ok(res) => res,
+        Err(err) if err.contains("web_search") || err.contains("beta") || err.contains("tools") || err.contains("400") => {
+            // If web search tool/beta is refused by account or gateway, fall back to standard text chat.
+            let fallback_body = request_body(model, &chat::system_prompt(false), &turn.history, &user, false);
+            call(&endpoint, &key, &fallback_body, false).await?
+        }
+        Err(err) => return Err(err),
+    };
     let (blocks, text) = interpret(&response)?;
 
     // Store the whole content — tool_use / tool_result blocks included — so the
@@ -160,13 +168,16 @@ pub async fn send(
     Ok(ChatReply { text })
 }
 
-async fn call(endpoint: &Url, key: &str, body: &Value) -> Result<Value, String> {
-    let response = net::client(endpoint, Duration::from_secs(90))?
+async fn call(endpoint: &Url, key: &str, body: &Value, with_beta: bool) -> Result<Value, String> {
+    let mut req = net::client(endpoint, Duration::from_secs(90))?
         .post(endpoint.clone())
         .header("x-api-key", key)
         .header("anthropic-version", ANTHROPIC_VERSION)
-        .header("anthropic-beta", FALLBACK_BETA)
-        .header("content-type", "application/json")
+        .header("content-type", "application/json");
+    if with_beta {
+        req = req.header("anthropic-beta", WEB_SEARCH_BETA);
+    }
+    let response = req
         .json(body)
         .send()
         .await
@@ -202,15 +213,33 @@ pub async fn models(key: &str) -> Result<Vec<ModelInfo>, String> {
     Ok(parse_models(&json))
 }
 
+const NOT_CHAT: &[&str] = &[
+    "claude-1",
+    "claude-2",
+    "claude-instant",
+    "claude-3-sonnet-20240229",
+    "deprecated",
+    "retired",
+    "shutdown",
+];
+
 fn parse_models(json: &Value) -> Vec<ModelInfo> {
     json.get("data")
         .and_then(Value::as_array)
         .into_iter()
         .flatten()
         .filter_map(|m| {
-            let id = m.get("id")?.as_str()?.to_string();
-            let label = m.get("display_name").and_then(Value::as_str).unwrap_or(&id).to_string();
-            Some(ModelInfo { id, label })
+            let id = m.get("id")?.as_str()?;
+            let lower = id.to_lowercase();
+            if id.is_empty() || NOT_CHAT.iter().any(|x| lower.contains(x)) {
+                return None;
+            }
+            let label = m.get("display_name").and_then(Value::as_str).unwrap_or(id);
+            let lower_label = label.to_lowercase();
+            if NOT_CHAT.iter().any(|x| lower_label.contains(x)) {
+                return None;
+            }
+            Some(ModelInfo { id: id.to_string(), label: label.to_string() })
         })
         .collect()
 }
@@ -336,7 +365,7 @@ mod tests {
     fn the_request_carries_history_web_search_and_the_new_turn_last() {
         let history = vec![json!({"role":"user","content":"a"}), json!({"role":"assistant","content":"b"})];
         let user = json!({"role":"user","content":[{"type":"text","text":"c"}]});
-        let body = request_body("claude-x", "sys", &history, &user);
+        let body = request_body("claude-x", "sys", &history, &user, true);
         assert_eq!(body["model"], "claude-x");
         assert_eq!(body["system"], "sys");
         assert_eq!(body["max_tokens"], MAX_TOKENS);
@@ -363,7 +392,16 @@ mod tests {
         assert_eq!(models_endpoint(&url).as_str(), "https://api.anthropic.com/v1/models?limit=100");
         let url = net::anthropic_endpoint("https://gw.example.com/anthropic").unwrap();
         assert_eq!(models_endpoint(&url).as_str(), "https://gw.example.com/anthropic/v1/models?limit=100");
-        let list = json!({"data":[{"id":"claude-opus-5","display_name":"Claude Opus 5"},{"id":"claude-x"},{"nope":1}]});
+        let list = json!({
+            "data": [
+                {"id": "claude-opus-5", "display_name": "Claude Opus 5"},
+                {"id": "claude-x"},
+                {"id": "claude-2.1", "display_name": "Claude 2.1"},
+                {"id": "claude-instant-1.2", "display_name": "Claude Instant 1.2"},
+                {"id": "claude-3-sonnet-20240229", "display_name": "Claude 3 Sonnet"},
+                {"nope": 1}
+            ]
+        });
         assert_eq!(
             parse_models(&list),
             vec![

@@ -441,6 +441,28 @@
    "ru": "Использование тарифа Claude",
    "id": "Pemakaian paket Claude"
   },
+  "Collapsed & Expanded": {
+   "zh-Hans": "折叠与展开",
+   "hi": "संक्षिप्त और विस्तृत",
+   "es": "Plegado y expandido",
+   "ar": "المطوي والموسع",
+   "fr": "Plié et déplié",
+   "bn": "সংক্ষিপ্ত এবং প্রসারিত",
+   "pt-BR": "Recolhido e expandido",
+   "ru": "В свёрнутом и развёрнутом",
+   "id": "Tercakup & Diperluas"
+  },
+  "CPU usage": {
+   "zh-Hans": "CPU 使用率",
+   "hi": "CPU उपयोग",
+   "es": "Uso de CPU",
+   "ar": "استخدام المعالج (CPU)",
+   "fr": "Utilisation du CPU",
+   "bn": "CPU ব্যবহার",
+   "pt-BR": "Uso de CPU",
+   "ru": "Использование ЦП",
+   "id": "Penggunaan CPU"
+  },
   "Close the island": {
    "zh-Hans": "关闭岛",
    "hi": "आइलैंड बंद करें",
@@ -715,6 +737,83 @@
    "pt-BR": "Tela sob o cursor",
    "ru": "Дисплей под курсором",
    "id": "Layar di bawah kursor"
+  },
+  "Display live CPU, GPU and RAM telemetry in the notch center.": {
+   "zh-Hans": "在刘海中心显示实时 CPU、GPU 和 RAM 遥测数据。",
+   "hi": "नॉच के केंद्र में लाइव CPU, GPU और RAM डेटा दिखाएं।",
+   "es": "Muestra telemetría en vivo de CPU, GPU y RAM en el centro del notch.",
+   "ar": "عرض بيانات المعالج وبطاقة الرسوميات والذاكرة الحية في منتصف الشريط.",
+   "fr": "Affiche la télémétrie en direct du CPU, GPU et de la RAM au centre de l'encoche.",
+   "bn": "নচের কেন্দ্রে লাইভ CPU, GPU এবং RAM ব্যবহারের তথ্য দেখান।",
+   "pt-BR": "Exibe telemetria em tempo real de CPU, GPU e RAM no centro do notch.",
+   "ru": "Показывать данные о загрузке ЦП, ГП и ОЗУ в центре нотча.",
+   "id": "Tampilkan telemetri langsung CPU, GPU, dan RAM di tengah notch."
+  },
+  "Expanded mode": {
+   "zh-Hans": "展开模式",
+   "hi": "विस्तृत मोड",
+   "es": "Modo expandido",
+   "ar": "الوضع الموسع",
+   "fr": "Mode déplié",
+   "bn": "প্রসারিত মোড",
+   "pt-BR": "Modo expandido",
+   "ru": "Развёрнутый режим",
+   "id": "Mode diperluas"
+  },
+  "GPU temperature": {
+   "zh-Hans": "GPU 温度",
+   "hi": "GPU तापमान",
+   "es": "Temperatura de la GPU",
+   "ar": "درجة حرارة بطاقة الرسوميات (GPU)",
+   "fr": "Température du GPU",
+   "bn": "GPU তাপমাত্রা",
+   "pt-BR": "Temperatura da GPU",
+   "ru": "Температура ГП",
+   "id": "Suhu GPU"
+  },
+  "GPU usage": {
+   "zh-Hans": "GPU 使用率",
+   "hi": "GPU उपयोग",
+   "es": "Uso de GPU",
+   "ar": "استخدام بطاقة الرسوميات (GPU)",
+   "fr": "Utilisation du GPU",
+   "bn": "GPU ব্যবহার",
+   "pt-BR": "Uso de GPU",
+   "ru": "Использование ГП",
+   "id": "Penggunaan GPU"
+  },
+  "Hardware & Performance": {
+   "zh-Hans": "硬件与性能",
+   "hi": "हार्डवेयर और प्रदर्शन",
+   "es": "Hardware y rendimiento",
+   "ar": "العتاد والأداء",
+   "fr": "Matériel et performances",
+   "bn": "হার্ডওয়্যার ও কর্মক্ষমতা",
+   "pt-BR": "Hardware e desempenho",
+   "ru": "Оборудование и производительность",
+   "id": "Perangkat Keras & Performa"
+  },
+  "RAM usage": {
+   "zh-Hans": "内存使用率",
+   "hi": "RAM उपयोग",
+   "es": "Uso de RAM",
+   "ar": "استخدام الذاكرة (RAM)",
+   "fr": "Utilisation de la RAM",
+   "bn": "RAM ব্যবহার",
+   "pt-BR": "Uso de RAM",
+   "ru": "Использование ОЗУ",
+   "id": "Penggunaan RAM"
+  },
+  "Show system stats": {
+   "zh-Hans": "显示系统状态",
+   "hi": "सिस्टम आंकड़े दिखाएं",
+   "es": "Mostrar estadísticas del sistema",
+   "ar": "إظهار إحصائيات النظام",
+   "fr": "Afficher les statistiques du système",
+   "bn": "সিস্টেমের পরিসংখ্যান দেখান",
+   "pt-BR": "Mostrar estatísticas do sistema",
+   "ru": "Показывать статистику системы",
+   "id": "Tampilkan statistik sistem"
   },
   "Docs": {
    "zh-Hans": "文档",
@@ -1177,6 +1276,17 @@
    "pt-BR": "Abrir ao iniciar",
    "ru": "Запуск при старте системы",
    "id": "Jalankan saat startup"
+  },
+  "Open on hover": {
+   "zh-Hans": "悬停时打开",
+   "hi": "होवर करने पर खोलें",
+   "es": "Abrir al pasar el cursor",
+   "ar": "الفتح عند التمرير",
+   "fr": "Ouvrir au survol",
+   "bn": "হোভারে খুলুন",
+   "pt-BR": "Abrir ao passar o cursor",
+   "ru": "Открывать при наведении",
+   "id": "Buka saat mengarahkan kursor"
   },
   "Leave the user name and password out of the address.": {
    "zh-Hans": "请不要在地址中包含用户名和密码。",

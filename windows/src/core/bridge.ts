@@ -5,7 +5,7 @@
 import { invoke } from "@tauri-apps/api/core";
 import { emitTo, listen } from "@tauri-apps/api/event";
 import { getCurrentWebview } from "@tauri-apps/api/webview";
-import type { Settings } from "./state";
+import type { Settings, SystemStats } from "./state";
 import type { RecapHistory, RecapPrefs } from "../recap/summary";
 
 export const IS_TAURI =
@@ -33,6 +33,8 @@ export interface BootInfo {
 
 export const Bridge = {
   boot: () => call<BootInfo>("boot"),
+  getSystemStats: () => call<SystemStats>("get_system_stats"),
+  onSystemStats: (cb: (s: SystemStats) => void) => onEvent<SystemStats>("system-stats", cb),
   /** The system's languages as the webview sees them, for Rust's own texts (i18n.rs). */
   setSystemLanguages: (languages: string[]) => call<void>("set_system_languages", { languages }),
 

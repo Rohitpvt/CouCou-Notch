@@ -108,6 +108,7 @@ export interface Settings {
   /** "primary", "cursor", or `at:<x>,<y>` for one display (logical origin). */
   screen: string;
   autostart: boolean;
+  openOnHover: boolean;
   hooksInstalled: boolean;
   /** Claude model used by the chat. */
   model: string;
@@ -117,6 +118,12 @@ export interface Settings {
   planRelayInstalled: boolean;
   /** Show the Codex plan pill in the island's header. */
   showCodexPlanInNotch: boolean;
+  /** Show system hardware performance (CPU, GPU, RAM, GPU Temp) in notch and expanded view. */
+  showSystemStats: boolean;
+  showCpuUsage: boolean;
+  showGpuUsage: boolean;
+  showRamUsage: boolean;
+  showGpuTemp: boolean;
   /** Who the chat talks to (see core/providers.ts); picked in the chat view. */
   chatProvider: ProviderId;
   /** The model picked for each provider other than Anthropic, by provider id. */
@@ -150,6 +157,16 @@ export interface Settings {
   };
 }
 
+export interface SystemStats {
+  cpuUsage: number;
+  ramUsage: number;
+  ramUsedGb: number;
+  ramTotalGb: number;
+  gpuUsage?: number | null;
+  gpuTemp?: number | null;
+  gpuName?: string | null;
+}
+
 export const DEFAULT_SETTINGS: Settings = {
   soundEnabled: true,
   soundVolume: 0.12,
@@ -160,12 +177,18 @@ export const DEFAULT_SETTINGS: Settings = {
   ],
   mainPill: DEFAULT_MAIN_PILL,
   screen: "primary",
-  autostart: false,
+  autostart: true,
+  openOnHover: true,
   hooksInstalled: false,
-  model: "claude-opus-5",
+  model: "claude-3-7-sonnet-latest",
   showPlanInNotch: false,
   planRelayInstalled: false,
   showCodexPlanInNotch: false,
+  showSystemStats: true,
+  showCpuUsage: true,
+  showGpuUsage: true,
+  showRamUsage: true,
+  showGpuTemp: true,
   chatProvider: "anthropic",
   chatModels: {},
   ollamaUrl: "",
@@ -237,6 +260,14 @@ class AppState {
 
   /** Outfit shown on Mochi while the pointer rests on a wardrobe button. */
   wardrobePreview: Outfit | null = null;
+
+  /** Live hardware statistics (CPU, RAM, GPU) from Rust monitor */
+  systemStats: SystemStats | null = null;
+
+  setSystemStats(stats: SystemStats) {
+    this.systemStats = stats;
+    this.notify();
+  }
 
   lastActivity = performance.now();
 

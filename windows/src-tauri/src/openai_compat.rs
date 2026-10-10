@@ -41,7 +41,10 @@ pub const PROVIDERS: &[Provider] = &[
         default_model: "gpt-4o",
         not_chat: &[
             "embed", "tts", "whisper", "dall-e", "audio", "realtime", "moderat", "codex",
-            "computer-use", "transcribe", "image", "sora", "babbage", "davinci", "instruct",
+            "computer-use", "transcribe", "image", "sora", "babbage", "davinci", "curie", "ada",
+            "instruct", "gpt-3.5", "gpt-4-0314", "gpt-4-0613", "gpt-4-32k", "gpt-4-vision",
+            "gpt-4-1106", "gpt-4-0125", "turbo-preview", "text-", "code-", "similarity", "search-",
+            "deprecated", "retired", "shutdown",
         ],
         max_tokens_field: "max_completion_tokens",
     },
@@ -52,7 +55,11 @@ pub const PROVIDERS: &[Provider] = &[
         key: "google-api-key",
         models_path: "models",
         default_model: "gemini-2.0-flash",
-        not_chat: &["embed", "imagen", "veo", "aqa", "tts", "audio", "live"],
+        not_chat: &[
+            "embed", "imagen", "veo", "aqa", "tts", "audio", "live", "gemini-1.0",
+            "gemini-pro-vision", "bison", "palm", "gemini-1.5-pro-001", "gemini-1.5-flash-001",
+            "learnlm", "deprecated", "retired", "shutdown",
+        ],
         max_tokens_field: "max_tokens",
     },
     Provider {
@@ -62,7 +69,11 @@ pub const PROVIDERS: &[Provider] = &[
         key: "openrouter-api-key",
         models_path: "models",
         default_model: "openrouter/auto",
-        not_chat: &[],
+        not_chat: &[
+            "embed", "whisper", "tts", "audio", "speech", "dall-e", "midjourney",
+            "flux", "stable-diffusion", "sdxl", "moderation", "guard", ":nitro",
+            ":deprecated", "deprecated", "offline", "shutdown", "retired",
+        ],
         max_tokens_field: "max_tokens",
     },
 ];
@@ -109,7 +120,12 @@ fn user_message(first: bool, context: Option<&ChatContext>, query: &str) -> Valu
 }
 
 fn request_body(p: &Provider, model: &str, system: &str, history: &[Value], user: &Value) -> Value {
-    let mut messages = vec![json!({ "role": "system", "content": system })];
+    let role = if p.id == "openai" && (model.starts_with("o1") || model.starts_with("o3")) {
+        "developer"
+    } else {
+        "system"
+    };
+    let mut messages = vec![json!({ "role": role, "content": system })];
     messages.extend(history.iter().cloned());
     messages.push(user.clone());
     let mut body = json!({ "model": model, "messages": messages });
@@ -168,9 +184,15 @@ pub async fn send(
     let body = request_body(p, model, &chat::system_prompt(false), &turn.history, &user);
 
     let endpoint = url(p, "chat/completions")?;
-    let response = net::client(&endpoint, Duration::from_secs(90))?
+    let mut req = net::client(&endpoint, Duration::from_secs(90))?
         .post(endpoint)
-        .bearer_auth(&key)
+        .bearer_auth(&key);
+    if p.id == "google" {
+        req = req.header("x-goog-api-key", &key);
+    } else if p.id == "openrouter" {
+        req = req.header("HTTP-Referer", "https://coucou.app").header("X-Title", "Coucou Notch");
+    }
+    let response = req
         .json(&body)
         .send()
         .await
@@ -193,9 +215,15 @@ pub async fn send(
 /// picked this provider in the chat.
 pub async fn models(p: &Provider, key: &str) -> Result<Vec<ModelInfo>, String> {
     let endpoint = url(p, p.models_path)?;
-    let response = net::client(&endpoint, Duration::from_secs(15))?
+    let mut req = net::client(&endpoint, Duration::from_secs(15))?
         .get(endpoint)
-        .bearer_auth(key)
+        .bearer_auth(key);
+    if p.id == "google" {
+        req = req.header("x-goog-api-key", key);
+    } else if p.id == "openrouter" {
+        req = req.header("HTTP-Referer", "https://coucou.app").header("X-Title", "Coucou Notch");
+    }
+    let response = req
         .send()
         .await
         .map_err(|e| tf("Network error: {error}", &[("error", &e.to_string())]))?;
@@ -388,7 +416,11 @@ mod tests {
             {"id":"text-embedding-3-small","created":300},
             {"id":"gpt-5-mini","created":200},
             {"id":"whisper-1","created":400},
-            {"id":"dall-e-3","created":500}
+            {"id":"dall-e-3","created":500},
+            {"id":"gpt-3.5-turbo","created":50},
+            {"id":"gpt-4-0314","created":40},
+            {"id":"gpt-4-vision-preview","created":60},
+            {"id":"text-davinci-003","created":30}
         ]});
         let ids: Vec<_> = parse_models(p("openai"), &openai).into_iter().map(|m| m.id).collect();
         assert_eq!(ids, vec!["gpt-5-mini", "gpt-4o"]);
@@ -397,7 +429,10 @@ mod tests {
             {"id":"models/gemini-2.0-flash"},
             {"id":"models/text-embedding-004"},
             {"id":"gemini-2.5-pro"},
-            {"id":"models/imagen-3.0"}
+            {"id":"models/imagen-3.0"},
+            {"id":"models/gemini-1.0-pro"},
+            {"id":"chat-bison-001"},
+            {"id":"gemini-1.5-flash-001"}
         ]});
         let ids: Vec<_> = parse_models(p("google"), &google).into_iter().map(|m| m.id).collect();
         assert_eq!(ids, vec!["gemini-2.0-flash", "gemini-2.5-pro"]);
@@ -406,7 +441,9 @@ mod tests {
             {"id":"b/paid","name":"B Paid","pricing":{"prompt":"0.000001","completion":"0.000002"}},
             {"id":"a/free:free","name":"A (free)"},
             {"id":"c/zero","name":"C Zero","pricing":{"prompt":"0","completion":"0"}},
-            {"id":"d/image","name":"D Image","architecture":{"output_modalities":["image"]}}
+            {"id":"d/image","name":"D Image","architecture":{"output_modalities":["image"]}},
+            {"id":"e/deprecated","name":"E (deprecated)"},
+            {"id":"f/nitro:nitro","name":"F Nitro"}
         ]});
         let models = parse_models(p("openrouter"), &openrouter);
         let labels: Vec<_> = models.iter().map(|m| m.label.as_str()).collect();

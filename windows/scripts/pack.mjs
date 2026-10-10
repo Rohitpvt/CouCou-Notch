@@ -76,6 +76,36 @@ for (const { dir, suffix, names } of packages) {
   }
 }
 
+// Also package the standalone executable
+const standaloneExe = join(root, "target", "release", "coucou.exe");
+try {
+  if (statSync(standaloneExe).isFile()) {
+    const releaseExe = join(outDir, "Coucou.exe");
+    copyFileSync(standaloneExe, releaseExe);
+    written.push(releaseExe);
+  }
+} catch {}
+
+// Always update top-level project root binaries for easy access
+const projectRoot = resolve(root, "..");
+try {
+  const rootSetup = join(projectRoot, "Coucou-Windows-setup.exe");
+  const latestSetup = join(outDir, "Coucou-Windows-setup.exe");
+  copyFileSync(latestSetup, rootSetup);
+  written.push(rootSetup);
+} catch (e) {
+  console.warn("Could not copy root setup:", e.message);
+}
+
+try {
+  const rootExe = join(projectRoot, "Coucou-Windows.exe");
+  const latestExe = join(outDir, "Coucou.exe");
+  copyFileSync(latestExe, rootExe);
+  written.push(rootExe);
+} catch (e) {
+  console.warn("Could not copy root exe:", e.message);
+}
+
 console.log("\n  Packages ready\n");
 for (const f of written) {
   const mb = (statSync(f).size / 1024 / 1024).toFixed(2);

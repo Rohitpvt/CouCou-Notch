@@ -176,6 +176,59 @@ body {
   transition: opacity 0.25s ease-in-out;
 }
 
+/* Dynamic Hardware Stats in the center of the compact notch */
+#notch-stats {
+  position: absolute;
+  left: 62px;
+  right: 62px;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+  z-index: 4;
+}
+
+.stat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 1px 6px;
+  height: 18px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  line-height: 1;
+}
+
+.stat-pill .stat-label {
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+}
+
+.stat-pill .stat-value {
+  font-size: 10px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: #f1f5f9;
+}
+
+.stat-pill.warm .stat-value {
+  color: #fbbf24;
+}
+
+.stat-pill.hot .stat-value {
+  color: #f87171;
+}
+
 /* A mini Mochi: the slot is the body, the canvas is larger and overflows it so
    hands, badges and particles are not cut off. */
 .mini {
@@ -204,12 +257,63 @@ body {
 }
 
 #header {
+  position: relative;
   height: 34px;
   flex: 0 0 34px;
   display: flex;
   align-items: center;
   margin: 0 -10px;
   transition: opacity 0.2s ease-in-out;
+}
+
+.header-stats {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.stat-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 2px 7px;
+  height: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  line-height: 1;
+  backdrop-filter: blur(4px);
+}
+
+.stat-chip-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+}
+
+.stat-chip-value {
+  font-size: 10.5px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: #e2e8f0;
+}
+
+.stat-chip.warm .stat-chip-value {
+  color: #fbbf24;
+}
+
+.stat-chip.hot .stat-chip-value {
+  color: #f87171;
 }
 
 .tabs {
