@@ -1036,6 +1036,52 @@ fn days_from_civil(mut y: i64, m: u32, d: u32) -> i64 {
     era * 146097 + doe as i64 - 719468
 }
 
+fn civil_from_days(z: i64) -> (i64, u32, u32) {
+    let z = z + 719468;
+    let era = if z >= 0 { z } else { z - 146096 } / 146097;
+    let doe = (z - era * 146097) as u32;
+    let yoe = (doe - doe / 1460 + doe / 36524 - doe / 146096) / 365;
+    let y = yoe as i64 + era * 400;
+    let doy = doe - (365 * yoe + yoe / 4 - yoe / 100);
+    let mp = (5 * doy + 2) / 153;
+    let d = doy - (153 * mp + 2) / 5 + 1;
+    let m = if mp < 10 { mp + 3 } else { mp - 9 };
+    let y = y + if m <= 2 { 1 } else { 0 };
+    (y, m, d)
+}
+
+fn epoch_secs_to_ymd_hms(secs: i64) -> (i64, u32, u32, u32, u32, u32) {
+    let days = secs.div_euclid(86400);
+    let rem = secs.rem_euclid(86400) as u32;
+    let (year, month, day) = civil_from_days(days);
+    let hour = rem / 3600;
+    let minute = (rem % 3600) / 60;
+    let second = rem % 60;
+    (year, month, day, hour, minute, second)
+}
+
+fn is_leap_year(year: i64) -> bool {
+    (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)
+}
+
+fn days_in_month(year: i64, month: u32) -> u32 {
+    match month {
+        1 => 31,
+        2 => if is_leap_year(year) { 29 } else { 28 },
+        3 => 31,
+        4 => 30,
+        5 => 31,
+        6 => 30,
+        7 => 31,
+        8 => 31,
+        9 => 30,
+        10 => 31,
+        11 => 30,
+        12 => 31,
+        _ => 30,
+    }
+}
+
 fn ymd_hms_to_epoch_secs(year: i64, month: u32, day: u32, hour: u32, minute: u32, second: u32) -> i64 {
     let days = days_from_civil(year, month, day);
     days * 86400 + (hour as i64) * 3600 + (minute as i64) * 60 + (second as i64)
@@ -1130,7 +1176,55 @@ fn extract_meet_url(text: &str) -> Option<String> {
     None
 }
 
-pub fn parse_gcal_ical(raw: &str) -> Vec<GCalEvent> {
+struct ParsedRRule {
+    freq: String,
+    interval: u32,
+    until_epoch: Option<i64>,
+    byday: Vec<u32>, // 0 = Sun, 1 = Mon, ..., 6 = Sat
+}
+
+fn parse_rrule(rrule_str: &str) -> ParsedRRule {
+    let mut freq = String::new();
+    let mut interval: u32 = 1;
+    let mut until_epoch: Option<i64> = None;
+    let mut byday = Vec::new();
+
+    for part in rrule_str.split(';') {
+        let Some((k, v)) = part.split_once('=') else { continue };
+        match k.trim().to_uppercase().as_str() {
+            "FREQ" => freq = v.trim().to_uppercase(),
+            "INTERVAL" => interval = v.trim().parse().unwrap_or(1).max(1),
+            "UNTIL" => {
+                if let Some((ep, _, _)) = parse_ical_date(v.trim()) {
+                    until_epoch = Some(ep);
+                }
+            }
+            "BYDAY" => {
+                for day_str in v.split(',') {
+                    let d = day_str.trim().to_uppercase();
+                    let d_code = match d.as_str() {
+                        "SU" => Some(0),
+                        "MO" => Some(1),
+                        "TU" => Some(2),
+                        "WE" => Some(3),
+                        "TH" => Some(4),
+                        "FR" => Some(5),
+                        "SA" => Some(6),
+                        _ => None,
+                    };
+                    if let Some(c) = d_code {
+                        byday.push(c);
+                    }
+                }
+            }
+            _ => {}
+        }
+    }
+
+    ParsedRRule { freq, interval, until_epoch, byday }
+}
+
+pub fn parse_gcal_ical_window(raw: &str, window_start: i64, window_end: i64) -> Vec<GCalEvent> {
     let unfolded = unfold_ical(raw);
     let mut events = Vec::new();
     let mut in_event = false;
@@ -1143,6 +1237,7 @@ pub fn parse_gcal_ical(raw: &str) -> Vec<GCalEvent> {
     let mut description = String::new();
     let mut url = String::new();
     let mut status = "CONFIRMED".to_string();
+    let mut rrule = String::new();
 
     for line in unfolded.lines() {
         let line = line.trim();
@@ -1156,14 +1251,21 @@ pub fn parse_gcal_ical(raw: &str) -> Vec<GCalEvent> {
             description.clear();
             url.clear();
             status = "CONFIRMED".to_string();
+            rrule.clear();
             continue;
         }
         if line == "END:VEVENT" {
             if in_event {
+                if status.eq_ignore_ascii_case("CANCELLED") {
+                    in_event = false;
+                    continue;
+                }
                 if let Some((start_epoch, start_iso, is_all_day)) = parse_ical_date(&dtstart) {
                     let (end_epoch, end_iso) = parse_ical_date(&dtend)
                         .map(|(ep, iso, _)| (Some(ep), Some(iso)))
                         .unwrap_or((None, None));
+
+                    let duration = end_epoch.map(|e| (e - start_epoch).max(0)).unwrap_or(if is_all_day { 86400 } else { 0 });
 
                     let desc_opt = if description.is_empty() { None } else { Some(description.clone()) };
                     let loc_opt = if location.is_empty() { None } else { Some(location.clone()) };
@@ -1173,19 +1275,226 @@ pub fn parse_gcal_ical(raw: &str) -> Vec<GCalEvent> {
                         .or_else(|| loc_opt.as_deref().and_then(extract_meet_url))
                         .or_else(|| desc_opt.as_deref().and_then(extract_meet_url));
 
-                    events.push(GCalEvent {
-                        id: if uid.is_empty() { format!("event-{}", start_epoch) } else { uid.clone() },
-                        title,
-                        start: start_iso,
-                        end: end_iso,
-                        start_epoch,
-                        end_epoch,
-                        is_all_day,
-                        location: loc_opt,
-                        description: desc_opt,
-                        meet_url,
-                        status: status.clone(),
-                    });
+                    let event_uid = if uid.is_empty() { format!("event-{}", start_epoch) } else { uid.clone() };
+
+                    if rrule.is_empty() {
+                        // Single event
+                        let effective_end = end_epoch.unwrap_or(start_epoch + duration);
+                        if effective_end >= window_start && start_epoch <= window_end {
+                            events.push(GCalEvent {
+                                id: event_uid,
+                                title,
+                                start: start_iso,
+                                end: end_iso,
+                                start_epoch,
+                                end_epoch,
+                                is_all_day,
+                                location: loc_opt,
+                                description: desc_opt,
+                                meet_url,
+                                status: status.clone(),
+                            });
+                        }
+                    } else {
+                        // Expand recurrence (RRULE)
+                        let parsed = parse_rrule(&rrule);
+                        let (s_year, s_month, s_day, s_hour, s_min, s_sec) = epoch_secs_to_ymd_hms(start_epoch);
+
+                        match parsed.freq.as_str() {
+                            "YEARLY" => {
+                                let (win_y1, _, _) = civil_from_days(window_start.div_euclid(86400));
+                                let (win_y2, _, _) = civil_from_days(window_end.div_euclid(86400));
+                                for y in win_y1.max(s_year)..=win_y2 {
+                                    if (y - s_year) % (parsed.interval as i64) == 0 {
+                                        let d = s_day.min(days_in_month(y, s_month));
+                                        let inst_start = ymd_hms_to_epoch_secs(y, s_month, d, s_hour, s_min, s_sec);
+                                        let inst_end = inst_start + duration;
+                                        if inst_end >= window_start && inst_start <= window_end {
+                                            if parsed.until_epoch.map(|u| inst_start <= u).unwrap_or(true) {
+                                                let (iso_start, iso_end) = if is_all_day {
+                                                    (format!("{:04}-{:02}-{:02}", y, s_month, d), Some(format!("{:04}-{:02}-{:02}", y, s_month, d)))
+                                                } else {
+                                                    let (ey, em, ed, eh, emin, es) = epoch_secs_to_ymd_hms(inst_end);
+                                                    (format!("{:04}-{:02}-{:02}T{:02}:{:02}:{:02}Z", y, s_month, d, s_hour, s_min, s_sec),
+                                                     Some(format!("{:04}-{:02}-{:02}T{:02}:{:02}:{:02}Z", ey, em, ed, eh, emin, es)))
+                                                };
+                                                events.push(GCalEvent {
+                                                    id: format!("{}_{}", event_uid, inst_start),
+                                                    title: title.clone(),
+                                                    start: iso_start,
+                                                    end: iso_end,
+                                                    start_epoch: inst_start,
+                                                    end_epoch: Some(inst_end),
+                                                    is_all_day,
+                                                    location: loc_opt.clone(),
+                                                    description: desc_opt.clone(),
+                                                    meet_url: meet_url.clone(),
+                                                    status: status.clone(),
+                                                });
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            "MONTHLY" => {
+                                let (win_y1, win_m1, _) = civil_from_days(window_start.div_euclid(86400));
+                                let (win_y2, win_m2, _) = civil_from_days(window_end.div_euclid(86400));
+                                let start_m_idx = s_year * 12 + (s_month - 1) as i64;
+                                let win_m1_idx = win_y1 * 12 + (win_m1 - 1) as i64;
+                                let win_m2_idx = win_y2 * 12 + (win_m2 - 1) as i64;
+                                for m_idx in win_m1_idx.max(start_m_idx)..=win_m2_idx {
+                                    if (m_idx - start_m_idx) % (parsed.interval as i64) == 0 {
+                                        let y = m_idx.div_euclid(12);
+                                        let m = m_idx.rem_euclid(12) as u32 + 1;
+                                        let d = s_day.min(days_in_month(y, m));
+                                        let inst_start = ymd_hms_to_epoch_secs(y, m, d, s_hour, s_min, s_sec);
+                                        let inst_end = inst_start + duration;
+                                        if inst_end >= window_start && inst_start <= window_end {
+                                            if parsed.until_epoch.map(|u| inst_start <= u).unwrap_or(true) {
+                                                let (iso_start, iso_end) = if is_all_day {
+                                                    (format!("{:04}-{:02}-{:02}", y, m, d), Some(format!("{:04}-{:02}-{:02}", y, m, d)))
+                                                } else {
+                                                    let (ey, em, ed, eh, emin, es) = epoch_secs_to_ymd_hms(inst_end);
+                                                    (format!("{:04}-{:02}-{:02}T{:02}:{:02}:{:02}Z", y, m, d, s_hour, s_min, s_sec),
+                                                     Some(format!("{:04}-{:02}-{:02}T{:02}:{:02}:{:02}Z", ey, em, ed, eh, emin, es)))
+                                                };
+                                                events.push(GCalEvent {
+                                                    id: format!("{}_{}", event_uid, inst_start),
+                                                    title: title.clone(),
+                                                    start: iso_start,
+                                                    end: iso_end,
+                                                    start_epoch: inst_start,
+                                                    end_epoch: Some(inst_end),
+                                                    is_all_day,
+                                                    location: loc_opt.clone(),
+                                                    description: desc_opt.clone(),
+                                                    meet_url: meet_url.clone(),
+                                                    status: status.clone(),
+                                                });
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            "WEEKLY" => {
+                                let time_of_day = (s_hour as i64) * 3600 + (s_min as i64) * 60 + (s_sec as i64);
+                                let win_d1 = window_start.div_euclid(86400);
+                                let win_d2 = window_end.div_euclid(86400);
+                                let start_d = start_epoch.div_euclid(86400);
+
+                                if parsed.byday.is_empty() {
+                                    let step_secs = (parsed.interval as i64) * 7 * 86400;
+                                    let mut cur = start_epoch;
+                                    if cur < window_start - step_secs {
+                                        let skip = (window_start - cur).div_euclid(step_secs);
+                                        cur += skip * step_secs;
+                                    }
+                                    while cur <= window_end {
+                                        let inst_end = cur + duration;
+                                        if inst_end >= window_start && cur <= window_end {
+                                            if parsed.until_epoch.map(|u| cur <= u).unwrap_or(true) {
+                                                let (y, m, d, h, min, s) = epoch_secs_to_ymd_hms(cur);
+                                                let (ey, em, ed, eh, emin, es) = epoch_secs_to_ymd_hms(inst_end);
+                                                let (iso_start, iso_end) = if is_all_day {
+                                                    (format!("{:04}-{:02}-{:02}", y, m, d), Some(format!("{:04}-{:02}-{:02}", y, m, d)))
+                                                } else {
+                                                    (format!("{:04}-{:02}-{:02}T{:02}:{:02}:{:02}Z", y, m, d, h, min, s),
+                                                     Some(format!("{:04}-{:02}-{:02}T{:02}:{:02}:{:02}Z", ey, em, ed, eh, emin, es)))
+                                                };
+                                                events.push(GCalEvent {
+                                                    id: format!("{}_{}", event_uid, cur),
+                                                    title: title.clone(),
+                                                    start: iso_start,
+                                                    end: iso_end,
+                                                    start_epoch: cur,
+                                                    end_epoch: Some(inst_end),
+                                                    is_all_day,
+                                                    location: loc_opt.clone(),
+                                                    description: desc_opt.clone(),
+                                                    meet_url: meet_url.clone(),
+                                                    status: status.clone(),
+                                                });
+                                            }
+                                        }
+                                        cur += step_secs;
+                                    }
+                                } else {
+                                    for d_idx in win_d1.max(start_d)..=win_d2 {
+                                        let wday = ((d_idx + 4).rem_euclid(7)) as u32;
+                                        if parsed.byday.contains(&wday) {
+                                            let inst_start = d_idx * 86400 + time_of_day;
+                                            let inst_end = inst_start + duration;
+                                            let week_diff = (d_idx - start_d).div_euclid(7);
+                                            if week_diff.rem_euclid(parsed.interval as i64) == 0 && inst_start >= start_epoch {
+                                                if inst_end >= window_start && inst_start <= window_end {
+                                                    if parsed.until_epoch.map(|u| inst_start <= u).unwrap_or(true) {
+                                                        let (y, m, d, h, min, s) = epoch_secs_to_ymd_hms(inst_start);
+                                                        let (ey, em, ed, eh, emin, es) = epoch_secs_to_ymd_hms(inst_end);
+                                                        let (iso_start, iso_end) = if is_all_day {
+                                                            (format!("{:04}-{:02}-{:02}", y, m, d), Some(format!("{:04}-{:02}-{:02}", y, m, d)))
+                                                        } else {
+                                                            (format!("{:04}-{:02}-{:02}T{:02}:{:02}:{:02}Z", y, m, d, h, min, s),
+                                                             Some(format!("{:04}-{:02}-{:02}T{:02}:{:02}:{:02}Z", ey, em, ed, eh, emin, es)))
+                                                        };
+                                                        events.push(GCalEvent {
+                                                            id: format!("{}_{}", event_uid, inst_start),
+                                                            title: title.clone(),
+                                                            start: iso_start,
+                                                            end: iso_end,
+                                                            start_epoch: inst_start,
+                                                            end_epoch: Some(inst_end),
+                                                            is_all_day,
+                                                            location: loc_opt.clone(),
+                                                            description: desc_opt.clone(),
+                                                            meet_url: meet_url.clone(),
+                                                            status: status.clone(),
+                                                        });
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            "DAILY" | _ => {
+                                let step_secs = (parsed.interval as i64) * 86400;
+                                let mut cur = start_epoch;
+                                if cur < window_start - step_secs {
+                                    let skip = (window_start - cur).div_euclid(step_secs);
+                                    cur += skip * step_secs;
+                                }
+                                while cur <= window_end {
+                                    let inst_end = cur + duration;
+                                    if inst_end >= window_start && cur <= window_end {
+                                        if parsed.until_epoch.map(|u| cur <= u).unwrap_or(true) {
+                                            let (y, m, d, h, min, s) = epoch_secs_to_ymd_hms(cur);
+                                            let (ey, em, ed, eh, emin, es) = epoch_secs_to_ymd_hms(inst_end);
+                                            let (iso_start, iso_end) = if is_all_day {
+                                                (format!("{:04}-{:02}-{:02}", y, m, d), Some(format!("{:04}-{:02}-{:02}", y, m, d)))
+                                            } else {
+                                                (format!("{:04}-{:02}-{:02}T{:02}:{:02}:{:02}Z", y, m, d, h, min, s),
+                                                 Some(format!("{:04}-{:02}-{:02}T{:02}:{:02}:{:02}Z", ey, em, ed, eh, emin, es)))
+                                            };
+                                            events.push(GCalEvent {
+                                                id: format!("{}_{}", event_uid, cur),
+                                                title: title.clone(),
+                                                start: iso_start,
+                                                end: iso_end,
+                                                start_epoch: cur,
+                                                end_epoch: Some(inst_end),
+                                                is_all_day,
+                                                location: loc_opt.clone(),
+                                                description: desc_opt.clone(),
+                                                meet_url: meet_url.clone(),
+                                                status: status.clone(),
+                                            });
+                                        }
+                                    }
+                                    cur += step_secs;
+                                }
+                            }
+                        }
+                    }
                 }
             }
             in_event = false;
@@ -1208,11 +1517,20 @@ pub fn parse_gcal_ical(raw: &str) -> Vec<GCalEvent> {
             "DESCRIPTION" => description = value,
             "URL" => url = value,
             "STATUS" => status = value,
+            "RRULE" => rrule = val_part.to_string(),
             _ => {}
         }
     }
 
     events
+}
+
+pub fn parse_gcal_ical(raw: &str) -> Vec<GCalEvent> {
+    let now = std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .map(|d| d.as_secs() as i64)
+        .unwrap_or(0);
+    parse_gcal_ical_window(raw, now - 86400, now + 35 * 86400)
 }
 
 async fn poll_gcal(app: AppHandle) {
@@ -1239,28 +1557,22 @@ async fn poll_gcal(app: AppHandle) {
     }
 
     let text = response.text().await.unwrap_or_default();
-    let events = parse_gcal_ical(&text);
     let now = std::time::SystemTime::now()
         .duration_since(std::time::UNIX_EPOCH)
         .map(|d| d.as_secs() as i64)
         .unwrap_or(0);
 
-    // Keep upcoming or ongoing events (ended less than 15 mins ago or within next 7 days)
-    let mut upcoming: Vec<GCalEvent> = events
-        .into_iter()
-        .filter(|e| {
-            if let Some(end) = e.end_epoch {
-                end >= now - 900
-            } else {
-                e.start_epoch >= now - 1800
-            }
-        })
-        .collect();
+    // Keep upcoming or ongoing events (ended less than 15 mins ago or within next 30 days)
+    let window_start = now - 900;
+    let window_end = now + 30 * 86400;
 
-    upcoming.sort_by_key(|e| e.start_epoch);
+    let mut events = parse_gcal_ical_window(&text, window_start, window_end);
+
+    events.sort_by_key(|e| e.start_epoch);
+    events.truncate(25);
 
     let mut reminder_event: Option<IntegrationEvent> = None;
-    if let Some(next) = upcoming.iter().find(|e| !e.is_all_day && e.start_epoch >= now - 60 && e.start_epoch <= now + 300) {
+    if let Some(next) = events.iter().find(|e| !e.is_all_day && e.start_epoch >= now - 60 && e.start_epoch <= now + 300) {
         let mut last_alert = LAST_GCAL_ALERT_UID.lock().unwrap();
         let already_alerted = last_alert.as_ref().map(|s| s == &next.id).unwrap_or(false);
         if !already_alerted {
@@ -1279,14 +1591,14 @@ async fn poll_gcal(app: AppHandle) {
         }
     }
 
-    let next_event = upcoming.first().cloned();
+    let next_event = events.first().cloned();
 
     emit(&app, IntegrationUpdate {
         id: "integration_gcal",
         data: json!({
-            "events": upcoming,
+            "events": events,
             "nextEvent": next_event,
-            "total": upcoming.len()
+            "total": events.len()
         }),
         error: None,
         event: reminder_event,
@@ -1341,5 +1653,53 @@ END:VCALENDAR"#;
         assert_eq!(events[1].id, "allday-456@google.com");
         assert_eq!(events[1].title, "Team Offsite");
         assert_eq!(events[1].is_all_day, true);
+    }
+
+    #[test]
+    fn gcal_rrule_expansion_and_window_filter() {
+        let sample = r#"BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+UID:anniversary@google.com
+SUMMARY:2 years of togetherness...
+DTSTART;VALUE=DATE:20241014
+RRULE:FREQ=YEARLY
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:far-future@google.com
+SUMMARY:Trip to Mars
+DTSTART:20280101T000000Z
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:weekly-sync@google.com
+SUMMARY:Weekly Standup
+DTSTART:20261005T090000Z
+DTEND:20261005T100000Z
+RRULE:FREQ=WEEKLY;BYDAY=MO
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR"#;
+
+        // Window: Oct 10, 2026 to Nov 10, 2026
+        let win_start = ymd_hms_to_epoch_secs(2026, 10, 10, 0, 0, 0);
+        let win_end = ymd_hms_to_epoch_secs(2026, 11, 10, 0, 0, 0);
+
+        let mut events = parse_gcal_ical_window(sample, win_start, win_end);
+        events.sort_by_key(|e| e.start_epoch);
+
+        // Trip to Mars in 2028 is filtered out.
+        // Anniversary from 2024 recurs on 2026-10-14.
+        // Weekly standup on Mondays recurs on Oct 12, 19, 26, Nov 2, 9.
+        assert!(!events.iter().any(|e| e.title == "Trip to Mars"));
+
+        let anniversary = events.iter().find(|e| e.title == "2 years of togetherness...").expect("Anniversary expanded");
+        assert_eq!(anniversary.start, "2026-10-14");
+        assert_eq!(anniversary.is_all_day, true);
+
+        let standups: Vec<_> = events.iter().filter(|e| e.title == "Weekly Standup").collect();
+        assert_eq!(standups.len(), 5); // 12 Oct, 19 Oct, 26 Oct, 2 Nov, 9 Nov
+        assert_eq!(standups[0].start, "2026-10-12T09:00:00Z");
     }
 }

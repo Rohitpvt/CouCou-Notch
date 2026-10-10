@@ -479,17 +479,6 @@
    "ru": "ИИ для чата",
    "id": "AI untuk obrolan"
   },
-  "All day": {
-   "zh-Hans": "全天",
-   "hi": "पूरा दिन",
-   "es": "Todo el día",
-   "ar": "طوال اليوم",
-   "fr": "Toute la journée",
-   "bn": "সারাদিন",
-   "pt-BR": "Dia inteiro",
-   "ru": "Весь день",
-   "id": "Sepanjang hari"
-  },
   "all green": {
    "zh-Hans": "全部通过",
    "hi": "सब हरा",
@@ -4306,6 +4295,39 @@
    "pt-BR": "Não foi possível acionar a pré-visualização",
    "ru": "Не удалось запустить предпросмотр",
    "id": "Tidak dapat memicu pratinjau"
+  },
+  "Today": {
+   "zh-Hans": "今天",
+   "hi": "आज",
+   "es": "Hoy",
+   "ar": "اليوم",
+   "fr": "Aujourd'hui",
+   "bn": "আজ",
+   "pt-BR": "Hoje",
+   "ru": "Сегодня",
+   "id": "Hari ini"
+  },
+  "Tomorrow": {
+   "zh-Hans": "明天",
+   "hi": "कल",
+   "es": "Mañana",
+   "ar": "غداً",
+   "fr": "Demain",
+   "bn": "আগামীকাল",
+   "pt-BR": "Amanhã",
+   "ru": "Завтра",
+   "id": "Besok"
+  },
+  "Yesterday": {
+   "zh-Hans": "昨天",
+   "hi": "कल",
+   "es": "Ayer",
+   "ar": "أمس",
+   "fr": "Hier",
+   "bn": "গতকাল",
+   "pt-BR": "Ontem",
+   "ru": "Вчера",
+   "id": "Kemarin"
   }
  }
 }

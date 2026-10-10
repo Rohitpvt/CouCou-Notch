@@ -378,27 +378,54 @@ function calcomCard(): HTMLElement {
 // ── Google Calendar ───────────────────────────────────────────────────────────
 
 function formatGCalTime(isAllDay: boolean, startEpoch: number, endEpoch?: number): string {
-  if (isAllDay) return t("All day");
   const now = Date.now() / 1000;
-  if (startEpoch <= now && (endEpoch == null || endEpoch >= now)) {
+  if (!isAllDay && startEpoch <= now && (endEpoch == null || endEpoch >= now)) {
     return t("Now");
   }
-  const when = new Date(startEpoch * 1000);
-  const today = new Date();
-  const isToday =
-    when.getFullYear() === today.getFullYear() &&
-    when.getMonth() === today.getMonth() &&
-    when.getDate() === today.getDate();
 
-  const time = when.toLocaleTimeString(language(), { hour: "2-digit", minute: "2-digit" });
-  if (isToday) return time;
-  const day = when.toLocaleDateString(language(), { day: "2-digit", month: "2-digit" });
-  return `${day} ${time}`;
+  const when = new Date(startEpoch * 1000);
+  const nowDate = new Date();
+
+  // Local midnight difference to accurately detect Today, Tomorrow, etc.
+  const startMidnight = new Date(when.getFullYear(), when.getMonth(), when.getDate()).getTime();
+  const todayMidnight = new Date(nowDate.getFullYear(), nowDate.getMonth(), nowDate.getDate()).getTime();
+  const diffDays = Math.round((startMidnight - todayMidnight) / 86400000);
+
+  const lang = language();
+  const time = when.toLocaleTimeString(lang, { hour: "2-digit", minute: "2-digit" });
+
+  if (isAllDay) {
+    if (diffDays === 0) return t("Today");
+    if (diffDays === 1) return t("Tomorrow");
+    if (diffDays === -1) return t("Yesterday");
+    if (diffDays > 1 && diffDays < 7) {
+      return when.toLocaleDateString(lang, { weekday: "short" });
+    }
+    return when.toLocaleDateString(lang, { month: "short", day: "numeric" });
+  }
+
+  // Timed event
+  if (diffDays === 0) return time;
+  if (diffDays === 1) return `${t("Tomorrow")} ${time}`;
+  if (diffDays === -1) return `${t("Yesterday")} ${time}`;
+  if (diffDays > 1 && diffDays < 7) {
+    const weekday = when.toLocaleDateString(lang, { weekday: "short" });
+    return `${weekday} ${time}`;
+  }
+  const dateStr = when.toLocaleDateString(lang, { month: "short", day: "numeric" });
+  return `${dateStr} ${time}`;
 }
 
 function gcalCard(): HTMLElement {
+  const now = Date.now() / 1000;
   const events = arr("integration_gcal", "events")
     .slice()
+    .filter((e) => {
+      const start = Number(e.startEpoch ?? 0);
+      const end = e.endEpoch != null ? Number(e.endEpoch) : (e.isAllDay ? start + 86400 : start);
+      // Show events active within the current month/week window
+      return end >= now - 900 && start <= now + 31 * 86400;
+    })
     .sort((a, b) => Number(a.startEpoch ?? 0) - Number(b.startEpoch ?? 0));
   const rows = h("div", { class: "int-rows tight" });
   if (events.length === 0) {
