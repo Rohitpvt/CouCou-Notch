@@ -104,7 +104,7 @@ test("the main pill is a workspace tool that works here", () => {
   assert.deepEqual(mainPillChoices("linux").map((p) => p.id), [
     "integration_claude", "agent_cursor", "agent_antigravity", "agent_codex",
   ]);
-  assert.equal(DEFAULT_MAIN_PILL, "integration_claude");
+  assert.equal(DEFAULT_MAIN_PILL, "agent_antigravity");
 });
 
 test("hook-driven pills are the workspace tools and the agents with hooks", () => {
@@ -129,7 +129,7 @@ test("a live session names its tool next to the project", () => {
 test("a declaration from an older or edited settings file is made usable", () => {
   assert.deepEqual(
     sanitizeDeclared({ mainPill: "integration_stripe", activeIntegrations: ["integration_claude", "x"] }, "linux"),
-    { mainPill: "integration_claude", activeIntegrations: [] },
+    { mainPill: "agent_antigravity", activeIntegrations: ["integration_claude"] },
   );
   assert.deepEqual(
     sanitizeDeclared({ mainPill: "agent_cursor", activeIntegrations: ["agent_cursor", "integration_n8n", "integration_n8n", "integration_music"] }, "linux"),
@@ -138,10 +138,10 @@ test("a declaration from an older or edited settings file is made usable", () =>
   // No mainPill at all: a settings.json from before this version.
   assert.deepEqual(
     sanitizeDeclared({ activeIntegrations: ["integration_github"] }, "windows"),
-    { mainPill: "integration_claude", activeIntegrations: ["integration_github"] },
+    { mainPill: "agent_antigravity", activeIntegrations: ["integration_github"] },
   );
   assert.equal(sanitizeDeclared({ mainPill: "agent_claude-desktop", activeIntegrations: [] }, "windows").mainPill,
-    "integration_claude");
+    "agent_antigravity");
 });
 
 test("up to four pills next to the main one, never the main one itself", () => {
@@ -204,13 +204,13 @@ test("the main pill always loads, the declared ones join it, and focus starts on
   assert.equal(State.tasks[1].color, "#8AB4F8");
 });
 
-test("an old settings file gets VS Code as its main pill and keeps its integrations", () => {
+test("an old settings file gets Antigravity as its main pill and keeps its integrations", () => {
   State.settings = { ...DEFAULT_SETTINGS, mainPill: undefined };
   State.loadIntegrationTasks();
   assert.deepEqual(ids(), [
-    "integration_claude", "integration_resend", "integration_n8n", "integration_vercel", "integration_github",
+    "agent_antigravity", "integration_resend", "integration_n8n", "integration_vercel", "integration_github",
   ]);
-  assert.equal(State.settings.mainPill, "integration_claude");
+  assert.equal(State.settings.mainPill, "agent_antigravity");
 });
 
 test("switching the main pill frees its slot and the old main pill goes when idle", () => {
@@ -218,7 +218,7 @@ test("switching the main pill frees its slot and the old main pill goes when idl
   State.settings.mainPill = "agent_codex";
   State.loadIntegrationTasks();
   assert.equal(ids()[0], "agent_codex");
-  assert.ok(!ids().includes("integration_claude"));
+  assert.ok(!ids().includes("agent_antigravity"));
   assert.equal(State.focusId, "agent_codex");
 });
 
@@ -227,9 +227,9 @@ test("a pill in the middle of a session stays until the session ends", () => {
   State.tasks[0].state = "working";
   State.settings.mainPill = "agent_cursor";
   State.loadIntegrationTasks();
-  assert.ok(ids().includes("integration_claude"));
-  State.removeTask("integration_claude");
-  assert.ok(!ids().includes("integration_claude"));
+  assert.ok(ids().includes("agent_antigravity"));
+  State.removeTask("agent_antigravity");
+  assert.ok(!ids().includes("agent_antigravity"));
 });
 
 test("the end of a session puts a kept pill back as it was, and removes any other", () => {
@@ -246,7 +246,7 @@ test("the end of a session puts a kept pill back as it was, and removes any othe
   State.setFocus("agent_mine");
   State.removeTask("agent_mine");
   assert.ok(!ids().includes("agent_mine"));
-  assert.equal(State.focusId, "integration_claude");
+  assert.equal(State.focusId, "agent_antigravity");
 });
 
 test("a Claude Code session gets its pill even when it is not loaded", () => {
@@ -268,10 +268,10 @@ test("toggling declares up to four pills and never the main one", () => {
   assert.deepEqual(State.settings.activeIntegrations, [
     "integration_n8n", "agent_gemini", "ai_anthropic", "integration_stripe",
   ]);
-  State.toggleIntegration("integration_claude");
-  assert.ok(ids().includes("integration_claude"));
+  State.toggleIntegration("agent_antigravity");
+  assert.ok(ids().includes("agent_antigravity"));
   State.setFocus("agent_gemini");
   State.toggleIntegration("agent_gemini");
   assert.ok(!ids().includes("agent_gemini"));
-  assert.equal(State.focusId, "integration_claude");
+  assert.equal(State.focusId, "agent_antigravity");
 });

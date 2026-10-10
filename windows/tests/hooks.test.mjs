@@ -35,7 +35,7 @@ beforeEach(() => {
   State.paused = false;
   State.isPinned = false;
   State.pendingApproval = null;
-  State.settings = { ...DEFAULT_SETTINGS };
+  State.settings = { ...DEFAULT_SETTINGS, mainPill: "integration_claude" };
   State.loadIntegrationTasks();
 });
 

@@ -96,6 +96,7 @@ export class Island {
   private confusedRecovery: number | null = null;
   private prevViewBeforeConfused: IslandViewName = "overview";
   private lastSyncedView: IslandViewName | null = null;
+  private notificationTimer: number | null = null;
 
   /** The launch greeting ended, or the island came out of hidden — two of the
    *  moments the Monday recap may open (see src/recap/recap.ts). */
@@ -135,6 +136,22 @@ export class Island {
     });
     Bridge.onSystemStats((stats) => {
       State.setSystemStats(stats);
+    });
+    Bridge.onSystemNotification((notif) => {
+      if (!State.settings.showSystemNotifications) return;
+      State.setSystemNotification(notif);
+      Sound.play("blip");
+      this.engine.triggerEmote("surprised");
+
+      this.alert("notification");
+
+      if (this.notificationTimer != null) window.clearTimeout(this.notificationTimer);
+      this.notificationTimer = window.setTimeout(() => {
+        this.notificationTimer = null;
+        if (State.view === "notification" && State.mode === "expanded" && !this.wasInIsland && !State.isPinned) {
+          this.collapse();
+        }
+      }, 5000);
     });
   }
 

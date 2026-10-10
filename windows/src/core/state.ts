@@ -124,6 +124,8 @@ export interface Settings {
   showGpuUsage: boolean;
   showRamUsage: boolean;
   showGpuTemp: boolean;
+  /** Expand notch when Windows system toast notifications arrive from apps. */
+  showSystemNotifications: boolean;
   /** Who the chat talks to (see core/providers.ts); picked in the chat view. */
   chatProvider: ProviderId;
   /** The model picked for each provider other than Anthropic, by provider id. */
@@ -167,6 +169,14 @@ export interface SystemStats {
   gpuName?: string | null;
 }
 
+export interface SystemNotification {
+  id: number;
+  appName: string;
+  title: string;
+  body: string;
+  timestamp: number;
+}
+
 export const DEFAULT_SETTINGS: Settings = {
   soundEnabled: true,
   soundVolume: 0.12,
@@ -189,6 +199,7 @@ export const DEFAULT_SETTINGS: Settings = {
   showGpuUsage: true,
   showRamUsage: true,
   showGpuTemp: true,
+  showSystemNotifications: true,
   chatProvider: "anthropic",
   chatModels: {},
   ollamaUrl: "",
@@ -266,6 +277,14 @@ class AppState {
 
   setSystemStats(stats: SystemStats) {
     this.systemStats = stats;
+    this.notify();
+  }
+
+  /** Latest system toast notification from Windows app */
+  activeNotification: SystemNotification | null = null;
+
+  setSystemNotification(notif: SystemNotification | null) {
+    this.activeNotification = notif;
     this.notify();
   }
 

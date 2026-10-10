@@ -132,7 +132,7 @@ export const PILL_CATALOG: readonly PillDefinition[] = [
 ];
 
 /** The always-on pill unless the user picks another workspace tool. */
-export const DEFAULT_MAIN_PILL = "integration_claude";
+export const DEFAULT_MAIN_PILL = "agent_antigravity";
 
 /** How many declared pills may sit next to the main one. */
 export const MAX_DECLARED = 4;

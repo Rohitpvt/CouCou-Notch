@@ -18,6 +18,7 @@ mod island;
 mod local_chat;
 mod log;
 mod net;
+mod notifications;
 mod openai_compat;
 mod pipe;
 mod platform;
@@ -758,6 +759,7 @@ pub fn run() {
             pipe::start(handle.clone());
             integrations::start(handle.clone());
             hardware::start(handle.clone(), gate.clone(), hardware_monitor.clone());
+            notifications::start(handle.clone());
             shortcuts::apply(&handle, &loaded.shortcuts);
             Ok(())
         })

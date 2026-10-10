@@ -42,6 +42,8 @@ pub struct Settings {
     pub show_gpu_usage: bool,
     pub show_ram_usage: bool,
     pub show_gpu_temp: bool,
+    /// Expand notch when Windows system toast notifications arrive from apps.
+    pub show_system_notifications: bool,
     /// Who the chat talks to: "anthropic", a cloud provider of
     /// openai_compat.rs ("openai", "google", "openrouter"), or a model server
     /// of local_chat.rs ("ollama", "lmstudio", "custom"). Picked in the chat view.
@@ -109,7 +111,7 @@ impl Default for Settings {
                 "integration_vercel".into(),
                 "integration_github".into(),
             ],
-            main_pill: "integration_claude".into(),
+            main_pill: "agent_antigravity".into(),
             screen: "primary".into(),
             autostart: true,
             open_on_hover: true,
@@ -123,6 +125,7 @@ impl Default for Settings {
             show_gpu_usage: true,
             show_ram_usage: true,
             show_gpu_temp: true,
+            show_system_notifications: true,
             chat_provider: crate::chat::ANTHROPIC.into(),
             chat_models: BTreeMap::new(),
             ollama_url: String::new(),
@@ -405,6 +408,7 @@ mod tests {
   "showGpuUsage": false,
   "showRamUsage": false,
   "showGpuTemp": false,
+  "showSystemNotifications": false,
   "chatProvider": "ollama",
   "chatModels": { "ollama": "llama3.2", "openai": "gpt-x" },
   "ollamaUrl": "http://127.0.0.1:11434",
@@ -813,6 +817,7 @@ mod tests {
                 "showGpuUsage",
                 "showRamUsage",
                 "showGpuTemp",
+                "showSystemNotifications",
                 "chatProvider",
                 "chatModels",
                 "ollamaUrl",

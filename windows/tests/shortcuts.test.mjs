@@ -330,10 +330,10 @@ test("go to alert: the permission first, then a question, else Mochi is annoyed"
   assert.equal(State.focusId, "agent_gemini");
 
   did = [];
-  State.pendingApproval = { requestId: "r1", sessionId: "s", pillId: "integration_claude", tool: "Bash", command: "ls" };
+  State.pendingApproval = { requestId: "r1", sessionId: "s", pillId: "agent_antigravity", tool: "Bash", command: "ls" };
   runGlobalShortcut(host, "goToAlert", resume);
   assert.deepEqual(did, ["resume", "alert:approval", "keyboard"]);
-  assert.equal(State.focusId, "integration_claude");
+  assert.equal(State.focusId, "agent_antigravity");
   // Nothing is ever decided from a shortcut.
   assert.deepEqual(sent("approval_decision"), []);
 });
@@ -347,12 +347,12 @@ test("go to alert brings up the unified card: any agent's pill, a question as a 
 
   did = [];
   State.pendingApproval = {
-    requestId: "r2", sessionId: "s", pillId: "integration_claude", tool: "AskUserQuestion", command: "",
+    requestId: "r2", sessionId: "s", pillId: "agent_antigravity", tool: "AskUserQuestion", command: "",
     questions: [{ question: "Which?", options: [], multiSelect: false }],
   };
   runGlobalShortcut(host, "goToAlert", resume);
   assert.deepEqual(did, ["resume", "alert:question", "keyboard"]);
-  assert.equal(State.focusId, "integration_claude");
+  assert.equal(State.focusId, "agent_antigravity");
   assert.deepEqual(sent("approval_decision"), []);
   assert.deepEqual(sent("approval_answer"), []);
 });

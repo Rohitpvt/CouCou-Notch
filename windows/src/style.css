@@ -774,6 +774,135 @@ body {
   padding: 0 8px;
 }
 
+/* 1 Active Pill: Hero Card representation */
+.pills[data-count="1"] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  padding: 0 10px;
+}
+
+.pills[data-count="1"] .pill.pill-hero {
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  gap: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.22s cubic-bezier(0.3, 1.2, 0.4, 1);
+}
+
+.pills[data-count="1"] .pill.pill-hero .mini {
+  margin-left: 0;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+}
+
+.pill-hero .pill-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.pill-hero .pill-title {
+  font: 600 13px var(--font);
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: -0.01em;
+  transition: color 0.18s ease;
+}
+
+.pill-hero .pill-sub {
+  font: 500 10.5px var(--font);
+  color: var(--dim-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pill-hero .pill-action {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: grid;
+  place-items: center;
+  color: var(--dim-3);
+  transition: all 0.18s ease;
+}
+
+.pills[data-count="1"] .pill.pill-hero:hover {
+  transform: translateY(-1px) scale(1.02);
+  filter: brightness(1.1);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.04) 100%);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.pills[data-count="1"] .pill.pill-hero:hover .pill-action {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  transform: scale(1.08);
+}
+
+/* 2 Active Pills: Stacked full rows */
+.pills[data-count="2"] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 8px;
+}
+
+.pills[data-count="2"] .pill {
+  height: 32px;
+  border-radius: 10px;
+  padding: 0 10px;
+}
+
+.pills[data-count="2"] .pill .lbl {
+  position: static;
+  flex: 1;
+  text-align: left;
+  margin-left: 8px;
+  font: 600 11.5px var(--font);
+}
+
+/* 0 Active Pills: Empty state */
+.pills-empty {
+  width: 100%;
+  height: 52px;
+  border-radius: 12px;
+  border: 1px dashed rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.02);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--dim-3);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pills-empty:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+.pills-empty-text {
+  font: 500 11.5px var(--font);
+}
+
 .pill {
   position: relative;
   height: 28px;
@@ -822,6 +951,13 @@ body {
   place-items: center;
 }
 
+.pill-badge.hero-badge {
+  top: -4px;
+  right: -4px;
+  width: 16px;
+  height: 16px;
+}
+
 .pill-badge i {
   width: 12px;
   height: 12px;
@@ -831,9 +967,120 @@ body {
   color: #000;
 }
 
+.pill-badge.hero-badge i {
+  width: 14px;
+  height: 14px;
+}
+
 .pill-badge svg {
   width: 6px;
   height: 6px;
+}
+
+/* ── Notification View ─────────────────────────────────────────────────── */
+
+.notif-view .card {
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.3, 1.2, 0.4, 1);
+}
+
+.notif-view .card:hover {
+  filter: brightness(1.04);
+}
+
+.notif-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 16px 12px 108px;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+
+.notif-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.notif-app-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.notif-app-badge {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.3); opacity: 1; }
+}
+
+.notif-app-name {
+  font: 700 10.5px var(--font);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #7dd3fc;
+}
+
+.notif-time {
+  font: 500 10px var(--font);
+  color: var(--dim-3);
+  margin-left: auto;
+}
+
+.notif-close {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  display: grid;
+  place-items: center;
+  color: var(--dim-3);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.notif-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.notif-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.notif-title {
+  font: 600 13.5px var(--font);
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: -0.01em;
+}
+
+.notif-body {
+  font: 400 11.5px var(--font);
+  color: #94a3b8;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* ── Generic text blocks ────────────────────────────────────────────────── */

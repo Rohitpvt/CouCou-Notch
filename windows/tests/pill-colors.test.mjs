@@ -80,24 +80,26 @@ test("with no preference every pill is painted as the catalog says", () => {
   for (const task of State.tasks) assert.equal(task.color, pillDefinition(task.id).color, task.id);
 });
 
+const ANTIGRAVITY = pillDefinition("agent_antigravity").color;
+
 test("a pill is created in the colour the user gave it", () => {
-  State.settings.pillColors = { integration_claude: TEAL };
+  State.settings.pillColors = { agent_antigravity: TEAL };
   State.loadIntegrationTasks();
-  assert.equal(colorOf("integration_claude"), TEAL);
+  assert.equal(colorOf("agent_antigravity"), TEAL);
   assert.equal(colorOf("integration_github"), pillDefinition("integration_github").color);
 });
 
 test("a colour picked later reaches the pills already on the island, and back", () => {
   State.loadIntegrationTasks();
-  assert.equal(colorOf("integration_claude"), VS_CODE);
+  assert.equal(colorOf("agent_antigravity"), ANTIGRAVITY);
 
-  State.settings = { ...State.settings, pillColors: { integration_claude: TEAL } };
+  State.settings = { ...State.settings, pillColors: { agent_antigravity: TEAL } };
   State.loadIntegrationTasks();
-  assert.equal(colorOf("integration_claude"), TEAL);
+  assert.equal(colorOf("agent_antigravity"), TEAL);
 
   State.settings = { ...State.settings, pillColors: {} };
   State.loadIntegrationTasks();
-  assert.equal(colorOf("integration_claude"), VS_CODE);
+  assert.equal(colorOf("agent_antigravity"), ANTIGRAVITY);
 });
 
 test("pills made for a session wear the colour too", () => {

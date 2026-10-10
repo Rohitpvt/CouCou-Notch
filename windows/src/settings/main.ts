@@ -937,6 +937,11 @@ function generalSection(): HTMLElement {
       h("label", { text: t("Open on hover") }),
       toggle(settings.openOnHover, (v) => { settings.openOnHover = v; void save(); }),
     ),
+    h("div", { class: "row" },
+      h("label", { text: t("System notifications") }),
+      toggle(settings.showSystemNotifications, (v) => { settings.showSystemNotifications = v; void save(); }),
+      h("span", { class: "hint", text: t("Expand notch on Windows notifications") }),
+    ),
     ...recapRows(),
     languageRow(),
   );

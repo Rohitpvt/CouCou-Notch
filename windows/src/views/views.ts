@@ -409,11 +409,16 @@ function buildOverview(actions: ViewActions): ViewHost {
       jump.style.display = detailOpen || mode === "plan" || mode === "diff" ? "none" : "";
 
       const others = State.otherTasks.slice(0, 4);
-      const pillKey = others.map((t) => `${t.id}:${t.color}:${t.pillBadge ?? ""}`).join("|");
+      const pillKey = others.map((t) => `${t.id}:${t.color}:${t.pillBadge ?? ""}`).join("|") + `~cnt=${others.length}`;
       if (pillKey !== pillIds) {
         pillIds = pillKey;
+        pills.dataset.count = String(others.length);
         clear(pills);
-        for (const t of others) pills.append(buildPill(t, actions));
+        if (others.length === 0) {
+          pills.append(buildEmptyPills(actions));
+        } else {
+          for (const t of others) pills.append(buildPill(t, actions, others.length));
+        }
         pruneMiniBots();
       }
     },
@@ -434,12 +439,69 @@ export function hasSessionTicker(task: AgentTask): boolean {
   return isSession && (task.state !== "idle" || task.steps.length > 0);
 }
 
-function buildPill(task: AgentTask, actions: ViewActions): HTMLElement {
+function buildEmptyPills(actions: ViewActions): HTMLElement {
+  return h(
+    "div",
+    {
+      class: "pills-empty",
+      onclick: () => actions.openSettingsWindow(),
+      title: tl("Manage active pills in Settings"),
+    },
+    svg(ICONS.plus, 13),
+    h("span", { class: "pills-empty-text", text: tl("Add Active Pills") }),
+  );
+}
+
+function buildPill(task: AgentTask, actions: ViewActions, totalCount: number): HTMLElement {
   const label = task.id === "integration_claude" ? "VS Code" : task.name;
-  const canvas = createMiniBot(task, 24);
+
+  if (totalCount === 1) {
+    const def = pillDefinition(task.id);
+    const subtitle = def?.subtitle ? t(def.subtitle) : t(sessionSubtitle(task.id));
+    const canvas = createMiniBot(task, 32);
+    const pill = h(
+      "div",
+      { class: "pill pill-hero", onclick: () => actions.setFocus(task.id) },
+      canvas,
+      h("div", { class: "pill-info" },
+        h("div", { class: "pill-title", text: label }),
+        h("div", { class: "pill-sub", text: subtitle }),
+      ),
+      h("div", { class: "pill-action" },
+        svg(ICONS.chevronRight, 9, { stroke: 2.2 }),
+      ),
+    );
+    pill.style.borderColor = `${task.color}35`;
+    pill.addEventListener("mouseenter", () => {
+      pill.style.background = `linear-gradient(135deg, ${task.color}2e 0%, ${task.color}0d 100%)`;
+      pill.style.borderColor = `${task.color}99`;
+      pill.style.boxShadow = `0 4px 18px ${task.color}45`;
+      const titleEl = pill.querySelector(".pill-title") as HTMLElement | null;
+      if (titleEl) titleEl.style.color = lighten(task.color, 0.4);
+    });
+    pill.addEventListener("mouseleave", () => {
+      pill.style.background = "";
+      pill.style.borderColor = `${task.color}35`;
+      pill.style.boxShadow = "";
+      const titleEl = pill.querySelector(".pill-title") as HTMLElement | null;
+      if (titleEl) titleEl.style.color = "";
+    });
+
+    if (task.pillBadge) {
+      const colors = { approval: "#F5A524", finished: "#22C55E", error: "#F4505E" } as const;
+      const icons = { approval: ICONS.bang, finished: ICONS.check, error: ICONS.xmark } as const;
+      const inner = h("i", { style: `background:${colors[task.pillBadge]}` }, svg(icons[task.pillBadge], 6, { stroke: task.pillBadge === "finished" ? 3 : 0 }));
+      const badge = h("div", { class: "pill-badge hero-badge" }, inner);
+      badge.style.boxShadow = `0 0 6px ${colors[task.pillBadge]}99`;
+      pill.append(badge);
+    }
+    return pill;
+  }
+
+  const canvas = createMiniBot(task, totalCount === 2 ? 22 : 24);
   const pill = h(
     "div",
-    { class: "pill", onclick: () => actions.setFocus(task.id) },
+    { class: `pill ${totalCount === 2 ? "pill-row" : ""}`.trim(), onclick: () => actions.setFocus(task.id) },
     canvas,
     h("span", { class: "lbl", text: label }),
   );
@@ -797,7 +859,57 @@ function buildSettings(actions: ViewActions): ViewHost {
   };
 }
 
-// ── Placeholders filled in later stages ───────────────────────────────────────
+function buildNotification(actions: ViewActions): ViewHost {
+  const appBadge = h("div", { class: "notif-app-badge" });
+  const appName = h("span", { class: "notif-app-name" });
+  const timeLabel = h("span", { class: "notif-time", text: "Now" });
+  const closeBtn = h(
+    "button",
+    {
+      class: "icon-btn notif-close",
+      title: tl("Dismiss"),
+      onclick: (e) => {
+        e.stopPropagation();
+        State.setSystemNotification(null);
+        actions.setView(State.defaultView());
+      },
+    },
+    svg(ICONS.xmark, 8),
+  );
+
+  const header = h(
+    "div",
+    { class: "notif-header" },
+    h("div", { class: "notif-app-info" }, appBadge, appName),
+    timeLabel,
+    closeBtn,
+  );
+
+  const notifTitle = h("div", { class: "notif-title" });
+  const notifBody = h("div", { class: "notif-body" });
+  const content = h("div", { class: "notif-content" }, notifTitle, notifBody);
+
+  const cardBody = h(
+    "div",
+    { class: "notif-card", onclick: () => actions.setView(State.defaultView()) },
+    header,
+    content,
+  );
+
+  const el = h("div", { class: "view notif-view" }, card(null, cardBody));
+
+  return {
+    el,
+    sync() {
+      const n = State.activeNotification;
+      if (!n) return;
+      appName.textContent = n.appName || "Notification";
+      notifTitle.textContent = n.title || "";
+      notifBody.textContent = n.body || "";
+      notifBody.style.display = n.body ? "" : "none";
+    },
+  };
+}
 
 function buildPlaceholder(title: Msg, sub: string): ViewHost {
   const body = h(
@@ -831,6 +943,7 @@ export function buildViews(
   map.set("choose", buildChoose(actions));
   map.set("recap", buildRecap(actions));
   map.set("wardrobe", buildWardrobe(actions));
+  map.set("notification", buildNotification(actions));
   // Not in the Windows v1: sending a file by email, window attach + web result.
   map.set("mail", buildPlaceholder(tl("Sending by email isn't in this version."), ""));
   map.set("searching", buildPlaceholder(tl("Claude is searching…"), ""));

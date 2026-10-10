@@ -3415,6 +3415,61 @@
    "pt-BR": "Só um arquivo solto na ilha pode ser enviado com uma pergunta.",
    "ru": "С вопросом можно отправить только файл, перетащенный на остров.",
    "id": "Hanya file yang dijatuhkan ke pulau yang bisa dikirim bersama pertanyaan."
+  },
+  "Add Active Pills": {
+   "zh-Hans": "添加活跃胶囊",
+   "hi": "सक्रिय पिल्स जोड़ें",
+   "es": "Agregar píldoras activas",
+   "ar": "إضافة كبسولات نشطة",
+   "fr": "Ajouter des pilules actives",
+   "bn": "সক্রিয় পিল যোগ করুন",
+   "pt-BR": "Adicionar pílulas ativas",
+   "ru": "Добавить активные плашки",
+   "id": "Tambah Pil Aktif"
+  },
+  "Dismiss": {
+   "zh-Hans": "关闭",
+   "hi": "खारिज करें",
+   "es": "Descartar",
+   "ar": "تجاهل",
+   "fr": "Ignorer",
+   "bn": "খারিজ করুন",
+   "pt-BR": "Dispensar",
+   "ru": "Закрыть",
+   "id": "Tutup"
+  },
+  "Expand notch on Windows notifications": {
+   "zh-Hans": "收到 Windows 通知时展开灵动岛",
+   "hi": "Windows नोटिफिकेशन आने पर नॉच का विस्तार करें",
+   "es": "Expandir notch con notificaciones de Windows",
+   "ar": "توسيع النوتش عند وصول إشعارات Windows",
+   "fr": "Agrandir le notch lors des notifications Windows",
+   "bn": "Windows বিজ্ঞপ্তি এলে নচ প্রসারিত করুন",
+   "pt-BR": "Expandir notch em notificações do Windows",
+   "ru": "Разворачивать вырез при уведомлениях Windows",
+   "id": "Perluas notch saat ada notifikasi Windows"
+  },
+  "Manage active pills in Settings": {
+   "zh-Hans": "在设置中管理活跃胶囊",
+   "hi": "सेटिंग्स में सक्रिय पिल्स प्रबंधित करें",
+   "es": "Administrar píldoras activas en Configuración",
+   "ar": "إدارة الكبسولات النشطة في الإعدادات",
+   "fr": "Gérer les pilules actives dans les Paramètres",
+   "bn": "সেটিংসে সক্রিয় পিল পরিচালনা করুন",
+   "pt-BR": "Gerenciar pílulas ativas nas Configurações",
+   "ru": "Управление активными плашками в Настройках",
+   "id": "Kelola pil aktif di Pengaturan"
+  },
+  "System notifications": {
+   "zh-Hans": "系统通知",
+   "hi": "सिस्टम सूचनाएं",
+   "es": "Notificaciones del sistema",
+   "ar": "إشعارات النظام",
+   "fr": "Notifications du système",
+   "bn": "সিস্টেম বিজ্ঞপ্তি",
+   "pt-BR": "Notificações do sistema",
+   "ru": "Системные уведомления",
+   "id": "Notifikasi sistem"
   }
  }
 }

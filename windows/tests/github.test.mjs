@@ -206,7 +206,7 @@ test("showing the GitHub card asks Rust for a refresh, once per showing", () => 
   State.notify();
   State.notify();
   assert.deepEqual(sent("github_refresh"), [{ section: "pulse" }]);
-  State.setFocus("integration_claude");
+  State.setFocus("agent_antigravity");
   State.setFocus(GITHUB);
   assert.deepEqual(sent("github_refresh"), [{ section: "pulse" }, { section: "pulse" }]);
 });
