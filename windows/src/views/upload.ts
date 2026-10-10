@@ -29,6 +29,18 @@ function dashedFrame(): SVGSVGElement {
 }
 
 export function buildUpload(): ViewHost {
+  const fileInput = document.createElement("input");
+  fileInput.type = "file";
+  fileInput.style.display = "none";
+  fileInput.addEventListener("change", () => {
+    const files = fileInput.files;
+    if (!files || files.length === 0) return;
+    const webview = (window as unknown as { chrome?: { webview?: { postMessageWithAdditionalObjects(m: unknown, o: unknown): void } } }).chrome?.webview;
+    if (webview) {
+      webview.postMessageWithAdditionalObjects("coucou-file-drop", files);
+    }
+  });
+
   const frame = dashedFrame();
   const title = h("div", { class: "drop-title", text: tl("Drop your files here") });
   const tags = h(
@@ -38,7 +50,12 @@ export function buildUpload(): ViewHost {
   );
   const card = h(
     "div",
-    { class: "card drop-card" },
+    {
+      class: "card drop-card",
+      style: "cursor: pointer;",
+      onclick: () => fileInput.click(),
+    },
+    fileInput,
     frame,
     h("div", { class: "drop-body" }, title, tags),
   );
