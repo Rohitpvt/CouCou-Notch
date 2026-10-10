@@ -1083,6 +1083,102 @@ body {
   text-overflow: ellipsis;
 }
 
+/* ── Welfare / Wellness View ───────────────────────────────────────────── */
+
+.welfare-view .card {
+  transition: transform 0.2s cubic-bezier(0.3, 1.2, 0.4, 1);
+}
+
+.welfare-card {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 10px 16px 12px 108px;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+
+.welfare-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.welfare-app-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.welfare-app-info b {
+  font: 600 12px var(--font);
+  color: var(--ink);
+}
+
+.welfare-badge-pill {
+  font: 600 9.5px var(--font);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: rgba(34, 197, 94, 0.15);
+  color: #4ade80;
+  border: 1px solid rgba(74, 222, 128, 0.3);
+}
+
+.welfare-quote {
+  font: 600 13px var(--font);
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.welfare-tip {
+  font: 400 11px var(--font);
+  color: #94a3b8;
+  line-height: 1.35;
+}
+
+.welfare-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 2px;
+}
+
+.welfare-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  font: 500 10.5px var(--font);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: #e2e8f0;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.welfare-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+.welfare-btn.primary {
+  background: rgba(34, 197, 94, 0.2);
+  border-color: rgba(34, 197, 94, 0.4);
+  color: #4ade80;
+}
+
+.welfare-btn.primary:hover {
+  background: rgba(34, 197, 94, 0.3);
+  color: #86efac;
+}
+
 /* ── Generic text blocks ────────────────────────────────────────────────── */
 
 .title {

@@ -25,6 +25,7 @@ import { IslandStateMachine } from "./fsm";
 import { refreshHookPills } from "./integrations";
 import { DesktopLink } from "./desktop";
 import { DRAG_THRESHOLD } from "../mochi/desktop-logic";
+import { welfareManager, type WelfareCategory, type WelfarePrompt } from "../core/welfare";
 
 const BOT_OVERHANG = 40;
 const CLAUDE_DESKTOP_ID = "agent_claude-desktop";
@@ -156,6 +157,36 @@ export class Island {
         }
       }, durationMs);
     });
+    Bridge.onWelfarePreview((data) => {
+      const prompt = welfareManager.createPrompt(data?.category as WelfareCategory | undefined);
+      this.showWelfare(prompt);
+    });
+    setInterval(() => {
+      const prompt = welfareManager.check(Date.now());
+      if (prompt) {
+        this.showWelfare(prompt);
+      }
+    }, 30000);
+  }
+
+  private welfareTimer: number | null = null;
+
+  showWelfare(prompt: WelfarePrompt) {
+    State.setWelfarePrompt(prompt);
+    if (State.settings.soundEnabled) {
+      Sound.play("blip");
+    }
+    this.engine.triggerEmote(prompt.emote);
+    this.alert("welfare");
+
+    const durationMs = 8000;
+    if (this.welfareTimer != null) window.clearTimeout(this.welfareTimer);
+    this.welfareTimer = window.setTimeout(() => {
+      this.welfareTimer = null;
+      if (State.view === "welfare" && State.mode === "expanded" && !this.wasInIsland && !State.isPinned) {
+        this.collapse();
+      }
+    }, durationMs);
   }
 
   /** The request has its answer: the card goes and the session carries on. */

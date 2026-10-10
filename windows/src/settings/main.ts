@@ -870,6 +870,90 @@ function integrationsSection(present: Record<string, boolean>): HTMLElement {
   return h("section", {}, h("h2", {}, h("span", { text: t("Integrations") })), note, list);
 }
 
+// ── Welfare section ───────────────────────────────────────────────────────────
+
+function welfareSection(): HTMLElement {
+  const intervalSelect = h("select", {}) as HTMLSelectElement;
+  const intervals = [
+    { value: "20", text: t("Every 20 minutes") },
+    { value: "30", text: t("Every 30 minutes") },
+    { value: "45", text: t("Every 45 minutes") },
+    { value: "60", text: t("Every hour") },
+    { value: "90", text: t("Every 90 minutes") },
+    { value: "120", text: t("Every 2 hours") },
+  ];
+  for (const opt of intervals) {
+    intervalSelect.append(h("option", { value: opt.value, text: opt.text }));
+  }
+  intervalSelect.value = String(settings.welfareIntervalMinutes || 45);
+  intervalSelect.addEventListener("change", () => {
+    settings.welfareIntervalMinutes = Number(intervalSelect.value) || 45;
+    void save();
+  });
+
+  const previewFeedback = h("span", { class: "hint" });
+  const previewBtn = h("button", {
+    text: t("Preview Mochi welfare quote ✨"),
+    onclick: async () => {
+      previewBtn.disabled = true;
+      try {
+        await Bridge.triggerWelfarePreview();
+        previewFeedback.textContent = t("Preview sent to Cocoa Notch!");
+      } catch {
+        previewFeedback.textContent = t("Could not trigger preview");
+      }
+      window.setTimeout(() => {
+        previewBtn.disabled = false;
+        previewFeedback.textContent = "";
+      }, 3000);
+    },
+  }) as HTMLButtonElement;
+
+  return h(
+    "section",
+    {},
+    h("h2", {}, h("span", { text: t("Mochi Care & Welfare") })),
+    h("div", {
+      class: "hint",
+      text: t("Proactive wellness comments and reminders to take breaks, stay hydrated, stretch, and rest your eyes."),
+    }),
+    h("div", { class: "row" },
+      h("label", { text: t("Welfare reminders") }),
+      toggle(settings.welfareReminders !== false, (v) => { settings.welfareReminders = v; void save(); }),
+      h("span", { class: "hint", text: t("Enable avatar care quotes and tips") }),
+    ),
+    h("div", { class: "row" },
+      h("label", { text: t("Reminder interval") }),
+      intervalSelect,
+    ),
+    h("div", { class: "row" },
+      h("label", { text: t("Break & stretch prompts") }),
+      toggle(settings.welfareBreakReminders !== false, (v) => { settings.welfareBreakReminders = v; void save(); }),
+      h("span", { class: "hint", text: t("Remind you to stretch and step away during long sessions") }),
+    ),
+    h("div", { class: "row" },
+      h("label", { text: t("Hydration check-ins") }),
+      toggle(settings.welfareHydrationReminders !== false, (v) => { settings.welfareHydrationReminders = v; void save(); }),
+      h("span", { class: "hint", text: t("Water reminders during work") }),
+    ),
+    h("div", { class: "row" },
+      h("label", { text: t("Posture & eye rest") }),
+      toggle(settings.welfarePostureReminders !== false, (v) => { settings.welfarePostureReminders = v; void save(); }),
+      h("span", { class: "hint", text: t("Spine alignment and 20-20-20 eye rest prompts") }),
+    ),
+    h("div", { class: "row" },
+      h("label", { text: t("Night owl alerts") }),
+      toggle(settings.welfareNightOwlAlerts !== false, (v) => { settings.welfareNightOwlAlerts = v; void save(); }),
+      h("span", { class: "hint", text: t("Gentle wind-down reminders past 11 PM") }),
+    ),
+    h("div", { class: "row" },
+      h("label", {}),
+      previewBtn,
+      previewFeedback,
+    ),
+  );
+}
+
 // ── General section ───────────────────────────────────────────────────────────
 
 function generalSection(): HTMLElement {
@@ -1380,6 +1464,7 @@ async function render() {
     localSection(customKey),
     activePillsSection(connected),
     integrationsSection(present),
+    welfareSection(),
     generalSection(),
     performanceSection(),
     shortcutsSection(shortcutReport),

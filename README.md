@@ -49,6 +49,7 @@ Meet **Mochi**: a soft little squircle with big eyes that pops out of your notch
 - 🎵 **Apple Music pill** *(macOS, GitHub build)* — add the Apple Music pill in Settings → Active pills to see what's playing and control playback from the notch; Mochi dances while it plays.
 - 🎧 **Spotify pill** *(macOS, GitHub build)* — add the Spotify pill in Settings → Active pills: album cover, title and artist, a progress bar you drag to seek, play/pause, previous/next, shuffle, repeat and volume, right from the notch; Mochi dances while it plays.
 - 👗 **Dress Mochi up** — right-click him for the wardrobe. He also dresses up for the seasons on his own.
+- 🧘 **Mochi Care & Welfare Reminders** — proactive wellness comments and reminders to stretch, hydrate, relax your eyes (20-20-20 rule), correct posture, and gentle late-night wind-down alerts when working past 11 PM. Customizable intervals, toggles, snooze button, and interactive gratitude responses (`Thanks Mochi! ✨`).
 - ⌨️ **Keyboard shortcuts** — open the chat, jump to an alert or a terminal, switch pills, mute, send Mochi to the desktop or open the wardrobe from anywhere; all customizable in Settings → Shortcuts.
 - 🎭 **A real character** — idle breathing, blinks, eyes on a sphere that follow your mouse, emotes, 28 handcrafted sounds, a greeting on launch.
 - 🔊 **Your own sounds** *(macOS)* — drop a file named like one of Mochi's sounds (`finish.wav`, `approval.mp3`…) in Settings → General → Sound → **Open sounds folder** to replace it.

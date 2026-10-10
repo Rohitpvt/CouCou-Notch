@@ -37,6 +37,9 @@ export const Bridge = {
   onSystemStats: (cb: (s: SystemStats) => void) => onEvent<SystemStats>("system-stats", cb),
   onSystemNotification: (cb: (n: SystemNotification) => void) =>
     onEvent<SystemNotification>("system-notification", cb),
+  triggerWelfarePreview: (category?: string) => emitTo("main", "welfare-preview", { category }),
+  onWelfarePreview: (cb: (data: { category?: string }) => void) =>
+    onEvent<{ category?: string }>("welfare-preview", cb),
   /** The system's languages as the webview sees them, for Rust's own texts (i18n.rs). */
   setSystemLanguages: (languages: string[]) => call<void>("set_system_languages", { languages }),
 

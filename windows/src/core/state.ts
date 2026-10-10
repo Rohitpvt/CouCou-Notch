@@ -12,6 +12,7 @@ import type { FileDiff } from "./diff";
 import type { Bindings } from "./shortcuts";
 import { DEFAULT_OUTFIT, type Outfit } from "../mochi/wardrobe";
 import { pillColor } from "./pill-colors";
+import type { WelfarePrompt } from "./welfare";
 
 export type AgentSource = "claudeCode" | "n8n" | "agent";
 export type PillBadge = "approval" | "finished" | "error";
@@ -130,6 +131,18 @@ export interface Settings {
   notificationDuration: number;
   /** Play chime sound when a system notification arrives. */
   notificationSound: boolean;
+  /** Enable Mochi Welfare & Wellness proactive comments */
+  welfareReminders: boolean;
+  /** Interval in minutes between welfare reminders (default 45 min) */
+  welfareIntervalMinutes: number;
+  /** Include break & screen rest reminders */
+  welfareBreakReminders: boolean;
+  /** Include hydration check-ins */
+  welfareHydrationReminders: boolean;
+  /** Include late night winding down alerts */
+  welfareNightOwlAlerts: boolean;
+  /** Include posture & eye relaxation prompts */
+  welfarePostureReminders: boolean;
   /** Render prominent hero card when only 1 active pill is selected. */
   enableHeroPillCard: boolean;
   /** Enable Live Code Diff Inspector on agent file modifications. */
@@ -212,6 +225,12 @@ export const DEFAULT_SETTINGS: Settings = {
   showSystemNotifications: true,
   notificationDuration: 5,
   notificationSound: true,
+  welfareReminders: true,
+  welfareIntervalMinutes: 45,
+  welfareBreakReminders: true,
+  welfareHydrationReminders: true,
+  welfareNightOwlAlerts: true,
+  welfarePostureReminders: true,
   enableHeroPillCard: true,
   enableLiveDiffs: true,
   autoExpandOnAgentTask: true,
@@ -300,6 +319,14 @@ class AppState {
 
   setSystemNotification(notif: SystemNotification | null) {
     this.activeNotification = notif;
+    this.notify();
+  }
+
+  /** Latest Mochi welfare/wellness reminder prompt */
+  activeWelfarePrompt: WelfarePrompt | null = null;
+
+  setWelfarePrompt(prompt: WelfarePrompt | null) {
+    this.activeWelfarePrompt = prompt;
     this.notify();
   }
 

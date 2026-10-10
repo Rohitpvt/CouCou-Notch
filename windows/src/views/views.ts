@@ -21,6 +21,7 @@ import { Bridge } from "../core/bridge";
 import { buildRecap } from "./recap";
 import { buildWardrobe } from "./wardrobe";
 import type { Outfit, OutfitSelection } from "../mochi/wardrobe";
+import { welfareManager } from "../core/welfare";
 import { language, t, tl, type Msg } from "../i18n/i18n";
 
 export interface ViewActions {
@@ -911,6 +912,87 @@ function buildNotification(actions: ViewActions): ViewHost {
   };
 }
 
+function buildWelfare(actions: ViewActions): ViewHost {
+  const dotEl = dot("#22c55e", 7);
+  const title = h("b", { text: t("Mochi Care") });
+  const categoryBadge = h("span", { class: "welfare-badge-pill", text: t("Break Time") });
+  const closeBtn = h(
+    "button",
+    {
+      class: "icon-btn notif-close",
+      title: tl("Dismiss"),
+      onclick: (e) => {
+        e.stopPropagation();
+        State.setWelfarePrompt(null);
+        actions.setView(State.defaultView());
+      },
+    },
+    svg(ICONS.xmark, 8),
+  );
+
+  const header = h(
+    "div",
+    { class: "welfare-header" },
+    h("div", { class: "welfare-app-info" }, dotEl, title, categoryBadge),
+    h("span", { style: "margin-left:auto" }),
+    closeBtn,
+  );
+
+  const quoteEl = h("div", { class: "welfare-quote" });
+  const tipEl = h("div", { class: "welfare-tip" });
+  const content = h("div", { class: "notif-content" }, quoteEl, tipEl);
+
+  const thanksBtn = h("button", {
+    class: "welfare-btn primary",
+    text: t("Thanks Mochi! ✨"),
+    onclick: (e) => {
+      e.stopPropagation();
+      actions.blip();
+      State.setWelfarePrompt(null);
+      actions.setView(State.defaultView());
+    },
+  });
+
+  const snoozeBtn = h("button", {
+    class: "welfare-btn",
+    text: t("Snooze 15m ⏱️"),
+    onclick: (e) => {
+      e.stopPropagation();
+      actions.blip();
+      welfareManager.snooze(15);
+      State.setWelfarePrompt(null);
+      actions.setView(State.defaultView());
+    },
+  });
+
+  const actionsRow = h("div", { class: "welfare-actions" }, thanksBtn, snoozeBtn);
+
+  const cardBody = h(
+    "div",
+    { class: "welfare-card", onclick: () => actions.setView(State.defaultView()) },
+    header,
+    content,
+    actionsRow,
+  );
+
+  const el = h("div", { class: "view welfare-view" }, card(null, cardBody));
+
+  return {
+    el,
+    sync() {
+      const p = State.activeWelfarePrompt;
+      if (!p) return;
+      dotEl.style.background = p.color || "#22c55e";
+      categoryBadge.textContent = p.categoryLabel || t("Wellness");
+      categoryBadge.style.color = p.color || "#22c55e";
+      categoryBadge.style.background = `${p.color || "#22c55e"}24`;
+      categoryBadge.style.borderColor = `${p.color || "#22c55e"}48`;
+      quoteEl.textContent = p.quote || "";
+      tipEl.textContent = p.tip || "";
+    },
+  };
+}
+
 function buildPlaceholder(title: Msg, sub: string): ViewHost {
   const body = h(
     "div",
@@ -944,6 +1026,7 @@ export function buildViews(
   map.set("recap", buildRecap(actions));
   map.set("wardrobe", buildWardrobe(actions));
   map.set("notification", buildNotification(actions));
+  map.set("welfare", buildWelfare(actions));
   // Not in the Windows v1: sending a file by email, window attach + web result.
   map.set("mail", buildPlaceholder(tl("Sending by email isn't in this version."), ""));
   map.set("searching", buildPlaceholder(tl("Claude is searching…"), ""));

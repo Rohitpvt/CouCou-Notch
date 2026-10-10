@@ -48,6 +48,18 @@ pub struct Settings {
     pub notification_duration: f64,
     /// Play chime sound when a system notification arrives.
     pub notification_sound: bool,
+    /// Enable Mochi Welfare & Wellness proactive comments.
+    pub welfare_reminders: bool,
+    /// Interval in minutes between welfare reminders.
+    pub welfare_interval_minutes: f64,
+    /// Include break & screen rest reminders.
+    pub welfare_break_reminders: bool,
+    /// Include hydration check-ins.
+    pub welfare_hydration_reminders: bool,
+    /// Include late night winding down alerts.
+    pub welfare_night_owl_alerts: bool,
+    /// Include posture & eye relaxation prompts.
+    pub welfare_posture_reminders: bool,
     /// Render prominent hero card when only 1 active pill is selected.
     pub enable_hero_pill_card: bool,
     /// Enable Live Code Diff Inspector on agent file modifications.
@@ -138,6 +150,12 @@ impl Default for Settings {
             show_system_notifications: true,
             notification_duration: 5.0,
             notification_sound: true,
+            welfare_reminders: true,
+            welfare_interval_minutes: 45.0,
+            welfare_break_reminders: true,
+            welfare_hydration_reminders: true,
+            welfare_night_owl_alerts: true,
+            welfare_posture_reminders: true,
             enable_hero_pill_card: true,
             enable_live_diffs: true,
             auto_expand_on_agent_task: true,
@@ -426,6 +444,12 @@ mod tests {
   "showSystemNotifications": false,
   "notificationDuration": 10.0,
   "notificationSound": false,
+  "welfareReminders": false,
+  "welfareIntervalMinutes": 60.0,
+  "welfareBreakReminders": false,
+  "welfareHydrationReminders": false,
+  "welfareNightOwlAlerts": false,
+  "welfarePostureReminders": false,
   "enableHeroPillCard": false,
   "enableLiveDiffs": false,
   "autoExpandOnAgentTask": false,
@@ -840,6 +864,12 @@ mod tests {
                 "showSystemNotifications",
                 "notificationDuration",
                 "notificationSound",
+                "welfareReminders",
+                "welfareIntervalMinutes",
+                "welfareBreakReminders",
+                "welfareHydrationReminders",
+                "welfareNightOwlAlerts",
+                "welfarePostureReminders",
                 "enableHeroPillCard",
                 "enableLiveDiffs",
                 "autoExpandOnAgentTask",
