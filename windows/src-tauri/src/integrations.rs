@@ -1525,6 +1525,7 @@ pub fn parse_gcal_ical_window(raw: &str, window_start: i64, window_end: i64) -> 
     events
 }
 
+#[cfg(test)]
 pub fn parse_gcal_ical_all(raw: &str) -> Vec<GCalEvent> {
     parse_gcal_ical_window(raw, i64::MIN, i64::MAX)
 }
