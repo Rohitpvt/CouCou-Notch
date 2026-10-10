@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Cocoa</string>
+    <string name="channel_live_session">Live Agent Sessions</string>
+    <string name="channel_live_session_desc">Real-time status of agent tasks, approvals and questions</string>
+    <string name="allow">Allow</string>
+    <string name="deny">Deny</string>
+    <string name="send">Send</string>
+    <string name="pair_with_pc">Pair with Computer</string>
+    <string name="agents">Agents</string>
+    <string name="approvals">Approvals</string>
+    <string name="services">Services</string>
+    <string name="settings">Settings</string>
+</resources>
