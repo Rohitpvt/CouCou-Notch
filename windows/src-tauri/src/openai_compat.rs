@@ -119,17 +119,58 @@ fn user_message(first: bool, context: Option<&ChatContext>, query: &str) -> Valu
     }
 }
 
-fn request_body(p: &Provider, model: &str, system: &str, history: &[Value], user: &Value) -> Value {
-    let role = if p.id == "openai" && (model.starts_with("o1") || model.starts_with("o3")) {
-        "developer"
-    } else {
-        "system"
-    };
-    let mut messages = vec![json!({ "role": role, "content": system })];
+fn is_reasoning_model(model: &str) -> bool {
+    let m = model.to_lowercase();
+    m.starts_with("o1") || m.starts_with("o3")
+}
+
+fn refuses_system_message(model: &str) -> bool {
+    let m = model.to_lowercase();
+    m.starts_with("o1-mini") || m.starts_with("o1-preview")
+}
+
+fn request_body(
+    p: &Provider,
+    model: &str,
+    system: &str,
+    history: &[Value],
+    user: &Value,
+    use_max_completion: bool,
+    with_system: bool,
+) -> Value {
+    let mut messages = Vec::new();
+    if with_system && !refuses_system_message(model) {
+        let role = if p.id == "openai" && is_reasoning_model(model) {
+            "developer"
+        } else {
+            "system"
+        };
+        messages.push(json!({ "role": role, "content": system }));
+    }
     messages.extend(history.iter().cloned());
-    messages.push(user.clone());
+
+    if (!with_system || refuses_system_message(model)) && history.is_empty() {
+        if let Some(user_obj) = user.as_object() {
+            if let Some(content_str) = user_obj.get("content").and_then(Value::as_str) {
+                let combined = format!("{system}\n\n{content_str}");
+                messages.push(json!({ "role": "user", "content": combined }));
+            } else {
+                messages.push(user.clone());
+            }
+        } else {
+            messages.push(user.clone());
+        }
+    } else {
+        messages.push(user.clone());
+    }
+
     let mut body = json!({ "model": model, "messages": messages });
-    body[p.max_tokens_field] = json!(MAX_TOKENS);
+    let token_field = if use_max_completion || (p.id == "openai" && is_reasoning_model(model)) {
+        "max_completion_tokens"
+    } else {
+        p.max_tokens_field
+    };
+    body[token_field] = json!(MAX_TOKENS);
     body
 }
 
@@ -167,6 +208,39 @@ fn status_error(p: &Provider, status: u16, detail: &str) -> String {
     }
 }
 
+async fn call_completions(
+    p: &Provider,
+    endpoint: &Url,
+    key: &str,
+    body: &Value,
+) -> Result<Value, (u16, String)> {
+    let mut req = net::client(endpoint, Duration::from_secs(90))
+        .map_err(|e| (0, format!("Network error: {e}")))?
+        .post(endpoint.clone())
+        .bearer_auth(key);
+    if p.id == "google" {
+        req = req.header("x-goog-api-key", key);
+    } else if p.id == "openrouter" {
+        req = req.header("HTTP-Referer", "https://coucou.app").header("X-Title", "Coucou Notch");
+    }
+    let response = req
+        .json(body)
+        .send()
+        .await
+        .map_err(|e| (0, format!("Network error: {e}")))?;
+    let status = response.status();
+    if !status.is_success() {
+        let body = net::read_capped(response, net::MAX_ERROR_BODY).await.unwrap_or_default();
+        return Err((status.as_u16(), net::error_detail(&body)));
+    }
+    let bytes = net::read_capped(response, net::MAX_BODY)
+        .await
+        .map_err(|e| (status.as_u16(), format!("Body read error: {e}")))?;
+    let json: Value = serde_json::from_slice(&bytes)
+        .map_err(|e| (status.as_u16(), format!("Bad API response: {e}")))?;
+    Ok(json)
+}
+
 /// One chat turn with a cloud provider.
 pub async fn send(
     chat: &Chat,
@@ -175,35 +249,72 @@ pub async fn send(
     query: String,
     context: Option<ChatContext>,
 ) -> Result<ChatReply, String> {
-    let key = secrets::get(p.key).ok_or_else(|| tf("{name} API key missing. Add it in Settings.", &[("name", p.name)]))?;
+    let raw_key = secrets::get(p.key).ok_or_else(|| tf("{name} API key missing. Add it in Settings.", &[("name", p.name)]))?;
+    let key = raw_key.trim();
+    if key.is_empty() {
+        return Err(tf("{name} API key missing. Add it in Settings.", &[("name", p.name)]));
+    }
+    let model = model.trim();
     if model.is_empty() {
         return Err(tf("Pick a {name} model above the chat box.", &[("name", p.name)]));
     }
     let turn = chat.begin(p.id);
     let user = user_message(turn.first, context.as_ref(), &query);
-    let body = request_body(p, model, &chat::system_prompt(false), &turn.history, &user);
+    let system_prompt = chat::system_prompt(false);
+
+    let default_use_completion = p.max_tokens_field == "max_completion_tokens" || is_reasoning_model(model);
+    let body = request_body(p, model, &system_prompt, &turn.history, &user, default_use_completion, true);
 
     let endpoint = url(p, "chat/completions")?;
-    let mut req = net::client(&endpoint, Duration::from_secs(90))?
-        .post(endpoint)
-        .bearer_auth(&key);
-    if p.id == "google" {
-        req = req.header("x-goog-api-key", &key);
-    } else if p.id == "openrouter" {
-        req = req.header("HTTP-Referer", "https://coucou.app").header("X-Title", "Coucou Notch");
-    }
-    let response = req
-        .json(&body)
-        .send()
-        .await
-        .map_err(|e| tf("Network error: {error}", &[("error", &e.to_string())]))?;
-    let status = response.status();
-    if !status.is_success() {
-        let body = net::read_capped(response, net::MAX_ERROR_BODY).await.unwrap_or_default();
-        return Err(status_error(p, status.as_u16(), &net::error_detail(&body)));
-    }
-    let bytes = net::read_capped(response, net::MAX_BODY).await?;
-    let json: Value = serde_json::from_slice(&bytes).map_err(|e| tf("Bad API response: {error}", &[("error", &e.to_string())]))?;
+
+    let json = match call_completions(p, &endpoint, key, &body).await {
+        Ok(val) => val,
+        Err((status, detail)) => {
+            let lower = detail.to_lowercase();
+            let has_token_err = lower.contains("max_completion_tokens")
+                || lower.contains("max_tokens")
+                || lower.contains("unrecognized request argument")
+                || lower.contains("unsupported parameter");
+            let has_role_err = lower.contains("developer")
+                || lower.contains("system")
+                || lower.contains("role")
+                || lower.contains("unsupported value");
+
+            if has_token_err || has_role_err {
+                let retry_use_completion = if lower.contains("max_completion_tokens") {
+                    false
+                } else if lower.contains("max_tokens") {
+                    true
+                } else {
+                    !default_use_completion
+                };
+                let retry_with_system = !has_role_err;
+                let fallback_body = request_body(
+                    p,
+                    model,
+                    &system_prompt,
+                    &turn.history,
+                    &user,
+                    retry_use_completion,
+                    retry_with_system,
+                );
+                match call_completions(p, &endpoint, key, &fallback_body).await {
+                    Ok(val) => val,
+                    Err((st, dt)) => return Err(status_error(p, st, &dt)),
+                }
+            } else if p.id == "google" && (status == 400 || status == 401 || status == 403) {
+                let mut alt_url = endpoint.clone();
+                alt_url.set_query(Some(&format!("key={key}")));
+                match call_completions(p, &alt_url, key, &body).await {
+                    Ok(val) => val,
+                    Err((st, dt)) => return Err(status_error(p, st, &dt)),
+                }
+            } else {
+                return Err(status_error(p, status, &detail));
+            }
+        }
+    };
+
     let text = reply_text(p, &json)?;
 
     let plain = chat::plain_question(turn.first, context.as_ref(), &query);
@@ -214,9 +325,10 @@ pub async fn send(
 /// The provider's chat models. Only ever asked with the user's key, once they
 /// picked this provider in the chat.
 pub async fn models(p: &Provider, key: &str) -> Result<Vec<ModelInfo>, String> {
+    let key = key.trim();
     let endpoint = url(p, p.models_path)?;
     let mut req = net::client(&endpoint, Duration::from_secs(15))?
-        .get(endpoint)
+        .get(endpoint.clone())
         .bearer_auth(key);
     if p.id == "google" {
         req = req.header("x-goog-api-key", key);
@@ -229,6 +341,20 @@ pub async fn models(p: &Provider, key: &str) -> Result<Vec<ModelInfo>, String> {
         .map_err(|e| tf("Network error: {error}", &[("error", &e.to_string())]))?;
     let status = response.status();
     if !status.is_success() {
+        if p.id == "google" && (status.as_u16() == 400 || status.as_u16() == 401 || status.as_u16() == 403) {
+            let mut alt_url = endpoint.clone();
+            alt_url.set_query(Some(&format!("key={key}")));
+            if let Ok(alt_client) = net::client(&alt_url, Duration::from_secs(15)) {
+                if let Ok(alt_res) = alt_client.get(alt_url).send().await {
+                    if alt_res.status().is_success() {
+                        let bytes = net::read_capped(alt_res, net::MAX_BODY).await?;
+                        if let Ok(json) = serde_json::from_slice::<Value>(&bytes) {
+                            return Ok(parse_models(p, &json));
+                        }
+                    }
+                }
+            }
+        }
         let body = net::read_capped(response, net::MAX_ERROR_BODY).await.unwrap_or_default();
         return Err(status_error(p, status.as_u16(), &net::error_detail(&body)));
     }
@@ -239,6 +365,7 @@ pub async fn models(p: &Provider, key: &str) -> Result<Vec<ModelInfo>, String> {
 
 fn parse_models(p: &Provider, json: &Value) -> Vec<ModelInfo> {
     let items = json.get("data").and_then(Value::as_array).cloned().unwrap_or_default();
+    let mut seen = std::collections::HashSet::new();
     let mut models: Vec<(ModelInfo, i64, bool)> = items
         .iter()
         .filter(|m| {
@@ -253,6 +380,9 @@ fn parse_models(p: &Provider, json: &Value) -> Vec<ModelInfo> {
             let id = raw.strip_prefix("models/").unwrap_or(raw).to_string();
             let lower = id.to_lowercase();
             if id.is_empty() || p.not_chat.iter().any(|x| lower.contains(x)) {
+                return None;
+            }
+            if !seen.insert(id.clone()) {
                 return None;
             }
             let created = m.get("created").and_then(Value::as_i64).unwrap_or(0);
@@ -347,7 +477,7 @@ mod tests {
         let history = vec![json!({"role":"user","content":"a"}), json!({"role":"assistant","content":"b"})];
         let user = user_message(false, None, "c");
         assert_eq!(user, json!({"role":"user","content":"c"}));
-        let body = request_body(p("google"), "gemini-x", "sys", &history, &user);
+        let body = request_body(p("google"), "gemini-x", "sys", &history, &user, false, true);
         assert_eq!(body["model"], "gemini-x");
         assert_eq!(body["max_tokens"], MAX_TOKENS);
         let msgs = body["messages"].as_array().unwrap();
@@ -356,9 +486,13 @@ mod tests {
         assert_eq!(msgs[3], user);
         assert!(body.get("tools").is_none(), "chat only: no tools");
         // OpenAI's reasoning models refuse the old field name.
-        let body = request_body(p("openai"), "gpt-5", "sys", &[], &user);
+        let body = request_body(p("openai"), "gpt-5", "sys", &[], &user, true, true);
         assert_eq!(body["max_completion_tokens"], MAX_TOKENS);
         assert!(body.get("max_tokens").is_none());
+        // o1-mini refuses system and developer messages
+        let o1_mini_body = request_body(p("openai"), "o1-mini", "sys", &[], &user, true, true);
+        assert_eq!(o1_mini_body["messages"].as_array().unwrap().len(), 1);
+        assert!(o1_mini_body["messages"][0]["content"].as_str().unwrap().contains("sys\n\nc"));
     }
 
     #[test]

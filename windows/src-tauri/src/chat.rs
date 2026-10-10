@@ -172,12 +172,35 @@ pub fn model_for(settings: &Settings, provider: &str) -> String {
             m.to_string()
         };
     }
-    settings
+    let chosen = settings
         .chat_models
         .get(provider)
         .map(|m| m.trim().to_string())
-        .filter(|m| !m.is_empty())
-        .or_else(|| openai_compat::provider(provider).map(|p| p.default_model.to_string()))
+        .filter(|m| !m.is_empty());
+
+    if let Some(m) = chosen {
+        if provider == "openai"
+            && (m.starts_with("gpt-3.5")
+                || m.starts_with("gpt-4-0314")
+                || m.starts_with("gpt-4-0613")
+                || m.starts_with("text-davinci"))
+        {
+            return openai_compat::provider("openai")
+                .map(|p| p.default_model.to_string())
+                .unwrap_or_default();
+        }
+        if provider == "google"
+            && (m.starts_with("gemini-1.0") || m.starts_with("chat-bison") || m.starts_with("palm"))
+        {
+            return openai_compat::provider("google")
+                .map(|p| p.default_model.to_string())
+                .unwrap_or_default();
+        }
+        return m;
+    }
+
+    openai_compat::provider(provider)
+        .map(|p| p.default_model.to_string())
         .unwrap_or_default()
 }
 

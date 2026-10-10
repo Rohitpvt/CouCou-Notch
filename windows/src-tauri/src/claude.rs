@@ -143,19 +143,25 @@ pub async fn send(
     query: String,
     context: Option<ChatContext>,
 ) -> Result<ChatReply, String> {
-    let key = secrets::get(KEY).ok_or_else(|| t("API key missing. Open settings."))?;
+    let raw_key = secrets::get(KEY).ok_or_else(|| t("API key missing. Open settings."))?;
+    let key = raw_key.trim();
+    if key.is_empty() {
+        return Err(t("API key missing. Open settings."));
+    }
+    let model = model.trim();
+    let model = if model.is_empty() { DEFAULT_MODEL } else { model };
     let endpoint = endpoint()?;
 
     let turn = chat.begin(chat::ANTHROPIC);
     let user = json!({ "role": "user", "content": user_content(turn.first, context.as_ref(), &query) });
     let body = request_body(model, &chat::system_prompt(true), &turn.history, &user, true);
 
-    let response = match call(&endpoint, &key, &body, true).await {
+    let response = match call(&endpoint, key, &body, true).await {
         Ok(res) => res,
         Err(err) if err.contains("web_search") || err.contains("beta") || err.contains("tools") || err.contains("400") => {
             // If web search tool/beta is refused by account or gateway, fall back to standard text chat.
             let fallback_body = request_body(model, &chat::system_prompt(false), &turn.history, &user, false);
-            call(&endpoint, &key, &fallback_body, false).await?
+            call(&endpoint, key, &fallback_body, false).await?
         }
         Err(err) => return Err(err),
     };
@@ -195,6 +201,7 @@ async fn call(endpoint: &Url, key: &str, body: &Value, with_beta: bool) -> Resul
 
 /// The models on the user's Anthropic account, newest first, as the API lists them.
 pub async fn models(key: &str) -> Result<Vec<ModelInfo>, String> {
+    let key = key.trim();
     let url = models_endpoint(&endpoint()?);
     let response = net::client(&url, Duration::from_secs(10))?
         .get(url.clone())
@@ -224,6 +231,7 @@ const NOT_CHAT: &[&str] = &[
 ];
 
 fn parse_models(json: &Value) -> Vec<ModelInfo> {
+    let mut seen = std::collections::HashSet::new();
     json.get("data")
         .and_then(Value::as_array)
         .into_iter()
@@ -232,6 +240,9 @@ fn parse_models(json: &Value) -> Vec<ModelInfo> {
             let id = m.get("id")?.as_str()?;
             let lower = id.to_lowercase();
             if id.is_empty() || NOT_CHAT.iter().any(|x| lower.contains(x)) {
+                return None;
+            }
+            if !seen.insert(id.to_string()) {
                 return None;
             }
             let label = m.get("display_name").and_then(Value::as_str).unwrap_or(id);

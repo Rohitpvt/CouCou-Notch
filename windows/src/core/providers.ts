@@ -50,7 +50,15 @@ export function activeModel(settings: Settings): string {
     }
     return m;
   }
-  return settings.chatModels[p.id] || p.defaultModel;
+  const chosen = settings.chatModels[p.id]?.trim();
+  if (!chosen) return p.defaultModel;
+  if (p.id === "openai" && (chosen.startsWith("gpt-3.5") || chosen.startsWith("gpt-4-0314") || chosen.startsWith("gpt-4-0613") || chosen.startsWith("text-davinci"))) {
+    return p.defaultModel;
+  }
+  if (p.id === "google" && (chosen.startsWith("gemini-1.0") || chosen.startsWith("chat-bison") || chosen.startsWith("palm"))) {
+    return p.defaultModel;
+  }
+  return chosen;
 }
 
 /** `settings` with `model` picked for `provider`. */
