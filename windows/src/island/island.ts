@@ -130,15 +130,6 @@ export class Island {
     State.subscribe(() => {
       this.fsm.openOnHover = State.settings.openOnHover;
       this.fsm.homeToPetitDelay = State.settings.autoCloseInterval;
-      if (State.effectiveState !== "idle" || State.pendingApproval) {
-        if (this.fsm.state === "hidden" && State.settings.autoExpandOnAgentTask !== false) {
-          this.fsm.reveal();
-        } else if (this.fsm.state === "petit") {
-          this.fsm.cancelTimers();
-        }
-      } else if (this.fsm.state === "petit" && !this.wasInIsland && !State.isPinned) {
-        this.fsm.schedulePetitHide();
-      }
       this.dirty = true;
       this.ensureRunning();
     });
