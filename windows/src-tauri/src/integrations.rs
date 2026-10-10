@@ -1525,12 +1525,8 @@ pub fn parse_gcal_ical_window(raw: &str, window_start: i64, window_end: i64) -> 
     events
 }
 
-pub fn parse_gcal_ical(raw: &str) -> Vec<GCalEvent> {
-    let now = std::time::SystemTime::now()
-        .duration_since(std::time::UNIX_EPOCH)
-        .map(|d| d.as_secs() as i64)
-        .unwrap_or(0);
-    parse_gcal_ical_window(raw, now - 86400, now + 35 * 86400)
+pub fn parse_gcal_ical_all(raw: &str) -> Vec<GCalEvent> {
+    parse_gcal_ical_window(raw, i64::MIN, i64::MAX)
 }
 
 async fn poll_gcal(app: AppHandle) {
@@ -1644,7 +1640,7 @@ STATUS:CONFIRMED
 END:VEVENT
 END:VCALENDAR"#;
 
-        let events = parse_gcal_ical(sample);
+        let events = parse_gcal_ical_all(sample);
         assert_eq!(events.len(), 2);
         assert_eq!(events[0].id, "test-123@google.com");
         assert_eq!(events[0].title, "Project Kickoff Meeting");
