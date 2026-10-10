@@ -4,6 +4,7 @@
 
 import { h, svg, clear, dot } from "./dom";
 import { ICONS } from "./icons";
+import { Ticker } from "./ticker";
 import { State, type AgentTask } from "../core/state";
 import { washRGBA, type IslandViewName, type Wash } from "../core/layout";
 import { createMiniBot, pruneMiniBots } from "../mochi/minibots";
@@ -14,8 +15,8 @@ import { pillDefinition, sessionSubtitle } from "../core/pills";
 import {
   PlanCard, buildPlanPill, claudePillVisible, codexPillVisible, planCardOpen, refreshCodexPlanUsage,
 } from "./usage";
-import { buildDiffCard, buildLiveCodeInspector } from "./diff";
-import { isDiffStep, parseDiffStep, lastTextStep, type FileDiff } from "../core/diff";
+import { buildDiffCard } from "./diff";
+import { lastTextStep } from "../core/diff";
 import { Bridge } from "../core/bridge";
 import { buildRecap } from "./recap";
 import { buildWardrobe } from "./wardrobe";
@@ -96,197 +97,6 @@ function stack(padLeft: number, padRight: number, ...children: Node[]): HTMLElem
   const el = h("div", { class: "stack" }, ...children);
   el.style.padding = `4px ${padRight}px 4px ${padLeft}px`;
   return el;
-}
-
-function lastPathComponent(p: string): string {
-  const cleaned = p.replace(/[\\/]+$/, "");
-  const idx = Math.max(cleaned.lastIndexOf("\\"), cleaned.lastIndexOf("/"));
-  return idx >= 0 ? cleaned.slice(idx + 1) : cleaned;
-}
-
-const PROJECT_ALIASES: Record<string, string> = {
-  "notch-buddy": "Notch Buddy",
-  notchbuddy: "Notch Buddy",
-  notch_buddy: "Notch Buddy",
-};
-
-function aliasProject(name: string): string {
-  return PROJECT_ALIASES[name.toLowerCase()] ?? name;
-}
-
-interface ParsedStep {
-  type: "read" | "edit" | "bash" | "search" | "done" | "generic";
-  label: string | Msg;
-  raw: string;
-  diffId?: number;
-}
-
-function parseStep(step: string): ParsedStep {
-  if (isDiffStep(step)) {
-    const diff = parseDiffStep(step);
-    return {
-      type: "edit",
-      label: `Edit · ${diff?.filename || "file"}`,
-      raw: step,
-      diffId: diff?.diffId,
-    };
-  }
-  const clean = step.trim();
-  if (/^Read/i.test(clean) || clean.startsWith("view_file")) {
-    return { type: "read", label: "Read", raw: step };
-  }
-  if (/^Edit|^Write/i.test(clean) || clean.startsWith("replace_file") || clean.startsWith("write_to")) {
-    return { type: "edit", label: "Edit", raw: step };
-  }
-  if (/^Run|^Bash/i.test(clean) || clean.startsWith("run_command") || clean.startsWith("PowerShell")) {
-    return { type: "bash", label: "Bash", raw: step };
-  }
-  if (/^Search|^Grep|^Glob/i.test(clean)) {
-    return { type: "search", label: "Search", raw: step };
-  }
-  if (/subagent|finish/i.test(clean) || clean.toLowerCase().includes("done")) {
-    return { type: "done", label: tl("Done"), raw: step };
-  }
-  return { type: "generic", label: clean.slice(0, 16), raw: step };
-}
-
-function buildAvatarBox(task: AgentTask): HTMLElement {
-  const box = h("div", { class: "agent-avatar-box" });
-  const bubble = h(
-    "div",
-    { class: "mochi-speech-bubble" },
-    h("span", { class: "bubble-dot" }),
-    h("span", { class: "bubble-dot" }),
-    h("span", { class: "bubble-dot" }),
-  );
-  if (task.color) bubble.style.background = task.color;
-  box.append(bubble);
-  return box;
-}
-
-export function buildLiveAgentSessionCard(
-  task: AgentTask,
-  activeDiff: FileDiff | null,
-  selectedStep: string | null,
-  actions: ViewActions,
-  onSelectDiff: (diffId: number | null, stepText: string | null) => void,
-): HTMLElement {
-  const cardEl = h("div", { class: "agent-session-card" });
-
-  // 1. Left pane
-  const leftPane = h("div", { class: "agent-left-pane" });
-  const avatarBox = buildAvatarBox(task);
-
-  const rawProject = task.sessionCwd ? lastPathComponent(task.sessionCwd) : task.name;
-  const projectName = aliasProject(rawProject || "CouCou Notch");
-  const projectTitle = h("div", { class: "agent-project-title", text: projectName, title: projectName });
-  const subtitle = sessionSubtitle(task.id);
-  const agentSubtitle = h("div", { class: "agent-subtitle", text: subtitle ? t(subtitle) : task.name });
-
-  // Step timeline
-  const stepList = h("div", { class: "agent-step-list" });
-  const steps = task.steps;
-
-  const defaultSequence: { label: string | Msg; type: "read" | "edit" | "bash" | "done" }[] = [
-    { label: "Read", type: "read" },
-    { label: "Edit", type: "edit" },
-    { label: "Bash", type: "bash" },
-    { label: tl("Done"), type: "done" },
-  ];
-
-  const stepItems: {
-    label: string | Msg;
-    type: "read" | "edit" | "bash" | "done" | "generic";
-    status: "done" | "active" | "pending";
-    raw: string;
-    diffId?: number;
-  }[] = [];
-
-  const lastIdx = steps.length - 1;
-  for (let i = 0; i < defaultSequence.length; i++) {
-    const def = defaultSequence[i];
-    let status: "done" | "active" | "pending" = "pending";
-    let diffId: number | undefined = undefined;
-    let raw = "";
-
-    const matchIdx = steps.findIndex((s) => parseStep(s).type === def.type);
-    if (task.state === "finished") {
-      status = "done";
-    } else if (matchIdx >= 0) {
-      raw = steps[matchIdx];
-      if (isDiffStep(raw)) diffId = parseDiffStep(raw)?.diffId;
-      status = matchIdx === lastIdx ? "active" : "done";
-    } else if (i === 0 && steps.length > 0) {
-      status = "done";
-    } else if (i === 1 && (steps.some((s) => isDiffStep(s) || /^Edit|^Write/i.test(s)) || task.state === "working")) {
-      status = steps.some((s) => isDiffStep(s)) && !/^Run/i.test(steps.at(-1) || "") ? "active" : "done";
-    } else if (i === 2 && steps.some((s) => /^Run|^Bash/i.test(s))) {
-      status = /^Run/i.test(steps.at(-1) || "") ? "active" : "done";
-    }
-
-    stepItems.push({
-      label: def.label,
-      type: def.type,
-      status,
-      raw,
-      diffId,
-    });
-  }
-
-  for (const item of stepItems) {
-    const isSel = selectedStep != null && item.raw && item.raw === selectedStep;
-    const row = h(
-      "div",
-      {
-        class: `agent-step-item ${item.status} ${isSel ? "selected" : ""}`.trim(),
-        onclick: (e) => {
-          e.stopPropagation();
-          actions.blip();
-          onSelectDiff(item.diffId ?? null, item.raw || null);
-        },
-      },
-      h("span", { class: `step-icon ${item.type} ${item.status}` }),
-      h("span", { class: "step-label", text: item.label }),
-    );
-
-    const icon = row.querySelector(".step-icon") as HTMLElement;
-    if (item.status === "done") {
-      icon.append(svg(ICONS.check, 10, { stroke: 2.4 }));
-    } else if (item.status === "active") {
-      if (item.type === "bash") {
-        icon.textContent = ">_";
-      } else {
-        icon.textContent = "◵";
-      }
-    } else {
-      if (item.type === "bash") {
-        icon.textContent = ">_";
-      } else if (item.type === "done") {
-        icon.append(svg(ICONS.check, 10, { stroke: 1.8 }));
-      } else {
-        icon.append(svg(ICONS.check, 10, { stroke: 1.8 }));
-      }
-    }
-
-    stepList.append(row);
-  }
-
-  leftPane.append(avatarBox, projectTitle, agentSubtitle, stepList);
-
-  // 2. Right pane
-  const rightPane = h("div", { class: "agent-right-pane" });
-  const inspector = buildLiveCodeInspector(
-    task,
-    activeDiff,
-    selectedStep || task.steps.at(-1) || null,
-    {
-      open: (p) => void Bridge.openFileInVSCode(p),
-    },
-  );
-  rightPane.append(inspector);
-
-  cardEl.append(leftPane, rightPane);
-  return cardEl;
 }
 
 // ── Header ────────────────────────────────────────────────────────────────────
@@ -423,13 +233,18 @@ export function buildHeader(actions: ViewActions): ViewHost {
 function buildOverview(actions: ViewActions): ViewHost {
   /** The diff open in the left card (a FileDiff id), as activeDiffId on macOS. */
   let activeDiffId: number | null = null;
-  let selectedStepText: string | null = null;
   const closeDiff = () => {
-    if (activeDiffId == null && selectedStepText == null) return;
+    if (activeDiffId == null) return;
     activeDiffId = null;
-    selectedStepText = null;
     State.notify();
   };
+  const ticker = new Ticker((diffId) => {
+    actions.blip();
+    activeDiffId = diffId;
+    State.notify();
+  });
+  const who = h("div", { class: "who" });
+  const tickerBody = h("div", { class: "card-body" }, who, ticker.el);
   const leftBody = h("div", { class: "left-body" });
   const jump = h(
     "button",
@@ -443,20 +258,15 @@ function buildOverview(actions: ViewActions): ViewHost {
   const plan = new PlanCard();
   let planTimer: number | null = null;
 
-  const standardContainer = h(
-    "div",
-    { class: "overview-standard-container", style: "display:flex;gap:10px;height:100%;width:100%" },
+  const el = h("div", { class: "view overview" },
     h("div", { class: "left" }, left),
     h("div", { class: "right" }, right),
   );
-  const liveAgentSlot = h("div", { class: "overview-live-agent-slot", style: "width:100%;height:100%" });
-
-  const el = h("div", { class: "view overview" }, standardContainer);
 
   let pillIds = "";
   let detailOpen = false;
   let lastFocus: string | null = null;
-  let mode: "agent-session" | "ticker" | "card" | "plan" | "diff" | null = null;
+  let mode: "ticker" | "card" | "plan" | "diff" | null = null;
   let cardKey = "";
 
   // Leaving the overview or folding the island closes the diff, as on macOS.
@@ -509,8 +319,10 @@ function buildOverview(actions: ViewActions): ViewHost {
 
   return {
     el,
-    tick() {
-      return false;
+    tick(nowMs: number) {
+      if (mode !== "ticker") return false;
+      ticker.tick(nowMs);
+      return ticker.animating;
     },
     sync() {
       const task = State.focusTask;
@@ -518,13 +330,12 @@ function buildOverview(actions: ViewActions): ViewHost {
         lastFocus = task?.id ?? null;
         detailOpen = false;
         activeDiffId = null;
-        selectedStepText = null;
         cardKey = "";
         mode = null;
       }
 
-      // A workspace or agent pill with a live session keeps the live session view;
-      // every other pill shows its own card, exactly like IntegrationCardView.
+      // A workspace or agent pill with a live session keeps the ticker; every
+      // other pill shows its own card, exactly like IntegrationCardView.
       const sessionActive = task != null && hasSessionTicker(task);
 
       const planOpen = planCardOpen();
@@ -534,108 +345,82 @@ function buildOverview(actions: ViewActions): ViewHost {
       }
       syncPlanTimer(planOpen);
 
-      const latestDiff = task ? State.sessionDiffs.get(task.id)?.at(-1) ?? null : null;
-      const diff = task && activeDiffId != null ? State.findDiff(task.id, activeDiffId) : latestDiff;
+      // A diff that has since been dropped (cap, expiry, session end) just closes.
+      const diff = task && activeDiffId != null ? State.findDiff(task.id, activeDiffId) : null;
+      if (!diff) activeDiffId = null;
 
       if (planOpen) {
         if (mode !== "plan") {
-          el.replaceChildren(standardContainer);
-          el.classList.remove("agent-session-mode");
           clear(leftBody);
           leftBody.append(plan.el);
           mode = "plan";
         }
         plan.sync();
-      } else if (task && sessionActive) {
-        const key = [
-          "agent-session",
-          task.id,
-          task.state,
-          task.steps.length,
-          task.stepIndex,
-          task.steps.at(-1) || "",
-          diff?.id ?? "nodiff",
-          selectedStepText ?? "none",
-        ].join("~");
-
-        if (key !== cardKey || mode !== "agent-session") {
-          cardKey = key;
-          mode = "agent-session";
-          el.classList.add("agent-session-mode");
-          clear(liveAgentSlot);
-          liveAgentSlot.append(
-            buildLiveAgentSessionCard(
-              task,
-              diff,
-              selectedStepText,
-              actions,
-              (diffId, stepText) => {
-                activeDiffId = diffId;
-                selectedStepText = stepText;
-                State.notify();
-              },
-            ),
-          );
-          el.replaceChildren(liveAgentSlot);
-        }
-      } else if (task && diff && activeDiffId != null) {
+      } else if (task && diff) {
         const key = `diff~${task.id}~${diff.id}`;
         if (key !== cardKey) {
           cardKey = key;
           mode = "diff";
-          el.replaceChildren(standardContainer);
-          el.classList.remove("agent-session-mode");
           clear(leftBody);
-          leftBody.append(
-            buildDiffCard(diff, {
-              dismiss: () => {
-                actions.blip();
-                closeDiff();
-              },
-              open: (path) => void Bridge.openFileInVSCode(path),
-            }),
-          );
+          leftBody.append(buildDiffCard(diff, {
+            dismiss: () => {
+              actions.blip();
+              closeDiff();
+            },
+            open: (path) => void Bridge.openFileInVSCode(path),
+          }));
         }
+      } else if (task && sessionActive) {
+        if (mode !== "ticker") {
+          clear(leftBody);
+          leftBody.append(tickerBody);
+          mode = "ticker";
+          cardKey = "";
+        }
+        clear(who);
+        // The agent's name is already the pill's: the label says what kind of
+        // pill it is, as on the Mac (PillDefinition.sessionSubtitle).
+        who.append(
+          dot(task.color, 7),
+          h("span", { class: "name", text: task.name }),
+          h("span", { class: "tool", text: t(sessionSubtitle(task.id)) }),
+        );
+        if (task.steps.length > 1) {
+          who.append(h("span", {
+            class: "count",
+            text: `${Math.min(task.stepIndex + 1, task.steps.length)}/${task.steps.length}`,
+          }));
+        }
+        ticker.sync(task);
       } else if (task) {
         const info = State.integrations[task.id];
         const key = [
-          language(),
-          task.id,
-          task.color,
-          detailOpen,
-          task.state,
-          task.steps.join("|"),
-          info?.loaded,
-          info?.error,
-          info?.configured,
+          language(), task.id, task.color, detailOpen, task.state, task.steps.join("|"),
+          info?.loaded, info?.error, info?.configured,
           JSON.stringify(info?.data ?? {}),
         ].join("~");
-        if (key !== cardKey || mode !== "card") {
+        if (key !== cardKey) {
           cardKey = key;
           mode = "card";
-          el.replaceChildren(standardContainer);
-          el.classList.remove("agent-session-mode");
           clear(leftBody);
           leftBody.append(renderIntegrationCard(task, hooks));
         }
       }
 
-      jump.style.display = detailOpen || mode === "plan" || mode === "diff" || mode === "agent-session" ? "none" : "";
+      jump.style.display = detailOpen || mode === "plan" || mode === "diff" ? "none" : "";
 
-      if (mode !== "agent-session") {
-        const others = State.otherTasks.slice(0, 4);
-        const pillKey = others.map((t) => `${t.id}:${t.color}:${t.pillBadge ?? ""}`).join("|") + `~cnt=${others.length}`;
-        if (pillKey !== pillIds) {
-          pillIds = pillKey;
-          pills.dataset.count = String(others.length);
-          clear(pills);
-          if (others.length === 0) {
-            pills.append(buildEmptyPills(actions));
-          } else {
-            for (const t of others) pills.append(buildPill(t, actions, others.length));
-          }
-          pruneMiniBots();
+      const others = State.otherTasks.slice(0, 4);
+      const pillKey = others.map((t) => `${t.id}:${t.color}:${t.pillBadge ?? ""}`).join("|") + `~cnt=${others.length}`;
+      if (pillKey !== pillIds) {
+        pillIds = pillKey;
+        pills.dataset.count = String(others.length);
+        clear(pills);
+        if (others.length === 0) {
+          pills.append(buildEmptyPills(actions));
+        } else {
+          for (const t of others) pills.append(buildPill(t, actions, others.length));
         }
+        pruneMiniBots();
       }
     },
   };
