@@ -111,6 +111,20 @@ export function chatPromptHeight(messageCount: number): number {
   return Math.min(300, 240 + messageCount * 40);
 }
 
+import { State, type AgentTask } from "./state";
+import { pillDefinition } from "./pills";
+
+/** True when an agent session / process is actively running with steps. */
+export function isLiveAgentSessionActive(task?: AgentTask | null): boolean {
+  const t = task !== undefined ? task : State.focusTask;
+  if (!t) return false;
+  if (t.source === "agent" && !t.isIntegration) return true;
+  const category = pillDefinition(t.id)?.category;
+  const isSession =
+    category === "workspace" || category === "agent" || (category == null && t.id.startsWith("agent_"));
+  return isSession && (t.state !== "idle" || t.steps.length > 0);
+}
+
 export function islandSize(
   mode: IslandMode,
   view: IslandViewName,
@@ -124,8 +138,11 @@ export function islandSize(
     case "compact":
       return { w: COMPACT_W, h: NOTCH_H };
     case "expanded": {
-      const h = view === "prompt" ? chatPromptHeight(chatCount) : VIEW_LAYOUTS[view].height;
-      return { w: EXPANDED_W, h };
+      if (view === "prompt") return { w: EXPANDED_W, h: chatPromptHeight(chatCount) };
+      if (view === "overview" && isLiveAgentSessionActive()) {
+        return { w: EXPANDED_W, h: 250 };
+      }
+      return { w: EXPANDED_W, h: VIEW_LAYOUTS[view].height };
     }
   }
 }
@@ -150,6 +167,9 @@ export function botPosition(
     case "compact":
       return { cx: 40, cy: 16, diameter: 20, opacity: 1 };
     case "expanded": {
+      if (view === "overview" && isLiveAgentSessionActive()) {
+        return { cx: 58, cy: 84, diameter: 48, opacity: 1 };
+      }
       const layout = VIEW_LAYOUTS[view];
       if (view === "uploading") {
         return {

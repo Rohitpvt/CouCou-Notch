@@ -621,6 +621,391 @@ body {
   color: var(--red);
 }
 
+/* ── Live Agent Session & Inspector Card (Image 2 style) ─────────────────── */
+
+.overview.agent-session-mode {
+  display: block;
+}
+
+.agent-session-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 14px;
+  background: var(--card);
+  border: 1px solid var(--hairline);
+  border-radius: 20px;
+  padding: 12px 14px;
+  box-sizing: border-box;
+  animation: agentCardFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes agentCardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.agent-left-pane {
+  flex: 0 0 135px;
+  width: 135px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.agent-avatar-box {
+  position: relative;
+  width: 66px;
+  height: 66px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 4px 14px rgba(0, 0, 0, 0.35);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mochi-speech-bubble {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #2563eb;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.55), 0 0 1px rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5px;
+  z-index: 3;
+}
+
+.bubble-dot {
+  width: 2.5px;
+  height: 2.5px;
+  border-radius: 50%;
+  background: #ffffff;
+  opacity: 0.9;
+  animation: bubbleDotPulse 1.4s ease-in-out infinite;
+}
+
+.bubble-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.bubble-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bubbleDotPulse {
+  0%, 100% {
+    transform: scale(0.85);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+.agent-project-title {
+  font: 700 15px/1.2 var(--font);
+  color: #f8fafc;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: -0.2px;
+}
+
+.agent-subtitle {
+  font: 500 11.5px/1.2 var(--font);
+  color: #94a3b8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 8px;
+}
+
+.agent-step-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: auto;
+}
+
+.agent-step-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font: 500 12px var(--font);
+  color: #64748b;
+  cursor: pointer;
+  padding: 1.5px 0;
+  transition: color 0.15s ease;
+  user-select: none;
+}
+
+.agent-step-item:hover {
+  color: #cbd5e1;
+}
+
+.agent-step-item.active {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.agent-step-item.done {
+  color: #94a3b8;
+}
+
+.agent-step-item.selected {
+  color: #60a5fa;
+}
+
+.agent-step-item .step-icon {
+  width: 14px;
+  height: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 14px;
+  font-size: 11px;
+}
+
+.agent-step-item .step-icon.done {
+  color: #22c55e;
+}
+
+.agent-step-item .step-icon.active {
+  color: #60a5fa;
+}
+
+.agent-step-item .step-icon.bash {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: #94a3b8;
+}
+
+.agent-right-pane {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 100%;
+}
+
+.live-inspector {
+  background: #090a0d;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 14px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.inspector-header {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  min-width: 0;
+  flex: 0 0 auto;
+}
+
+.file-chip-badge {
+  font: 700 9.5px var(--mono);
+  padding: 1.5px 5px;
+  border-radius: 4px;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  line-height: 1.2;
+}
+
+.file-chip-name {
+  font: 600 12px var(--font);
+  color: #f1f5f9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.file-chip-dot {
+  color: #f59e0b;
+  font-size: 14px;
+  line-height: 1;
+  text-shadow: 0 0 6px rgba(245, 158, 11, 0.6);
+}
+
+.inspector-path {
+  font: 400 11px var(--mono);
+  color: #64748b;
+  margin-left: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 220px;
+}
+
+.inspector-code-area {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: none;
+  padding-top: 6px;
+  font: 400 11.5px/1.45 var(--mono);
+  user-select: text;
+}
+
+.inspector-code-area::-webkit-scrollbar {
+  display: none;
+}
+
+.diff-line-row {
+  display: flex;
+  align-items: flex-start;
+  min-height: 17px;
+  padding: 0.5px 0;
+}
+
+.diff-gutter-lineno {
+  width: 26px;
+  flex: 0 0 26px;
+  text-align: right;
+  padding-right: 8px;
+  color: #475569;
+  font-size: 10.5px;
+  user-select: none;
+}
+
+.diff-gutter-sym {
+  width: 14px;
+  flex: 0 0 14px;
+  text-align: center;
+  user-select: none;
+}
+
+.diff-line-content {
+  flex: 1 1 auto;
+  min-width: 0;
+  white-space: pre;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.diff-line-row.added {
+  background: rgba(34, 197, 94, 0.15);
+  color: #86efac;
+}
+
+.diff-line-row.added .diff-gutter-sym {
+  color: #22c55e;
+  font-weight: 700;
+}
+
+.diff-line-row.removed {
+  background: rgba(244, 80, 94, 0.15);
+  color: #fca5a5;
+  text-decoration: line-through;
+  text-decoration-color: rgba(244, 80, 94, 0.5);
+}
+
+.diff-line-row.removed .diff-gutter-sym {
+  color: #f4505e;
+  font-weight: 700;
+}
+
+.diff-line-row.context {
+  color: #cbd5e1;
+}
+
+.diff-line-row.context .diff-gutter-sym {
+  color: transparent;
+}
+
+.blinking-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 12px;
+  background: #4ade80;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: blinkCursor 1s step-start infinite;
+}
+
+@keyframes blinkCursor {
+  0%, 50% {
+    opacity: 1;
+  }
+  50.01%, 100% {
+    opacity: 0;
+  }
+}
+
+.terminal-inspector-body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 4px 0;
+}
+
+.terminal-line {
+  display: flex;
+  align-items: center;
+  font: 400 11.5px/1.4 var(--mono);
+  color: #cbd5e1;
+  white-space: pre;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.terminal-prompt {
+  color: #60a5fa;
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.terminal-block-cursor {
+  display: inline-block;
+  width: 6px;
+  height: 12px;
+  background: #60a5fa;
+  margin-left: 3px;
+  vertical-align: middle;
+  animation: blinkCursor 1s step-start infinite;
+}
+
+.syn-kw {
+  color: #c084fc;
+  font-weight: 600;
+}
+
+.syn-str {
+  color: #86efac;
+}
+
+.syn-num {
+  color: #67e8f9;
+}
+
+.syn-comm {
+  color: #64748b;
+  font-style: italic;
+}
+
 /* ── Diff card (overview, left card) — DiffCardView ─────────────────────── */
 
 .diff-card {
