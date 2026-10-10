@@ -58,21 +58,38 @@ test("the mouse wakes a hidden island, which stays while it is hovered", () => {
   assert.equal(fsm.state, "petit");
 });
 
-test("the compact island hides 60 s after the mouse leaves", () => {
+test("the compact island hides 15 s after the mouse leaves", () => {
   fsm.mouseEntered();
   fsm.mouseLeft();
-  seconds(59);
+  seconds(14);
   assert.equal(fsm.state, "petit");
   seconds(1);
   assert.equal(fsm.state, "hidden");
 });
 
-test("coming back before the 60 s are up cancels the hide", () => {
+test("coming back before the 15 s are up cancels the hide", () => {
   fsm.mouseEntered();
   fsm.mouseLeft();
-  seconds(59);
+  seconds(14);
   fsm.mouseEntered();
   seconds(600);
+  assert.equal(fsm.state, "petit");
+});
+
+test("activity resets the 15 s idle hide timer", () => {
+  fsm.mouseEntered();
+  fsm.mouseLeft();
+  seconds(10);
+  fsm.activity();
+  seconds(10);
+  assert.equal(fsm.state, "petit");
+  seconds(5);
+  assert.equal(fsm.state, "hidden");
+});
+
+test("activity wakes a hidden island back to compact mode", () => {
+  assert.equal(fsm.state, "hidden");
+  fsm.activity();
   assert.equal(fsm.state, "petit");
 });
 
@@ -121,10 +138,10 @@ test("the collapse delay is the configured one", () => {
   assert.equal(fsm.state, "petit");
 });
 
-test("reveal shows the compact island from hidden and hides it again after 60 s", () => {
+test("reveal shows the compact island from hidden and hides it again after 15 s", () => {
   fsm.reveal();
   assert.equal(fsm.state, "petit");
-  seconds(60);
+  seconds(15);
   assert.equal(fsm.state, "hidden");
 });
 
@@ -142,13 +159,15 @@ test("forcing the island open cancels a pending hide", () => {
   assert.equal(fsm.state, "home");
 });
 
-test("an explicit close goes to the compact island and cancels the collapse", () => {
+test("an explicit close goes to the compact island and auto-hides after 15 s", () => {
   fsm.forceHome();
   fsm.mouseLeft();
   fsm.forcePetit();
   assert.equal(fsm.state, "petit");
-  seconds(600);
+  seconds(14);
   assert.equal(fsm.state, "petit");
+  seconds(1);
+  assert.equal(fsm.state, "hidden");
 });
 
 test("forceHidden hides from any state", () => {
@@ -299,7 +318,7 @@ test("a folded card keeps the compact island on screen until it is answered", ()
   seconds(15);
   assert.equal(fsm.state, "petit");
   fsm.mouseLeft();
-  seconds(60);
+  seconds(15);
   assert.equal(fsm.state, "hidden");
 });
 

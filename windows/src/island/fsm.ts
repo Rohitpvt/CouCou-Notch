@@ -21,8 +21,8 @@ export class IslandStateMachine {
     this.homeDelay = seconds;
     if (this.state === "home" && this.homeCollapse != null) this.scheduleHomeCollapse();
   }
-  /** petit → hidden delay, seconds. */
-  petitToHiddenDelay = 60;
+  /** petit → hidden delay, seconds: 15s idle auto-hide */
+  petitToHiddenDelay = 15;
   /** coucou → petit once the greeting animation ends (no hover). */
   greetAutoCollapseDelay = 0.6;
   /** coucou → petit while the mouse hovers the greeting. */
@@ -75,6 +75,7 @@ export class IslandStateMachine {
         } else {
           this.cancelTimers();
           this.transition("petit");
+          this.clear("petitHide");
         }
         break;
       case "petit":
@@ -121,6 +122,15 @@ export class IslandStateMachine {
    */
   userInteracted() {
     this.openedByHover = false;
+  }
+
+  /** Any activity, hook event, notification or user input resets idle or wakes the island */
+  activity() {
+    if (this.state === "hidden") {
+      this.reveal();
+    } else if (this.state === "petit") {
+      this.schedulePetitHide();
+    }
   }
 
   /** Greeting animation finished (T.end). Doesn't override a running hover timer. */
@@ -174,7 +184,7 @@ export class IslandStateMachine {
 
   // ── Timers ──────────────────────────────────────────────────────────────────
 
-  private schedulePetitHide() {
+  schedulePetitHide(delay = this.petitToHiddenDelay) {
     this.clear("petitHide");
     // A card folded away while it waits for an answer keeps the compact island
     // on screen, so it can be reopened (isHeldOpen on macOS).
@@ -182,7 +192,7 @@ export class IslandStateMachine {
     this.petitHide = window.setTimeout(() => {
       this.petitHide = null;
       if (this.state === "petit" && !this.pinned) this.transition("hidden");
-    }, this.petitToHiddenDelay * 1000);
+    }, delay * 1000);
   }
 
   private scheduleHomeCollapse() {
@@ -225,6 +235,11 @@ export class IslandStateMachine {
     if (next === this.state) return;
     const from = this.state;
     this.state = next;
+    if (next === "petit" && !this.pinned) {
+      this.schedulePetitHide();
+    } else if (next !== "petit") {
+      this.clear("petitHide");
+    }
     this.onTransition?.(from, next);
   }
 }

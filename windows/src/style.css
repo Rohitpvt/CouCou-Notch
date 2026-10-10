@@ -77,7 +77,7 @@ body {
   background: #000;
   border-radius: 0 0 14px 14px;
   overflow: visible;
-  will-change: width, height, transform;
+  will-change: width, height, transform, opacity;
 }
 
 #island-clip {

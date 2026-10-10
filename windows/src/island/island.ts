@@ -67,6 +67,7 @@ export class Island {
   private width = new Tracked(NOTCH_W);
   private height = new Tracked(0);
   private radius = new Tracked(ROUNDED_CORNER);
+  private translateY = new Tracked(-NOTCH_H);
   private botCx = new Spring(46);
   private botCy = new Spring(16);
   private botSize = new Spring(10);
@@ -129,6 +130,15 @@ export class Island {
     State.subscribe(() => {
       this.fsm.openOnHover = State.settings.openOnHover;
       this.fsm.homeToPetitDelay = State.settings.autoCloseInterval;
+      if (State.effectiveState !== "idle" || State.pendingApproval) {
+        if (this.fsm.state === "hidden" && State.settings.autoExpandOnAgentTask !== false) {
+          this.fsm.reveal();
+        } else if (this.fsm.state === "petit") {
+          this.fsm.cancelTimers();
+        }
+      } else if (this.fsm.state === "petit" && !this.wasInIsland && !State.isPinned) {
+        this.fsm.schedulePetitHide();
+      }
       this.dirty = true;
       this.ensureRunning();
     });
@@ -683,14 +693,17 @@ export class Island {
 
   private animateGeometry(shrinking: boolean) {
     const { w, h, r } = this.targetSize();
+    const ty = State.mode === "hidden" ? -NOTCH_H : 0;
     if (shrinking) {
       this.width.curveTowards(w);
       this.height.curveTowards(h);
       this.radius.curveTowards(r);
+      this.translateY.curveTowards(ty);
     } else {
       this.width.springTo(w);
       this.height.springTo(h);
       this.radius.springTo(r);
+      this.translateY.springTo(ty);
     }
     this.ensureRunning();
   }
@@ -699,10 +712,17 @@ export class Island {
     const w = this.width.value;
     const hh = this.height.value;
     const r = this.radius.value;
+    const ty = this.translateY.value;
     this.islandEl.style.width = `${w}px`;
     this.islandEl.style.height = `${hh}px`;
     this.islandEl.style.borderRadius = `0 0 ${r}px ${r}px`;
-    this.islandEl.style.transform = `translateX(-50%)`;
+    this.islandEl.style.transform = `translateX(-50%) translateY(${ty}px)`;
+    if (State.mode === "hidden") {
+      const progress = Math.min(1, Math.max(0, -ty / NOTCH_H));
+      this.islandEl.style.opacity = `${Math.max(0, 1 - progress)}`;
+    } else {
+      this.islandEl.style.opacity = "1";
+    }
     // These follow the island as it resizes, so they belong here rather than in
     // the state-driven DOM sync.
     this.miniGrid.style.left = `${w - 40 - 14.5}px`;
@@ -710,7 +730,7 @@ export class Island {
     this.greetingCanvas.style.left = `${(w - EXPANDED_W) / 2}px`;
     this.uploadCanvas.el.style.left = `${(w - EXPANDED_W) / 2}px`;
 
-    const rect = { x: (PANEL_W - w) / 2, y: 0, w, h: hh };
+    const rect = { x: (PANEL_W - w) / 2, y: Math.max(0, ty), w, h: Math.max(0, hh + ty) };
     const p = this.pushedRect;
     if (Math.abs(p.x - rect.x) > 0.5 || Math.abs(p.w - rect.w) > 0.5 || Math.abs(p.h - rect.h) > 0.5) {
       this.pushedRect = rect;
@@ -888,8 +908,8 @@ export class Island {
       if (!this.wasInIsland) {
         if (this.fsm.state === "coucou") this.greeting.hover();
         this.fsm.mouseEntered();
-      } else if (this.fsm.state === "home") {
-        // While cursor is resting inside the expanded island, keep collapse timer cancelled
+      } else if (this.fsm.state === "home" || this.fsm.state === "petit") {
+        // While cursor is resting inside the island, keep collapse/hide timer cancelled
         this.fsm.mouseEntered();
       }
     }
@@ -993,6 +1013,7 @@ export class Island {
     this.width.step(dt, nowMs);
     this.height.step(dt, nowMs);
     this.radius.step(dt, nowMs);
+    this.translateY.step(dt, nowMs);
     this.applyGeometry();
 
     if (this.dirty) {
@@ -1037,7 +1058,7 @@ export class Island {
     // sweep — so a hidden island went on burning frames in exactly the states it
     // spends most of its life in. Geometry still has to finish retracting.
     const settling =
-      this.width.animating || this.height.animating || this.radius.animating;
+      this.width.animating || this.height.animating || this.radius.animating || this.translateY.animating;
     const busy = State.mode === "hidden"
       ? settling
       : settling ||
