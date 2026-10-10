@@ -221,6 +221,17 @@
    "ru": "Сохранить копию и удалить",
    "id": "Cadangkan dan hapus"
   },
+  "Browser": {
+   "zh-Hans": "浏览器",
+   "hi": "ब्राउज़र",
+   "es": "Navegador",
+   "ar": "المتصفح",
+   "fr": "Navigateur",
+   "bn": "ব্রাউজার",
+   "pt-BR": "Navegador",
+   "ru": "Браузер",
+   "id": "Peramban"
+  },
   "Back up and write": {
    "zh-Hans": "备份并写入",
    "hi": "बैकअप लें और लिखें",
@@ -1825,6 +1836,17 @@
    "bn": "প্রশ্ন",
    "pt-BR": "Perguntas",
    "ru": "Вопросы",
+   "id": "Pertanyaan"
+  },
+  "Question": {
+   "zh-Hans": "问题",
+   "hi": "प्रश्न",
+   "es": "Pregunta",
+   "ar": "سؤال",
+   "fr": "Question",
+   "bn": "প্রশ্ন",
+   "pt-BR": "Pergunta",
+   "ru": "Вопрос",
    "id": "Pertanyaan"
   },
   "Ready": {

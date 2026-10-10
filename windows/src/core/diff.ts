@@ -106,50 +106,53 @@ export function fromNew(content: string, path: string): FileDiff {
 /**
  * HookServer.buildFileDiff — the diff of one Edit, MultiEdit or Write tool call,
  * or null when the call changes nothing (or is not a file edit at all).
+ * Supports Claude Code, Antigravity, Cursor, Codex, Copilot, and Gemini CLI.
  */
 export function buildFileDiff(tool: string, input: Record<string, unknown>): FileDiff | null {
   const str = (v: unknown): string | null => (typeof v === "string" ? v : null);
-  const path = str(input.file_path);
-  switch (tool) {
-    case "Edit": {
-      const oldText = str(input.old_string);
-      const newText = str(input.new_string);
-      if (oldText == null || newText == null || path == null) return null;
-      if (!oldText && !newText) return null;
-      const d = fromEdit(oldText, newText, path);
-      return d.added > 0 || d.removed > 0 ? d : null;
-    }
-    case "MultiEdit": {
-      const edits = input.edits;
-      if (path == null || !Array.isArray(edits) || edits.length === 0) return null;
-      let added = 0;
-      let removed = 0;
-      let tooLarge = false;
-      const hunks: DiffHunk[] = [];
-      for (const edit of edits) {
-        if (!edit || typeof edit !== "object") continue;
-        const e = edit as Record<string, unknown>;
-        const oldText = str(e.old_string);
-        const newText = str(e.new_string);
-        if (oldText == null || newText == null) continue;
-        const d = fromEdit(oldText, newText, path);
-        added += d.added;
-        removed += d.removed;
-        hunks.push(...d.hunks);
-        if (d.tooLarge) tooLarge = true;
-      }
-      if (added === 0 && removed === 0) return null;
-      return { id: 0, path, added, removed, hunks, tooLarge, isNewFile: false };
-    }
-    case "Write": {
-      const content = str(input.content);
-      if (path == null || !content) return null;
-      const d = fromNew(content, path);
-      return d.added > 0 || d.removed > 0 ? d : null;
-    }
-    default:
-      return null;
+  const path = str(input.file_path) || str(input.TargetFile) || str(input.path) || str(input.FilePath);
+  const normTool = tool.toLowerCase();
+
+  if (normTool === "edit" || normTool === "replace_file_content" || normTool === "str_replace_editor" || normTool === "edit_file") {
+    const oldText = str(input.old_string) || str(input.TargetContent) || str(input.old_str);
+    const newText = str(input.new_string) || str(input.ReplacementContent) || str(input.new_str);
+    if (oldText == null || newText == null || path == null) return null;
+    if (!oldText && !newText) return null;
+    const d = fromEdit(oldText, newText, path);
+    return d.added > 0 || d.removed > 0 ? d : null;
   }
+
+  if (normTool === "multiedit" || normTool === "multi_replace_file_content") {
+    const edits = (Array.isArray(input.edits) ? input.edits : Array.isArray(input.ReplacementChunks) ? input.ReplacementChunks : null);
+    if (path == null || !edits || edits.length === 0) return null;
+    let added = 0;
+    let removed = 0;
+    let tooLarge = false;
+    const hunks: DiffHunk[] = [];
+    for (const edit of edits) {
+      if (!edit || typeof edit !== "object") continue;
+      const e = edit as Record<string, unknown>;
+      const oldText = str(e.old_string) || str(e.TargetContent) || str(e.old_str);
+      const newText = str(e.new_string) || str(e.ReplacementContent) || str(e.new_str);
+      if (oldText == null || newText == null) continue;
+      const d = fromEdit(oldText, newText, path);
+      added += d.added;
+      removed += d.removed;
+      hunks.push(...d.hunks);
+      if (d.tooLarge) tooLarge = true;
+    }
+    if (added === 0 && removed === 0) return null;
+    return { id: 0, path, added, removed, hunks, tooLarge, isNewFile: false };
+  }
+
+  if (normTool === "write" || normTool === "write_to_file" || normTool === "create_file" || normTool === "write_file") {
+    const content = str(input.content) || str(input.CodeContent);
+    if (path == null || !content) return null;
+    const d = fromNew(content, path);
+    return d.added > 0 || d.removed > 0 ? d : null;
+  }
+
+  return null;
 }
 
 // ── Line splitting ────────────────────────────────────────────────────────────

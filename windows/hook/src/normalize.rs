@@ -43,10 +43,17 @@ pub fn event(name: &str) -> &str {
     }
 }
 
-/// Keys of Antigravity's `toolCall.args` the island reads under another name.
+/// Keys of Antigravity's and other agents' `toolCall.args` the island reads under another name.
 const ARG_ALIASES: &[(&str, &str)] = &[
     ("CommandLine", "command"),
     ("FilePath", "file_path"),
+    ("TargetFile", "file_path"),
+    ("TargetContent", "old_string"),
+    ("ReplacementContent", "new_string"),
+    ("CodeContent", "content"),
+    ("AbsolutePath", "path"),
+    ("DirectoryPath", "path"),
+    ("SearchPath", "path"),
     ("Path", "path"),
     ("Url", "url"),
     ("Query", "query"),

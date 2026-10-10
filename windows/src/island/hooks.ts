@@ -113,19 +113,27 @@ const TOOL_LABELS: Record<string, string> = {
   replace_file_content: N_("Edits"),
   read_url_content: N_("Fetches"),
   search_web: N_("Searches the web"),
+  multi_replace_file_content: N_("Edits"),
+  grep_search: N_("Searches"),
+  list_dir: N_("Lists"),
+  browser_subagent: N_("Browser"),
+  manage_task: N_("Tasks"),
+  ask_question: N_("Question"),
 };
 
 function stepLabel(tool: string, input: Record<string, unknown>): string {
   const label = TOOL_LABELS[tool] ? t(TOOL_LABELS[tool]) : tool;
   const str = (k: string) => (typeof input[k] === "string" ? (input[k] as string) : null);
-  const cmd = str("command");
+  const cmd = str("command") || str("CommandLine");
   if (cmd) return `${label} · ${cmd.slice(0, 40)}`;
-  const path = str("path");
-  if (path) return `${label} · ${lastPathComponent(path)}`;
-  const file = str("file_path");
+  const file = str("file_path") || str("TargetFile") || str("FilePath");
   if (file) return `${label} · ${lastPathComponent(file)}`;
-  const query = str("query");
+  const path = str("path") || str("AbsolutePath") || str("DirectoryPath") || str("SearchPath");
+  if (path) return `${label} · ${lastPathComponent(path)}`;
+  const query = str("query") || str("Query") || str("pattern") || str("Pattern");
   if (query) return `${label} · ${query.slice(0, 40)}`;
+  const task = str("TaskName") || str("TaskSummary");
+  if (task) return `${label} · ${task.slice(0, 40)}`;
   return label;
 }
 
@@ -138,13 +146,12 @@ function stepLabel(tool: string, input: Record<string, unknown>): string {
  * whatever identifying string it carries instead of falling back to its name.
  */
 const APPROVAL_FIELDS = [
-  "command", // Bash, PowerShell
-  "file_path", // Write, Edit, MultiEdit, NotebookEdit
-  "path", // Read, LS
-  "url", // WebFetch
-  "query", // WebSearch
-  "pattern", // Glob, Grep
-  "prompt", // Task
+  "command", "CommandLine", // Bash, PowerShell, run_command
+  "file_path", "TargetFile", "FilePath", // Write, Edit, replace_file_content
+  "path", "AbsolutePath", "DirectoryPath", "SearchPath", // Read, LS, view_file, list_dir
+  "url", "Url", // WebFetch, read_url_content
+  "query", "Query", "pattern", "Pattern", // WebSearch, Glob, Grep, search_web, grep_search
+  "prompt", "TaskName", // Task, browser_subagent
 ] as const;
 
 function approvalTarget(tool: string, input: Record<string, unknown>): string {
