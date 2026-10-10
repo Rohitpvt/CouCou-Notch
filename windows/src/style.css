@@ -1995,6 +1995,30 @@ input[type="range"]::-webkit-slider-thumb {
   flex: 0 0 auto;
 }
 
+.int-time.gcal {
+  color: #4285f4;
+}
+
+.int-meet-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 1px 6px;
+  font: 500 9.5px var(--font);
+  color: #fff;
+  background: #1a73e8;
+  border-radius: 4px;
+  border: 0;
+  cursor: default;
+  margin-left: auto;
+  flex: 0 0 auto;
+  transition: background 0.15s ease;
+}
+
+.int-meet-btn:hover {
+  background: #1765cc;
+}
+
 .int-more,
 .int-back {
   border: 0;

@@ -781,6 +781,9 @@ const INTEGRATIONS: IntegrationDef[] = [
     fields: [{ key: "notion-api-key", label: N_("Integration token"), placeholder: "ntn_…", secret: true }] },
   { id: "integration_calcom", name: "Cal.com", color: "#C9956A",
     fields: [{ key: "calcom-api-key", label: N_("API key"), placeholder: "cal_…", secret: true }] },
+  { id: "integration_gcal", name: "Google Calendar", color: "#4285F4",
+    fields: [{ key: "gcal-url", label: N_("Secret iCal URL"), placeholder: "https://calendar.google.com/calendar/ical/…/basic.ics", secret: true }],
+    hint: N_("In Google Calendar: Settings → Integrate calendar → Secret address in iCal format.") },
 ];
 
 const MAX_ACTIVE = MAX_DECLARED;
@@ -1336,6 +1339,7 @@ async function render() {
   const keys = [
     "stripe-api-key", "github-token", "vercel-token",
     "n8n-url", "n8n-api-key", "resend-api-key", "notion-api-key", "calcom-api-key",
+    "gcal-url",
   ];
   const present: Record<string, boolean> = {};
   for (const k of keys) present[k] = (await Bridge.secretPresent(k)) ?? false;

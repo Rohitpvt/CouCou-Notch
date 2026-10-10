@@ -862,7 +862,7 @@ function buildSettings(actions: ViewActions): ViewHost {
 function buildNotification(actions: ViewActions): ViewHost {
   const appBadge = h("div", { class: "notif-app-badge" });
   const appName = h("span", { class: "notif-app-name" });
-  const timeLabel = h("span", { class: "notif-time", text: "Now" });
+  const timeLabel = h("span", { class: "notif-time", text: t("Now") });
   const closeBtn = h(
     "button",
     {

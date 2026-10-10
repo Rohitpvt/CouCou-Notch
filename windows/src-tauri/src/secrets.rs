@@ -21,6 +21,7 @@ pub const KNOWN_KEYS: &[&str] = &[
     "resend-api-key",
     "notion-api-key",
     "calcom-api-key",
+    "gcal-url",
 ];
 
 fn entry_service(service: &str, key: &str) -> Option<Entry> {

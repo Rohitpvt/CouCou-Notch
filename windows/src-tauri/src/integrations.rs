@@ -71,6 +71,7 @@ pub fn start(app: AppHandle) {
     spawn(app.clone(), "integration_github", 7, 300, poll_github);
     spawn_github_loops(app.clone());
     spawn(app.clone(), "integration_calcom", 8, 300, poll_calcom);
+    spawn(app.clone(), "integration_gcal", 8, 60, poll_gcal);
     spawn(app, "integration_notion", 9, 300, poll_notion);
 }
 
@@ -120,6 +121,7 @@ pub async fn poll_once(app: AppHandle, id: &str) {
         "integration_resend" => poll_resend(app).await,
         "integration_notion" => poll_notion(app).await,
         "integration_calcom" => poll_calcom(app).await,
+        "integration_gcal" => poll_gcal(app).await,
         _ => {}
     }
 }
@@ -1005,6 +1007,292 @@ fn fmt_value(v: &Value) -> String {
     }
 }
 
+// ── Google Calendar (iCal Feed) ───────────────────────────────────────────────
+
+#[derive(Debug, Clone, Serialize, PartialEq)]
+#[serde(rename_all = "camelCase")]
+pub struct GCalEvent {
+    pub id: String,
+    pub title: String,
+    pub start: String,
+    pub end: Option<String>,
+    pub start_epoch: i64,
+    pub end_epoch: Option<i64>,
+    pub is_all_day: bool,
+    pub location: Option<String>,
+    pub description: Option<String>,
+    pub meet_url: Option<String>,
+    pub status: String,
+}
+
+static LAST_GCAL_ALERT_UID: Mutex<Option<String>> = Mutex::new(None);
+
+fn days_from_civil(mut y: i64, m: u32, d: u32) -> i64 {
+    y -= if m <= 2 { 1 } else { 0 };
+    let era = if y >= 0 { y } else { y - 399 } / 400;
+    let yoe = (y - era * 400) as u32;
+    let doy = (153 * (if m > 2 { m - 3 } else { m + 9 }) + 2) / 5 + d - 1;
+    let doe = yoe * 365 + yoe / 4 - yoe / 100 + doy;
+    era * 146097 + doe as i64 - 719468
+}
+
+fn ymd_hms_to_epoch_secs(year: i64, month: u32, day: u32, hour: u32, minute: u32, second: u32) -> i64 {
+    let days = days_from_civil(year, month, day);
+    days * 86400 + (hour as i64) * 3600 + (minute as i64) * 60 + (second as i64)
+}
+
+fn unfold_ical(text: &str) -> String {
+    let mut res = String::with_capacity(text.len());
+    let mut chars = text.chars().peekable();
+    while let Some(c) = chars.next() {
+        if c == '\r' && chars.peek() == Some(&'\n') {
+            chars.next();
+            if chars.peek() == Some(&' ') || chars.peek() == Some(&'\t') {
+                chars.next();
+                continue;
+            }
+            res.push('\n');
+        } else if c == '\n' {
+            if chars.peek() == Some(&' ') || chars.peek() == Some(&'\t') {
+                chars.next();
+                continue;
+            }
+            res.push('\n');
+        } else {
+            res.push(c);
+        }
+    }
+    res
+}
+
+fn unescape_ical_value(s: &str) -> String {
+    let mut out = String::with_capacity(s.len());
+    let mut chars = s.chars().peekable();
+    while let Some(c) = chars.next() {
+        if c == '\\' {
+            match chars.next() {
+                Some('n') | Some('N') => out.push('\n'),
+                Some('\\') => out.push('\\'),
+                Some(';') => out.push(';'),
+                Some(',') => out.push(','),
+                Some(other) => {
+                    out.push('\\');
+                    out.push(other);
+                }
+                None => out.push('\\'),
+            }
+        } else {
+            out.push(c);
+        }
+    }
+    out
+}
+
+fn parse_ical_date(val: &str) -> Option<(i64, String, bool)> {
+    let clean = val.trim();
+    if clean.len() >= 15 && clean.contains('T') {
+        let (d_part, t_part) = clean.split_once('T')?;
+        if d_part.len() < 8 || t_part.len() < 6 { return None; }
+        let year: i64 = d_part[0..4].parse().ok()?;
+        let month: u32 = d_part[4..6].parse().ok()?;
+        let day: u32 = d_part[6..8].parse().ok()?;
+        let hour: u32 = t_part[0..2].parse().ok()?;
+        let minute: u32 = t_part[2..4].parse().ok()?;
+        let second: u32 = t_part[4..6].parse().ok()?;
+
+        let epoch = ymd_hms_to_epoch_secs(year, month, day, hour, minute, second);
+        let iso = format!("{:04}-{:02}-{:02}T{:02}:{:02}:{:02}Z", year, month, day, hour, minute, second);
+        Some((epoch, iso, false))
+    } else if clean.len() >= 8 {
+        let year: i64 = clean[0..4].parse().ok()?;
+        let month: u32 = clean[4..6].parse().ok()?;
+        let day: u32 = clean[6..8].parse().ok()?;
+
+        let epoch = ymd_hms_to_epoch_secs(year, month, day, 0, 0, 0);
+        let iso = format!("{:04}-{:02}-{:02}", year, month, day);
+        Some((epoch, iso, true))
+    } else {
+        None
+    }
+}
+
+fn extract_meet_url(text: &str) -> Option<String> {
+    for word in text.split_whitespace() {
+        let clean = word.trim_matches(|c: char| c == '<' || c == '>' || c == '(' || c == ')' || c == '"' || c == '\'');
+        if clean.starts_with("https://meet.google.com/")
+            || clean.contains(".zoom.us/j/")
+            || clean.starts_with("https://teams.microsoft.com/")
+            || clean.contains(".webex.com/")
+        {
+            return Some(clean.to_string());
+        }
+    }
+    None
+}
+
+pub fn parse_gcal_ical(raw: &str) -> Vec<GCalEvent> {
+    let unfolded = unfold_ical(raw);
+    let mut events = Vec::new();
+    let mut in_event = false;
+
+    let mut uid = String::new();
+    let mut summary = String::new();
+    let mut dtstart = String::new();
+    let mut dtend = String::new();
+    let mut location = String::new();
+    let mut description = String::new();
+    let mut url = String::new();
+    let mut status = "CONFIRMED".to_string();
+
+    for line in unfolded.lines() {
+        let line = line.trim();
+        if line == "BEGIN:VEVENT" {
+            in_event = true;
+            uid.clear();
+            summary.clear();
+            dtstart.clear();
+            dtend.clear();
+            location.clear();
+            description.clear();
+            url.clear();
+            status = "CONFIRMED".to_string();
+            continue;
+        }
+        if line == "END:VEVENT" {
+            if in_event {
+                if let Some((start_epoch, start_iso, is_all_day)) = parse_ical_date(&dtstart) {
+                    let (end_epoch, end_iso) = parse_ical_date(&dtend)
+                        .map(|(ep, iso, _)| (Some(ep), Some(iso)))
+                        .unwrap_or((None, None));
+
+                    let desc_opt = if description.is_empty() { None } else { Some(description.clone()) };
+                    let loc_opt = if location.is_empty() { None } else { Some(location.clone()) };
+                    let title = if summary.is_empty() { "Event".to_string() } else { summary.clone() };
+
+                    let meet_url = extract_meet_url(&url)
+                        .or_else(|| loc_opt.as_deref().and_then(extract_meet_url))
+                        .or_else(|| desc_opt.as_deref().and_then(extract_meet_url));
+
+                    events.push(GCalEvent {
+                        id: if uid.is_empty() { format!("event-{}", start_epoch) } else { uid.clone() },
+                        title,
+                        start: start_iso,
+                        end: end_iso,
+                        start_epoch,
+                        end_epoch,
+                        is_all_day,
+                        location: loc_opt,
+                        description: desc_opt,
+                        meet_url,
+                        status: status.clone(),
+                    });
+                }
+            }
+            in_event = false;
+            continue;
+        }
+        if !in_event {
+            continue;
+        }
+
+        let Some((key_part, val_part)) = line.split_once(':') else { continue };
+        let key_name = key_part.split(';').next().unwrap_or(key_part).to_uppercase();
+        let value = unescape_ical_value(val_part);
+
+        match key_name.as_str() {
+            "UID" => uid = value,
+            "SUMMARY" => summary = value,
+            "DTSTART" => dtstart = val_part.to_string(),
+            "DTEND" => dtend = val_part.to_string(),
+            "LOCATION" => location = value,
+            "DESCRIPTION" => description = value,
+            "URL" => url = value,
+            "STATUS" => status = value,
+            _ => {}
+        }
+    }
+
+    events
+}
+
+async fn poll_gcal(app: AppHandle) {
+    let Some(raw_url) = secrets::get("gcal-url") else { return };
+    let url = raw_url.trim();
+    if url.is_empty() { return; }
+
+    let fetch_url = if url.starts_with("webcal://") {
+        url.replacen("webcal://", "https://", 1)
+    } else {
+        url.to_string()
+    };
+
+    let response = client().get(&fetch_url).send().await;
+    let Ok(response) = response else { return };
+    if !response.status().is_success() {
+        emit(&app, IntegrationUpdate {
+            id: "integration_gcal",
+            data: json!({}),
+            error: Some(status_error(response.status().as_u16(), &crate::i18n::t("Calendar feed unavailable"))),
+            event: None,
+        });
+        return;
+    }
+
+    let text = response.text().await.unwrap_or_default();
+    let events = parse_gcal_ical(&text);
+    let now = std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .map(|d| d.as_secs() as i64)
+        .unwrap_or(0);
+
+    // Keep upcoming or ongoing events (ended less than 15 mins ago or within next 7 days)
+    let mut upcoming: Vec<GCalEvent> = events
+        .into_iter()
+        .filter(|e| {
+            if let Some(end) = e.end_epoch {
+                end >= now - 900
+            } else {
+                e.start_epoch >= now - 1800
+            }
+        })
+        .collect();
+
+    upcoming.sort_by_key(|e| e.start_epoch);
+
+    let mut reminder_event: Option<IntegrationEvent> = None;
+    if let Some(next) = upcoming.iter().find(|e| !e.is_all_day && e.start_epoch >= now - 60 && e.start_epoch <= now + 300) {
+        let mut last_alert = LAST_GCAL_ALERT_UID.lock().unwrap();
+        let already_alerted = last_alert.as_ref().map(|s| s == &next.id).unwrap_or(false);
+        if !already_alerted {
+            *last_alert = Some(next.id.clone());
+            let mins = (next.start_epoch - now).max(0) / 60;
+            let time_str = if mins == 0 {
+                crate::i18n::t("Starting now")
+            } else {
+                crate::i18n::tf("in {m} min", &[("m", &mins.to_string())])
+            };
+            reminder_event = Some(IntegrationEvent {
+                success: true,
+                label: next.title.clone(),
+                detail: Some(format!("📅 {time_str}")),
+            });
+        }
+    }
+
+    let next_event = upcoming.first().cloned();
+
+    emit(&app, IntegrationUpdate {
+        id: "integration_gcal",
+        data: json!({
+            "events": upcoming,
+            "nextEvent": next_event,
+            "total": upcoming.len()
+        }),
+        error: None,
+        event: reminder_event,
+    });
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -1020,5 +1308,38 @@ mod tests {
         assert_eq!(data["totalRepos"], json!(12));
         assert_eq!(data["activity"], json!({ "total": 5, "weeks": [], "fetchedAt": 9 }));
         assert!(data.get("pulse").is_none());
+    }
+
+    #[test]
+    fn gcal_ical_parsing_and_meet_links() {
+        let sample = r#"BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Google Inc//Google Calendar 70.9054//EN
+BEGIN:VEVENT
+UID:test-123@google.com
+SUMMARY:Project Kickoff Meeting
+DTSTART:20261010T143000Z
+DTEND:20261010T153000Z
+LOCATION:Google Meet
+DESCRIPTION:Join meeting at https://meet.google.com/abc-defg-hij
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:allday-456@google.com
+SUMMARY:Team Offsite
+DTSTART;VALUE=DATE:20261012
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR"#;
+
+        let events = parse_gcal_ical(sample);
+        assert_eq!(events.len(), 2);
+        assert_eq!(events[0].id, "test-123@google.com");
+        assert_eq!(events[0].title, "Project Kickoff Meeting");
+        assert_eq!(events[0].is_all_day, false);
+        assert_eq!(events[0].meet_url.as_deref(), Some("https://meet.google.com/abc-defg-hij"));
+        assert_eq!(events[1].id, "allday-456@google.com");
+        assert_eq!(events[1].title, "Team Offsite");
+        assert_eq!(events[1].is_all_day, true);
     }
 }

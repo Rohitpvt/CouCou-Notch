@@ -56,6 +56,7 @@ const OPEN_URLS: Record<string, string> = {
   integration_stripe: "https://dashboard.stripe.com/payments",
   integration_notion: "https://notion.so",
   integration_calcom: "https://app.cal.com/bookings",
+  integration_gcal: "https://calendar.google.com",
 };
 
 /** IntegrationCardView.statusLabel on macOS. */
@@ -374,6 +375,79 @@ function calcomCard(): HTMLElement {
   return h("div", { class: "int-card" }, header("#C9956A", "Cal.com", t("Schedule")), rows);
 }
 
+// ── Google Calendar ───────────────────────────────────────────────────────────
+
+function formatGCalTime(isAllDay: boolean, startEpoch: number, endEpoch?: number): string {
+  if (isAllDay) return t("All day");
+  const now = Date.now() / 1000;
+  if (startEpoch <= now && (endEpoch == null || endEpoch >= now)) {
+    return t("Now");
+  }
+  const when = new Date(startEpoch * 1000);
+  const today = new Date();
+  const isToday =
+    when.getFullYear() === today.getFullYear() &&
+    when.getMonth() === today.getMonth() &&
+    when.getDate() === today.getDate();
+
+  const time = when.toLocaleTimeString(language(), { hour: "2-digit", minute: "2-digit" });
+  if (isToday) return time;
+  const day = when.toLocaleDateString(language(), { day: "2-digit", month: "2-digit" });
+  return `${day} ${time}`;
+}
+
+function gcalCard(): HTMLElement {
+  const events = arr("integration_gcal", "events")
+    .slice()
+    .sort((a, b) => Number(a.startEpoch ?? 0) - Number(b.startEpoch ?? 0));
+  const rows = h("div", { class: "int-rows tight" });
+  if (events.length === 0) {
+    rows.append(h("div", { class: "int-empty", text: t("No upcoming events") }));
+  }
+  for (const e of events.slice(0, 3)) {
+    const isAllDay = Boolean(e.isAllDay);
+    const startEpoch = Number(e.startEpoch ?? 0);
+    const endEpoch = e.endEpoch != null ? Number(e.endEpoch) : undefined;
+    const timeText = formatGCalTime(isAllDay, startEpoch, endEpoch);
+    const isNow = timeText === t("Now");
+
+    const meetUrl = typeof e.meetUrl === "string" && e.meetUrl.length > 0 ? e.meetUrl : null;
+    const joinBtn = meetUrl
+      ? h(
+          "button",
+          {
+            class: "int-meet-btn",
+            title: t("Join call"),
+            onclick: (ev: Event) => {
+              ev.stopPropagation();
+              void Bridge.openUrl(meetUrl);
+            },
+          },
+          h("span", { text: t("Join") }),
+        )
+      : null;
+
+    const row = h(
+      "div",
+      {
+        class: isNow ? "int-row first" : "int-row",
+        style: "cursor:default",
+        onclick: () => {
+          if (meetUrl) void Bridge.openUrl(meetUrl);
+          else void Bridge.openUrl("https://calendar.google.com");
+        },
+      },
+      dot(isNow ? "#22C55E" : "#4285F4", isNow ? 5 : 4),
+      h("span", { class: "int-time gcal", text: timeText }),
+      h("span", { class: "int-name", text: String(e.title ?? t("Meeting")) }),
+    );
+    if (joinBtn) row.append(joinBtn);
+    if (isNow) row.style.background = "#22C55E14";
+    rows.append(row);
+  }
+  return h("div", { class: "int-card" }, header("#4285F4", "Google Calendar", t("Schedule")), rows);
+}
+
 // ── n8n ───────────────────────────────────────────────────────────────────────
 
 function n8nCard(task: AgentTask, onDetail: () => void, openSettings: () => void): HTMLElement {
@@ -457,6 +531,8 @@ export function hasIntegrationData(id: string): boolean {
       return arr(id, "pages").length > 0;
     case "integration_calcom":
       return info.loaded;
+    case "integration_gcal":
+      return info.loaded;
     default:
       return false;
   }
@@ -496,6 +572,8 @@ export function renderIntegrationCard(task: AgentTask, hooks: IntegrationCardHoo
       return notionCard();
     case "integration_calcom":
       return calcomCard();
+    case "integration_gcal":
+      return gcalCard();
     default:
       return idleCard(task, hooks.openSettings);
   }

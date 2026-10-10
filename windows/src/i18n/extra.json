@@ -23,6 +23,396 @@
    "ru": "(сохранён)",
    "id": "(tersimpan)"
   },
+  "{allowed} allowed, {denied} denied": {
+   "zh-Hans": "允许 {allowed} 次，拒绝 {denied} 次",
+   "hi": "{allowed} अनुमत, {denied} अस्वीकृत",
+   "es": "{allowed} permitidos, {denied} denegados",
+   "ar": "{allowed} مسموح، {denied} مرفوض",
+   "fr": "{allowed} autorisées, {denied} refusées",
+   "bn": "{allowed}টি অনুমোদিত, {denied}টি প্রত্যাখ্যাত",
+   "pt-BR": "{allowed} permitidas, {denied} negadas",
+   "ru": "разрешено: {allowed}, отклонено: {denied}",
+   "id": "{allowed} diizinkan, {denied} ditolak"
+  },
+  "{count} contributions": {
+   "zh-Hans": {
+    "other": "{count} 次贡献"
+   },
+   "hi": {
+    "one": "{count} योगदान",
+    "other": "{count} योगदान"
+   },
+   "es": {
+    "one": "{count} contribución",
+    "other": "{count} contribuciones"
+   },
+   "ar": {
+    "zero": "{count} مساهمة",
+    "one": "مساهمة واحدة",
+    "two": "مساهمتان",
+    "few": "{count} مساهمات",
+    "many": "{count} مساهمة",
+    "other": "{count} مساهمة"
+   },
+   "fr": {
+    "one": "{count} contribution",
+    "other": "{count} contributions"
+   },
+   "bn": {
+    "one": "{count}টি অবদান",
+    "other": "{count}টি অবদান"
+   },
+   "pt-BR": {
+    "one": "{count} contribuição",
+    "other": "{count} contribuições"
+   },
+   "ru": {
+    "one": "{count} вклад",
+    "few": "{count} вклада",
+    "many": "{count} вкладов",
+    "other": "{count} вклада"
+   },
+   "id": {
+    "other": "{count} kontribusi"
+   }
+  },
+  "{count} models": {
+   "zh-Hans": {
+    "other": "{count} 个模型"
+   },
+   "hi": {
+    "one": "{count} मॉडल",
+    "other": "{count} मॉडल"
+   },
+   "es": {
+    "one": "{count} modelo",
+    "other": "{count} modelos"
+   },
+   "ar": {
+    "zero": "{count} نموذج",
+    "one": "نموذج واحد",
+    "two": "نموذجان",
+    "few": "{count} نماذج",
+    "many": "{count} نموذجًا",
+    "other": "{count} نموذج"
+   },
+   "fr": {
+    "one": "{count} modèle",
+    "other": "{count} modèles"
+   },
+   "bn": {
+    "one": "{count}টি মডেল",
+    "other": "{count}টি মডেল"
+   },
+   "pt-BR": {
+    "one": "{count} modelo",
+    "other": "{count} modelos"
+   },
+   "ru": {
+    "one": "{count} модель",
+    "few": "{count} модели",
+    "many": "{count} моделей",
+    "other": "{count} модели"
+   },
+   "id": {
+    "other": "{count} model"
+   }
+  },
+  "{count} repos": {
+   "zh-Hans": {
+    "other": "{count} 个仓库"
+   },
+   "hi": {
+    "one": "{count} रिपॉज़िटरी",
+    "other": "{count} रिपॉज़िटरी"
+   },
+   "es": {
+    "one": "{count} repositorio",
+    "other": "{count} repositorios"
+   },
+   "ar": {
+    "zero": "{count} مستودع",
+    "one": "مستودع واحد",
+    "two": "مستودعان",
+    "few": "{count} مستودعات",
+    "many": "{count} مستودعًا",
+    "other": "{count} مستودع"
+   },
+   "fr": {
+    "one": "{count} dépôt",
+    "other": "{count} dépôts"
+   },
+   "bn": {
+    "one": "{count}টি রিপোজিটরি",
+    "other": "{count}টি রিপোজিটরি"
+   },
+   "pt-BR": {
+    "one": "{count} repositório",
+    "other": "{count} repositórios"
+   },
+   "ru": {
+    "one": "{count} репозиторий",
+    "few": "{count} репозитория",
+    "many": "{count} репозиториев",
+    "other": "{count} репозитория"
+   },
+   "id": {
+    "other": "{count} repositori"
+   }
+  },
+  "{file} isn't a JSON object — Cocoa won't touch it.": {
+   "zh-Hans": "{file} 不是 JSON 对象 — Cocoa 不会修改它。",
+   "hi": "{file} JSON ऑब्जेक्ट नहीं है — Cocoa इसे नहीं छुएगा।",
+   "es": "{file} no es un objeto JSON — Cocoa no lo tocará.",
+   "ar": "{file} ليس كائن JSON — لن يمسّه Cocoa.",
+   "fr": "{file} n'est pas un objet JSON — Cocoa n'y touchera pas.",
+   "bn": "{file} JSON অবজেক্ট নয় — Cocoa এতে হাত দেবে না।",
+   "pt-BR": "{file} não é um objeto JSON — o Cocoa não vai mexer nele.",
+   "ru": "{file} — не объект JSON, Cocoa его не тронет.",
+   "id": "{file} bukan objek JSON — Cocoa tidak akan menyentuhnya."
+  },
+  "{file} isn't UTF-8 text — Cocoa won't touch it.": {
+   "zh-Hans": "{file} 不是 UTF-8 文本 — Cocoa 不会修改它。",
+   "hi": "{file} UTF-8 टेक्स्ट नहीं है — Cocoa इसे नहीं छुएगा।",
+   "es": "{file} no es texto UTF-8 — Cocoa no lo tocará.",
+   "ar": "{file} ليس نصًا بترميز UTF-8 — لن يمسّه Cocoa.",
+   "fr": "{file} n'est pas du texte UTF-8 — Cocoa n'y touchera pas.",
+   "bn": "{file} UTF-8 টেক্সট নয় — Cocoa এতে হাত দেবে না।",
+   "pt-BR": "{file} não é texto UTF-8 — o Cocoa não vai mexer nele.",
+   "ru": "{file} — не текст в UTF-8, Cocoa его не тронет.",
+   "id": "{file} bukan teks UTF-8 — Cocoa tidak akan menyentuhnya."
+  },
+  "{file} isn't valid JSON ({error}). Fix or move it, then try again — Cocoa won't overwrite it.": {
+   "zh-Hans": "{file} 不是有效的 JSON（{error}）。请修复或移走它后重试 — Cocoa 不会覆盖它。",
+   "hi": "{file} मान्य JSON नहीं है ({error})। इसे ठीक करें या हटाएँ, फिर दोबारा कोशिश करें — Cocoa इसे ओवरराइट नहीं करेगा।",
+   "es": "{file} no es un JSON válido ({error}). Corrígelo o muévelo y vuelve a intentarlo — Cocoa no lo sobrescribirá.",
+   "ar": "{file} ليس JSON صالحًا ({error}). أصلحه أو انقله ثم حاول مجددًا — لن يكتب Cocoa فوقه.",
+   "fr": "{file} n'est pas un JSON valide ({error}). Corrige-le ou déplace-le, puis réessaie — Cocoa ne l'écrasera pas.",
+   "bn": "{file} বৈধ JSON নয় ({error})। এটি ঠিক করুন বা সরান, তারপর আবার চেষ্টা করুন — Cocoa এটি ওভাররাইট করবে না।",
+   "pt-BR": "{file} não é um JSON válido ({error}). Corrija ou mova o arquivo e tente de novo — o Cocoa não vai sobrescrevê-lo.",
+   "ru": "{file} — некорректный JSON ({error}). Исправьте или переместите его и попробуйте снова — Cocoa не будет его перезаписывать.",
+   "id": "{file} bukan JSON yang valid ({error}). Perbaiki atau pindahkan, lalu coba lagi — Cocoa tidak akan menimpanya."
+  },
+  "{h}h {m}m": {
+   "zh-Hans": "{h} 小时 {m} 分钟",
+   "hi": "{h} घं. {m} मि.",
+   "es": "{h} h {m} min",
+   "ar": "{h} س {m} د",
+   "fr": "{h} h {m} min",
+   "bn": "{h} ঘ. {m} মি.",
+   "pt-BR": "{h} h {m} min",
+   "ru": "{h} ч {m} мин",
+   "id": "{h} j {m} mnt"
+  },
+  "{keys} types “{char}” on your keyboard, so it can't be a shortcut. Pick another key.": {
+   "zh-Hans": "{keys} 在你的键盘上会输入“{char}”，所以不能用作快捷键。请换一个键。",
+   "hi": "{keys} आपके कीबोर्ड पर “{char}” टाइप करता है, इसलिए यह शॉर्टकट नहीं हो सकता। कोई दूसरी कुंजी चुनें।",
+   "es": "{keys} escribe «{char}» en tu teclado, así que no puede ser un atajo. Elige otra tecla.",
+   "ar": "{keys} يكتب «{char}» على لوحة مفاتيحك، لذا لا يمكن أن يكون اختصارًا. اختر مفتاحًا آخر.",
+   "fr": "{keys} tape « {char} » sur ton clavier, ce ne peut donc pas être un raccourci. Choisis une autre touche.",
+   "bn": "{keys} আপনার কিবোর্ডে “{char}” টাইপ করে, তাই এটি শর্টকাট হতে পারে না। অন্য একটি কী বেছে নিন।",
+   "pt-BR": "{keys} digita “{char}” no seu teclado, então não pode ser um atalho. Escolha outra tecla.",
+   "ru": "{keys} вводит «{char}» на вашей клавиатуре, поэтому не может быть сочетанием. Выберите другую клавишу.",
+   "id": "{keys} mengetik “{char}” di keyboard Anda, jadi tidak bisa menjadi pintasan. Pilih tombol lain."
+  },
+  "{model} isn't installed. Pick another model above the chat box.": {
+   "zh-Hans": "{model} 未安装。请在聊天框上方选择其他模型。",
+   "hi": "{model} इंस्टॉल नहीं है। चैट बॉक्स के ऊपर कोई दूसरा मॉडल चुनें।",
+   "es": "{model} no está instalado. Elige otro modelo encima del cuadro de chat.",
+   "ar": "{model} غير مثبَّت. اختر نموذجًا آخر فوق مربع الدردشة.",
+   "fr": "{model} n'est pas installé. Choisis un autre modèle au-dessus de la zone de chat.",
+   "bn": "{model} ইনস্টল করা নেই। চ্যাট বক্সের উপরে অন্য মডেল বেছে নিন।",
+   "pt-BR": "{model} não está instalado. Escolha outro modelo acima da caixa de chat.",
+   "ru": "{model} не установлена. Выберите другую модель над полем чата.",
+   "id": "{model} belum terpasang. Pilih model lain di atas kotak obrolan."
+  },
+  "{n} available": {
+   "zh-Hans": "可用 {n} 次",
+   "hi": "{n} उपलब्ध",
+   "es": "{n} disponibles",
+   "ar": "{n} متاحة",
+   "fr": "{n} disponibles",
+   "bn": "{n}টি উপলব্ধ",
+   "pt-BR": "{n} disponíveis",
+   "ru": "доступно: {n}",
+   "id": "{n} tersedia"
+  },
+  "{n}d": {
+   "zh-Hans": "{n} 天",
+   "hi": "{n} दि.",
+   "es": "{n} d",
+   "ar": "{n} ي",
+   "fr": "{n} j",
+   "bn": "{n} দি.",
+   "pt-BR": "{n} d",
+   "ru": "{n} д",
+   "id": "{n} h"
+  },
+  "{n}h": {
+   "zh-Hans": "{n} 小时",
+   "hi": "{n} घं.",
+   "es": "{n} h",
+   "ar": "{n} س",
+   "fr": "{n} h",
+   "bn": "{n} ঘ.",
+   "pt-BR": "{n} h",
+   "ru": "{n} ч",
+   "id": "{n} j"
+  },
+  "{n}m": {
+   "zh-Hans": "{n} 分钟",
+   "hi": "{n} मि.",
+   "es": "{n} min",
+   "ar": "{n} د",
+   "fr": "{n} min",
+   "bn": "{n} মি.",
+   "pt-BR": "{n} min",
+   "ru": "{n} мин",
+   "id": "{n} mnt"
+  },
+  "{name} — {width}×{height} at {x},{y}": {
+   "zh-Hans": "{name} — {width}×{height}，位于 {x},{y}",
+   "hi": "{name} — {width}×{height}, स्थिति {x},{y}",
+   "es": "{name} — {width}×{height} en {x},{y}",
+   "ar": "{name} — {width}×{height} عند {x},{y}",
+   "fr": "{name} — {width}×{height} à {x},{y}",
+   "bn": "{name} — {width}×{height}, অবস্থান {x},{y}",
+   "pt-BR": "{name} — {width}×{height} em {x},{y}",
+   "ru": "{name} — {width}×{height} в точке {x},{y}",
+   "id": "{name} — {width}×{height} di {x},{y}"
+  },
+  "{name} API key missing. Add it in Settings.": {
+   "zh-Hans": "缺少 {name} 的 API 密钥。请在设置中添加。",
+   "hi": "{name} API कुंजी नहीं है। इसे सेटिंग्स में जोड़ें।",
+   "es": "Falta la clave de API de {name}. Añádela en Configuración.",
+   "ar": "مفتاح API الخاص بـ {name} مفقود. أضفه من الإعدادات.",
+   "fr": "Clé d'API {name} manquante. Ajoute-la dans les Réglages.",
+   "bn": "{name} API কী নেই। সেটিংসে যোগ করুন।",
+   "pt-BR": "Falta a chave de API do {name}. Adicione nas Configurações.",
+   "ru": "Нет API-ключа {name}. Добавьте его в настройках.",
+   "id": "Kunci API {name} tidak ada. Tambahkan di Pengaturan."
+  },
+  "{name} rate limit reached (429): {detail}": {
+   "zh-Hans": "{name} 已达到速率限制（429）：{detail}",
+   "hi": "{name} की दर सीमा पूरी हो गई (429): {detail}",
+   "es": "{name}: se alcanzó el límite de solicitudes (429): {detail}",
+   "ar": "بلغ {name} حدّ المعدّل (429): {detail}",
+   "fr": "{name} : limite de débit atteinte (429) : {detail}",
+   "bn": "{name}-এর রেট লিমিটে পৌঁছেছে (429): {detail}",
+   "pt-BR": "{name}: limite de requisições atingido (429): {detail}",
+   "ru": "{name}: достигнут лимит запросов (429): {detail}",
+   "id": "Batas laju {name} tercapai (429): {detail}"
+  },
+  "{name} rejected the API key ({status}). Check it in Settings.": {
+   "zh-Hans": "{name} 拒绝了 API 密钥（{status}）。请在设置中检查。",
+   "hi": "{name} ने API कुंजी अस्वीकार कर दी ({status})। इसे सेटिंग्स में जाँचें।",
+   "es": "{name} rechazó la clave de API ({status}). Revísala en Configuración.",
+   "ar": "رفض {name} مفتاح API ({status}). تحقّق منه في الإعدادات.",
+   "fr": "{name} a refusé la clé d'API ({status}). Vérifie-la dans les Réglages.",
+   "bn": "{name} API কী প্রত্যাখ্যান করেছে ({status})। সেটিংসে যাচাই করুন।",
+   "pt-BR": "{name} recusou a chave de API ({status}). Verifique-a nas Configurações.",
+   "ru": "{name} отклонил API-ключ ({status}). Проверьте его в настройках.",
+   "id": "{name} menolak kunci API ({status}). Periksa di Pengaturan."
+  },
+  "{name} wasn't written by Cocoa — Cocoa has not touched it.": {
+   "zh-Hans": "{name} 不是由 Cocoa 写入的 — Cocoa 没有修改它。",
+   "hi": "{name} Cocoa ने नहीं लिखा था — Cocoa ने इसे नहीं छुआ।",
+   "es": "{name} no lo escribió Cocoa — Cocoa no lo ha tocado.",
+   "ar": "لم يكتب Cocoa الملف {name} — لم يمسّه Cocoa.",
+   "fr": "{name} n'a pas été écrit par Cocoa — Cocoa n'y a pas touché.",
+   "bn": "{name} Cocoa লেখেনি — Cocoa এতে হাত দেয়নি।",
+   "pt-BR": "{name} não foi escrito pelo Cocoa — o Cocoa não mexeu nele.",
+   "ru": "{name} записан не Cocoa — Cocoa его не трогал.",
+   "id": "{name} tidak ditulis oleh Cocoa — Cocoa tidak menyentuhnya."
+  },
+  "{name}: model not found (404). Pick another one above the chat box. {detail}": {
+   "zh-Hans": "{name}：未找到模型（404）。请在聊天框上方选择其他模型。{detail}",
+   "hi": "{name}: मॉडल नहीं मिला (404)। चैट बॉक्स के ऊपर कोई दूसरा चुनें। {detail}",
+   "es": "{name}: modelo no encontrado (404). Elige otro encima del cuadro de chat. {detail}",
+   "ar": "{name}: لم يُعثر على النموذج (404). اختر غيره فوق مربع الدردشة. {detail}",
+   "fr": "{name} : modèle introuvable (404). Choisis-en un autre au-dessus de la zone de chat. {detail}",
+   "bn": "{name}: মডেল পাওয়া যায়নি (404)। চ্যাট বক্সের উপরে অন্য একটি বেছে নিন। {detail}",
+   "pt-BR": "{name}: modelo não encontrado (404). Escolha outro acima da caixa de chat. {detail}",
+   "ru": "{name}: модель не найдена (404). Выберите другую над полем чата. {detail}",
+   "id": "{name}: model tidak ditemukan (404). Pilih yang lain di atas kotak obrolan. {detail}"
+  },
+  "{name}: not enough credits (402). {detail}": {
+   "zh-Hans": "{name}：额度不足（402）。{detail}",
+   "hi": "{name}: पर्याप्त क्रेडिट नहीं (402)। {detail}",
+   "es": "{name}: no hay créditos suficientes (402). {detail}",
+   "ar": "{name}: الرصيد غير كافٍ (402). {detail}",
+   "fr": "{name} : crédits insuffisants (402). {detail}",
+   "bn": "{name}: যথেষ্ট ক্রেডিট নেই (402)। {detail}",
+   "pt-BR": "{name}: créditos insuficientes (402). {detail}",
+   "ru": "{name}: недостаточно кредитов (402). {detail}",
+   "id": "{name}: kredit tidak cukup (402). {detail}"
+  },
+  "{path} changed since the preview. Nothing was written — review the new diff.": {
+   "zh-Hans": "{path} 在预览后已被修改。未写入任何内容 — 请查看新的差异。",
+   "hi": "प्रीव्यू के बाद {path} बदल गया। कुछ नहीं लिखा गया — नया डिफ़ देखें।",
+   "es": "{path} cambió desde la vista previa. No se escribió nada — revisa el nuevo diff.",
+   "ar": "تغيّر {path} منذ المعاينة. لم يُكتب أي شيء — راجع الفروقات الجديدة.",
+   "fr": "{path} a changé depuis l'aperçu. Rien n'a été écrit — relis le nouveau diff.",
+   "bn": "প্রিভিউয়ের পর {path} বদলে গেছে। কিছু লেখা হয়নি — নতুন ডিফ দেখুন।",
+   "pt-BR": "{path} mudou desde a prévia. Nada foi gravado — revise o novo diff.",
+   "ru": "{path} изменился после предпросмотра. Ничего не записано — проверьте новый diff.",
+   "id": "{path} berubah sejak pratinjau. Tidak ada yang ditulis — tinjau diff yang baru."
+  },
+  "{time} ago": {
+   "zh-Hans": "{time}前",
+   "hi": "{time} पहले",
+   "es": "hace {time}",
+   "ar": "منذ {time}",
+   "fr": "il y a {time}",
+   "bn": "{time} আগে",
+   "pt-BR": "há {time}",
+   "ru": "{time} назад",
+   "id": "{time} yang lalu"
+  },
+  "{total} past year": {
+   "zh-Hans": "过去一年 {total}",
+   "hi": "पिछले वर्ष {total}",
+   "es": "{total} el último año",
+   "ar": "{total} في العام الماضي",
+   "fr": "{total} sur un an",
+   "bn": "গত বছরে {total}",
+   "pt-BR": "{total} no último ano",
+   "ru": "{total} за год",
+   "id": "{total} setahun terakhir"
+  },
+  "{used}/{max} slots in use — the main tool doesn't take one.": {
+   "zh-Hans": "已用 {used}/{max} 个位置 — 主要工具不占位置。",
+   "hi": "{used}/{max} स्लॉट उपयोग में — मुख्य टूल कोई स्लॉट नहीं लेता।",
+   "es": "{used}/{max} espacios en uso — la herramienta principal no ocupa ninguno.",
+   "ar": "{used}/{max} من الخانات مستخدمة — الأداة الرئيسية لا تشغل خانة.",
+   "fr": "{used}/{max} emplacements utilisés — l'outil principal n'en prend pas.",
+   "bn": "{used}/{max} স্লট ব্যবহৃত — প্রধান টুল কোনো স্লট নেয় না।",
+   "pt-BR": "{used}/{max} espaços em uso — a ferramenta principal não ocupa nenhum.",
+   "ru": "Занято мест: {used}/{max} — основной инструмент место не занимает.",
+   "id": "{used}/{max} slot terpakai — alat utama tidak memakai slot."
+  },
+  "{what} has an unexpected type — Cocoa has not touched it.": {
+   "zh-Hans": "{what} 的类型不符合预期 — Cocoa 没有修改它。",
+   "hi": "{what} का प्रकार अपेक्षित नहीं है — Cocoa ने इसे नहीं छुआ।",
+   "es": "{what} tiene un tipo inesperado — Cocoa no lo ha tocado.",
+   "ar": "{what} من نوع غير متوقع — لم يمسّه Cocoa.",
+   "fr": "{what} a un type inattendu — Cocoa n'y a pas touché.",
+   "bn": "{what}-এর ধরন অপ্রত্যাশিত — Cocoa এতে হাত দেয়নি।",
+   "pt-BR": "{what} tem um tipo inesperado — o Cocoa não mexeu nele.",
+   "ru": "У {what} неожиданный тип — Cocoa его не трогал.",
+   "id": "{what} bertipe tak terduga — Cocoa tidak menyentuhnya."
+  },
+  "• subagent done": {
+   "zh-Hans": "• 子代理完成",
+   "hi": "• सब-एजेंट पूरा",
+   "es": "• subagente terminado",
+   "ar": "• انتهى الوكيل الفرعي",
+   "fr": "• sous-agent terminé",
+   "bn": "• সাব-এজেন্ট শেষ",
+   "pt-BR": "• subagente concluído",
+   "ru": "• субагент завершил",
+   "id": "• subagen selesai"
+  },
   "+ subagent": {
    "zh-Hans": "+ 子代理",
    "hi": "+ सब-एजेंट",
@@ -33,6 +423,17 @@
    "pt-BR": "+ subagente",
    "ru": "+ субагент",
    "id": "+ subagen"
+  },
+  "⚠ failed": {
+   "zh-Hans": "⚠ 失败",
+   "hi": "⚠ विफल",
+   "es": "⚠ falló",
+   "ar": "⚠ فشل",
+   "fr": "⚠ échec",
+   "bn": "⚠ ব্যর্থ",
+   "pt-BR": "⚠ falhou",
+   "ru": "⚠ ошибка",
+   "id": "⚠ gagal"
   },
   "A hook group named \"cocoa\" that Cocoa did not write is already there — Cocoa has not touched it.": {
    "zh-Hans": "已存在一个并非 Cocoa 写入的名为“cocoa”的 hook 组 — Cocoa 没有修改它。",
@@ -45,6 +446,28 @@
    "ru": "Уже есть группа хуков «cocoa», которую написал не Cocoa, — Cocoa её не трогал.",
    "id": "Sudah ada grup hook bernama “cocoa” yang tidak ditulis Cocoa — Cocoa tidak menyentuhnya."
   },
+  "A key is only sent over https, or to a server on this computer.": {
+   "zh-Hans": "密钥只会通过 https 发送，或发送到本机上的服务器。",
+   "hi": "कुंजी केवल https पर, या इसी कंप्यूटर के सर्वर को भेजी जाती है।",
+   "es": "La clave solo se envía por https o a un servidor de este ordenador.",
+   "ar": "لا يُرسَل المفتاح إلا عبر https، أو إلى خادم على هذا الحاسوب.",
+   "fr": "La clé n'est envoyée qu'en https, ou à un serveur sur cet ordinateur.",
+   "bn": "কী কেবল https-এর মাধ্যমে, অথবা এই কম্পিউটারের কোনো সার্ভারে পাঠানো হয়।",
+   "pt-BR": "A chave só é enviada por https ou para um servidor neste computador.",
+   "ru": "Ключ отправляется только по https или на сервер на этом компьютере.",
+   "id": "Kunci hanya dikirim lewat https, atau ke server di komputer ini."
+  },
+  "Add Active Pills": {
+   "zh-Hans": "添加活跃胶囊",
+   "hi": "सक्रिय पिल्स जोड़ें",
+   "es": "Agregar píldoras activas",
+   "ar": "إضافة كبسولات نشطة",
+   "fr": "Ajouter des pilules actives",
+   "bn": "সক্রিয় পিল যোগ করুন",
+   "pt-BR": "Adicionar pílulas ativas",
+   "ru": "Добавить активные плашки",
+   "id": "Tambah Pil Aktif"
+  },
   "AI for the chat": {
    "zh-Hans": "聊天用的 AI",
    "hi": "चैट के लिए AI",
@@ -55,6 +478,50 @@
    "pt-BR": "IA para o chat",
    "ru": "ИИ для чата",
    "id": "AI untuk obrolan"
+  },
+  "All day": {
+   "zh-Hans": "全天",
+   "hi": "पूरा दिन",
+   "es": "Todo el día",
+   "ar": "طوال اليوم",
+   "fr": "Toute la journée",
+   "bn": "সারাদিন",
+   "pt-BR": "Dia inteiro",
+   "ru": "Весь день",
+   "id": "Sepanjang hari"
+  },
+  "all green": {
+   "zh-Hans": "全部通过",
+   "hi": "सब हरा",
+   "es": "todo en verde",
+   "ar": "كلها خضراء",
+   "fr": "tout est vert",
+   "bn": "সব সবুজ",
+   "pt-BR": "tudo verde",
+   "ru": "всё зелёное",
+   "id": "semua hijau"
+  },
+  "Answer in terminal": {
+   "zh-Hans": "在终端中回答",
+   "hi": "टर्मिनल में जवाब दें",
+   "es": "Responder en la terminal",
+   "ar": "الرد في الطرفية",
+   "fr": "Répondre dans le terminal",
+   "bn": "টার্মিনালে উত্তর দিন",
+   "pt-BR": "Responder no terminal",
+   "ru": "Ответить в терминале",
+   "id": "Jawab di terminal"
+  },
+  "Answer it in your terminal.": {
+   "zh-Hans": "请在终端中回答。",
+   "hi": "इसका जवाब अपने टर्मिनल में दें।",
+   "es": "Respóndela en tu terminal.",
+   "ar": "أجب عنه في الطرفية.",
+   "fr": "Réponds-y dans ton terminal.",
+   "bn": "আপনার টার্মিনালে উত্তর দিন।",
+   "pt-BR": "Responda no seu terminal.",
+   "ru": "Ответьте в терминале.",
+   "id": "Jawab di terminal Anda."
   },
   "API error {code}": {
    "zh-Hans": "API 错误 {code}",
@@ -100,28 +567,6 @@
    "ru": "Нет API-ключа. Откройте настройки.",
    "id": "Kunci API tidak ada. Buka pengaturan."
   },
-  "Answer in terminal": {
-   "zh-Hans": "在终端中回答",
-   "hi": "टर्मिनल में जवाब दें",
-   "es": "Responder en la terminal",
-   "ar": "الرد في الطرفية",
-   "fr": "Répondre dans le terminal",
-   "bn": "টার্মিনালে উত্তর দিন",
-   "pt-BR": "Responder no terminal",
-   "ru": "Ответить в терминале",
-   "id": "Jawab di terminal"
-  },
-  "Answer it in your terminal.": {
-   "zh-Hans": "请在终端中回答。",
-   "hi": "इसका जवाब अपने टर्मिनल में दें।",
-   "es": "Respóndela en tu terminal.",
-   "ar": "أجب عنه في الطرفية.",
-   "fr": "Réponds-y dans ton terminal.",
-   "bn": "আপনার টার্মিনালে উত্তর দিন।",
-   "pt-BR": "Responda no seu terminal.",
-   "ru": "Ответьте в терминале.",
-   "id": "Jawab di terminal Anda."
-  },
   "Ask": {
    "zh-Hans": "提问",
    "hi": "पूछें",
@@ -155,16 +600,16 @@
    "ru": "Прикрепить активное окно к чату",
    "id": "Lampirkan jendela depan ke obrolan"
   },
-  "Auto (seasons)": {
-   "zh-Hans": "自动（随季节）",
-   "hi": "ऑटो (मौसम के अनुसार)",
-   "es": "Auto (estaciones)",
-   "ar": "تلقائي (حسب المواسم)",
-   "fr": "Auto (saisons)",
-   "bn": "অটো (ঋতু অনুযায়ী)",
-   "pt-BR": "Auto (estações)",
-   "ru": "Авто (по сезону)",
-   "id": "Otomatis (musim)"
+  "Auto · {outfit}": {
+   "zh-Hans": "自动 · {outfit}",
+   "hi": "ऑटो · {outfit}",
+   "es": "Auto · {outfit}",
+   "ar": "تلقائي · {outfit}",
+   "fr": "Auto · {outfit}",
+   "bn": "অটো · {outfit}",
+   "pt-BR": "Auto · {outfit}",
+   "ru": "Авто · {outfit}",
+   "id": "Otomatis · {outfit}"
   },
   "Auto · follows the seasons (now: {outfit})": {
    "zh-Hans": "自动 · 随季节变化（当前：{outfit}）",
@@ -177,16 +622,16 @@
    "ru": "Авто · по сезону (сейчас: {outfit})",
    "id": "Otomatis · mengikuti musim (sekarang: {outfit})"
   },
-  "Auto · {outfit}": {
-   "zh-Hans": "自动 · {outfit}",
-   "hi": "ऑटो · {outfit}",
-   "es": "Auto · {outfit}",
-   "ar": "تلقائي · {outfit}",
-   "fr": "Auto · {outfit}",
-   "bn": "অটো · {outfit}",
-   "pt-BR": "Auto · {outfit}",
-   "ru": "Авто · {outfit}",
-   "id": "Otomatis · {outfit}"
+  "Auto (seasons)": {
+   "zh-Hans": "自动（随季节）",
+   "hi": "ऑटो (मौसम के अनुसार)",
+   "es": "Auto (estaciones)",
+   "ar": "تلقائي (حسب المواسم)",
+   "fr": "Auto (saisons)",
+   "bn": "অটো (ঋতু অনুযায়ী)",
+   "pt-BR": "Auto (estações)",
+   "ru": "Авто (по сезону)",
+   "id": "Otomatis (musim)"
   },
   "Auto-close": {
    "zh-Hans": "自动关闭",
@@ -198,6 +643,17 @@
    "pt-BR": "Fechar sozinho",
    "ru": "Автозакрытие",
    "id": "Tutup otomatis"
+  },
+  "Auto-expand on activity": {
+   "zh-Hans": "活动时自动展开",
+   "hi": "गतिविधि पर ऑटो-विस्तार",
+   "es": "Autoexpandir con actividad",
+   "ar": "توسيع تلقائي عند وجود نشاط",
+   "fr": "Déroulement auto lors de l'activité",
+   "bn": "কার্যকলাপে স্বয়ংক্রিয় প্রসারিত",
+   "pt-BR": "Expandir auto com atividade",
+   "ru": "Автораскрытие при активности",
+   "id": "Perluas otomatis saat ada aktivitas"
   },
   "Back": {
    "zh-Hans": "返回",
@@ -221,17 +677,6 @@
    "ru": "Сохранить копию и удалить",
    "id": "Cadangkan dan hapus"
   },
-  "Browser": {
-   "zh-Hans": "浏览器",
-   "hi": "ब्राउज़र",
-   "es": "Navegador",
-   "ar": "المتصفح",
-   "fr": "Navigateur",
-   "bn": "ব্রাউজার",
-   "pt-BR": "Navegador",
-   "ru": "Браузер",
-   "id": "Peramban"
-  },
   "Back up and write": {
    "zh-Hans": "备份并写入",
    "hi": "बैकअप लें और लिखें",
@@ -243,17 +688,6 @@
    "ru": "Сохранить копию и записать",
    "id": "Cadangkan dan tulis"
   },
-  "Backup of {path} failed, nothing was written: {error}": {
-   "zh-Hans": "{path} 备份失败，未写入任何内容：{error}",
-   "hi": "{path} का बैकअप विफल रहा, कुछ नहीं लिखा गया: {error}",
-   "es": "Falló la copia de seguridad de {path}, no se escribió nada: {error}",
-   "ar": "فشل النسخ الاحتياطي لـ {path}، لم يُكتب أي شيء: {error}",
-   "fr": "La sauvegarde de {path} a échoué, rien n'a été écrit : {error}",
-   "bn": "{path}-এর ব্যাকআপ ব্যর্থ, কিছু লেখা হয়নি: {error}",
-   "pt-BR": "O backup de {path} falhou, nada foi gravado: {error}",
-   "ru": "Не удалось сохранить копию {path}, ничего не записано: {error}",
-   "id": "Pencadangan {path} gagal, tidak ada yang ditulis: {error}"
-  },
   "Backup → {path}": {
    "zh-Hans": "备份 → {path}",
    "hi": "बैकअप → {path}",
@@ -264,6 +698,17 @@
    "pt-BR": "Backup → {path}",
    "ru": "Резервная копия → {path}",
    "id": "Cadangan → {path}"
+  },
+  "Backup of {path} failed, nothing was written: {error}": {
+   "zh-Hans": "{path} 备份失败，未写入任何内容：{error}",
+   "hi": "{path} का बैकअप विफल रहा, कुछ नहीं लिखा गया: {error}",
+   "es": "Falló la copia de seguridad de {path}, no se escribió nada: {error}",
+   "ar": "فشل النسخ الاحتياطي لـ {path}، لم يُكتب أي شيء: {error}",
+   "fr": "La sauvegarde de {path} a échoué, rien n'a été écrit : {error}",
+   "bn": "{path}-এর ব্যাকআপ ব্যর্থ, কিছু লেখা হয়নি: {error}",
+   "pt-BR": "O backup de {path} falhou, nada foi gravado: {error}",
+   "ru": "Не удалось сохранить копию {path}, ничего не записано: {error}",
+   "id": "Pencadangan {path} gagal, tidak ada yang ditulis: {error}"
   },
   "Bad API response: {error}": {
    "zh-Hans": "API 响应无效：{error}",
@@ -298,6 +743,17 @@
    "ru": "Бантик",
    "id": "Pita"
   },
+  "Browser": {
+   "zh-Hans": "浏览器",
+   "hi": "ब्राउज़र",
+   "es": "Navegador",
+   "ar": "المتصفح",
+   "fr": "Navigateur",
+   "bn": "ব্রাউজার",
+   "pt-BR": "Navegador",
+   "ru": "Браузер",
+   "id": "Peramban"
+  },
   "Bunny ears": {
    "zh-Hans": "兔耳朵",
    "hi": "खरगोश के कान",
@@ -308,6 +764,17 @@
    "pt-BR": "Orelhas de coelho",
    "ru": "Заячьи ушки",
    "id": "Telinga kelinci"
+  },
+  "Calendar feed unavailable": {
+   "zh-Hans": "日历订阅源不可用",
+   "hi": "कैलेंडर फ़ीड अनुपलब्ध है",
+   "es": "Canal de calendario no disponible",
+   "ar": "خلاصة التقويم غير متوفرة",
+   "fr": "Flux de calendrier non disponible",
+   "bn": "ক্যালেন্ডার ফিড পাওয়া যায়নি",
+   "pt-BR": "Feed do calendário indisponível",
+   "ru": "Канал календаря недоступен",
+   "id": "Feed kalender tidak tersedia"
   },
   "Can't read {path}: {error}": {
    "zh-Hans": "无法读取 {path}：{error}",
@@ -375,17 +842,6 @@
    "ru": "Провайдеры чата",
    "id": "Penyedia obrolan"
   },
-  "Chat with Google AI, OpenAI or OpenRouter instead of Claude: add a key here, then click the model name above the chat box to switch provider and model. Keys stay in the system keychain. These providers get no web search and no tools: they can answer, never act on this computer.": {
-   "zh-Hans": "用 Google AI、OpenAI 或 OpenRouter 代替 Claude 聊天：在这里添加密钥，然后点击聊天框上方的模型名称来切换服务商和模型。密钥保存在系统钥匙串中。这些服务商没有网页搜索和工具：它们只能回答，绝不会在这台电脑上执行操作。",
-   "hi": "Claude की जगह Google AI, OpenAI या OpenRouter से चैट करें: यहाँ एक कुंजी जोड़ें, फिर प्रदाता और मॉडल बदलने के लिए चैट बॉक्स के ऊपर मॉडल के नाम पर क्लिक करें। कुंजियाँ सिस्टम कीचेन में रहती हैं। इन प्रदाताओं को न वेब सर्च मिलता है न टूल: वे जवाब दे सकते हैं, इस कंप्यूटर पर कभी कुछ नहीं करते।",
-   "es": "Chatea con Google AI, OpenAI u OpenRouter en lugar de Claude: añade una clave aquí y luego haz clic en el nombre del modelo encima del cuadro de chat para cambiar de proveedor y modelo. Las claves se quedan en el llavero del sistema. Estos proveedores no tienen búsqueda web ni herramientas: pueden responder, nunca actuar en este equipo.",
-   "ar": "دردش مع Google AI أو OpenAI أو OpenRouter بدلًا من Claude: أضف مفتاحًا هنا، ثم انقر على اسم النموذج فوق مربع الدردشة لتبديل المزوّد والنموذج. تبقى المفاتيح في سلسلة مفاتيح النظام. لا يحصل هؤلاء المزوّدون على بحث الويب ولا على الأدوات: يمكنهم الإجابة، ولا يتصرفون أبدًا على هذا الحاسوب.",
-   "fr": "Discute avec Google AI, OpenAI ou OpenRouter à la place de Claude : ajoute une clé ici, puis clique sur le nom du modèle au-dessus de la zone de chat pour changer de fournisseur et de modèle. Les clés restent dans le trousseau du système. Ces fournisseurs n'ont ni recherche web ni outils : ils peuvent répondre, jamais agir sur cet ordinateur.",
-   "bn": "Claude-এর বদলে Google AI, OpenAI বা OpenRouter-এর সঙ্গে চ্যাট করুন: এখানে একটি কী যোগ করুন, তারপর প্রদানকারী ও মডেল বদলাতে চ্যাট বক্সের উপরে মডেলের নামে ক্লিক করুন। কী সিস্টেম কীচেইনে থাকে। এই প্রদানকারীরা ওয়েব সার্চ বা টুল পায় না: তারা উত্তর দিতে পারে, এই কম্পিউটারে কখনো কিছু করে না।",
-   "pt-BR": "Converse com Google AI, OpenAI ou OpenRouter em vez do Claude: adicione uma chave aqui e clique no nome do modelo acima da caixa de chat para trocar de provedor e de modelo. As chaves ficam no chaveiro do sistema. Esses provedores não têm busca na web nem ferramentas: podem responder, nunca agir neste computador.",
-   "ru": "Общайтесь с Google AI, OpenAI или OpenRouter вместо Claude: добавьте ключ здесь, затем нажмите на название модели над полем чата, чтобы сменить провайдера и модель. Ключи хранятся в системной связке ключей. У этих провайдеров нет веб-поиска и инструментов: они могут отвечать, но никогда не действуют на этом компьютере.",
-   "id": "Mengobrol dengan Google AI, OpenAI, atau OpenRouter sebagai ganti Claude: tambahkan kunci di sini, lalu klik nama model di atas kotak obrolan untuk mengganti penyedia dan model. Kunci tetap di keychain sistem. Penyedia ini tidak punya pencarian web maupun alat: mereka bisa menjawab, tidak pernah bertindak di komputer ini."
-  },
   "Chat with a model you run yourself: Ollama or LM Studio (leave the address empty for the usual one on this computer), or any server that speaks the OpenAI API, such as vLLM or llama.cpp. Once connected, pick it above the chat box.": {
    "zh-Hans": "与你自己运行的模型聊天：Ollama 或 LM Studio（地址留空即使用本机的默认地址），或任何兼容 OpenAI API 的服务器，例如 vLLM 或 llama.cpp。连接后，在聊天框上方选择它。",
    "hi": "अपने चलाए मॉडल से चैट करें: Ollama या LM Studio (इस कंप्यूटर के सामान्य पते के लिए पता खाली छोड़ें), या OpenAI API बोलने वाला कोई भी सर्वर, जैसे vLLM या llama.cpp। कनेक्ट होने के बाद, उसे चैट बॉक्स के ऊपर चुनें।",
@@ -396,6 +852,17 @@
    "pt-BR": "Converse com um modelo que você mesmo executa: Ollama ou LM Studio (deixe o endereço vazio para usar o padrão neste computador), ou qualquer servidor compatível com a API da OpenAI, como vLLM ou llama.cpp. Depois de conectado, escolha-o acima da caixa de chat.",
    "ru": "Общайтесь с моделью, которую запускаете сами: Ollama или LM Studio (оставьте адрес пустым, чтобы использовать обычный адрес на этом компьютере) или любой сервер с API OpenAI, например vLLM или llama.cpp. После подключения выберите его над полем чата.",
    "id": "Mengobrol dengan model yang Anda jalankan sendiri: Ollama atau LM Studio (kosongkan alamat untuk alamat biasa di komputer ini), atau server apa pun yang mendukung API OpenAI, seperti vLLM atau llama.cpp. Setelah terhubung, pilih di atas kotak obrolan."
+  },
+  "Chat with Google AI, OpenAI or OpenRouter instead of Claude: add a key here, then click the model name above the chat box to switch provider and model. Keys stay in the system keychain. These providers get no web search and no tools: they can answer, never act on this computer.": {
+   "zh-Hans": "用 Google AI、OpenAI 或 OpenRouter 代替 Claude 聊天：在这里添加密钥，然后点击聊天框上方的模型名称来切换服务商和模型。密钥保存在系统钥匙串中。这些服务商没有网页搜索和工具：它们只能回答，绝不会在这台电脑上执行操作。",
+   "hi": "Claude की जगह Google AI, OpenAI या OpenRouter से चैट करें: यहाँ एक कुंजी जोड़ें, फिर प्रदाता और मॉडल बदलने के लिए चैट बॉक्स के ऊपर मॉडल के नाम पर क्लिक करें। कुंजियाँ सिस्टम कीचेन में रहती हैं। इन प्रदाताओं को न वेब सर्च मिलता है न टूल: वे जवाब दे सकते हैं, इस कंप्यूटर पर कभी कुछ नहीं करते।",
+   "es": "Chatea con Google AI, OpenAI u OpenRouter en lugar de Claude: añade una clave aquí y luego haz clic en el nombre del modelo encima del cuadro de chat para cambiar de proveedor y modelo. Las claves se quedan en el llavero del sistema. Estos proveedores no tienen búsqueda web ni herramientas: pueden responder, nunca actuar en este equipo.",
+   "ar": "دردش مع Google AI أو OpenAI أو OpenRouter بدلًا من Claude: أضف مفتاحًا هنا، ثم انقر على اسم النموذج فوق مربع الدردشة لتبديل المزوّد والنموذج. تبقى المفاتيح في سلسلة مفاتيح النظام. لا يحصل هؤلاء المزوّدون على بحث الويب ولا على الأدوات: يمكنهم الإجابة، ولا يتصرفون أبدًا على هذا الحاسوب.",
+   "fr": "Discute avec Google AI, OpenAI ou OpenRouter à la place de Claude : ajoute une clé ici, puis clique sur le nom du modèle au-dessus de la zone de chat pour changer de fournisseur et de modèle. Les clés restent dans le trousseau du système. Ces fournisseurs n'ont ni recherche web ni outils : ils peuvent répondre, jamais agir sur cet ordinateur.",
+   "bn": "Claude-এর বদলে Google AI, OpenAI বা OpenRouter-এর সঙ্গে চ্যাট করুন: এখানে একটি কী যোগ করুন, তারপর প্রদানকারী ও মডেল বদলাতে চ্যাট বক্সের উপরে মডেলের নামে ক্লিক করুন। কী সিস্টেম কীচেইনে থাকে। এই প্রদানকারীরা ওয়েব সার্চ বা টুল পায় না: তারা উত্তর দিতে পারে, এই কম্পিউটারে কখনো কিছু করে না।",
+   "pt-BR": "Converse com Google AI, OpenAI ou OpenRouter em vez do Claude: adicione uma chave aqui e clique no nome do modelo acima da caixa de chat para trocar de provedor e de modelo. As chaves ficam no chaveiro do sistema. Esses provedores não têm busca na web nem ferramentas: podem responder, nunca agir neste computador.",
+   "ru": "Общайтесь с Google AI, OpenAI или OpenRouter вместо Claude: добавьте ключ здесь, затем нажмите на название модели над полем чата, чтобы сменить провайдера и модель. Ключи хранятся в системной связке ключей. У этих провайдеров нет веб-поиска и инструментов: они могут отвечать, но никогда не действуют на этом компьютере.",
+   "id": "Mengobrol dengan Google AI, OpenAI, atau OpenRouter sebagai ganti Claude: tambahkan kunci di sini, lalu klik nama model di atas kotak obrolan untuk mengganti penyedia dan model. Kunci tetap di keychain sistem. Penyedia ini tidak punya pencarian web maupun alat: mereka bisa menjawab, tidak pernah bertindak di komputer ini."
   },
   "Choose a model": {
    "zh-Hans": "选择模型",
@@ -452,28 +919,6 @@
    "ru": "Использование тарифа Claude",
    "id": "Pemakaian paket Claude"
   },
-  "Collapsed & Expanded": {
-   "zh-Hans": "折叠与展开",
-   "hi": "संक्षिप्त और विस्तृत",
-   "es": "Plegado y expandido",
-   "ar": "المطوي والموسع",
-   "fr": "Plié et déplié",
-   "bn": "সংক্ষিপ্ত এবং প্রসারিত",
-   "pt-BR": "Recolhido e expandido",
-   "ru": "В свёрнутом и развёрнутом",
-   "id": "Tercakup & Diperluas"
-  },
-  "CPU usage": {
-   "zh-Hans": "CPU 使用率",
-   "hi": "CPU उपयोग",
-   "es": "Uso de CPU",
-   "ar": "استخدام المعالج (CPU)",
-   "fr": "Utilisation du CPU",
-   "bn": "CPU ব্যবহার",
-   "pt-BR": "Uso de CPU",
-   "ru": "Использование ЦП",
-   "id": "Penggunaan CPU"
-  },
   "Close the island": {
    "zh-Hans": "关闭岛",
    "hi": "आइलैंड बंद करें",
@@ -484,6 +929,50 @@
    "pt-BR": "Fechar a ilha",
    "ru": "Закрыть остров",
    "id": "Tutup pulau"
+  },
+  "Cocoa could not list the agents.": {
+   "zh-Hans": "Cocoa 无法列出代理。",
+   "hi": "Cocoa एजेंटों की सूची नहीं बना सका।",
+   "es": "Cocoa no pudo listar los agentes.",
+   "ar": "تعذّر على Cocoa سرد الوكلاء.",
+   "fr": "Cocoa n'a pas pu lister les agents.",
+   "bn": "Cocoa এজেন্টদের তালিকা করতে পারেনি।",
+   "pt-BR": "O Cocoa não conseguiu listar os agentes.",
+   "ru": "Cocoa не удалось получить список агентов.",
+   "id": "Cocoa tidak dapat menampilkan daftar agen."
+  },
+  "Cocoa counts your agent sessions as they happen — check back next Monday.": {
+   "zh-Hans": "Cocoa 会实时统计你的代理会话 — 下周一再来看看吧。",
+   "hi": "Cocoa आपके एजेंट सत्रों को होते-होते गिनता है — अगले सोमवार फिर देखें।",
+   "es": "Cocoa cuenta tus sesiones de agentes a medida que ocurren — vuelve el próximo lunes.",
+   "ar": "يحسب Cocoa جلسات وكلائك أثناء حدوثها — عُد يوم الاثنين القادم.",
+   "fr": "Cocoa compte tes sessions d'agents au fil de l'eau — reviens lundi prochain.",
+   "bn": "Cocoa আপনার এজেন্ট সেশন ঘটার সঙ্গে সঙ্গে গোনে — পরের সোমবার আবার দেখুন।",
+   "pt-BR": "O Cocoa conta suas sessões de agentes conforme acontecem — volte na próxima segunda-feira.",
+   "ru": "Cocoa считает ваши сессии агентов по ходу дела — загляните в следующий понедельник.",
+   "id": "Cocoa menghitung sesi agen Anda saat berlangsung — cek lagi Senin depan."
+  },
+  "Cocoa is hooked into your Claude Code sessions. Tool calls, questions and permission requests show up in the island, and you can answer them there.": {
+   "zh-Hans": "Cocoa 已接入你的 Claude Code 会话。工具调用、问题和权限请求都会显示在岛中，你可以直接在那里回应。",
+   "hi": "Cocoa आपके Claude Code सत्रों से जुड़ा है। टूल कॉल, प्रश्न और अनुमति अनुरोध आइलैंड में दिखते हैं, और आप वहीं उनका जवाब दे सकते हैं।",
+   "es": "Cocoa está conectado a tus sesiones de Claude Code. Las llamadas a herramientas, las preguntas y las solicitudes de permiso aparecen en la isla y puedes responderlas ahí.",
+   "ar": "Cocoa متصل بجلسات Claude Code لديك. تظهر استدعاءات الأدوات والأسئلة وطلبات الإذن في الشريط، ويمكنك الرد عليها من هناك.",
+   "fr": "Cocoa est branché sur tes sessions Claude Code. Les appels d'outils, les questions et les demandes de permission s'affichent dans l'île, et tu peux y répondre directement.",
+   "bn": "Cocoa আপনার Claude Code সেশনের সঙ্গে যুক্ত। টুল কল, প্রশ্ন আর অনুমতির অনুরোধ আইল্যান্ডে দেখা যায়, এবং আপনি সেখানেই উত্তর দিতে পারেন।",
+   "pt-BR": "O Cocoa está conectado às suas sessões do Claude Code. Chamadas de ferramentas, perguntas e pedidos de permissão aparecem na ilha, e você pode respondê-los ali.",
+   "ru": "Cocoa подключён к вашим сессиям Claude Code. Вызовы инструментов, вопросы и запросы разрешений появляются в острове, и отвечать можно прямо там.",
+   "id": "Cocoa terhubung ke sesi Claude Code Anda. Panggilan alat, pertanyaan, dan permintaan izin muncul di pulau, dan Anda bisa menjawabnya di sana."
+  },
+  "cocoa-hook.exe is not in place yet. Restart Cocoa; if it still fails, build it with `cargo build -p cocoa-hook`.": {
+   "zh-Hans": "cocoa-hook.exe 尚未就位。请重启 Cocoa；如果仍然失败，请用 `cargo build -p cocoa-hook` 构建它。",
+   "hi": "cocoa-hook.exe अभी अपनी जगह पर नहीं है। Cocoa फिर से शुरू करें; अगर फिर भी न हो, तो इसे `cargo build -p cocoa-hook` से बनाएँ।",
+   "es": "cocoa-hook.exe aún no está en su sitio. Reinicia Cocoa; si sigue fallando, compílalo con `cargo build -p cocoa-hook`.",
+   "ar": "cocoa-hook.exe ليس في مكانه بعد. أعد تشغيل Cocoa؛ وإن استمر الفشل فابنِه بالأمر `cargo build -p cocoa-hook`.",
+   "fr": "cocoa-hook.exe n'est pas encore en place. Redémarre Cocoa ; si ça échoue encore, compile-le avec `cargo build -p cocoa-hook`.",
+   "bn": "cocoa-hook.exe এখনো জায়গামতো নেই। Cocoa আবার চালু করুন; তবুও না হলে `cargo build -p cocoa-hook` দিয়ে এটি বানান।",
+   "pt-BR": "O cocoa-hook.exe ainda não está no lugar. Reinicie o Cocoa; se continuar falhando, compile-o com `cargo build -p cocoa-hook`.",
+   "ru": "cocoa-hook.exe ещё не на месте. Перезапустите Cocoa; если не поможет, соберите его командой `cargo build -p cocoa-hook`.",
+   "id": "cocoa-hook.exe belum ada di tempatnya. Mulai ulang Cocoa; jika masih gagal, build dengan `cargo build -p cocoa-hook`."
   },
   "Code": {
    "zh-Hans": "代码",
@@ -529,6 +1018,17 @@
    "ru": "Codex запускает новые хуки только после того, как вы им доверитесь: откройте Codex и один раз проверьте их через /hooks.",
    "id": "Codex hanya menjalankan hooks baru setelah Anda memercayainya: buka Codex dan tinjau sekali dengan /hooks."
   },
+  "Collapsed & Expanded": {
+   "zh-Hans": "折叠与展开",
+   "hi": "संक्षिप्त और विस्तृत",
+   "es": "Plegado y expandido",
+   "ar": "المطوي والموسع",
+   "fr": "Plié et déplié",
+   "bn": "সংক্ষিপ্ত এবং প্রসারিত",
+   "pt-BR": "Recolhido e expandido",
+   "ru": "В свёрнутом и развёрнутом",
+   "id": "Tercakup & Diperluas"
+  },
   "Connect {name} in Settings → Local models first.": {
    "zh-Hans": "请先在“设置 → 本地模型”中连接 {name}。",
    "hi": "पहले सेटिंग्स → लोकल मॉडल में {name} कनेक्ट करें।",
@@ -572,39 +1072,6 @@
    "pt-BR": "Não é possível copiar imagens aqui — use Salvar imagem.",
    "ru": "Копировать изображения здесь нельзя — используйте «Сохранить изображение».",
    "id": "Menyalin gambar tidak tersedia di sini — gunakan Simpan gambar."
-  },
-  "Cocoa could not list the agents.": {
-   "zh-Hans": "Cocoa 无法列出代理。",
-   "hi": "Cocoa एजेंटों की सूची नहीं बना सका।",
-   "es": "Cocoa no pudo listar los agentes.",
-   "ar": "تعذّر على Cocoa سرد الوكلاء.",
-   "fr": "Cocoa n'a pas pu lister les agents.",
-   "bn": "Cocoa এজেন্টদের তালিকা করতে পারেনি।",
-   "pt-BR": "O Cocoa não conseguiu listar os agentes.",
-   "ru": "Cocoa не удалось получить список агентов.",
-   "id": "Cocoa tidak dapat menampilkan daftar agen."
-  },
-  "Cocoa counts your agent sessions as they happen — check back next Monday.": {
-   "zh-Hans": "Cocoa 会实时统计你的代理会话 — 下周一再来看看吧。",
-   "hi": "Cocoa आपके एजेंट सत्रों को होते-होते गिनता है — अगले सोमवार फिर देखें।",
-   "es": "Cocoa cuenta tus sesiones de agentes a medida que ocurren — vuelve el próximo lunes.",
-   "ar": "يحسب Cocoa جلسات وكلائك أثناء حدوثها — عُد يوم الاثنين القادم.",
-   "fr": "Cocoa compte tes sessions d'agents au fil de l'eau — reviens lundi prochain.",
-   "bn": "Cocoa আপনার এজেন্ট সেশন ঘটার সঙ্গে সঙ্গে গোনে — পরের সোমবার আবার দেখুন।",
-   "pt-BR": "O Cocoa conta suas sessões de agentes conforme acontecem — volte na próxima segunda-feira.",
-   "ru": "Cocoa считает ваши сессии агентов по ходу дела — загляните в следующий понедельник.",
-   "id": "Cocoa menghitung sesi agen Anda saat berlangsung — cek lagi Senin depan."
-  },
-  "Cocoa is hooked into your Claude Code sessions. Tool calls, questions and permission requests show up in the island, and you can answer them there.": {
-   "zh-Hans": "Cocoa 已接入你的 Claude Code 会话。工具调用、问题和权限请求都会显示在岛中，你可以直接在那里回应。",
-   "hi": "Cocoa आपके Claude Code सत्रों से जुड़ा है। टूल कॉल, प्रश्न और अनुमति अनुरोध आइलैंड में दिखते हैं, और आप वहीं उनका जवाब दे सकते हैं।",
-   "es": "Cocoa está conectado a tus sesiones de Claude Code. Las llamadas a herramientas, las preguntas y las solicitudes de permiso aparecen en la isla y puedes responderlas ahí.",
-   "ar": "Cocoa متصل بجلسات Claude Code لديك. تظهر استدعاءات الأدوات والأسئلة وطلبات الإذن في الشريط، ويمكنك الرد عليها من هناك.",
-   "fr": "Cocoa est branché sur tes sessions Claude Code. Les appels d'outils, les questions et les demandes de permission s'affichent dans l'île, et tu peux y répondre directement.",
-   "bn": "Cocoa আপনার Claude Code সেশনের সঙ্গে যুক্ত। টুল কল, প্রশ্ন আর অনুমতির অনুরোধ আইল্যান্ডে দেখা যায়, এবং আপনি সেখানেই উত্তর দিতে পারেন।",
-   "pt-BR": "O Cocoa está conectado às suas sessões do Claude Code. Chamadas de ferramentas, perguntas e pedidos de permissão aparecem na ilha, e você pode respondê-los ali.",
-   "ru": "Cocoa подключён к вашим сессиям Claude Code. Вызовы инструментов, вопросы и запросы разрешений появляются в острове, и отвечать можно прямо там.",
-   "id": "Cocoa terhubung ke sesi Claude Code Anda. Panggilan alat, pertanyaan, dan permintaan izin muncul di pulau, dan Anda bisa menjawabnya di sana."
   },
   "Could not remove {path}: {error}": {
    "zh-Hans": "无法删除 {path}：{error}",
@@ -683,6 +1150,17 @@
    "ru": "Только счётчики и названия проектов — никогда команды, файлы или промпты. Хранится на этом компьютере 12 недель.",
    "id": "Hanya hitungan dan nama proyek — tidak pernah perintah, file, atau prompt. Disimpan di komputer ini selama 12 minggu."
   },
+  "CPU usage": {
+   "zh-Hans": "CPU 使用率",
+   "hi": "CPU उपयोग",
+   "es": "Uso de CPU",
+   "ar": "استخدام المعالج (CPU)",
+   "fr": "Utilisation du CPU",
+   "bn": "CPU ব্যবহার",
+   "pt-BR": "Uso de CPU",
+   "ru": "Использование ЦП",
+   "id": "Penggunaan CPU"
+  },
   "Crown": {
    "zh-Hans": "王冠",
    "hi": "मुकुट",
@@ -738,16 +1216,16 @@
    "ru": "Подробности",
    "id": "Detail"
   },
-  "Display under the cursor": {
-   "zh-Hans": "光标所在的显示器",
-   "hi": "कर्सर वाला डिस्प्ले",
-   "es": "Pantalla bajo el cursor",
-   "ar": "الشاشة التي عليها المؤشر",
-   "fr": "Écran sous le curseur",
-   "bn": "কার্সর যে ডিসপ্লেতে আছে",
-   "pt-BR": "Tela sob o cursor",
-   "ru": "Дисплей под курсором",
-   "id": "Layar di bawah kursor"
+  "Dismiss": {
+   "zh-Hans": "关闭",
+   "hi": "खारिज करें",
+   "es": "Descartar",
+   "ar": "تجاهل",
+   "fr": "Ignorer",
+   "bn": "খারিজ করুন",
+   "pt-BR": "Dispensar",
+   "ru": "Закрыть",
+   "id": "Tutup"
   },
   "Display live CPU, GPU and RAM telemetry in the notch center.": {
    "zh-Hans": "在刘海中心显示实时 CPU、GPU 和 RAM 遥测数据。",
@@ -760,71 +1238,16 @@
    "ru": "Показывать данные о загрузке ЦП, ГП и ОЗУ в центре нотча.",
    "id": "Tampilkan telemetri langsung CPU, GPU, dan RAM di tengah notch."
   },
-  "Expanded mode": {
-   "zh-Hans": "展开模式",
-   "hi": "विस्तृत मोड",
-   "es": "Modo expandido",
-   "ar": "الوضع الموسع",
-   "fr": "Mode déplié",
-   "bn": "প্রসারিত মোড",
-   "pt-BR": "Modo expandido",
-   "ru": "Развёрнутый режим",
-   "id": "Mode diperluas"
-  },
-  "GPU temperature": {
-   "zh-Hans": "GPU 温度",
-   "hi": "GPU तापमान",
-   "es": "Temperatura de la GPU",
-   "ar": "درجة حرارة بطاقة الرسوميات (GPU)",
-   "fr": "Température du GPU",
-   "bn": "GPU তাপমাত্রা",
-   "pt-BR": "Temperatura da GPU",
-   "ru": "Температура ГП",
-   "id": "Suhu GPU"
-  },
-  "GPU usage": {
-   "zh-Hans": "GPU 使用率",
-   "hi": "GPU उपयोग",
-   "es": "Uso de GPU",
-   "ar": "استخدام بطاقة الرسوميات (GPU)",
-   "fr": "Utilisation du GPU",
-   "bn": "GPU ব্যবহার",
-   "pt-BR": "Uso de GPU",
-   "ru": "Использование ГП",
-   "id": "Penggunaan GPU"
-  },
-  "Hardware & Performance": {
-   "zh-Hans": "硬件与性能",
-   "hi": "हार्डवेयर और प्रदर्शन",
-   "es": "Hardware y rendimiento",
-   "ar": "العتاد والأداء",
-   "fr": "Matériel et performances",
-   "bn": "হার্ডওয়্যার ও কর্মক্ষমতা",
-   "pt-BR": "Hardware e desempenho",
-   "ru": "Оборудование и производительность",
-   "id": "Perangkat Keras & Performa"
-  },
-  "RAM usage": {
-   "zh-Hans": "内存使用率",
-   "hi": "RAM उपयोग",
-   "es": "Uso de RAM",
-   "ar": "استخدام الذاكرة (RAM)",
-   "fr": "Utilisation de la RAM",
-   "bn": "RAM ব্যবহার",
-   "pt-BR": "Uso de RAM",
-   "ru": "Использование ОЗУ",
-   "id": "Penggunaan RAM"
-  },
-  "Show system stats": {
-   "zh-Hans": "显示系统状态",
-   "hi": "सिस्टम आंकड़े दिखाएं",
-   "es": "Mostrar estadísticas del sistema",
-   "ar": "إظهار إحصائيات النظام",
-   "fr": "Afficher les statistiques du système",
-   "bn": "সিস্টেমের পরিসংখ্যান দেখান",
-   "pt-BR": "Mostrar estatísticas do sistema",
-   "ru": "Показывать статистику системы",
-   "id": "Tampilkan statistik sistem"
+  "Display under the cursor": {
+   "zh-Hans": "光标所在的显示器",
+   "hi": "कर्सर वाला डिस्प्ले",
+   "es": "Pantalla bajo el cursor",
+   "ar": "الشاشة التي عليها المؤشر",
+   "fr": "Écran sous le curseur",
+   "bn": "কার্সর যে ডিসপ্লেতে আছে",
+   "pt-BR": "Tela sob o cursor",
+   "ru": "Дисплей под курсором",
+   "id": "Layar di bawah kursor"
   },
   "Docs": {
    "zh-Hans": "文档",
@@ -947,6 +1370,61 @@
    "ru": "Ошибка",
    "id": "Galat"
   },
+  "Expand notch on Windows notifications": {
+   "zh-Hans": "收到 Windows 通知时展开灵动岛",
+   "hi": "Windows नोटिफिकेशन आने पर नॉच का विस्तार करें",
+   "es": "Expandir notch con notificaciones de Windows",
+   "ar": "توسيع النوتش عند وصول إشعارات Windows",
+   "fr": "Agrandir le notch lors des notifications Windows",
+   "bn": "Windows বিজ্ঞপ্তি এলে নচ প্রসারিত করুন",
+   "pt-BR": "Expandir notch em notificações do Windows",
+   "ru": "Разворачивать вырез при уведомлениях Windows",
+   "id": "Perluas notch saat ada notifikasi Windows"
+  },
+  "Expand notch when coding agents perform actions": {
+   "zh-Hans": "当编码代理执行操作时展开灵动岛",
+   "hi": "कोडिंग एजेंट द्वारा कार्य करने पर नॉच का विस्तार करें",
+   "es": "Expandir el notch cuando los agentes de código realicen acciones",
+   "ar": "توسيع الشريط عندما ينفّذ وكلاء البرمجة إجراءات",
+   "fr": "Dérouler l'encoche quand les agents de code effectuent des actions",
+   "bn": "কোডিং এজেন্ট কোনো কাজ করলে নচ প্রসারিত করুন",
+   "pt-BR": "Expandir o notch quando os agentes de código realizarem ações",
+   "ru": "Раскрывать вырез, когда агенты кода выполняют действия",
+   "id": "Perluas notch saat agen pengodean melakukan tindakan"
+  },
+  "Expanded card layout when only one pill is active": {
+   "zh-Hans": "仅激活一个药丸时显示展开的卡片布局",
+   "hi": "केवल एक पिल सक्रिय होने पर विस्तारित कार्ड लेआउट",
+   "es": "Diseño de tarjeta expandida cuando solo hay una píldora activa",
+   "ar": "تخطيط بطاقة ممتدة عندما تكون حبة واحدة فقط نشطة",
+   "fr": "Disposition en carte étendue quand une seule pilule est active",
+   "bn": "শুধুমাত্র একটি পিল সক্রিয় থাকলে প্রসারিত কার্ড লেআউট",
+   "pt-BR": "Layout de cartão expandido quando apenas uma pílula está ativa",
+   "ru": "Макет расширенной карточки, если активна только одна плашка",
+   "id": "Tata letak kartu diperluas saat hanya satu pil yang aktif"
+  },
+  "Expanded mode": {
+   "zh-Hans": "展开模式",
+   "hi": "विस्तृत मोड",
+   "es": "Modo expandido",
+   "ar": "الوضع الموسع",
+   "fr": "Mode déplié",
+   "bn": "প্রসারিত মোড",
+   "pt-BR": "Modo expandido",
+   "ru": "Развёрнутый режим",
+   "id": "Mode diperluas"
+  },
+  "failing": {
+   "zh-Hans": "失败",
+   "hi": "विफल",
+   "es": "con fallos",
+   "ar": "فاشل",
+   "fr": "en échec",
+   "bn": "ব্যর্থ",
+   "pt-BR": "falhando",
+   "ru": "с ошибками",
+   "id": "gagal"
+  },
   "File": {
    "zh-Hans": "文件",
    "hi": "फ़ाइल",
@@ -957,6 +1435,17 @@
    "pt-BR": "Arquivo",
    "ru": "Файл",
    "id": "File"
+  },
+  "finished": {
+   "zh-Hans": "已完成",
+   "hi": "पूरा हुआ",
+   "es": "terminó",
+   "ar": "انتهى",
+   "fr": "a terminé",
+   "bn": "শেষ হয়েছে",
+   "pt-BR": "terminou",
+   "ru": "завершил",
+   "id": "selesai"
   },
   "Folders can't be dropped yet.": {
    "zh-Hans": "暂时还不能拖放文件夹。",
@@ -1013,6 +1502,39 @@
    "ru": "Перейти к ожидающему разрешению или вопросу",
    "id": "Buka izin atau pertanyaan yang menunggu"
   },
+  "GPU temperature": {
+   "zh-Hans": "GPU 温度",
+   "hi": "GPU तापमान",
+   "es": "Temperatura de la GPU",
+   "ar": "درجة حرارة بطاقة الرسوميات (GPU)",
+   "fr": "Température du GPU",
+   "bn": "GPU তাপমাত্রা",
+   "pt-BR": "Temperatura da GPU",
+   "ru": "Температура ГП",
+   "id": "Suhu GPU"
+  },
+  "GPU usage": {
+   "zh-Hans": "GPU 使用率",
+   "hi": "GPU उपयोग",
+   "es": "Uso de GPU",
+   "ar": "استخدام بطاقة الرسوميات (GPU)",
+   "fr": "Utilisation du GPU",
+   "bn": "GPU ব্যবহার",
+   "pt-BR": "Uso de GPU",
+   "ru": "Использование ГП",
+   "id": "Penggunaan GPU"
+  },
+  "Hardware & Performance": {
+   "zh-Hans": "硬件与性能",
+   "hi": "हार्डवेयर और प्रदर्शन",
+   "es": "Hardware y rendimiento",
+   "ar": "العتاد والأداء",
+   "fr": "Matériel et performances",
+   "bn": "হার্ডওয়্যার ও কর্মক্ষমতা",
+   "pt-BR": "Hardware e desempenho",
+   "ru": "Оборудование и производительность",
+   "id": "Perangkat Keras & Performa"
+  },
   "Hide project names": {
    "zh-Hans": "隐藏项目名称",
    "hi": "प्रोजेक्ट के नाम छिपाएँ",
@@ -1057,6 +1579,17 @@
    "ru": "Изображения",
    "id": "Gambar"
   },
+  "In Google Calendar: Settings → Integrate calendar → Secret address in iCal format.": {
+   "zh-Hans": "在 Google 日历中：设置 → 整合日历 → iCal 格式的私密地址。",
+   "hi": "Google Calendar में: सेटिंग्स → Integrate calendar → Secret address in iCal format.",
+   "es": "En Google Calendar: Configuración → Integrar el calendario → Dirección secreta en formato iCal.",
+   "ar": "في تقويم Google: الإعدادات ← دمج التقويم ← العنوان السري بتنسيق iCal.",
+   "fr": "Dans Google Calendar : Paramètres → Intégrer l'agenda → Adresse secrète au format iCal.",
+   "bn": "Google Calendar-এ: Settings → Integrate calendar → Secret address in iCal format.",
+   "pt-BR": "No Google Calendar: Configurações → Integrar agenda → Endereço secreto no formato iCal.",
+   "ru": "В Google Календаре: Настройки → Интеграция календаря → Закрытый адрес в формате iCal.",
+   "id": "Di Google Calendar: Setelan → Integrasikan kalender → Alamat rahasia dalam format iCal."
+  },
   "In the open island": {
    "zh-Hans": "在打开的岛中",
    "hi": "खुले आइलैंड में",
@@ -1089,6 +1622,17 @@
    "pt-BR": "Em uso por outro app",
    "ru": "Занято другим приложением",
    "id": "Dipakai aplikasi lain"
+  },
+  "Inspect file changes and additions as agents work": {
+   "zh-Hans": "在代理工作时检查文件更改和新增内容",
+   "hi": "एजेंट के काम करते समय फ़ाइल परिवर्तन और परिवर्धन का निरीक्षण करें",
+   "es": "Inspeccionar cambios y adiciones de archivos mientras trabajan los agentes",
+   "ar": "معاينة تغييرات الملفات والإضافات أثناء عمل الوكلاء",
+   "fr": "Inspecter les modifications et ajouts de fichiers pendant que les agents travaillent",
+   "bn": "এজেন্ট কাজ করার সময় ফাইলের পরিবর্তন এবং সংযোজন পরিদর্শন করুন",
+   "pt-BR": "Inspecionar alterações e adições de arquivos enquanto os agentes trabalham",
+   "ru": "Просмотр изменений и добавлений файлов по ходу работы агентов",
+   "id": "Periksa perubahan dan penambahan berkas saat agen bekerja"
   },
   "Install hooks…": {
    "zh-Hans": "安装 hooks…",
@@ -1133,6 +1677,17 @@
    "pt-BR": "Instalar…",
    "ru": "Установить…",
    "id": "Pasang…"
+  },
+  "installed": {
+   "zh-Hans": "已安装",
+   "hi": "इंस्टॉल है",
+   "es": "instalado",
+   "ar": "مثبَّت",
+   "fr": "installé",
+   "bn": "ইনস্টল আছে",
+   "pt-BR": "instalado",
+   "ru": "установлен",
+   "id": "terpasang"
   },
   "Instance URL": {
    "zh-Hans": "实例地址",
@@ -1189,6 +1744,39 @@
    "ru": "Неверный API-ключ (401)",
    "id": "Kunci API tidak valid (401)"
   },
+  "is asking": {
+   "zh-Hans": "在提问",
+   "hi": "पूछ रहा है",
+   "es": "está preguntando",
+   "ar": "يسأل",
+   "fr": "demande",
+   "bn": "জিজ্ঞেস করছে",
+   "pt-BR": "está perguntando",
+   "ru": "спрашивает",
+   "id": "bertanya"
+  },
+  "is asking ({index} of {total})": {
+   "zh-Hans": "在提问（第 {index} 个，共 {total} 个）",
+   "hi": "पूछ रहा है ({total} में से {index})",
+   "es": "está preguntando ({index} de {total})",
+   "ar": "يسأل ({index} من {total})",
+   "fr": "demande ({index} sur {total})",
+   "bn": "জিজ্ঞেস করছে ({total}টির মধ্যে {index})",
+   "pt-BR": "está perguntando ({index} de {total})",
+   "ru": "спрашивает ({index} из {total})",
+   "id": "bertanya ({index} dari {total})"
+  },
+  "is asking a question": {
+   "zh-Hans": "在提问",
+   "hi": "एक प्रश्न पूछ रहा है",
+   "es": "está haciendo una pregunta",
+   "ar": "يطرح سؤالًا",
+   "fr": "pose une question",
+   "bn": "একটি প্রশ্ন করছে",
+   "pt-BR": "está fazendo uma pergunta",
+   "ru": "задаёт вопрос",
+   "id": "mengajukan pertanyaan"
+  },
   "Island lives on": {
    "zh-Hans": "岛所在位置",
    "hi": "आइलैंड कहाँ रहे",
@@ -1199,6 +1787,28 @@
    "pt-BR": "A ilha fica na",
    "ru": "Остров на",
    "id": "Pulau berada di"
+  },
+  "Join": {
+   "zh-Hans": "加入",
+   "hi": "जुड़ें",
+   "es": "Unirse",
+   "ar": "انضمام",
+   "fr": "Rejoindre",
+   "bn": "যোগ দিন",
+   "pt-BR": "Entrar",
+   "ru": "Войти",
+   "id": "Gabung"
+  },
+  "Join call": {
+   "zh-Hans": "加入通话",
+   "hi": "कॉल में शामिल हों",
+   "es": "Unirse a la llamada",
+   "ar": "الانضمام للمكالمة",
+   "fr": "Rejoindre l'appel",
+   "bn": "কলে যোগ দিন",
+   "pt-BR": "Entrar na chamada",
+   "ru": "Присоединиться к звонку",
+   "id": "Gabung panggilan"
   },
   "Keep the island open": {
    "zh-Hans": "保持岛打开",
@@ -1288,17 +1898,6 @@
    "ru": "Запуск при старте системы",
    "id": "Jalankan saat startup"
   },
-  "Open on hover": {
-   "zh-Hans": "悬停时打开",
-   "hi": "होवर करने पर खोलें",
-   "es": "Abrir al pasar el cursor",
-   "ar": "الفتح عند التمرير",
-   "fr": "Ouvrir au survol",
-   "bn": "হোভারে খুলুন",
-   "pt-BR": "Abrir ao passar o cursor",
-   "ru": "Открывать при наведении",
-   "id": "Buka saat mengarahkan kursor"
-  },
   "Leave the user name and password out of the address.": {
    "zh-Hans": "请不要在地址中包含用户名和密码。",
    "hi": "पते में यूज़रनेम और पासवर्ड न डालें।",
@@ -1309,6 +1908,28 @@
    "pt-BR": "Não coloque usuário e senha no endereço.",
    "ru": "Не указывайте имя пользователя и пароль в адресе.",
    "id": "Jangan sertakan nama pengguna dan kata sandi di alamat."
+  },
+  "lines": {
+   "zh-Hans": "行",
+   "hi": "पंक्तियाँ",
+   "es": "líneas",
+   "ar": "أسطر",
+   "fr": "lignes",
+   "bn": "লাইন",
+   "pt-BR": "linhas",
+   "ru": "строк",
+   "id": "baris"
+  },
+  "Live Code Diff Inspector": {
+   "zh-Hans": "实时代码差异检查器",
+   "hi": "लाइव कोड डिफ इंस्पेक्टर",
+   "es": "Inspector de diferencias de código en vivo",
+   "ar": "فاحص فروق الكود المباشر",
+   "fr": "Inspecteur de diffs de code en direct",
+   "bn": "লাইভ কোড ডিফারেন্স পরিদর্শক",
+   "pt-BR": "Inspetor de diffs de código em tempo real",
+   "ru": "Инспектор диффов кода в реальном времени",
+   "id": "Inspektur diff kode langsung"
   },
   "Main display": {
    "zh-Hans": "主显示器",
@@ -1331,6 +1952,17 @@
    "pt-BR": "Ferramenta principal",
    "ru": "Основной инструмент",
    "id": "Alat utama"
+  },
+  "Manage active pills in Settings": {
+   "zh-Hans": "在设置中管理活跃胶囊",
+   "hi": "सेटिंग्स में सक्रिय पिल्स प्रबंधित करें",
+   "es": "Administrar píldoras activas en Configuración",
+   "ar": "إدارة الكبسولات النشطة في الإعدادات",
+   "fr": "Gérer les pilules actives dans les Paramètres",
+   "bn": "সেটিংসে সক্রিয় পিল পরিচালনা করুন",
+   "pt-BR": "Gerenciar pílulas ativas nas Configurações",
+   "ru": "Управление активными плашками в Настройках",
+   "id": "Kelola pil aktif di Pengaturan"
   },
   "Meeting": {
    "zh-Hans": "会议",
@@ -1420,17 +2052,6 @@
    "ru": "Нет API-ключа — добавьте его в настройках.",
    "id": "Tidak ada kunci API — tambahkan di Pengaturan."
   },
-  "No Pictures or Downloads folder to save into.": {
-   "zh-Hans": "没有可保存的“图片”或“下载”文件夹。",
-   "hi": "सहेजने के लिए कोई Pictures या Downloads फ़ोल्डर नहीं है।",
-   "es": "No hay una carpeta Imágenes o Descargas donde guardar.",
-   "ar": "لا يوجد مجلد «الصور» أو «التنزيلات» للحفظ فيه.",
-   "fr": "Aucun dossier Images ou Téléchargements où enregistrer.",
-   "bn": "সংরক্ষণের জন্য কোনো Pictures বা Downloads ফোল্ডার নেই।",
-   "pt-BR": "Não há uma pasta Imagens ou Downloads para salvar.",
-   "ru": "Нет папки «Изображения» или «Загрузки» для сохранения.",
-   "id": "Tidak ada folder Gambar atau Unduhan untuk menyimpan."
-  },
   "No change.": {
    "zh-Hans": "没有改动。",
    "hi": "कोई बदलाव नहीं।",
@@ -1508,6 +2129,28 @@
    "ru": "Моделей пока нет. Сначала загрузите модель в {name}.",
    "id": "Belum ada model. Unduh satu di {name} terlebih dahulu."
   },
+  "No Pictures or Downloads folder to save into.": {
+   "zh-Hans": "没有可保存的“图片”或“下载”文件夹。",
+   "hi": "सहेजने के लिए कोई Pictures या Downloads फ़ोल्डर नहीं है।",
+   "es": "No hay una carpeta Imágenes o Descargas donde guardar.",
+   "ar": "لا يوجد مجلد «الصور» أو «التنزيلات» للحفظ فيه.",
+   "fr": "Aucun dossier Images ou Téléchargements où enregistrer.",
+   "bn": "সংরক্ষণের জন্য কোনো Pictures বা Downloads ফোল্ডার নেই।",
+   "pt-BR": "Não há uma pasta Imagens ou Downloads para salvar.",
+   "ru": "Нет папки «Изображения» или «Загрузки» для сохранения.",
+   "id": "Tidak ada folder Gambar atau Unduhan untuk menyimpan."
+  },
+  "no repos": {
+   "zh-Hans": "没有仓库",
+   "hi": "कोई रिपॉज़िटरी नहीं",
+   "es": "sin repositorios",
+   "ar": "لا مستودعات",
+   "fr": "aucun dépôt",
+   "bn": "কোনো রিপোজিটরি নেই",
+   "pt-BR": "nenhum repositório",
+   "ru": "нет репозиториев",
+   "id": "tidak ada repositori"
+  },
   "No response text.": {
    "zh-Hans": "没有回复内容。",
    "hi": "जवाब में कोई टेक्स्ट नहीं।",
@@ -1540,6 +2183,17 @@
    "pt-BR": "Sem telemetria. As requisições de rede só vão para os serviços que você mesmo configura.",
    "ru": "Никакой телеметрии. Сетевые запросы идут только к сервисам, которые вы настроили сами.",
    "id": "Tanpa telemetri. Permintaan jaringan hanya ke layanan yang Anda atur sendiri."
+  },
+  "No upcoming events": {
+   "zh-Hans": "没有即将开始的日程",
+   "hi": "कोई आगामी कार्यक्रम नहीं",
+   "es": "No hay eventos próximos",
+   "ar": "لا توجد أحداث قادمة",
+   "fr": "Aucun événement à venir",
+   "bn": "কোনো আসন্ন ইভেন্ট নেই",
+   "pt-BR": "Nenhum evento próximo",
+   "ru": "Нет предстоящих событий",
+   "id": "Tidak ada acara mendatang"
   },
   "None": {
    "zh-Hans": "无",
@@ -1596,6 +2250,17 @@
    "ru": "Недоступно",
    "id": "Tidak tersedia"
   },
+  "not installed": {
+   "zh-Hans": "未安装",
+   "hi": "इंस्टॉल नहीं है",
+   "es": "no instalado",
+   "ar": "غير مثبَّت",
+   "fr": "non installé",
+   "bn": "ইনস্টল নেই",
+   "pt-BR": "não instalado",
+   "ru": "не установлен",
+   "id": "belum terpasang"
+  },
   "Nothing leaves your PC: the server runs on this computer.": {
    "zh-Hans": "数据不会离开你的电脑：服务器运行在这台电脑上。",
    "hi": "आपके PC से कुछ बाहर नहीं जाता: सर्वर इसी कंप्यूटर पर चलता है।",
@@ -1606,6 +2271,50 @@
    "pt-BR": "Nada sai do seu PC: o servidor roda neste computador.",
    "ru": "Ничего не покидает ваш ПК: сервер работает на этом компьютере.",
    "id": "Tidak ada yang keluar dari PC Anda: server berjalan di komputer ini."
+  },
+  "Notification chime": {
+   "zh-Hans": "通知提示音",
+   "hi": "सूचना ध्वनि",
+   "es": "Sonido de notificación",
+   "ar": "نغمة الإشعار",
+   "fr": "Son de notification",
+   "bn": "বিজ্ঞপ্তি শব্দ",
+   "pt-BR": "Som de notificação",
+   "ru": "Звук уведомления",
+   "id": "Suara notifikasi"
+  },
+  "Notification duration": {
+   "zh-Hans": "通知停留时间",
+   "hi": "सूचना की अवधि",
+   "es": "Duración de la notificación",
+   "ar": "مدة الإشعار",
+   "fr": "Durée de la notification",
+   "bn": "বিজ্ঞপ্তির সময়কাল",
+   "pt-BR": "Duração da notificação",
+   "ru": "Длительность уведомления",
+   "id": "Durasi notifikasi"
+  },
+  "Now": {
+   "zh-Hans": "现在",
+   "hi": "अभी",
+   "es": "Ahora",
+   "ar": "الآن",
+   "fr": "Maintenant",
+   "bn": "এখন",
+   "pt-BR": "Agora",
+   "ru": "Сейчас",
+   "id": "Sekarang"
+  },
+  "Only a file dropped on the island can be sent with a question.": {
+   "zh-Hans": "只有拖放到岛上的文件才能随问题一起发送。",
+   "hi": "सवाल के साथ केवल वही फ़ाइल भेजी जा सकती है जो island पर छोड़ी गई हो।",
+   "es": "Solo se puede enviar con una pregunta un archivo soltado en la isla.",
+   "ar": "لا يمكن إرسال ملف مع سؤال إلا إذا أُفلِت على الجزيرة.",
+   "fr": "Seul un fichier déposé sur l'île peut être envoyé avec une question.",
+   "bn": "প্রশ্নের সঙ্গে কেবল আইল্যান্ডে ছাড়া ফাইলই পাঠানো যায়।",
+   "pt-BR": "Só um arquivo solto na ilha pode ser enviado com uma pergunta.",
+   "ru": "С вопросом можно отправить только файл, перетащенный на остров.",
+   "id": "Hanya file yang dijatuhkan ke pulau yang bisa dikirim bersama pertanyaan."
   },
   "Only files dropped on the island can be added.": {
    "zh-Hans": "只能添加拖放到岛上的文件。",
@@ -1629,17 +2338,6 @@
    "ru": "Открыть Claude",
    "id": "Buka Claude"
   },
-  "Open Settings": {
-   "zh-Hans": "打开设置",
-   "hi": "सेटिंग्स खोलें",
-   "es": "Abrir Configuración",
-   "ar": "فتح الإعدادات",
-   "fr": "Ouvrir les réglages",
-   "bn": "সেটিংস খুলুন",
-   "pt-BR": "Abrir Configurações",
-   "ru": "Открыть настройки",
-   "id": "Buka Pengaturan"
-  },
   "Open in VS Code": {
    "zh-Hans": "在 VS Code 中打开",
    "hi": "VS Code में खोलें",
@@ -1651,6 +2349,17 @@
    "ru": "Открыть в VS Code",
    "id": "Buka di VS Code"
   },
+  "Open on hover": {
+   "zh-Hans": "悬停时打开",
+   "hi": "होवर करने पर खोलें",
+   "es": "Abrir al pasar el cursor",
+   "ar": "الفتح عند التمرير",
+   "fr": "Ouvrir au survol",
+   "bn": "হোভারে খুলুন",
+   "pt-BR": "Abrir ao passar o cursor",
+   "ru": "Открывать при наведении",
+   "id": "Buka saat mengarahkan kursor"
+  },
   "Open or close the island": {
    "zh-Hans": "打开或关闭岛",
    "hi": "आइलैंड खोलें या बंद करें",
@@ -1661,6 +2370,17 @@
    "pt-BR": "Abrir ou fechar a ilha",
    "ru": "Открыть или закрыть остров",
    "id": "Buka atau tutup pulau"
+  },
+  "Open Settings": {
+   "zh-Hans": "打开设置",
+   "hi": "सेटिंग्स खोलें",
+   "es": "Abrir Configuración",
+   "ar": "فتح الإعدادات",
+   "fr": "Ouvrir les réglages",
+   "bn": "সেটিংস খুলুন",
+   "pt-BR": "Abrir Configurações",
+   "ru": "Открыть настройки",
+   "id": "Buka Pengaturan"
   },
   "Open the chat": {
    "zh-Hans": "打开聊天",
@@ -1717,17 +2437,6 @@
    "ru": "Сервер, совместимый с OpenAI",
    "id": "Server kompatibel OpenAI"
   },
-  "PDF": {
-   "zh-Hans": "PDF",
-   "hi": "PDF",
-   "es": "PDF",
-   "ar": "PDF",
-   "fr": "PDF",
-   "bn": "PDF",
-   "pt-BR": "PDF",
-   "ru": "PDF",
-   "id": "PDF"
-  },
   "Party hat": {
    "zh-Hans": "派对帽",
    "hi": "पार्टी टोपी",
@@ -1738,6 +2447,17 @@
    "pt-BR": "Chapéu de festa",
    "ru": "Праздничный колпак",
    "id": "Topi pesta"
+  },
+  "passing": {
+   "zh-Hans": "通过",
+   "hi": "सफल",
+   "es": "correcto",
+   "ar": "ناجح",
+   "fr": "réussi",
+   "bn": "সফল",
+   "pt-BR": "passando",
+   "ru": "успешно",
+   "id": "lulus"
   },
   "Payment": {
    "zh-Hans": "付款",
@@ -1750,6 +2470,17 @@
    "ru": "Платёж",
    "id": "Pembayaran"
   },
+  "PDF": {
+   "zh-Hans": "PDF",
+   "hi": "PDF",
+   "es": "PDF",
+   "ar": "PDF",
+   "fr": "PDF",
+   "bn": "PDF",
+   "pt-BR": "PDF",
+   "ru": "PDF",
+   "id": "PDF"
+  },
   "Permissions": {
    "zh-Hans": "权限",
    "hi": "अनुमतियाँ",
@@ -1761,17 +2492,6 @@
    "ru": "Разрешения",
    "id": "Izin"
   },
-  "Pick a model above the chat box first.": {
-   "zh-Hans": "请先在聊天框上方选择一个模型。",
-   "hi": "पहले चैट बॉक्स के ऊपर एक मॉडल चुनें।",
-   "es": "Elige primero un modelo encima del cuadro de chat.",
-   "ar": "اختر نموذجًا فوق مربع الدردشة أولًا.",
-   "fr": "Choisis d'abord un modèle au-dessus de la zone de chat.",
-   "bn": "আগে চ্যাট বক্সের উপরে একটি মডেল বেছে নিন।",
-   "pt-BR": "Escolha primeiro um modelo acima da caixa de chat.",
-   "ru": "Сначала выберите модель над полем чата.",
-   "id": "Pilih model di atas kotak obrolan terlebih dahulu."
-  },
   "Pick a {name} model above the chat box.": {
    "zh-Hans": "请在聊天框上方选择一个 {name} 模型。",
    "hi": "चैट बॉक्स के ऊपर {name} का एक मॉडल चुनें।",
@@ -1782,6 +2502,17 @@
    "pt-BR": "Escolha um modelo do {name} acima da caixa de chat.",
    "ru": "Выберите модель {name} над полем чата.",
    "id": "Pilih model {name} di atas kotak obrolan."
+  },
+  "Pick a model above the chat box first.": {
+   "zh-Hans": "请先在聊天框上方选择一个模型。",
+   "hi": "पहले चैट बॉक्स के ऊपर एक मॉडल चुनें।",
+   "es": "Elige primero un modelo encima del cuadro de chat.",
+   "ar": "اختر نموذجًا فوق مربع الدردشة أولًا.",
+   "fr": "Choisis d'abord un modèle au-dessus de la zone de chat.",
+   "bn": "আগে চ্যাট বক্সের উপরে একটি মডেল বেছে নিন।",
+   "pt-BR": "Escolha primeiro um modelo acima da caixa de chat.",
+   "ru": "Сначала выберите модель над полем чата.",
+   "id": "Pilih model di atas kotak obrolan terlebih dahulu."
   },
   "Pick up to {max} pills to show next to Mochi — {used}/{max} in use. Keys are stored in the {store}, never on disk.": {
    "zh-Hans": "最多选择 {max} 个标签显示在 Mochi 旁边 — 已用 {used}/{max}。密钥保存在 {store} 中，绝不写入磁盘。",
@@ -1827,6 +2558,17 @@
    "ru": "Тыква",
    "id": "Labu"
   },
+  "Question": {
+   "zh-Hans": "问题",
+   "hi": "प्रश्न",
+   "es": "Pregunta",
+   "ar": "سؤال",
+   "fr": "Question",
+   "bn": "প্রশ্ন",
+   "pt-BR": "Pergunta",
+   "ru": "Вопрос",
+   "id": "Pertanyaan"
+  },
   "Questions": {
    "zh-Hans": "问题",
    "hi": "प्रश्न",
@@ -1838,16 +2580,16 @@
    "ru": "Вопросы",
    "id": "Pertanyaan"
   },
-  "Question": {
-   "zh-Hans": "问题",
-   "hi": "प्रश्न",
-   "es": "Pregunta",
-   "ar": "سؤال",
-   "fr": "Question",
-   "bn": "প্রশ্ন",
-   "pt-BR": "Pergunta",
-   "ru": "Вопрос",
-   "id": "Pertanyaan"
+  "RAM usage": {
+   "zh-Hans": "内存使用率",
+   "hi": "RAM उपयोग",
+   "es": "Uso de RAM",
+   "ar": "استخدام الذاكرة (RAM)",
+   "fr": "Utilisation de la RAM",
+   "bn": "RAM ব্যবহার",
+   "pt-BR": "Uso de RAM",
+   "ru": "Использование ОЗУ",
+   "id": "Penggunaan RAM"
   },
   "Ready": {
    "zh-Hans": "就绪",
@@ -2003,6 +2745,17 @@
    "ru": "Круглые очки",
    "id": "Kacamata bulat"
   },
+  "running": {
+   "zh-Hans": "运行中",
+   "hi": "चल रहा है",
+   "es": "en curso",
+   "ar": "قيد التشغيل",
+   "fr": "en cours",
+   "bn": "চলছে",
+   "pt-BR": "em execução",
+   "ru": "выполняется",
+   "id": "berjalan"
+  },
   "Santa hat": {
    "zh-Hans": "圣诞帽",
    "hi": "सांता टोपी",
@@ -2090,6 +2843,39 @@
    "pt-BR": "Cachecol",
    "ru": "Шарф",
    "id": "Syal"
+  },
+  "seconds": {
+   "zh-Hans": "秒",
+   "hi": "सेकंड",
+   "es": "segundos",
+   "ar": "ثوانٍ",
+   "fr": "secondes",
+   "bn": "সেকেন্ড",
+   "pt-BR": "segundos",
+   "ru": "секунд",
+   "id": "detik"
+  },
+  "seconds after you leave the island": {
+   "zh-Hans": "鼠标离开岛后的秒数",
+   "hi": "आइलैंड छोड़ने के बाद सेकंड",
+   "es": "segundos después de salir de la isla",
+   "ar": "ثانية بعد مغادرة الشريط",
+   "fr": "secondes après avoir quitté l'île",
+   "bn": "আইল্যান্ড ছাড়ার পর সেকেন্ড",
+   "pt-BR": "segundos depois de sair da ilha",
+   "ru": "секунд после ухода с острова",
+   "id": "detik setelah Anda meninggalkan pulau"
+  },
+  "Secret iCal URL": {
+   "zh-Hans": "私密 iCal 网址",
+   "hi": "गोपनीय iCal URL",
+   "es": "URL de iCal secreta",
+   "ar": "عنوان iCal السري",
+   "fr": "URL iCal secrète",
+   "bn": "গোপন iCal URL",
+   "pt-BR": "URL secreta do iCal",
+   "ru": "Секретный URL iCal",
+   "id": "URL iCal Rahasia"
   },
   "Secret key": {
    "zh-Hans": "私密密钥",
@@ -2190,6 +2976,17 @@
    "ru": "Настройки",
    "id": "Pengaturan"
   },
+  "settings.json: {what} has an unexpected type — Cocoa has not touched it.": {
+   "zh-Hans": "settings.json：{what} 的类型不符合预期 — Cocoa 没有修改它。",
+   "hi": "settings.json: {what} का प्रकार अपेक्षित नहीं है — Cocoa ने इसे नहीं छुआ।",
+   "es": "settings.json: {what} tiene un tipo inesperado — Cocoa no lo ha tocado.",
+   "ar": "settings.json: {what} من نوع غير متوقع — لم يمسّه Cocoa.",
+   "fr": "settings.json : {what} a un type inattendu — Cocoa n'y a pas touché.",
+   "bn": "settings.json: {what}-এর ধরন অপ্রত্যাশিত — Cocoa এতে হাত দেয়নি।",
+   "pt-BR": "settings.json: {what} tem um tipo inesperado — o Cocoa não mexeu nele.",
+   "ru": "settings.json: у {what} неожиданный тип — Cocoa его не трогал.",
+   "id": "settings.json: {what} bertipe tak terduga — Cocoa tidak menyentuhnya."
+  },
   "Share your week": {
    "zh-Hans": "分享你的一周",
    "hi": "अपना हफ़्ता शेयर करें",
@@ -2234,6 +3031,17 @@
    "ru": "Показывайте другие агенты для кода в острове. Cocoa добавляет свои записи в конфигурацию каждого агента: до любой записи вы видите точное изменение и куда пойдёт резервная копия, а удаление убирает только то, что добавил Cocoa.",
    "id": "Tampilkan agen coding lain di pulau. Cocoa menambahkan entrinya ke konfigurasi masing-masing agen: Anda melihat perubahan persisnya dan lokasi cadangan sebelum apa pun ditulis, dan mencopot pemasangan hanya menghapus yang ditambahkan Cocoa."
   },
+  "Show system stats": {
+   "zh-Hans": "显示系统状态",
+   "hi": "सिस्टम आंकड़े दिखाएं",
+   "es": "Mostrar estadísticas del sistema",
+   "ar": "إظهار إحصائيات النظام",
+   "fr": "Afficher les statistiques du système",
+   "bn": "সিস্টেমের পরিসংখ্যান দেখান",
+   "pt-BR": "Mostrar estatísticas do sistema",
+   "ru": "Показывать статистику системы",
+   "id": "Tampilkan statistik sistem"
+  },
   "Shows your Claude plan usage (5-hour and weekly limits) in the island's header. Cocoa adds a status line relay in ~/.claude/settings.json. If you already have a status line, it keeps working as before. Pro and Max plans only.": {
    "zh-Hans": "在岛的顶栏显示你的 Claude 套餐用量（5 小时和每周限额）。Cocoa 会在 ~/.claude/settings.json 中添加一个状态栏中继。如果你已有状态栏，它会照常工作。仅限 Pro 和 Max 套餐。",
    "hi": "आइलैंड के हेडर में आपके Claude प्लान का उपयोग (5 घंटे और साप्ताहिक सीमा) दिखाता है। Cocoa ~/.claude/settings.json में एक स्टेटस लाइन रिले जोड़ता है। अगर आपके पास पहले से स्टेटस लाइन है, तो वह पहले की तरह चलती रहेगी। केवल Pro और Max प्लान।",
@@ -2256,6 +3064,17 @@
    "ru": "Показывает использование тарифа Codex (недельный лимит и оставшиеся бесплатные сбросы) в заголовке острова. Cocoa спрашивает Codex CLI (codex app-server), когда видна вкладка; ничего не устанавливается. В Codex нужно войти через ChatGPT.",
    "id": "Menampilkan pemakaian paket Codex Anda (batas mingguan dan sisa reset gratis) di header pulau. Cocoa menanyakan Codex CLI (codex app-server) saat tab tampil; tidak ada yang dipasang. Codex harus masuk dengan ChatGPT."
   },
+  "Single pill hero card": {
+   "zh-Hans": "单药丸英雄卡片",
+   "hi": "एकल पिल हीरो कार्ड",
+   "es": "Tarjeta destacada para píldora única",
+   "ar": "بطاقة بارزة للحبة الفردية",
+   "fr": "Carte mise en avant pour pilule unique",
+   "bn": "একক পিল হিরো কার্ড",
+   "pt-BR": "Cartão de destaque para pílula única",
+   "ru": "Главная карточка для одной плашки",
+   "id": "Kartu sorotan untuk satu pil"
+  },
   "Start a new Antigravity conversation to pick the hooks up.": {
    "zh-Hans": "开启新的 Antigravity 对话即可启用 hooks。",
    "hi": "hooks लागू करने के लिए Antigravity में नई बातचीत शुरू करें।",
@@ -2266,6 +3085,17 @@
    "pt-BR": "Inicie uma nova conversa no Antigravity para carregar os hooks.",
    "ru": "Начните новый разговор в Antigravity, чтобы хуки заработали.",
    "id": "Mulai percakapan Antigravity baru agar hooks dimuat."
+  },
+  "Start a new chat": {
+   "zh-Hans": "开始新聊天",
+   "hi": "नई चैट शुरू करें",
+   "es": "Empezar un chat nuevo",
+   "ar": "بدء دردشة جديدة",
+   "fr": "Commencer un nouveau chat",
+   "bn": "নতুন চ্যাট শুরু করুন",
+   "pt-BR": "Começar um novo chat",
+   "ru": "Начать новый чат",
+   "id": "Mulai obrolan baru"
   },
   "Start a new Copilot CLI session to pick the hooks up.": {
    "zh-Hans": "开启新的 Copilot CLI 会话即可启用 hooks。",
@@ -2300,16 +3130,16 @@
    "ru": "Начните новую сессию Muse Code, чтобы хуки заработали.",
    "id": "Mulai sesi Muse Code baru agar hooks dimuat."
   },
-  "Start a new chat": {
-   "zh-Hans": "开始新聊天",
-   "hi": "नई चैट शुरू करें",
-   "es": "Empezar un chat nuevo",
-   "ar": "بدء دردشة جديدة",
-   "fr": "Commencer un nouveau chat",
-   "bn": "নতুন চ্যাট শুরু করুন",
-   "pt-BR": "Começar um novo chat",
-   "ru": "Начать новый чат",
-   "id": "Mulai obrolan baru"
+  "Starting now": {
+   "zh-Hans": "现在开始",
+   "hi": "अभी शुरू हो रहा है",
+   "es": "Empieza ahora",
+   "ar": "يبدأ الآن",
+   "fr": "Commence maintenant",
+   "bn": "এখনই শুরু হচ্ছে",
+   "pt-BR": "Começando agora",
+   "ru": "Начинается сейчас",
+   "id": "Mulai sekarang"
   },
   "Sunday": {
    "zh-Hans": "星期日",
@@ -2343,6 +3173,17 @@
    "pt-BR": "Trocar de provedor ou modelo",
    "ru": "Сменить провайдера или модель",
    "id": "Ganti penyedia atau model"
+  },
+  "System notifications": {
+   "zh-Hans": "系统通知",
+   "hi": "सिस्टम सूचनाएं",
+   "es": "Notificaciones del sistema",
+   "ar": "إشعارات النظام",
+   "fr": "Notifications du système",
+   "bn": "সিস্টেম বিজ্ঞপ্তি",
+   "pt-BR": "Notificações do sistema",
+   "ru": "Системные уведомления",
+   "id": "Notifikasi sistem"
   },
   "That key can't be used in a shortcut.": {
    "zh-Hans": "这个键不能用于快捷键。",
@@ -2685,6 +3526,17 @@
    "ru": "Удалить…",
    "id": "Copot…"
   },
+  "unknown": {
+   "zh-Hans": "未知",
+   "hi": "अज्ञात",
+   "es": "desconocido",
+   "ar": "غير معروف",
+   "fr": "inconnu",
+   "bn": "অজানা",
+   "pt-BR": "desconhecido",
+   "ru": "неизвестно",
+   "id": "tidak diketahui"
+  },
   "Unknown agent \"{id}\".": {
    "zh-Hans": "未知代理“{id}”。",
    "hi": "अज्ञात एजेंट “{id}”।",
@@ -2838,759 +3690,6 @@
    "pt-BR": "Seu desktop Wayland não deixa os apps ouvirem teclas fora das próprias janelas. Em vez disso, adicione os atalhos nas configurações de teclado do sistema, com estes comandos:",
    "ru": "Ваш рабочий стол Wayland не позволяет приложениям слушать клавиши вне своих окон. Добавьте сочетания в настройках клавиатуры системы с такими командами:",
    "id": "Desktop Wayland Anda tidak mengizinkan aplikasi mendengarkan tombol di luar jendelanya sendiri. Tambahkan pintasan di pengaturan keyboard sistem Anda, dengan perintah berikut:"
-  },
-  "all green": {
-   "zh-Hans": "全部通过",
-   "hi": "सब हरा",
-   "es": "todo en verde",
-   "ar": "كلها خضراء",
-   "fr": "tout est vert",
-   "bn": "সব সবুজ",
-   "pt-BR": "tudo verde",
-   "ru": "всё зелёное",
-   "id": "semua hijau"
-  },
-  "cocoa-hook.exe is not in place yet. Restart Cocoa; if it still fails, build it with `cargo build -p cocoa-hook`.": {
-   "zh-Hans": "cocoa-hook.exe 尚未就位。请重启 Cocoa；如果仍然失败，请用 `cargo build -p cocoa-hook` 构建它。",
-   "hi": "cocoa-hook.exe अभी अपनी जगह पर नहीं है। Cocoa फिर से शुरू करें; अगर फिर भी न हो, तो इसे `cargo build -p cocoa-hook` से बनाएँ।",
-   "es": "cocoa-hook.exe aún no está en su sitio. Reinicia Cocoa; si sigue fallando, compílalo con `cargo build -p cocoa-hook`.",
-   "ar": "cocoa-hook.exe ليس في مكانه بعد. أعد تشغيل Cocoa؛ وإن استمر الفشل فابنِه بالأمر `cargo build -p cocoa-hook`.",
-   "fr": "cocoa-hook.exe n'est pas encore en place. Redémarre Cocoa ; si ça échoue encore, compile-le avec `cargo build -p cocoa-hook`.",
-   "bn": "cocoa-hook.exe এখনো জায়গামতো নেই। Cocoa আবার চালু করুন; তবুও না হলে `cargo build -p cocoa-hook` দিয়ে এটি বানান।",
-   "pt-BR": "O cocoa-hook.exe ainda não está no lugar. Reinicie o Cocoa; se continuar falhando, compile-o com `cargo build -p cocoa-hook`.",
-   "ru": "cocoa-hook.exe ещё не на месте. Перезапустите Cocoa; если не поможет, соберите его командой `cargo build -p cocoa-hook`.",
-   "id": "cocoa-hook.exe belum ada di tempatnya. Mulai ulang Cocoa; jika masih gagal, build dengan `cargo build -p cocoa-hook`."
-  },
-  "failing": {
-   "zh-Hans": "失败",
-   "hi": "विफल",
-   "es": "con fallos",
-   "ar": "فاشل",
-   "fr": "en échec",
-   "bn": "ব্যর্থ",
-   "pt-BR": "falhando",
-   "ru": "с ошибками",
-   "id": "gagal"
-  },
-  "finished": {
-   "zh-Hans": "已完成",
-   "hi": "पूरा हुआ",
-   "es": "terminó",
-   "ar": "انتهى",
-   "fr": "a terminé",
-   "bn": "শেষ হয়েছে",
-   "pt-BR": "terminou",
-   "ru": "завершил",
-   "id": "selesai"
-  },
-  "installed": {
-   "zh-Hans": "已安装",
-   "hi": "इंस्टॉल है",
-   "es": "instalado",
-   "ar": "مثبَّت",
-   "fr": "installé",
-   "bn": "ইনস্টল আছে",
-   "pt-BR": "instalado",
-   "ru": "установлен",
-   "id": "terpasang"
-  },
-  "is asking": {
-   "zh-Hans": "在提问",
-   "hi": "पूछ रहा है",
-   "es": "está preguntando",
-   "ar": "يسأل",
-   "fr": "demande",
-   "bn": "জিজ্ঞেস করছে",
-   "pt-BR": "está perguntando",
-   "ru": "спрашивает",
-   "id": "bertanya"
-  },
-  "is asking ({index} of {total})": {
-   "zh-Hans": "在提问（第 {index} 个，共 {total} 个）",
-   "hi": "पूछ रहा है ({total} में से {index})",
-   "es": "está preguntando ({index} de {total})",
-   "ar": "يسأل ({index} من {total})",
-   "fr": "demande ({index} sur {total})",
-   "bn": "জিজ্ঞেস করছে ({total}টির মধ্যে {index})",
-   "pt-BR": "está perguntando ({index} de {total})",
-   "ru": "спрашивает ({index} из {total})",
-   "id": "bertanya ({index} dari {total})"
-  },
-  "is asking a question": {
-   "zh-Hans": "在提问",
-   "hi": "एक प्रश्न पूछ रहा है",
-   "es": "está haciendo una pregunta",
-   "ar": "يطرح سؤالًا",
-   "fr": "pose une question",
-   "bn": "একটি প্রশ্ন করছে",
-   "pt-BR": "está fazendo uma pergunta",
-   "ru": "задаёт вопрос",
-   "id": "mengajukan pertanyaan"
-  },
-  "lines": {
-   "zh-Hans": "行",
-   "hi": "पंक्तियाँ",
-   "es": "líneas",
-   "ar": "أسطر",
-   "fr": "lignes",
-   "bn": "লাইন",
-   "pt-BR": "linhas",
-   "ru": "строк",
-   "id": "baris"
-  },
-  "no repos": {
-   "zh-Hans": "没有仓库",
-   "hi": "कोई रिपॉज़िटरी नहीं",
-   "es": "sin repositorios",
-   "ar": "لا مستودعات",
-   "fr": "aucun dépôt",
-   "bn": "কোনো রিপোজিটরি নেই",
-   "pt-BR": "nenhum repositório",
-   "ru": "нет репозиториев",
-   "id": "tidak ada repositori"
-  },
-  "not installed": {
-   "zh-Hans": "未安装",
-   "hi": "इंस्टॉल नहीं है",
-   "es": "no instalado",
-   "ar": "غير مثبَّت",
-   "fr": "non installé",
-   "bn": "ইনস্টল নেই",
-   "pt-BR": "não instalado",
-   "ru": "не установлен",
-   "id": "belum terpasang"
-  },
-  "passing": {
-   "zh-Hans": "通过",
-   "hi": "सफल",
-   "es": "correcto",
-   "ar": "ناجح",
-   "fr": "réussi",
-   "bn": "সফল",
-   "pt-BR": "passando",
-   "ru": "успешно",
-   "id": "lulus"
-  },
-  "running": {
-   "zh-Hans": "运行中",
-   "hi": "चल रहा है",
-   "es": "en curso",
-   "ar": "قيد التشغيل",
-   "fr": "en cours",
-   "bn": "চলছে",
-   "pt-BR": "em execução",
-   "ru": "выполняется",
-   "id": "berjalan"
-  },
-  "seconds after you leave the island": {
-   "zh-Hans": "鼠标离开岛后的秒数",
-   "hi": "आइलैंड छोड़ने के बाद सेकंड",
-   "es": "segundos después de salir de la isla",
-   "ar": "ثانية بعد مغادرة الشريط",
-   "fr": "secondes après avoir quitté l'île",
-   "bn": "আইল্যান্ড ছাড়ার পর সেকেন্ড",
-   "pt-BR": "segundos depois de sair da ilha",
-   "ru": "секунд после ухода с острова",
-   "id": "detik setelah Anda meninggalkan pulau"
-  },
-  "settings.json: {what} has an unexpected type — Cocoa has not touched it.": {
-   "zh-Hans": "settings.json：{what} 的类型不符合预期 — Cocoa 没有修改它。",
-   "hi": "settings.json: {what} का प्रकार अपेक्षित नहीं है — Cocoa ने इसे नहीं छुआ।",
-   "es": "settings.json: {what} tiene un tipo inesperado — Cocoa no lo ha tocado.",
-   "ar": "settings.json: {what} من نوع غير متوقع — لم يمسّه Cocoa.",
-   "fr": "settings.json : {what} a un type inattendu — Cocoa n'y a pas touché.",
-   "bn": "settings.json: {what}-এর ধরন অপ্রত্যাশিত — Cocoa এতে হাত দেয়নি।",
-   "pt-BR": "settings.json: {what} tem um tipo inesperado — o Cocoa não mexeu nele.",
-   "ru": "settings.json: у {what} неожиданный тип — Cocoa его не трогал.",
-   "id": "settings.json: {what} bertipe tak terduga — Cocoa tidak menyentuhnya."
-  },
-  "unknown": {
-   "zh-Hans": "未知",
-   "hi": "अज्ञात",
-   "es": "desconocido",
-   "ar": "غير معروف",
-   "fr": "inconnu",
-   "bn": "অজানা",
-   "pt-BR": "desconhecido",
-   "ru": "неизвестно",
-   "id": "tidak diketahui"
-  },
-  "{allowed} allowed, {denied} denied": {
-   "zh-Hans": "允许 {allowed} 次，拒绝 {denied} 次",
-   "hi": "{allowed} अनुमत, {denied} अस्वीकृत",
-   "es": "{allowed} permitidos, {denied} denegados",
-   "ar": "{allowed} مسموح، {denied} مرفوض",
-   "fr": "{allowed} autorisées, {denied} refusées",
-   "bn": "{allowed}টি অনুমোদিত, {denied}টি প্রত্যাখ্যাত",
-   "pt-BR": "{allowed} permitidas, {denied} negadas",
-   "ru": "разрешено: {allowed}, отклонено: {denied}",
-   "id": "{allowed} diizinkan, {denied} ditolak"
-  },
-  "{count} contributions": {
-   "zh-Hans": {
-    "other": "{count} 次贡献"
-   },
-   "hi": {
-    "one": "{count} योगदान",
-    "other": "{count} योगदान"
-   },
-   "es": {
-    "one": "{count} contribución",
-    "other": "{count} contribuciones"
-   },
-   "ar": {
-    "zero": "{count} مساهمة",
-    "one": "مساهمة واحدة",
-    "two": "مساهمتان",
-    "few": "{count} مساهمات",
-    "many": "{count} مساهمة",
-    "other": "{count} مساهمة"
-   },
-   "fr": {
-    "one": "{count} contribution",
-    "other": "{count} contributions"
-   },
-   "bn": {
-    "one": "{count}টি অবদান",
-    "other": "{count}টি অবদান"
-   },
-   "pt-BR": {
-    "one": "{count} contribuição",
-    "other": "{count} contribuições"
-   },
-   "ru": {
-    "one": "{count} вклад",
-    "few": "{count} вклада",
-    "many": "{count} вкладов",
-    "other": "{count} вклада"
-   },
-   "id": {
-    "other": "{count} kontribusi"
-   }
-  },
-  "{count} models": {
-   "zh-Hans": {
-    "other": "{count} 个模型"
-   },
-   "hi": {
-    "one": "{count} मॉडल",
-    "other": "{count} मॉडल"
-   },
-   "es": {
-    "one": "{count} modelo",
-    "other": "{count} modelos"
-   },
-   "ar": {
-    "zero": "{count} نموذج",
-    "one": "نموذج واحد",
-    "two": "نموذجان",
-    "few": "{count} نماذج",
-    "many": "{count} نموذجًا",
-    "other": "{count} نموذج"
-   },
-   "fr": {
-    "one": "{count} modèle",
-    "other": "{count} modèles"
-   },
-   "bn": {
-    "one": "{count}টি মডেল",
-    "other": "{count}টি মডেল"
-   },
-   "pt-BR": {
-    "one": "{count} modelo",
-    "other": "{count} modelos"
-   },
-   "ru": {
-    "one": "{count} модель",
-    "few": "{count} модели",
-    "many": "{count} моделей",
-    "other": "{count} модели"
-   },
-   "id": {
-    "other": "{count} model"
-   }
-  },
-  "{count} repos": {
-   "zh-Hans": {
-    "other": "{count} 个仓库"
-   },
-   "hi": {
-    "one": "{count} रिपॉज़िटरी",
-    "other": "{count} रिपॉज़िटरी"
-   },
-   "es": {
-    "one": "{count} repositorio",
-    "other": "{count} repositorios"
-   },
-   "ar": {
-    "zero": "{count} مستودع",
-    "one": "مستودع واحد",
-    "two": "مستودعان",
-    "few": "{count} مستودعات",
-    "many": "{count} مستودعًا",
-    "other": "{count} مستودع"
-   },
-   "fr": {
-    "one": "{count} dépôt",
-    "other": "{count} dépôts"
-   },
-   "bn": {
-    "one": "{count}টি রিপোজিটরি",
-    "other": "{count}টি রিপোজিটরি"
-   },
-   "pt-BR": {
-    "one": "{count} repositório",
-    "other": "{count} repositórios"
-   },
-   "ru": {
-    "one": "{count} репозиторий",
-    "few": "{count} репозитория",
-    "many": "{count} репозиториев",
-    "other": "{count} репозитория"
-   },
-   "id": {
-    "other": "{count} repositori"
-   }
-  },
-  "{file} isn't UTF-8 text — Cocoa won't touch it.": {
-   "zh-Hans": "{file} 不是 UTF-8 文本 — Cocoa 不会修改它。",
-   "hi": "{file} UTF-8 टेक्स्ट नहीं है — Cocoa इसे नहीं छुएगा।",
-   "es": "{file} no es texto UTF-8 — Cocoa no lo tocará.",
-   "ar": "{file} ليس نصًا بترميز UTF-8 — لن يمسّه Cocoa.",
-   "fr": "{file} n'est pas du texte UTF-8 — Cocoa n'y touchera pas.",
-   "bn": "{file} UTF-8 টেক্সট নয় — Cocoa এতে হাত দেবে না।",
-   "pt-BR": "{file} não é texto UTF-8 — o Cocoa não vai mexer nele.",
-   "ru": "{file} — не текст в UTF-8, Cocoa его не тронет.",
-   "id": "{file} bukan teks UTF-8 — Cocoa tidak akan menyentuhnya."
-  },
-  "{file} isn't a JSON object — Cocoa won't touch it.": {
-   "zh-Hans": "{file} 不是 JSON 对象 — Cocoa 不会修改它。",
-   "hi": "{file} JSON ऑब्जेक्ट नहीं है — Cocoa इसे नहीं छुएगा।",
-   "es": "{file} no es un objeto JSON — Cocoa no lo tocará.",
-   "ar": "{file} ليس كائن JSON — لن يمسّه Cocoa.",
-   "fr": "{file} n'est pas un objet JSON — Cocoa n'y touchera pas.",
-   "bn": "{file} JSON অবজেক্ট নয় — Cocoa এতে হাত দেবে না।",
-   "pt-BR": "{file} não é um objeto JSON — o Cocoa não vai mexer nele.",
-   "ru": "{file} — не объект JSON, Cocoa его не тронет.",
-   "id": "{file} bukan objek JSON — Cocoa tidak akan menyentuhnya."
-  },
-  "{file} isn't valid JSON ({error}). Fix or move it, then try again — Cocoa won't overwrite it.": {
-   "zh-Hans": "{file} 不是有效的 JSON（{error}）。请修复或移走它后重试 — Cocoa 不会覆盖它。",
-   "hi": "{file} मान्य JSON नहीं है ({error})। इसे ठीक करें या हटाएँ, फिर दोबारा कोशिश करें — Cocoa इसे ओवरराइट नहीं करेगा।",
-   "es": "{file} no es un JSON válido ({error}). Corrígelo o muévelo y vuelve a intentarlo — Cocoa no lo sobrescribirá.",
-   "ar": "{file} ليس JSON صالحًا ({error}). أصلحه أو انقله ثم حاول مجددًا — لن يكتب Cocoa فوقه.",
-   "fr": "{file} n'est pas un JSON valide ({error}). Corrige-le ou déplace-le, puis réessaie — Cocoa ne l'écrasera pas.",
-   "bn": "{file} বৈধ JSON নয় ({error})। এটি ঠিক করুন বা সরান, তারপর আবার চেষ্টা করুন — Cocoa এটি ওভাররাইট করবে না।",
-   "pt-BR": "{file} não é um JSON válido ({error}). Corrija ou mova o arquivo e tente de novo — o Cocoa não vai sobrescrevê-lo.",
-   "ru": "{file} — некорректный JSON ({error}). Исправьте или переместите его и попробуйте снова — Cocoa не будет его перезаписывать.",
-   "id": "{file} bukan JSON yang valid ({error}). Perbaiki atau pindahkan, lalu coba lagi — Cocoa tidak akan menimpanya."
-  },
-  "{h}h {m}m": {
-   "zh-Hans": "{h} 小时 {m} 分钟",
-   "hi": "{h} घं. {m} मि.",
-   "es": "{h} h {m} min",
-   "ar": "{h} س {m} د",
-   "fr": "{h} h {m} min",
-   "bn": "{h} ঘ. {m} মি.",
-   "pt-BR": "{h} h {m} min",
-   "ru": "{h} ч {m} мин",
-   "id": "{h} j {m} mnt"
-  },
-  "{keys} types “{char}” on your keyboard, so it can't be a shortcut. Pick another key.": {
-   "zh-Hans": "{keys} 在你的键盘上会输入“{char}”，所以不能用作快捷键。请换一个键。",
-   "hi": "{keys} आपके कीबोर्ड पर “{char}” टाइप करता है, इसलिए यह शॉर्टकट नहीं हो सकता। कोई दूसरी कुंजी चुनें।",
-   "es": "{keys} escribe «{char}» en tu teclado, así que no puede ser un atajo. Elige otra tecla.",
-   "ar": "{keys} يكتب «{char}» على لوحة مفاتيحك، لذا لا يمكن أن يكون اختصارًا. اختر مفتاحًا آخر.",
-   "fr": "{keys} tape « {char} » sur ton clavier, ce ne peut donc pas être un raccourci. Choisis une autre touche.",
-   "bn": "{keys} আপনার কিবোর্ডে “{char}” টাইপ করে, তাই এটি শর্টকাট হতে পারে না। অন্য একটি কী বেছে নিন।",
-   "pt-BR": "{keys} digita “{char}” no seu teclado, então não pode ser um atalho. Escolha outra tecla.",
-   "ru": "{keys} вводит «{char}» на вашей клавиатуре, поэтому не может быть сочетанием. Выберите другую клавишу.",
-   "id": "{keys} mengetik “{char}” di keyboard Anda, jadi tidak bisa menjadi pintasan. Pilih tombol lain."
-  },
-  "{model} isn't installed. Pick another model above the chat box.": {
-   "zh-Hans": "{model} 未安装。请在聊天框上方选择其他模型。",
-   "hi": "{model} इंस्टॉल नहीं है। चैट बॉक्स के ऊपर कोई दूसरा मॉडल चुनें।",
-   "es": "{model} no está instalado. Elige otro modelo encima del cuadro de chat.",
-   "ar": "{model} غير مثبَّت. اختر نموذجًا آخر فوق مربع الدردشة.",
-   "fr": "{model} n'est pas installé. Choisis un autre modèle au-dessus de la zone de chat.",
-   "bn": "{model} ইনস্টল করা নেই। চ্যাট বক্সের উপরে অন্য মডেল বেছে নিন।",
-   "pt-BR": "{model} não está instalado. Escolha outro modelo acima da caixa de chat.",
-   "ru": "{model} не установлена. Выберите другую модель над полем чата.",
-   "id": "{model} belum terpasang. Pilih model lain di atas kotak obrolan."
-  },
-  "{name} API key missing. Add it in Settings.": {
-   "zh-Hans": "缺少 {name} 的 API 密钥。请在设置中添加。",
-   "hi": "{name} API कुंजी नहीं है। इसे सेटिंग्स में जोड़ें।",
-   "es": "Falta la clave de API de {name}. Añádela en Configuración.",
-   "ar": "مفتاح API الخاص بـ {name} مفقود. أضفه من الإعدادات.",
-   "fr": "Clé d'API {name} manquante. Ajoute-la dans les Réglages.",
-   "bn": "{name} API কী নেই। সেটিংসে যোগ করুন।",
-   "pt-BR": "Falta a chave de API do {name}. Adicione nas Configurações.",
-   "ru": "Нет API-ключа {name}. Добавьте его в настройках.",
-   "id": "Kunci API {name} tidak ada. Tambahkan di Pengaturan."
-  },
-  "{name} rate limit reached (429): {detail}": {
-   "zh-Hans": "{name} 已达到速率限制（429）：{detail}",
-   "hi": "{name} की दर सीमा पूरी हो गई (429): {detail}",
-   "es": "{name}: se alcanzó el límite de solicitudes (429): {detail}",
-   "ar": "بلغ {name} حدّ المعدّل (429): {detail}",
-   "fr": "{name} : limite de débit atteinte (429) : {detail}",
-   "bn": "{name}-এর রেট লিমিটে পৌঁছেছে (429): {detail}",
-   "pt-BR": "{name}: limite de requisições atingido (429): {detail}",
-   "ru": "{name}: достигнут лимит запросов (429): {detail}",
-   "id": "Batas laju {name} tercapai (429): {detail}"
-  },
-  "{name} rejected the API key ({status}). Check it in Settings.": {
-   "zh-Hans": "{name} 拒绝了 API 密钥（{status}）。请在设置中检查。",
-   "hi": "{name} ने API कुंजी अस्वीकार कर दी ({status})। इसे सेटिंग्स में जाँचें।",
-   "es": "{name} rechazó la clave de API ({status}). Revísala en Configuración.",
-   "ar": "رفض {name} مفتاح API ({status}). تحقّق منه في الإعدادات.",
-   "fr": "{name} a refusé la clé d'API ({status}). Vérifie-la dans les Réglages.",
-   "bn": "{name} API কী প্রত্যাখ্যান করেছে ({status})। সেটিংসে যাচাই করুন।",
-   "pt-BR": "{name} recusou a chave de API ({status}). Verifique-a nas Configurações.",
-   "ru": "{name} отклонил API-ключ ({status}). Проверьте его в настройках.",
-   "id": "{name} menolak kunci API ({status}). Periksa di Pengaturan."
-  },
-  "{name} wasn't written by Cocoa — Cocoa has not touched it.": {
-   "zh-Hans": "{name} 不是由 Cocoa 写入的 — Cocoa 没有修改它。",
-   "hi": "{name} Cocoa ने नहीं लिखा था — Cocoa ने इसे नहीं छुआ।",
-   "es": "{name} no lo escribió Cocoa — Cocoa no lo ha tocado.",
-   "ar": "لم يكتب Cocoa الملف {name} — لم يمسّه Cocoa.",
-   "fr": "{name} n'a pas été écrit par Cocoa — Cocoa n'y a pas touché.",
-   "bn": "{name} Cocoa লেখেনি — Cocoa এতে হাত দেয়নি।",
-   "pt-BR": "{name} não foi escrito pelo Cocoa — o Cocoa não mexeu nele.",
-   "ru": "{name} записан не Cocoa — Cocoa его не трогал.",
-   "id": "{name} tidak ditulis oleh Cocoa — Cocoa tidak menyentuhnya."
-  },
-  "{name} — {width}×{height} at {x},{y}": {
-   "zh-Hans": "{name} — {width}×{height}，位于 {x},{y}",
-   "hi": "{name} — {width}×{height}, स्थिति {x},{y}",
-   "es": "{name} — {width}×{height} en {x},{y}",
-   "ar": "{name} — {width}×{height} عند {x},{y}",
-   "fr": "{name} — {width}×{height} à {x},{y}",
-   "bn": "{name} — {width}×{height}, অবস্থান {x},{y}",
-   "pt-BR": "{name} — {width}×{height} em {x},{y}",
-   "ru": "{name} — {width}×{height} в точке {x},{y}",
-   "id": "{name} — {width}×{height} di {x},{y}"
-  },
-  "{name}: model not found (404). Pick another one above the chat box. {detail}": {
-   "zh-Hans": "{name}：未找到模型（404）。请在聊天框上方选择其他模型。{detail}",
-   "hi": "{name}: मॉडल नहीं मिला (404)। चैट बॉक्स के ऊपर कोई दूसरा चुनें। {detail}",
-   "es": "{name}: modelo no encontrado (404). Elige otro encima del cuadro de chat. {detail}",
-   "ar": "{name}: لم يُعثر على النموذج (404). اختر غيره فوق مربع الدردشة. {detail}",
-   "fr": "{name} : modèle introuvable (404). Choisis-en un autre au-dessus de la zone de chat. {detail}",
-   "bn": "{name}: মডেল পাওয়া যায়নি (404)। চ্যাট বক্সের উপরে অন্য একটি বেছে নিন। {detail}",
-   "pt-BR": "{name}: modelo não encontrado (404). Escolha outro acima da caixa de chat. {detail}",
-   "ru": "{name}: модель не найдена (404). Выберите другую над полем чата. {detail}",
-   "id": "{name}: model tidak ditemukan (404). Pilih yang lain di atas kotak obrolan. {detail}"
-  },
-  "{name}: not enough credits (402). {detail}": {
-   "zh-Hans": "{name}：额度不足（402）。{detail}",
-   "hi": "{name}: पर्याप्त क्रेडिट नहीं (402)। {detail}",
-   "es": "{name}: no hay créditos suficientes (402). {detail}",
-   "ar": "{name}: الرصيد غير كافٍ (402). {detail}",
-   "fr": "{name} : crédits insuffisants (402). {detail}",
-   "bn": "{name}: যথেষ্ট ক্রেডিট নেই (402)। {detail}",
-   "pt-BR": "{name}: créditos insuficientes (402). {detail}",
-   "ru": "{name}: недостаточно кредитов (402). {detail}",
-   "id": "{name}: kredit tidak cukup (402). {detail}"
-  },
-  "{n} available": {
-   "zh-Hans": "可用 {n} 次",
-   "hi": "{n} उपलब्ध",
-   "es": "{n} disponibles",
-   "ar": "{n} متاحة",
-   "fr": "{n} disponibles",
-   "bn": "{n}টি উপলব্ধ",
-   "pt-BR": "{n} disponíveis",
-   "ru": "доступно: {n}",
-   "id": "{n} tersedia"
-  },
-  "{n}d": {
-   "zh-Hans": "{n} 天",
-   "hi": "{n} दि.",
-   "es": "{n} d",
-   "ar": "{n} ي",
-   "fr": "{n} j",
-   "bn": "{n} দি.",
-   "pt-BR": "{n} d",
-   "ru": "{n} д",
-   "id": "{n} h"
-  },
-  "{n}h": {
-   "zh-Hans": "{n} 小时",
-   "hi": "{n} घं.",
-   "es": "{n} h",
-   "ar": "{n} س",
-   "fr": "{n} h",
-   "bn": "{n} ঘ.",
-   "pt-BR": "{n} h",
-   "ru": "{n} ч",
-   "id": "{n} j"
-  },
-  "{n}m": {
-   "zh-Hans": "{n} 分钟",
-   "hi": "{n} मि.",
-   "es": "{n} min",
-   "ar": "{n} د",
-   "fr": "{n} min",
-   "bn": "{n} মি.",
-   "pt-BR": "{n} min",
-   "ru": "{n} мин",
-   "id": "{n} mnt"
-  },
-  "{path} changed since the preview. Nothing was written — review the new diff.": {
-   "zh-Hans": "{path} 在预览后已被修改。未写入任何内容 — 请查看新的差异。",
-   "hi": "प्रीव्यू के बाद {path} बदल गया। कुछ नहीं लिखा गया — नया डिफ़ देखें।",
-   "es": "{path} cambió desde la vista previa. No se escribió nada — revisa el nuevo diff.",
-   "ar": "تغيّر {path} منذ المعاينة. لم يُكتب أي شيء — راجع الفروقات الجديدة.",
-   "fr": "{path} a changé depuis l'aperçu. Rien n'a été écrit — relis le nouveau diff.",
-   "bn": "প্রিভিউয়ের পর {path} বদলে গেছে। কিছু লেখা হয়নি — নতুন ডিফ দেখুন।",
-   "pt-BR": "{path} mudou desde a prévia. Nada foi gravado — revise o novo diff.",
-   "ru": "{path} изменился после предпросмотра. Ничего не записано — проверьте новый diff.",
-   "id": "{path} berubah sejak pratinjau. Tidak ada yang ditulis — tinjau diff yang baru."
-  },
-  "{time} ago": {
-   "zh-Hans": "{time}前",
-   "hi": "{time} पहले",
-   "es": "hace {time}",
-   "ar": "منذ {time}",
-   "fr": "il y a {time}",
-   "bn": "{time} আগে",
-   "pt-BR": "há {time}",
-   "ru": "{time} назад",
-   "id": "{time} yang lalu"
-  },
-  "{total} past year": {
-   "zh-Hans": "过去一年 {total}",
-   "hi": "पिछले वर्ष {total}",
-   "es": "{total} el último año",
-   "ar": "{total} في العام الماضي",
-   "fr": "{total} sur un an",
-   "bn": "গত বছরে {total}",
-   "pt-BR": "{total} no último ano",
-   "ru": "{total} за год",
-   "id": "{total} setahun terakhir"
-  },
-  "{used}/{max} slots in use — the main tool doesn't take one.": {
-   "zh-Hans": "已用 {used}/{max} 个位置 — 主要工具不占位置。",
-   "hi": "{used}/{max} स्लॉट उपयोग में — मुख्य टूल कोई स्लॉट नहीं लेता।",
-   "es": "{used}/{max} espacios en uso — la herramienta principal no ocupa ninguno.",
-   "ar": "{used}/{max} من الخانات مستخدمة — الأداة الرئيسية لا تشغل خانة.",
-   "fr": "{used}/{max} emplacements utilisés — l'outil principal n'en prend pas.",
-   "bn": "{used}/{max} স্লট ব্যবহৃত — প্রধান টুল কোনো স্লট নেয় না।",
-   "pt-BR": "{used}/{max} espaços em uso — a ferramenta principal não ocupa nenhum.",
-   "ru": "Занято мест: {used}/{max} — основной инструмент место не занимает.",
-   "id": "{used}/{max} slot terpakai — alat utama tidak memakai slot."
-  },
-  "{what} has an unexpected type — Cocoa has not touched it.": {
-   "zh-Hans": "{what} 的类型不符合预期 — Cocoa 没有修改它。",
-   "hi": "{what} का प्रकार अपेक्षित नहीं है — Cocoa ने इसे नहीं छुआ।",
-   "es": "{what} tiene un tipo inesperado — Cocoa no lo ha tocado.",
-   "ar": "{what} من نوع غير متوقع — لم يمسّه Cocoa.",
-   "fr": "{what} a un type inattendu — Cocoa n'y a pas touché.",
-   "bn": "{what}-এর ধরন অপ্রত্যাশিত — Cocoa এতে হাত দেয়নি।",
-   "pt-BR": "{what} tem um tipo inesperado — o Cocoa não mexeu nele.",
-   "ru": "У {what} неожиданный тип — Cocoa его не трогал.",
-   "id": "{what} bertipe tak terduga — Cocoa tidak menyentuhnya."
-  },
-  "• subagent done": {
-   "zh-Hans": "• 子代理完成",
-   "hi": "• सब-एजेंट पूरा",
-   "es": "• subagente terminado",
-   "ar": "• انتهى الوكيل الفرعي",
-   "fr": "• sous-agent terminé",
-   "bn": "• সাব-এজেন্ট শেষ",
-   "pt-BR": "• subagente concluído",
-   "ru": "• субагент завершил",
-   "id": "• subagen selesai"
-  },
-  "⚠ failed": {
-   "zh-Hans": "⚠ 失败",
-   "hi": "⚠ विफल",
-   "es": "⚠ falló",
-   "ar": "⚠ فشل",
-   "fr": "⚠ échec",
-   "bn": "⚠ ব্যর্থ",
-   "pt-BR": "⚠ falhou",
-   "ru": "⚠ ошибка",
-   "id": "⚠ gagal"
-  },
-  "A key is only sent over https, or to a server on this computer.": {
-   "zh-Hans": "密钥只会通过 https 发送，或发送到本机上的服务器。",
-   "hi": "कुंजी केवल https पर, या इसी कंप्यूटर के सर्वर को भेजी जाती है।",
-   "es": "La clave solo se envía por https o a un servidor de este ordenador.",
-   "ar": "لا يُرسَل المفتاح إلا عبر https، أو إلى خادم على هذا الحاسوب.",
-   "fr": "La clé n'est envoyée qu'en https, ou à un serveur sur cet ordinateur.",
-   "bn": "কী কেবল https-এর মাধ্যমে, অথবা এই কম্পিউটারের কোনো সার্ভারে পাঠানো হয়।",
-   "pt-BR": "A chave só é enviada por https ou para um servidor neste computador.",
-   "ru": "Ключ отправляется только по https или на сервер на этом компьютере.",
-   "id": "Kunci hanya dikirim lewat https, atau ke server di komputer ini."
-  },
-  "Only a file dropped on the island can be sent with a question.": {
-   "zh-Hans": "只有拖放到岛上的文件才能随问题一起发送。",
-   "hi": "सवाल के साथ केवल वही फ़ाइल भेजी जा सकती है जो island पर छोड़ी गई हो।",
-   "es": "Solo se puede enviar con una pregunta un archivo soltado en la isla.",
-   "ar": "لا يمكن إرسال ملف مع سؤال إلا إذا أُفلِت على الجزيرة.",
-   "fr": "Seul un fichier déposé sur l'île peut être envoyé avec une question.",
-   "bn": "প্রশ্নের সঙ্গে কেবল আইল্যান্ডে ছাড়া ফাইলই পাঠানো যায়।",
-   "pt-BR": "Só um arquivo solto na ilha pode ser enviado com uma pergunta.",
-   "ru": "С вопросом можно отправить только файл, перетащенный на остров.",
-   "id": "Hanya file yang dijatuhkan ke pulau yang bisa dikirim bersama pertanyaan."
-  },
-  "Add Active Pills": {
-   "zh-Hans": "添加活跃胶囊",
-   "hi": "सक्रिय पिल्स जोड़ें",
-   "es": "Agregar píldoras activas",
-   "ar": "إضافة كبسولات نشطة",
-   "fr": "Ajouter des pilules actives",
-   "bn": "সক্রিয় পিল যোগ করুন",
-   "pt-BR": "Adicionar pílulas ativas",
-   "ru": "Добавить активные плашки",
-   "id": "Tambah Pil Aktif"
-  },
-  "Dismiss": {
-   "zh-Hans": "关闭",
-   "hi": "खारिज करें",
-   "es": "Descartar",
-   "ar": "تجاهل",
-   "fr": "Ignorer",
-   "bn": "খারিজ করুন",
-   "pt-BR": "Dispensar",
-   "ru": "Закрыть",
-   "id": "Tutup"
-  },
-  "Expand notch on Windows notifications": {
-   "zh-Hans": "收到 Windows 通知时展开灵动岛",
-   "hi": "Windows नोटिफिकेशन आने पर नॉच का विस्तार करें",
-   "es": "Expandir notch con notificaciones de Windows",
-   "ar": "توسيع النوتش عند وصول إشعارات Windows",
-   "fr": "Agrandir le notch lors des notifications Windows",
-   "bn": "Windows বিজ্ঞপ্তি এলে নচ প্রসারিত করুন",
-   "pt-BR": "Expandir notch em notificações do Windows",
-   "ru": "Разворачивать вырез при уведомлениях Windows",
-   "id": "Perluas notch saat ada notifikasi Windows"
-  },
-  "Manage active pills in Settings": {
-   "zh-Hans": "在设置中管理活跃胶囊",
-   "hi": "सेटिंग्स में सक्रिय पिल्स प्रबंधित करें",
-   "es": "Administrar píldoras activas en Configuración",
-   "ar": "إدارة الكبسولات النشطة في الإعدادات",
-   "fr": "Gérer les pilules actives dans les Paramètres",
-   "bn": "সেটিংসে সক্রিয় পিল পরিচালনা করুন",
-   "pt-BR": "Gerenciar pílulas ativas nas Configurações",
-   "ru": "Управление активными плашками в Настройках",
-   "id": "Kelola pil aktif di Pengaturan"
-  },
-  "System notifications": {
-   "zh-Hans": "系统通知",
-   "hi": "सिस्टम सूचनाएं",
-   "es": "Notificaciones del sistema",
-   "ar": "إشعارات النظام",
-   "fr": "Notifications du système",
-   "bn": "সিস্টেম বিজ্ঞপ্তি",
-   "pt-BR": "Notificações do sistema",
-   "ru": "Системные уведомления",
-   "id": "Notifikasi sistem"
-  },
-  "Auto-expand on activity": {
-   "zh-Hans": "活动时自动展开",
-   "hi": "गतिविधि पर ऑटो-विस्तार",
-   "es": "Autoexpandir con actividad",
-   "ar": "توسيع تلقائي عند وجود نشاط",
-   "fr": "Déroulement auto lors de l'activité",
-   "bn": "কার্যকলাপে স্বয়ংক্রিয় প্রসারিত",
-   "pt-BR": "Expandir auto com atividade",
-   "ru": "Автораскрытие при активности",
-   "id": "Perluas otomatis saat ada aktivitas"
-  },
-  "Expand notch when coding agents perform actions": {
-   "zh-Hans": "当编码代理执行操作时展开灵动岛",
-   "hi": "कोडिंग एजेंट द्वारा कार्य करने पर नॉच का विस्तार करें",
-   "es": "Expandir el notch cuando los agentes de código realicen acciones",
-   "ar": "توسيع الشريط عندما ينفّذ وكلاء البرمجة إجراءات",
-   "fr": "Dérouler l'encoche quand les agents de code effectuent des actions",
-   "bn": "কোডিং এজেন্ট কোনো কাজ করলে নচ প্রসারিত করুন",
-   "pt-BR": "Expandir o notch quando os agentes de código realizarem ações",
-   "ru": "Раскрывать вырез, когда агенты кода выполняют действия",
-   "id": "Perluas notch saat agen pengodean melakukan tindakan"
-  },
-  "Expanded card layout when only one pill is active": {
-   "zh-Hans": "仅激活一个药丸时显示展开的卡片布局",
-   "hi": "केवल एक पिल सक्रिय होने पर विस्तारित कार्ड लेआउट",
-   "es": "Diseño de tarjeta expandida cuando solo hay una píldora activa",
-   "ar": "تخطيط بطاقة ممتدة عندما تكون حبة واحدة فقط نشطة",
-   "fr": "Disposition en carte étendue quand une seule pilule est active",
-   "bn": "শুধুমাত্র একটি পিল সক্রিয় থাকলে প্রসারিত কার্ড লেআউট",
-   "pt-BR": "Layout de cartão expandido quando apenas uma pílula está ativa",
-   "ru": "Макет расширенной карточки, если активна только одна плашка",
-   "id": "Tata letak kartu diperluas saat hanya satu pil yang aktif"
-  },
-  "Inspect file changes and additions as agents work": {
-   "zh-Hans": "在代理工作时检查文件更改和新增内容",
-   "hi": "एजेंट के काम करते समय फ़ाइल परिवर्तन और परिवर्धन का निरीक्षण करें",
-   "es": "Inspeccionar cambios y adiciones de archivos mientras trabajan los agentes",
-   "ar": "معاينة تغييرات الملفات والإضافات أثناء عمل الوكلاء",
-   "fr": "Inspecter les modifications et ajouts de fichiers pendant que les agents travaillent",
-   "bn": "এজেন্ট কাজ করার সময় ফাইলের পরিবর্তন এবং সংযোজন পরিদর্শন করুন",
-   "pt-BR": "Inspecionar alterações e adições de arquivos enquanto os agentes trabalham",
-   "ru": "Просмотр изменений и добавлений файлов по ходу работы агентов",
-   "id": "Periksa perubahan dan penambahan berkas saat agen bekerja"
-  },
-  "Live Code Diff Inspector": {
-   "zh-Hans": "实时代码差异检查器",
-   "hi": "लाइव कोड डिफ इंस्पेक्टर",
-   "es": "Inspector de diferencias de código en vivo",
-   "ar": "فاحص فروق الكود المباشر",
-   "fr": "Inspecteur de diffs de code en direct",
-   "bn": "লাইভ কোড ডিফারেন্স পরিদর্শক",
-   "pt-BR": "Inspetor de diffs de código em tempo real",
-   "ru": "Инспектор диффов кода в реальном времени",
-   "id": "Inspektur diff kode langsung"
-  },
-  "Notification chime": {
-   "zh-Hans": "通知提示音",
-   "hi": "सूचना ध्वनि",
-   "es": "Sonido de notificación",
-   "ar": "نغمة الإشعار",
-   "fr": "Son de notification",
-   "bn": "বিজ্ঞপ্তি শব্দ",
-   "pt-BR": "Som de notificação",
-   "ru": "Звук уведомления",
-   "id": "Suara notifikasi"
-  },
-  "Notification duration": {
-   "zh-Hans": "通知停留时间",
-   "hi": "सूचना की अवधि",
-   "es": "Duración de la notificación",
-   "ar": "مدة الإشعار",
-   "fr": "Durée de la notification",
-   "bn": "বিজ্ঞপ্তির সময়কাল",
-   "pt-BR": "Duração da notificação",
-   "ru": "Длительность уведомления",
-   "id": "Durasi notifikasi"
-  },
-  "Single pill hero card": {
-   "zh-Hans": "单药丸英雄卡片",
-   "hi": "एकल पिल हीरो कार्ड",
-   "es": "Tarjeta destacada para píldora única",
-   "ar": "بطاقة بارزة للحبة الفردية",
-   "fr": "Carte mise en avant pour pilule unique",
-   "bn": "একক পিল হিরো কার্ড",
-   "pt-BR": "Cartão de destaque para pílula única",
-   "ru": "Главная карточка для одной плашки",
-   "id": "Kartu sorotan untuk satu pil"
-  },
-  "seconds": {
-   "zh-Hans": "秒",
-   "hi": "सेकंड",
-   "es": "segundos",
-   "ar": "ثوانٍ",
-   "fr": "secondes",
-   "bn": "সেকেন্ড",
-   "pt-BR": "segundos",
-   "ru": "секунд",
-   "id": "detik"
   }
  }
 }
