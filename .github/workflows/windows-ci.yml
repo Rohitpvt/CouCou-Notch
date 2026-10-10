@@ -44,9 +44,8 @@ jobs:
           path: |
             ~/.cargo/registry
             ~/.cargo/git
-            windows/target
-          key: windows-ci-cargo-${{ hashFiles('windows/Cargo.lock') }}
-          restore-keys: windows-ci-cargo-
+          key: windows-ci-cargo-v2-${{ hashFiles('windows/Cargo.lock') }}
+          restore-keys: windows-ci-cargo-v2-
 
       - name: Install dependencies
         run: npm ci
@@ -64,4 +63,4 @@ jobs:
         run: cargo build --release -p cocoa-hook
 
       - name: Rust tests
-        run: cargo test --workspace --locked
+        run: cargo test --workspace --locked -- --nocapture
